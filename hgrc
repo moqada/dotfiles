@@ -1,0 +1,30 @@
+[ui]
+username=moqada
+merge=vimdiff
+
+[extensions]
+hgext.mq=
+transplant=
+hgext.color=
+hgext.extdiff=
+hgext.rebase=
+hgext.graphlog=
+eol=
+
+[trusted]
+users = apache
+groups = apache
+
+[web]
+style=monoblue
+
+[extdiff]
+cmd.diff=colordiff
+opts.cdiff=-uprN
+
+# 有効にしてたら何故かrevertしたのにM状態から抜け出せなくなったので
+#[encode]
+#** = cleverencode:
+#
+#[decode]
+##** = cleverdecode:
