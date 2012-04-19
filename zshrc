@@ -98,3 +98,6 @@ esac
 
 # lessを常にカラー表示に
 export LESS='-R'
+
+# for pythonbrew
+[[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
