@@ -83,19 +83,6 @@ function mq() {
   hg qpush -af
 }
 
-#export PATH=$PATH:/usr/local/bin
-case $HOSTNAME in
-    ryogoku)
-        export SHELL=/usr/local/zsh/bin/zsh
-        ;;
-    ketaka)
-        export SHELL=/bin/zsh
-        ;;
-    *)
-        export SHELL=/usr/local/bin/zsh
-        ;;
-esac
-
 # lessを常にカラー表示に
 export LESS='-R'
 
