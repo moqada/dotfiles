@@ -14,13 +14,15 @@ set wildmode=list:longest
 " initialize "{{{
 set nocompatible
 filetype off     " required!
+filetype plugin indent off
 if has('vim_starting')
-  set runtimepath+=~/.vim/neobundle.vim
+  set runtimepath+=~/.vim/bundle/neobundle.vim
 endif
 call neobundle#rc(expand('~/.vim/bundle'))
 "}}}
 
 " neobundle.vim"{{{
+NeoBundle 'Shougo/neobundle.vim.git'
 NeoBundle 'Shougo/unite.vim.git'
 NeoBundle 'Shougo/neocomplcache.git'
 NeoBundle 'Shougo/vimproc.git'
@@ -48,9 +50,8 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'davidoc/taskpaper.vim.git'
 " }}}
 
+filetype plugin indent on
 filetype on
-filetype plugin on
-filetype indent on
 
 
 " 検索に関する設定"{{{
