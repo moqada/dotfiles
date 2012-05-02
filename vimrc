@@ -231,14 +231,6 @@ iab dlog GC_Utils_Ex::gfDebugLog();
 
 " FileType Settings "{{{
 " ----------
-"  TODO: .vim以下に移動する
-" for Python
-" syntax/python.vim
-let python_highlight_all = 1
-" Django Template
-autocmd FileType htmldjango setl tabstop=2
-autocmd FileType htmldjango setl softtabstop=2
-autocmd FileType htmldjango setl shiftwidth=2
 " for CoffeeScript
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable filetype=coffee
 " ----------
