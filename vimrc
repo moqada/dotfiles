@@ -232,7 +232,7 @@ iab dlog GC_Utils_Ex::gfDebugLog();
 " FileType Settings "{{{
 " ----------
 " for CoffeeScript
-au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable filetype=coffee
+au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable shiftwidth=2 filetype=coffee
 " ----------
 "}}}
 
