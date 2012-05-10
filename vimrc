@@ -362,7 +362,7 @@ let g:neocomplcache_enable_cursor_hold_i = 0
 let g:neocomplcache_cursor_hold_i_time = 300
 
 " For auto select.
-let g:neocomplcache_enable_auto_select = 1
+let g:neocomplcache_enable_auto_select = 0
 
 let g:neocomplcache_enable_auto_delimiter = 1
 let g:neocomplcache_disable_auto_select_buffer_name_pattern = '\[Command Line\]'
