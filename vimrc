@@ -39,6 +39,7 @@ NeoBundle 'pep8'
 NeoBundle 'VST'
 NeoBundle 'indentpython.vim--nianyang'
 NeoBundle 'rest.vim'
+NeoBundle 'klen/python-mode.git'
 NeoBundle 'moqada/python_fold'
 " for color
 NeoBundle 'guicolorscheme.vim'
@@ -262,10 +263,20 @@ let g:user_zen_settings = {
 " }}}
 
 " python-mode "{{{
-" pydocを無効
-"let g:pymode_doc = 0
-" pylintを無効
-"let g:pymode_lint = 0
+" lint を実行する
+let g:pymode_lint = 1
+let g:pymode_lint_onfly = 1
+let g:pymode_lint_write = 1
+let g:pymode_lint_cwindow = 0
+let g:pymode_lint_message = 1
+" rope を有効にする
+let g:pymode_rope = 1
+" python-mode の default indent 設定を利用しない
+let g:pymode_options_indent = 0
+" python-mode の default その他設定を利用しない
+let g:pymode_options_other = 0
+" python-mode の折りたたみを利用しない
+let g:pymode_folding = 0
 " }}}
 
 " tweetvim "{{{
