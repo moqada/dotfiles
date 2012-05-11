@@ -30,6 +30,7 @@ NeoBundle 'thinca/vim-ref.git'
 NeoBundle 'mattn/zencoding-vim.git'
 NeoBundle 'Lokaltog/vim-powerline.git'
 NeoBundle 'taglist.vim'
+NeoBundle 'sjl/gundo.vim.git'
 " for javascript
 NeoBundle 'JavaScript-syntax'
 NeoBundle 'OOP-javascript-indentation'
@@ -292,6 +293,10 @@ let g:task_paper_date_format = "%Y-%m-%d %H:%M:%S"
 
 " ref.vim"{{{
 let g:ref_use_vimproc = 1
+" }}}
+
+" gundo.vim "{{{
+nnoremap U :GundoToggle<CR>
 " }}}
 
 " unite.vim "{{{
