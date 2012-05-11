@@ -31,6 +31,7 @@ NeoBundle 'mattn/zencoding-vim.git'
 NeoBundle 'Lokaltog/vim-powerline.git'
 NeoBundle 'taglist.vim'
 NeoBundle 'sjl/gundo.vim.git'
+NeoBundle 'tyru/skk.vim.git'
 " for javascript
 NeoBundle 'JavaScript-syntax'
 NeoBundle 'OOP-javascript-indentation'
@@ -297,6 +298,15 @@ let g:ref_use_vimproc = 1
 
 " gundo.vim "{{{
 nnoremap U :GundoToggle<CR>
+" }}}
+
+" skk.vim "{{{
+map! <C-j> <Plug>(skk-toggle-im)
+let g:skk_jisyo = expand('~/.skk-jisyo')
+let g:skk_large_jisyo = expand('~/SKK-JISYO.L')
+let g:skk_auto_save_jisyo = 1
+" 変換時の三角を綺麗に表示
+set ambiwidth=double
 " }}}
 
 " unite.vim "{{{
