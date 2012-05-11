@@ -43,7 +43,7 @@ NeoBundle 'rest.vim'
 NeoBundle 'klen/python-mode.git'
 NeoBundle 'moqada/python_fold'
 " for color
-NeoBundle 'guicolorscheme.vim'
+NeoBundle 'thinca/vim-guicolorscheme'
 NeoBundle 'molokai'
 " for coffeescript
 NeoBundle 'kchmck/vim-coffee-script'
