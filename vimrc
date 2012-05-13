@@ -305,8 +305,12 @@ map! <C-j> <Plug>(skk-toggle-im)
 let g:skk_jisyo = expand('~/.skk-jisyo')
 let g:skk_large_jisyo = expand('~/SKK-JISYO.L')
 let g:skk_auto_save_jisyo = 1
-" 変換時の三角を綺麗に表示
-set ambiwidth=double
+let g:skk_sticky_key = ";"
+" 変換時の三角を綺麗に表示(powerlineが崩れるので一旦外す)
+" set ambiwidth=double
+" モードマークを指定
+let g:skk_marker_white = '<>'
+let g:skk_marker_black = '>>'
 " }}}
 
 " unite.vim "{{{
