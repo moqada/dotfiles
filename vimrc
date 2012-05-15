@@ -32,6 +32,7 @@ NeoBundle 'Lokaltog/vim-powerline.git'
 NeoBundle 'taglist.vim'
 NeoBundle 'sjl/gundo.vim.git'
 NeoBundle 'tyru/skk.vim.git'
+NeoBundle 'mojako/ref-sources.vim.git'
 " for javascript
 NeoBundle 'JavaScript-syntax'
 NeoBundle 'OOP-javascript-indentation'
@@ -294,6 +295,13 @@ let g:task_paper_date_format = "%Y-%m-%d %H:%M:%S"
 
 " ref.vim"{{{
 let g:ref_use_vimproc = 1
+let g:ref_source_webdict_sites = {
+\   'alc': {
+\       'url': 'http://eow.alc.co.jp/%s/UTF-8/',
+\       'keyword_encoding': 'utf-8',
+\       'cache': 1,
+\   }
+\}
 " }}}
 
 " gundo.vim "{{{
