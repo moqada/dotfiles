@@ -1,3 +1,5 @@
+" vim:fdm=marker
+
 " 未分類の設定"{{{
 syntax on
 " 編集中でのバッファ切り替えを可能にする、タブモードの為に必要っぽい
@@ -57,7 +59,6 @@ NeoBundle 'davidoc/taskpaper.vim.git'
 filetype plugin indent on
 filetype on
 
-
 " 検索に関する設定"{{{
 " 検索時に大文字小文字を無視するか否か
 set ignorecase
@@ -71,7 +72,6 @@ set hlsearch
 " grepに外部コマンドを利用する
 set grepprg=grep\ -nH
 "}}}
-
 
 " 編集に関する設定"{{{
 " タブの画面上での幅
@@ -90,7 +90,6 @@ set showmatch
 "" 対応する括弧の強調表示時間を設定する
 set matchtime=2
 "}}}
-
 
 " 画面表示の設定"{{{
 colorscheme molokai
@@ -136,7 +135,6 @@ set viminfo+='50
 set history=500
 "}}}
 
-
 " マウス操作に関する設定 "{{{
 " マウスの移動でフォーカスを自動的に切替えるか否か
 set nomousefocus
@@ -145,7 +143,6 @@ set mousehide
 " ビジュアル選択を自動的にシステムのクリップボードに入れる
 "set guioptions+=a
 " }}}
-
 
 " 色に関する設定 "{{{
 " 被検索対象文字列
@@ -239,7 +236,6 @@ iab dlog GC_Utils_Ex::gfDebugLog();
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable shiftwidth=2 filetype=coffee
 " ----------
 "}}}
-
 
 "---------------------------
 " plugin
@@ -364,6 +360,7 @@ let g:unite_source_file_mru_filename_format = ''
 "let g:unite_source_session_enable_auto_save = 1
 " Load session automatically.
 "autocmd VimEnter * UniteSessionLoad
+" }}}
 
 " neocomplcache.vim"{{{
 " Disable AutoComplPop.
