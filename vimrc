@@ -32,6 +32,7 @@ NeoBundle 'thinca/vim-ref.git'
 NeoBundle 'mattn/zencoding-vim.git'
 NeoBundle 'Lokaltog/vim-powerline.git'
 NeoBundle 'taglist.vim'
+NeoBundle 'sudo.vim'
 NeoBundle 'sjl/gundo.vim.git'
 NeoBundle 'tyru/skk.vim.git'
 NeoBundle 'mojako/ref-sources.vim.git'
@@ -54,6 +55,13 @@ NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 " for taskpaper
 NeoBundle 'davidoc/taskpaper.vim.git'
+" for tweetvim
+NeoBundle 'basyura/TweetVim.git'
+NeoBundle 'tyru/open-browser.vim.git'
+NeoBundle 'basyura/twibill.vim.git'
+NeoBundle 'mattn/webapi-vim.git'
+NeoBundle 'h1mesuke/unite-outline.git'
+NeoBundle 'basyura/bitly.vim.git'
 " }}}
 
 filetype plugin indent on
@@ -281,7 +289,7 @@ let g:pymode_folding = 0
 " tweetvim "{{{
 " @see http://d.hatena.ne.jp/basyura/20111230/p1
 " 発言用バッファを表示する
-"nnoremap <silent> s :TweetVimSay<CR>
+nnoremap <silent> s :TweetVimSay<CR>
 " }}}
 
 " taskpaper.vim "{{{
