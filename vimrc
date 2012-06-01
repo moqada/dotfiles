@@ -318,6 +318,10 @@ let g:skk_jisyo = expand('~/.skk-jisyo')
 let g:skk_large_jisyo = expand('~/SKK-JISYO.L')
 let g:skk_auto_save_jisyo = 1
 let g:skk_sticky_key = ";"
+" 変換確定時のenterで改行しない
+let g:skk_egg_like_newline = 1
+" insertモードを抜けて、再度insertモードに入ったときに前の状態を維持する
+let g:skk_keep_state = 1
 " 変換時の三角を綺麗に表示(powerlineが崩れるので一旦外す)
 " set ambiwidth=double
 " モードマークを指定
