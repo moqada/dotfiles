@@ -53,6 +53,10 @@ NeoBundle 'molokai'
 " for coffeescript
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+" for less
+NeoBundle 'groenewege/vim-less.git'
+" for css
+NeoBundle 'hail2u/vim-css3-syntax.git'
 " for taskpaper
 NeoBundle 'davidoc/taskpaper.vim.git'
 " for tweetvim
