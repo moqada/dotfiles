@@ -88,3 +88,6 @@ export LESS='-R'
 
 # for pythonbrew
 [[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
+
+# for nodebrew
+export PATH=$HOME/.nodebrew/current/bin:$PATH
