@@ -9,6 +9,7 @@ alias ll='ls -lAF'
 alias h='history '
 alias hh='history 0 | grep -nr '
 alias gi='git'
+alias tmux='tmux -2'
 
 # とりあえず文字コード設定
 export LANG=ja_JP.UTF-8
