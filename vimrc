@@ -26,6 +26,7 @@ call neobundle#rc(expand('~/.vim/bundle'))
 " neobundle.vim"{{{
 NeoBundle 'Shougo/neobundle.vim.git'
 NeoBundle 'Shougo/unite.vim.git'
+NeoBundle 'Shougo/vimfiler.git'
 NeoBundle 'Shougo/neocomplcache.git'
 NeoBundle 'Shougo/vimproc.git'
 NeoBundle 'thinca/vim-ref.git'
@@ -376,6 +377,15 @@ let g:unite_source_file_mru_filename_format = ''
 "let g:unite_source_session_enable_auto_save = 1
 " Load session automatically.
 "autocmd VimEnter * UniteSessionLoad
+" }}}
+
+" vimfiler {{{
+" vimデフォルトのエクスプロラーをvimfilerで置き換える
+let g:vimfiler_as_default_explorer = 1
+" セーフモード無効にした状態で起動
+let g:vimfiler_safe_mode_by_default = 0
+"<Leader>e で現在開いているバッファのディレクトリを開く
+nnoremap <silent> <Leader>e :<C-u>VimFilerBufferDir<CR>
 " }}}
 
 " neocomplcache.vim"{{{
