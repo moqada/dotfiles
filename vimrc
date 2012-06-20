@@ -51,6 +51,7 @@ NeoBundle 'moqada/python_fold'
 " for color
 NeoBundle 'thinca/vim-guicolorscheme'
 NeoBundle 'molokai'
+NeoBundle 'nanotech/jellybeans.vim'
 " for coffeescript
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'nathanaelkane/vim-indent-guides'
@@ -105,7 +106,7 @@ set matchtime=2
 "}}}
 
 " 画面表示の設定"{{{
-colorscheme molokai
+colorscheme jellybeans
 " 行番号
 set number
 " ルーラー
@@ -233,6 +234,8 @@ cnoremap <C-N> <DOWN>
 " ヴィジュアルモードで選択した範囲を検索する
 " @see: http://vim-users.jp/2009/11/hack104/
 "vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<CR><CR>
+" 指定コマンド後にquickfixを表示させる
+autocmd QuickFixCmdPost CoffeeLint if len(getqflist()) != 0 | copen | endif
 "}}}
 
 " 短縮入力"{{{
@@ -253,6 +256,9 @@ au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable shiftwidt
 "---------------------------
 " plugin
 "--------------------------
+" jellybeans.vim "{{{
+let g:jellybeans_use_lowcolor_black = 0
+" }}}
 
 " taglist.vim "{{{
 set tags=tags
