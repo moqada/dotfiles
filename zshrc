@@ -5,7 +5,15 @@ then
     source $ZSHRCINCPATH
 fi
 
-alias ll='ls -lAF'
+case "${OSTYPE}" in 
+    freebsd*|darwin*)
+        alias ll='ls -lAFG'
+        ;;
+    linux*)
+        alias ll='ls -lAF'
+        ;;
+esac
+
 alias h='history '
 alias hh='history 0 | grep -nr '
 alias gi='git'
