@@ -95,8 +95,15 @@ function mq() {
 # lessを常にカラー表示に
 export LESS='-R'
 
-# for pythonbrew
-[[ -s $HOME/.pythonbrew/etc/bashrc ]] && source $HOME/.pythonbrew/etc/bashrc
+# for virtualenvwrapper
+export WORKON_HOME=$HOME/.virtualenvs
+source `which virtualenvwrapper.sh`
+# see: http://ymotongpoo.hatenablog.com/entry/20120516/1337123564
+mkvenv () {
+    base_python=`which python$1`
+    mkvirtualenv --distribute --python=$base_python $2
+}
+
 
 # for nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
