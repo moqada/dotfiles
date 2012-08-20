@@ -37,6 +37,8 @@ NeoBundle 'sudo.vim'
 NeoBundle 'sjl/gundo.vim.git'
 NeoBundle 'tyru/skk.vim.git'
 NeoBundle 'mojako/ref-sources.vim.git'
+" for git
+NeoBundle 'tpope/vim-fugitive.git'
 " for javascript
 NeoBundle 'JavaScript-syntax'
 NeoBundle 'OOP-javascript-indentation'
