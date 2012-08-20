@@ -10,7 +10,7 @@ case "${OSTYPE}" in
         alias ll='ls -lAFG'
         ;;
     linux*)
-        alias ll='ls -lAF'
+        alias ll='ls -lAF --color'
         ;;
 esac
 
