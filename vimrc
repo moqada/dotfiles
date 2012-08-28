@@ -61,6 +61,8 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'groenewege/vim-less.git'
 " for css
 NeoBundle 'hail2u/vim-css3-syntax.git'
+" for php
+NeoBundle 'phpfolding.vim'
 " for taskpaper
 NeoBundle 'davidoc/taskpaper.vim.git'
 " for tweetvim
@@ -269,6 +271,8 @@ let Tlist_Auto_Highlight_Tag=1  " なんかわからん
 let Tlist_Exit_OnlyWindow=1  " taglist以外のウィンドウがなくなったら自動的にウィンドウを閉じる
 let Tlist_Show_One_File = 1 " 現在編集中のソースのタグのみ表示
 map ,tl :TlistToggle<CR> 
+" for php
+let g:tlist_php_settings = 'php;c:class;d:constant;f:function;v:variable'
 " }}}
 
 " zen-coding.vim "{{{
