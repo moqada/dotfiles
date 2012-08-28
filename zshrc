@@ -16,8 +16,16 @@ esac
 
 alias h='history '
 alias hh='history 0 | grep -nr '
-alias gi='git'
 alias tmux='tmux -2'
+
+# for git
+alias gi='git'
+alias gst='git status -s -b'
+alias gch='git cherry -v'
+alias glgg='git logg'
+alias glg='git logg | head'
+alias ggl='git gl'
+alias gga='git ga'
 
 # とりあえず文字コード設定
 export LANG=ja_JP.UTF-8
