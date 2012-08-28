@@ -39,6 +39,7 @@ NeoBundle 'tyru/skk.vim.git'
 NeoBundle 'mojako/ref-sources.vim.git'
 " for git
 NeoBundle 'tpope/vim-fugitive.git'
+NeoBundle 'mattn/gist-vim.git'
 " for javascript
 NeoBundle 'JavaScript-syntax'
 NeoBundle 'OOP-javascript-indentation'
@@ -262,6 +263,12 @@ au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable shiftwidt
 "--------------------------
 " jellybeans.vim "{{{
 let g:jellybeans_use_lowcolor_black = 0
+" }}}
+
+" gist-vim "{{{
+let g:gist_clip_command = 'xclip -selection clipboard'
+let g:gist_detect_filetype = 1
+let g:github_user = 'moqada'
 " }}}
 
 " taglist.vim "{{{
