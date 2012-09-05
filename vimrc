@@ -402,6 +402,31 @@ let g:unite_source_file_mru_filename_format = ''
 "autocmd VimEnter * UniteSessionLoad
 " }}}
 
+" unite de diff "{{{
+" @see http://daisuzu.hatenablog.com/entry/2012/08/22/231557
+let diff_action = {
+    \   'description': 'diff',
+    \   'is_selectable': 1,
+    \ }
+
+function! diff_action.func(candidates)
+    if len(a:candidates) == 1
+        " カレントバッファとdiffをとる
+        execute 'vert diffsplit ' . a:candidates[0].action__path
+    elseif len(a:candidates) == 2
+        " 選択されたファイルとdiffをとる
+        execute 'tabnew ' . a:candidates[0].action__path
+        execute 'vert diffsplit ' . a:candidates[1].action__path
+    else
+        " 3-way以上は非対応
+        echo 'too many candidates!'
+    endif
+endfunction
+
+call unite#custom_action('file', 'diff', diff_action)
+unlet diff_action
+" }}}
+
 " vimfiler {{{
 " vimデフォルトのエクスプロラーをvimfilerで置き換える
 let g:vimfiler_as_default_explorer = 1
