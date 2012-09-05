@@ -28,6 +28,7 @@ NeoBundle 'Shougo/neobundle.vim.git'
 NeoBundle 'Shougo/unite.vim.git'
 NeoBundle 'Shougo/vimfiler.git'
 NeoBundle 'Shougo/neocomplcache.git'
+NeoBundle 'Shougo/neocomplcache-snippets-complete.git'
 NeoBundle 'Shougo/vimproc.git'
 NeoBundle 'thinca/vim-ref.git'
 NeoBundle 'mattn/zencoding-vim.git'
@@ -37,6 +38,9 @@ NeoBundle 'sudo.vim'
 NeoBundle 'sjl/gundo.vim.git'
 NeoBundle 'tyru/skk.vim.git'
 NeoBundle 'mojako/ref-sources.vim.git'
+NeoBundle 'kana/vim-smartchr.git'
+NeoBundle 'edsono/vim-viewoutput.git'
+NeoBundle 'mattn/excitetranslate-vim.git'
 " for git
 NeoBundle 'tpope/vim-fugitive.git'
 NeoBundle 'mattn/gist-vim.git'
@@ -407,6 +411,16 @@ let g:vimfiler_safe_mode_by_default = 0
 nnoremap <silent> <Leader>e :<C-u>VimFilerBufferDir<CR>
 " }}}
 
+" vim-smartchr "{{{
+inoremap <buffer><expr> , smartchr#one_of(', ', ',')
+inoremap <buffer><expr> ? smartchr#one_of('? ', '?')
+inoremap <buffer><expr> + smartchr#one_of(' + ', '++', '+')
+inoremap <buffer><expr> - smartchr#one_of(' - ', '--', '-')
+inoremap <buffer><expr> = search('\(&\<bar><bar>\<bar>+\<bar>-\<bar>/\<bar>>\<bar><\) \%#', 'bcn')? '<bs>= '
+            \ : search('\(*\<bar>!\)\%#', 'bcn') ? '= '
+            \ : smartchr#one_of(' = ', ' == ', '=')
+" }}}
+
 " neocomplcache.vim"{{{
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -459,7 +473,7 @@ if !exists('g:neocomplcache_keyword_patterns')
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
-let g:neocomplcache_snippets_dir = $HOME . '/snippets'
+let g:neocomplcache_snippets_dir = $HOME . '/.vim/snippets'
 
 if !exists('g:neocomplcache_omni_patterns')
   let g:neocomplcache_omni_patterns = {}
@@ -497,8 +511,6 @@ smap <C-k>     <Plug>(neocomplcache_snippets_expand)
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
 "}}}
-
-let g:snippets_dir = '~/.vim/snippets/,~/.vim/bundle/snipmate/snippets/'
 
 " Recommended key-mappings."{{{
 " <CR>: close popup and save indent.
