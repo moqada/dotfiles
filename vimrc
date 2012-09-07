@@ -115,6 +115,9 @@ set matchtime=2
 "}}}
 
 " 画面表示の設定"{{{
+" 256色対応
+set t_Co=256
+" colorscheme
 colorscheme jellybeans
 " 行番号
 set number
@@ -265,6 +268,11 @@ au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable shiftwidt
 "---------------------------
 " plugin
 "--------------------------
+" vim-powerline "{{{
+let g:Powerline_symbols = 'fancy'
+let g:Powerline_colorscheme = 'skwp'
+" }}}
+
 " jellybeans.vim "{{{
 let g:jellybeans_use_lowcolor_black = 0
 " }}}
@@ -350,8 +358,8 @@ let g:skk_sticky_key = ";"
 let g:skk_egg_like_newline = 1
 " insertモードを抜けて、再度insertモードに入ったときに前の状態を維持する
 let g:skk_keep_state = 1
-" 変換時の三角を綺麗に表示(powerlineが崩れるので一旦外す)
-" set ambiwidth=double
+" 変換時の三角を綺麗に表示
+set ambiwidth=double
 " モードマークを指定
 let g:skk_marker_white = '<>'
 let g:skk_marker_black = '>>'
