@@ -39,6 +39,7 @@ NeoBundle 'sjl/gundo.vim.git'
 NeoBundle 'tyru/skk.vim.git'
 NeoBundle 'mojako/ref-sources.vim.git'
 NeoBundle 'kana/vim-smartchr.git'
+NeoBundle 'kana/vim-smartinput.git'
 NeoBundle 'edsono/vim-viewoutput.git'
 NeoBundle 'mattn/excitetranslate-vim.git'
 " for git
