@@ -449,9 +449,6 @@ inoremap <buffer><expr> , smartchr#one_of(', ', ',')
 inoremap <buffer><expr> ? smartchr#one_of('? ', '?')
 inoremap <buffer><expr> + smartchr#one_of(' + ', '++', '+')
 inoremap <buffer><expr> - smartchr#one_of(' - ', '--', '-')
-inoremap <buffer><expr> = search('\(&\<bar><bar>\<bar>+\<bar>-\<bar>/\<bar>>\<bar><\) \%#', 'bcn')? '<bs>= '
-            \ : search('\(*\<bar>!\)\%#', 'bcn') ? '= '
-            \ : smartchr#one_of(' = ', ' == ', '=')
 " }}}
 
 " neocomplcache.vim"{{{
