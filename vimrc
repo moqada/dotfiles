@@ -54,6 +54,7 @@ NeoBundle 'pep8'
 NeoBundle 'VST'
 NeoBundle 'indentpython.vim--nianyang'
 NeoBundle 'rest.vim'
+NeoBundle 'Rykka/riv.vim.git'
 NeoBundle 'klen/python-mode.git'
 NeoBundle 'moqada/python_fold'
 " for color
