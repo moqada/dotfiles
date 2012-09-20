@@ -34,7 +34,8 @@ endif
 " for Windows
 if has('win32')
   set langmenu=ja_jp.utf-8
-  set guifont=Ricty\ Regular:h10
+  set guifont=Ricty\ Discord\ for\ Powerline:h10
+  set guifontwide=Ricty\ Discord\ for\ Powerline:h10
 endif
 " }}}
 
