@@ -115,3 +115,5 @@ mkvenv () {
 
 # for nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+
+PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
