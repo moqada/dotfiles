@@ -50,7 +50,6 @@ NeoBundle 'JavaScript-syntax'
 NeoBundle 'OOP-javascript-indentation'
 " for python
 NeoBundle 'django.vim'
-NeoBundle 'pep8'
 NeoBundle 'VST'
 NeoBundle 'indentpython.vim--nianyang'
 NeoBundle 'rest.vim'
@@ -58,8 +57,6 @@ NeoBundle 'Rykka/riv.vim.git'
 NeoBundle 'klen/python-mode.git'
 NeoBundle 'moqada/python_fold'
 " for color
-NeoBundle 'thinca/vim-guicolorscheme'
-NeoBundle 'molokai'
 NeoBundle 'nanotech/jellybeans.vim'
 " for coffeescript
 NeoBundle 'kchmck/vim-coffee-script'
@@ -70,8 +67,6 @@ NeoBundle 'groenewege/vim-less.git'
 NeoBundle 'hail2u/vim-css3-syntax.git'
 " for php
 NeoBundle 'phpfolding.vim'
-" for taskpaper
-NeoBundle 'davidoc/taskpaper.vim.git'
 " for tweetvim
 NeoBundle 'basyura/TweetVim.git'
 NeoBundle 'tyru/open-browser.vim.git'
@@ -344,11 +339,6 @@ nmap <silent><Leader>ig <Plug>IndentGuidesToggle
 " @see http://d.hatena.ne.jp/basyura/20111230/p1
 " 発言用バッファを表示する
 nnoremap <silent> s :TweetVimSay<CR>
-" }}}
-
-" taskpaper.vim "{{{
-" 時間表記を変更(デフォルトは %Y-%m-%d)
-let g:task_paper_date_format = "%Y-%m-%d %H:%M:%S"
 " }}}
 
 " ref.vim"{{{
