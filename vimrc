@@ -340,6 +340,7 @@ nmap <silent><Leader>ig <Plug>IndentGuidesToggle
 " @see http://d.hatena.ne.jp/basyura/20111230/p1
 " 発言用バッファを表示する
 nnoremap <silent> s :TweetVimSay<CR>
+let g:tweetvim_display_icon = 1
 " }}}
 
 " ref.vim"{{{
