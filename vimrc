@@ -309,6 +309,7 @@ let g:pymode_lint_onfly = 1
 let g:pymode_lint_write = 1
 let g:pymode_lint_cwindow = 0
 let g:pymode_lint_message = 1
+let g:pymode_lint_checker = 'pep8,pyflakes,mccabe'
 " rope を有効にする
 let g:pymode_rope = 1
 " python-mode の default indent 設定を利用しない
