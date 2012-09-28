@@ -38,7 +38,6 @@ NeoBundle 'sudo.vim'
 NeoBundle 'sjl/gundo.vim.git'
 NeoBundle 'tyru/skk.vim.git'
 NeoBundle 'mojako/ref-sources.vim.git'
-NeoBundle 'kana/vim-smartchr.git'
 NeoBundle 'kana/vim-smartinput.git'
 NeoBundle 'edsono/vim-viewoutput.git'
 NeoBundle 'mattn/excitetranslate-vim.git'
@@ -451,13 +450,6 @@ let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
 "<Leader>e で現在開いているバッファのディレクトリを開く
 nnoremap <silent> <Leader>e :<C-u>VimFilerBufferDir<CR>
-" }}}
-
-" vim-smartchr "{{{
-inoremap <buffer><expr> , smartchr#one_of(', ', ',')
-inoremap <buffer><expr> ? smartchr#one_of('? ', '?')
-inoremap <buffer><expr> + smartchr#one_of(' + ', '++', '+')
-inoremap <buffer><expr> - smartchr#one_of(' - ', '--', '-')
 " }}}
 
 " neocomplcache.vim"{{{
