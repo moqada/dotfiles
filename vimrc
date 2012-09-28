@@ -309,8 +309,9 @@ let g:pymode_lint_write = 1
 let g:pymode_lint_cwindow = 0
 let g:pymode_lint_message = 1
 let g:pymode_lint_checker = 'pep8,pyflakes,mccabe'
-" rope を有効にする
-let g:pymode_rope = 1
+" rope を無効にする
+" neocomplcacheのS-Tab補完がRopeCodeAssistと被るため
+let g:pymode_rope = 0
 " python-mode の default indent 設定を利用しない
 let g:pymode_options_indent = 0
 " python-mode の default その他設定を利用しない
@@ -548,9 +549,11 @@ inoremap <expr><C-l>     neocomplcache#complete_common_string()
 inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
 inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+" vim-smartinputの<BS>と競合するため一旦無効化
+" inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 "}}}
