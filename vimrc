@@ -467,9 +467,9 @@ let g:neocomplcache_enable_at_startup = 1
 " Use smartcase.
 let g:neocomplcache_enable_smart_case = 0
 " Use camel case completion.
-let g:neocomplcache_enable_camel_case_completion = 0
+let g:neocomplcache_enable_camel_case_completion = 1
 " Use underbar completion.
-let g:neocomplcache_enable_underbar_completion = 0
+let g:neocomplcache_enable_underbar_completion = 1
 " Set minimum syntax keyword length. (デフォルト値は4)
 let g:neocomplcache_min_syntax_length = 3
 " Set auto completion length.
@@ -487,7 +487,7 @@ let g:neocomplcache_enable_auto_select = 0
 
 let g:neocomplcache_enable_auto_delimiter = 1
 let g:neocomplcache_disable_auto_select_buffer_name_pattern = '\[Command Line\]'
-let g:neocomplcache_max_list = 100
+let g:neocomplcache_max_list = 10
 let g:neocomplcache_force_overwrite_completefunc = 1
 
 " 一旦無効
