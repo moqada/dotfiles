@@ -358,7 +358,9 @@ nnoremap U :GundoToggle<CR>
 " }}}
 
 " skk.vim "{{{
-map! <C-j> <Plug>(skk-toggle-im)
+" 有効/無効切り替え
+map! <C-j><C-e> <Plug>(skk-enable-im)
+map! <C-j><C-d> <Plug>(skk-disable-im)
 let g:skk_jisyo = expand('~/.skk-jisyo')
 let g:skk_large_jisyo = expand('~/SKK-JISYO.L')
 let g:skk_auto_save_jisyo = 1
