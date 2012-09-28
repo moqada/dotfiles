@@ -26,6 +26,8 @@ alias glgg='git logg'
 alias glg='git logg | head'
 alias ggl='git gl'
 alias gga='git ga'
+alias gd='git diff'
+alias gdc='git diff --cached'
 
 # とりあえず文字コード設定
 export LANG=ja_JP.UTF-8
