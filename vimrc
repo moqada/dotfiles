@@ -340,7 +340,9 @@ nmap <silent><Leader>ig <Plug>IndentGuidesToggle
 " @see http://d.hatena.ne.jp/basyura/20111230/p1
 " 発言用バッファを表示する
 nnoremap <silent> s :TweetVimSay<CR>
-let g:tweetvim_display_icon = 1
+" @see http://qiita.com/items/a28eb714151886358b1a
+" 1ページあたりのツイート数
+let g:tweetvim_tweet_per_page = 60
 " }}}
 
 " ref.vim"{{{
