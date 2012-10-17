@@ -47,6 +47,7 @@ NeoBundle 'mattn/gist-vim.git'
 " for javascript
 NeoBundle 'JavaScript-syntax'
 NeoBundle 'OOP-javascript-indentation'
+NeoBundle 'scrooloose/syntastic.git'
 " for python
 NeoBundle 'django.vim'
 NeoBundle 'VST'
@@ -335,6 +336,12 @@ hi IndentGuidesEven ctermbg=237
 au FileType coffee,ruby,javascript,python IndentGuidesEnable
 nmap <silent><Leader>ig <Plug>IndentGuidesToggle
 " }}}
+
+" syntastic "{{{
+let g:syntastic_mode_map = { 'mode': 'passive',
+            \ 'active_filetypes': ['javascript'],
+            \ 'passive_filetypes': [] }
+" }}}"
 
 " tweetvim "{{{
 " @see http://d.hatena.ne.jp/basyura/20111230/p1
