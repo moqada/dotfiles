@@ -52,10 +52,13 @@ NeoBundle 'scrooloose/syntastic.git'
 NeoBundle 'django.vim'
 NeoBundle 'VST'
 NeoBundle 'indentpython.vim--nianyang'
-NeoBundle 'rest.vim'
-NeoBundle 'Rykka/riv.vim.git'
 NeoBundle 'klen/python-mode.git'
 NeoBundle 'moqada/python_fold'
+" for ReST
+NeoBundle 'rest.vim'
+NeoBundle 'Rykka/riv.vim.git'
+" for markdown
+NeoBundle 'plasticboy/vim-markdown'
 " for color
 NeoBundle 'nanotech/jellybeans.vim'
 " for coffeescript
