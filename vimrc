@@ -28,7 +28,7 @@ NeoBundle 'Shougo/neobundle.vim.git'
 NeoBundle 'Shougo/unite.vim.git'
 NeoBundle 'Shougo/vimfiler.git'
 NeoBundle 'Shougo/neocomplcache.git'
-NeoBundle 'Shougo/neocomplcache-snippets-complete.git'
+NeoBundle 'Shougo/neosnippet.git'
 NeoBundle 'Shougo/vimproc.git'
 NeoBundle 'thinca/vim-ref.git'
 NeoBundle 'mattn/zencoding-vim.git'
@@ -525,7 +525,7 @@ if !exists('g:neocomplcache_keyword_patterns')
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
-let g:neocomplcache_snippets_dir = $HOME . '/.vim/snippets'
+let g:neosnippet#snippets_directory = $HOME . '/.vim/snippets'
 
 if !exists('g:neocomplcache_omni_patterns')
   let g:neocomplcache_omni_patterns = {}
@@ -558,8 +558,8 @@ if !exists('g:neocomplcache_plugin_completion_length')
 endif
 
 " Plugin key-mappings."{{{
-imap <C-k>     <Plug>(neocomplcache_snippets_expand)
-smap <C-k>     <Plug>(neocomplcache_snippets_expand)
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
 "}}}
