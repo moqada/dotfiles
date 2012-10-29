@@ -577,5 +577,5 @@ inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 " <C-n>でマニュアル補完を開始する
-inoremap <expr><C-n>  neocomplcache#start_manual_complete()
+" inoremap <expr><C-n>  neocomplcache#start_manual_complete()
 "}}}
