@@ -313,14 +313,17 @@ let g:pymode_lint_onfly = 1
 let g:pymode_lint_write = 1
 let g:pymode_lint_cwindow = 0
 let g:pymode_lint_message = 1
+let g:pymode_lint_signs = 1
+let g:pymode_lint_select = 1
+let g:pymode_lint_onfly_= 1
 let g:pymode_lint_checker = 'pep8,pyflakes,mccabe'
 " rope を無効にする
 " neocomplcacheのS-Tab補完がRopeCodeAssistと被るため
 let g:pymode_rope = 0
-" python-mode の default indent 設定を利用しない
-let g:pymode_options_indent = 0
-" python-mode の default その他設定を利用しない
-let g:pymode_options_other = 0
+" python-mode のインデント設定
+let g:pymode_indent = 0
+" python-mode の設定を利用しない
+let g:pymode_options = 0
 " python-mode の折りたたみを利用しない
 let g:pymode_folding = 0
 " }}}
