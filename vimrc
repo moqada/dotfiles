@@ -60,7 +60,7 @@ NeoBundle 'Rykka/riv.vim.git'
 " for markdown
 NeoBundle 'plasticboy/vim-markdown'
 " for color
-NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'altercation/vim-colors-solarized'
 " for coffeescript
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'nathanaelkane/vim-indent-guides'
@@ -118,7 +118,7 @@ set matchtime=2
 " 256色対応
 set t_Co=256
 " colorscheme
-colorscheme jellybeans
+colorscheme solarized
 " 行番号
 set number
 " ルーラー
@@ -273,8 +273,9 @@ let g:Powerline_symbols = 'fancy'
 let g:Powerline_colorscheme = 'solarized256'
 " }}}
 
-" jellybeans.vim "{{{
-let g:jellybeans_use_lowcolor_black = 0
+" vim-colors-solarized "{{{
+syntax enable
+set background=dark
 " }}}
 
 " gist-vim "{{{
