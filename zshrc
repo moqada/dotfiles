@@ -16,7 +16,7 @@ esac
 
 alias h='history '
 alias hh='history 0 | grep -nr '
-alias tmux='tmux -2'
+alias tmux='TERM=screen-256color-bce tmux'
 
 # for git
 alias gi='git'
