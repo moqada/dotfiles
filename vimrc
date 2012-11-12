@@ -1,5 +1,4 @@
 " vim:fdm=marker
-
 " 未分類の設定"{{{
 syntax on
 " 編集中でのバッファ切り替えを可能にする、タブモードの為に必要っぽい
@@ -472,6 +471,15 @@ let g:vimfiler_safe_mode_by_default = 0
 nnoremap <silent> <Leader>e :<C-u>VimFilerBufferDir<CR>
 " }}}
 
+" neosnippet "{{{
+let g:neosnippet#snippets_directory = $HOME . '/.vim/snippets'
+" keymapping
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
+xmap <C-l>     <Plug>(neosnippet_start_unite_snippet_target)
+" }}}"
+
 " neocomplcache.vim"{{{
 " Disable AutoComplPop.
 let g:acp_enableAtStartup = 0
@@ -529,8 +537,6 @@ if !exists('g:neocomplcache_keyword_patterns')
 endif
 let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
 
-let g:neosnippet#snippets_directory = $HOME . '/.vim/snippets'
-
 if !exists('g:neocomplcache_omni_patterns')
   let g:neocomplcache_omni_patterns = {}
 endif
@@ -562,8 +568,6 @@ if !exists('g:neocomplcache_plugin_completion_length')
 endif
 
 " Plugin key-mappings."{{{
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 inoremap <expr><C-g>     neocomplcache#undo_completion()
 inoremap <expr><C-l>     neocomplcache#complete_common_string()
 "}}}
