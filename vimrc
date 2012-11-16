@@ -78,6 +78,7 @@ NeoBundle 'h1mesuke/unite-outline.git'
 NeoBundle 'basyura/bitly.vim.git'
 " for vimscript
 NeoBundle 'mattn/learn-vimscript.git'
+NeoBundle 'vim-jp/vimdoc-ja.git'
 " }}}
 
 filetype plugin indent on
