@@ -144,9 +144,9 @@ hi ColorColumn guibg=#666666
 
 " バックアップ・スワップに関する設定"{{{
 " スワップファイルの保存先
-set directory=$HOME/.tmp
+set directory+=$HOME/.tmp
 " バックアップファイルの保存先
-set backupdir=$HOME/.tmp
+set backupdir+=$HOME/.tmp
 " バックアップファイルを作成するか否か
 set nobackup
 " 一時的なバックアップファイルを作成するか否か
