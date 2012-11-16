@@ -76,6 +76,8 @@ NeoBundle 'basyura/twibill.vim.git'
 NeoBundle 'mattn/webapi-vim.git'
 NeoBundle 'h1mesuke/unite-outline.git'
 NeoBundle 'basyura/bitly.vim.git'
+" for vimscript
+NeoBundle 'mattn/learn-vimscript.git'
 " }}}
 
 filetype plugin indent on
