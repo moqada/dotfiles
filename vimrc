@@ -399,7 +399,9 @@ let g:unite_enable_start_insert=1
 
 " The prefix key.
 nnoremap    [unite]   <Nop>
-nmap    f [unite]
+xnoremap    [unite]   <Nop>
+nmap     ;u [unite]
+xmap     ;u  [unite]
 
 nnoremap <silent> [unite]u  :<C-u>Unite -buffer-name=files buffer file_mru bookmark file file/new<CR>
 nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file file/new<CR>
