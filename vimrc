@@ -147,13 +147,13 @@ hi ColorColumn guibg=#666666
 
 " バックアップ・スワップに関する設定"{{{
 " スワップファイルの保存先
-set directory+=$HOME/.tmp
+set directory=~/.tmp,~/tmp,/tmp,/var/tmp
 " バックアップファイルの保存先
-set backupdir+=$HOME/.tmp
+set backupdir=~/.vim/backup,~/.tmp,~/tmp,/tmp
 " バックアップファイルを作成するか否か
-set nobackup
+set backup
 " 一時的なバックアップファイルを作成するか否か
-set nowritebackup
+set writebackup
 " - 検索履歴の行数
 set viminfo+=/50
 " - マークの行数
