@@ -3,6 +3,8 @@
     email = moqada@gmail.com
 [merge]
     tool = vimdiff
+    # always fast-foward
+    ff = false
 [core]
     editor = vim
     excludesfile=~/.gitignore
@@ -14,12 +16,25 @@
     branch = auto
     grep = auto
     interactive = auto
+[push]
+    # push the current branch
+    default = upstream
+[branch]
+    # auto rebase
+    autosetuprebase = always
+[pull]
+    rebase = true
 [alias]
-    co = checkout
-    st = status
-    ci = commit
     br = branch
-    gl = log --graph --decorate
-    ga = log --graph --decorate --all
-    logg = log --stat --pretty=format:'%Cblue%h %Cgreen%ar %Cred%an %Creset%s %Cred%d'
-    loggr = log --graph --date-order --pretty=format:'%Cblue%h %Cgreen%ci %Cred%an %Cblue%m %Creset%s %Cred%d'
+    d = diff
+    dc = diff --cached
+    di = diff
+    ci = commit
+    co = checkout
+    l = log --graph --decorate
+    la = log --graph --decorate --all
+    ls = log --stat --pretty=format:'%Cblue%h %Cgreen%ar %Cred%an %Creset%s %Cred%d'
+    lsg = log --graph --date-order --pretty=format:'%Cblue%h %Cgreen%ci %Cred%an %Cblue%m %Creset%s %Cred%d'
+    s = status --short --branch
+    st = status
+    su = submodule update
