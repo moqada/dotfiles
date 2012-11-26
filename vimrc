@@ -347,9 +347,9 @@ nmap <silent><Leader>ig <Plug>IndentGuidesToggle
 " }}}
 
 " syntastic "{{{
-let g:syntastic_mode_map = { 'mode': 'passive',
-            \ 'active_filetypes': ['javascript'],
-            \ 'passive_filetypes': [] }
+let g:syntastic_mode_map = { 'mode': 'active',
+            \ 'active_filetypes': ['javascript', 'php'],
+            \ 'passive_filetypes': ['python'] }
 " }}}"
 
 " tweetvim "{{{
