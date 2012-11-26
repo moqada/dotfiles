@@ -40,6 +40,7 @@ NeoBundle 'mojako/ref-sources.vim.git'
 NeoBundle 'kana/vim-smartinput.git'
 NeoBundle 'edsono/vim-viewoutput.git'
 NeoBundle 'mattn/excitetranslate-vim.git'
+NeoBundle 'surround.vim'
 " for git
 NeoBundle 'tpope/vim-fugitive.git'
 NeoBundle 'mattn/gist-vim.git'
