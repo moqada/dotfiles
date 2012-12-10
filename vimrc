@@ -53,6 +53,7 @@ NeoBundle 'django.vim'
 NeoBundle 'VST'
 NeoBundle 'indentpython.vim--nianyang'
 NeoBundle 'klen/python-mode.git'
+NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'moqada/python_fold'
 " for ReST
 NeoBundle 'rest.vim'
