@@ -45,8 +45,10 @@ NeoBundle 'surround.vim'
 NeoBundle 'tpope/vim-fugitive.git'
 NeoBundle 'mattn/gist-vim.git'
 " for javascript
-NeoBundle 'JavaScript-syntax'
-NeoBundle 'OOP-javascript-indentation'
+NeoBundle 'jelera/vim-javascript-syntax.git'
+NeoBundle 'jiangmiao/simple-javascript-indenter.git'
+NeoBundle 'nono/jquery.vim.git'
+NeoBundle 'teramako/jscomplete-vim.git'
 NeoBundle 'scrooloose/syntastic.git'
 " for python
 NeoBundle 'django.vim'
@@ -266,6 +268,8 @@ iab dlog GC_Utils_Ex::gfDebugLog();
 " ----------
 " for CoffeeScript
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable shiftwidth=2 filetype=coffee
+" for JavaScript
+au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 " ----------
 "}}}
 
@@ -347,6 +351,11 @@ hi IndentGuidesEven ctermbg=237
 au FileType coffee,ruby,javascript,python IndentGuidesEnable
 nmap <silent><Leader>ig <Plug>IndentGuidesToggle
 " }}}
+
+" jscomplete-vim "{{{
+" DOM / Mozilla関連 / ES6 のメソッドを補完
+let g:jscomplete_use = ['dom', 'moz', 'es6th']
+" }}}"
 
 " syntastic "{{{
 let g:syntastic_mode_map = { 'mode': 'active',
