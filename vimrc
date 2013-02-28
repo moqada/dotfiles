@@ -50,6 +50,7 @@ NeoBundle 'jiangmiao/simple-javascript-indenter.git'
 NeoBundle 'nono/jquery.vim.git'
 NeoBundle 'teramako/jscomplete-vim.git'
 NeoBundle 'scrooloose/syntastic.git'
+NeoBundle 'digitaltoad/vim-jade.git'
 " for python
 NeoBundle 'django.vim'
 NeoBundle 'VST'
