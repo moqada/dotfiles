@@ -57,7 +57,6 @@ NeoBundle 'VST'
 NeoBundle 'indentpython.vim--nianyang'
 NeoBundle 'klen/python-mode'
 NeoBundle 'davidhalter/jedi-vim'
-NeoBundle 'moqada/python_fold'
 " for ReST
 NeoBundle 'rest.vim'
 NeoBundle 'Rykka/riv.vim'
@@ -325,16 +324,16 @@ let g:pymode_lint_message = 1
 let g:pymode_lint_signs = 1
 let g:pymode_lint_select = 1
 let g:pymode_lint_onfly_= 1
-let g:pymode_lint_checker = 'pep8,pyflakes,mccabe'
+let g:pymode_lint_checker = 'pep8'
 " rope を無効にする
 " neocomplcacheのS-Tab補完がRopeCodeAssistと被るため
 let g:pymode_rope = 0
 " python-mode のインデント設定
-let g:pymode_indent = 0
+let g:pymode_indent = 1
 " python-mode の設定を利用しない
 let g:pymode_options = 0
-" python-mode の折りたたみを利用しない
-let g:pymode_folding = 0
+" python-mode の折りたたみを利用する
+let g:pymode_folding = 1
 " }}}
 
 " indent_guides "{{{
