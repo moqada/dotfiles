@@ -322,9 +322,9 @@ let g:pymode_lint_write = 1
 let g:pymode_lint_cwindow = 0
 let g:pymode_lint_message = 1
 let g:pymode_lint_signs = 1
-let g:pymode_lint_select = 1
+let g:pymode_lint_select = ''
 let g:pymode_lint_onfly_= 1
-let g:pymode_lint_checker = 'pep8'
+let g:pymode_lint_checker = 'pep8,pyflakes,mccabe'
 " rope を無効にする
 " neocomplcacheのS-Tab補完がRopeCodeAssistと被るため
 let g:pymode_rope = 0
