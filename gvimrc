@@ -6,6 +6,7 @@ set cmdheight=1
 " 全角スペースの表示
 hi ZenkakuSpace gui=bold guibg=darkcyan
 colorscheme solarized
+set background=dark
 " }}}
 
 " Device設定 " {{{
