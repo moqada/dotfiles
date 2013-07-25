@@ -1,0 +1,62 @@
+include "104.mayu"
+include "default.mayu"
+keymap Global
+
+#SandS http://jisx6004.client.jp/mayu2.html#5
+mod shift += !!Space
+key R-*Space = &Ignore
+
+# ctrl <-> capslock
+mod control += CapsLock
+key *CapsLock = *LControl
+mod control -= LControl
+key *LControl = *CapsLock
+
+# mac like command key
+mod Windows -= LWindows
+#key *LWindows = *LControl
+mod mod0 += LWindows
+key M0-c = C-c
+key M0-v = C-v
+key M0-a = C-a
+key M0-w = C-w
+key M0-f = C-f
+key M0-h = C-h
+key M0-n = C-n
+key M0-p = C-p
+key M0-t = C-t
+key M0-z = C-z
+key M0-r = C-r
+key M0-x = C-x
+
+# mac like ctrl key
+key C-a = Home
+key C-e = End
+key C-n = Down
+key C-p = Up
+key C-h = BackSpace
+key C-f = Right
+key C-b = Left
+
+# vim like mod
+key W-j = Down
+key W-k = Up
+key W-l = Left
+key W-h = Right
+
+# putty / gvim などをCtrlを通常のキーマップに戻す
+window NormalKeyWindows /(putty|gvim|synergys|TeamViewer)\.exe/ : Global
+key C-a = C-a
+key C-e = C-e
+key C-n = C-n
+key C-p = C-p
+key C-h = C-h
+key C-f = C-f
+key C-b = C-b
+
+# for SKK
+keymap EmacsEdit
+key C-j = &Default
+
+key IL-*IC-Semicolon = &EditNextModifier(S-)
+key S-Semicolon = ~S-Semicolon
