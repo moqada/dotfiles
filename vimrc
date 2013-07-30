@@ -85,7 +85,7 @@ NeoBundle 'basyura/bitly.vim'
 NeoBundle 'mattn/learn-vimscript'
 NeoBundle 'vim-jp/vimdoc-ja'
 " for autoit
-NeoBundle 'autoit.vim'
+NeoBundle 'moqada/autoit.vim--Breland'
 " }}}
 
 filetype plugin indent on
