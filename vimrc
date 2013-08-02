@@ -527,7 +527,7 @@ let g:neocomplcache_cursor_hold_i_time = 300
 " For auto select.
 let g:neocomplcache_enable_auto_select = 0
 " 自動補完しない
-let g:neocomplcache_disable_auto_complete = 1
+let g:neocomplcache_disable_auto_complete = 0
 
 
 let g:neocomplcache_enable_auto_delimiter = 1
@@ -604,5 +604,5 @@ inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 inoremap <expr><C-y>  neocomplcache#close_popup()
 inoremap <expr><C-e>  neocomplcache#cancel_popup()
 " <C-n>でマニュアル補完を開始する
-" inoremap <expr><C-n>  neocomplcache#start_manual_complete()
+inoremap <expr><C-n>  neocomplcache#start_manual_complete()
 "}}}
