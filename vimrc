@@ -273,6 +273,9 @@ iab dlog GC_Utils_Ex::gfDebugLog();
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable shiftwidth=2 filetype=coffee
 " for JavaScript
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+" for Vim Script
+" 行継続のための \ のインデント量を元のインデントと同じにする
+let g:vim_indent_cont = 0
 " ----------
 "}}}
 
