@@ -189,6 +189,12 @@ set mousehide
 " }}}
 
 " 文字コード/改行コード "{{{
+" vim-refのwindowsでの文字化け対策
+" http://www.karakaram.com/20120726-vim-ref
+if has("win32")
+  " set encoding より上に書くこと
+  let &termencoding = &encoding
+endif
 set encoding=utf-8
 set fileencodings=ucs_bom,utf8,ucs-2le,ucs-2
 set fileformats=unix,dos,mac
