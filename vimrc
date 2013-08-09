@@ -42,6 +42,7 @@ NeoBundle 'edsono/vim-viewoutput'
 NeoBundle 'mattn/excitetranslate-vim'
 NeoBundle 'surround.vim'
 NeoBundle 'visSum.vim'
+NeoBundle 'yuratomo/w3m.vim'
 " for git
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'mattn/gist-vim'
