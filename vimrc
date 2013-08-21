@@ -63,7 +63,8 @@ NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'rest.vim'
 NeoBundle 'Rykka/riv.vim'
 " for markdown
-NeoBundle 'plasticboy/vim-markdown'
+NeoBundle 'tpope/vim-markdown'
+NeoBundle 'jtratner/vim-flavored-markdown'
 " for color
 NeoBundle 'altercation/vim-colors-solarized'
 " for coffeescript
@@ -197,7 +198,7 @@ if has("win32")
   let &termencoding = &encoding
 endif
 set encoding=utf-8
-set fileencodings=ucs_bom,utf8,ucs-2le,ucs-2
+set fileencodings=ucs_bom,utf-8,ucs-2le,ucs-2,cp932
 set fileformats=unix,dos,mac
 " 文字コードの自動認識
 " @see http://www.kawaz.jp/pukiwiki/?vim#content_1_7
@@ -284,6 +285,11 @@ au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 " for Vim Script
 " 行継続のための \ のインデント量を元のインデントと同じにする
 let g:vim_indent_cont = 0
+" for Markdown
+augroup markdown
+    au!
+    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
+augroup END
 " ----------
 "}}}
 
