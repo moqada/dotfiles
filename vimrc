@@ -31,7 +31,7 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'mattn/zencoding-vim'
-NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'bling/vim-airline'
 NeoBundle 'taglist.vim'
 NeoBundle 'sudo.vim'
 NeoBundle 'sjl/gundo.vim'
@@ -296,9 +296,16 @@ augroup END
 "---------------------------
 " plugin
 "--------------------------
-" vim-powerline "{{{
-let g:Powerline_symbols = 'fancy'
-let g:Powerline_colorscheme = 'solarized256'
+" vim-airline "{{{
+let g:airline_powerline_fonts=1
+let g:airline_theme = 'solarized'
+let g:airline_left_sep = '⮀'
+let g:airline_left_alt_sep = '⮁'
+let g:airline_right_sep = '⮂'
+let g:airline_right_alt_sep = '⮃'
+let g:airline#extensions#branch#symbol = '⭠'
+let g:airline#extensions#readonly#symbol = '⭤'
+let g:airline_linecolumn_prefix = '⭡'
 " }}}
 
 " vim-colors-solarized "{{{
