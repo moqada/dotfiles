@@ -405,6 +405,8 @@ nnoremap <silent> s :TweetVimSay<CR>
 " @see http://qiita.com/items/a28eb714151886358b1a
 " 1ページあたりのツイート数
 let g:tweetvim_tweet_per_page = 60
+" アイコンを表示する
+let g:tweetvim_display_icon = 1
 " }}}
 
 " ref.vim"{{{
