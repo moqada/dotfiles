@@ -83,6 +83,8 @@ NeoBundle 'basyura/twibill.vim'
 NeoBundle 'mattn/webapi-vim'
 NeoBundle 'h1mesuke/unite-outline'
 NeoBundle 'basyura/bitly.vim'
+NeoBundle 'basyura/bitly.vim'
+NeoBundle 'yomi322/neco-tweetvim'
 " for vimscript
 NeoBundle 'mattn/learn-vimscript'
 NeoBundle 'vim-jp/vimdoc-ja'
