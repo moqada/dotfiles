@@ -121,3 +121,7 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 # for rbenv
 export PATH=$HOME/.rbenv/bin:$PATH
 eval "$(rbenv init -)"
+
+# for phpenv
+export PATH=$HOME/.phpenv/bin:$PATH
+eval "$(phpenv init -)"
