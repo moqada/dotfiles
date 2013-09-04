@@ -90,6 +90,8 @@ NeoBundle 'vim-jp/vimdoc-ja'
 " for autoit
 NeoBundle 'moqada/autoit.vim--Breland'
 NeoBundle 'moqada/neco-autoit'
+" for yii
+NeoBundle 'mikehaertl/yii-api-vim'
 " }}}
 
 filetype plugin indent on
