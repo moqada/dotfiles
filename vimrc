@@ -76,6 +76,7 @@ NeoBundle 'groenewege/vim-less'
 NeoBundle 'hail2u/vim-css3-syntax'
 " for php
 NeoBundle 'phpfolding.vim'
+NeoBundle 'shawncplus/php.vim'
 " for tweetvim
 NeoBundle 'basyura/TweetVim'
 NeoBundle 'tyru/open-browser.vim'
@@ -574,9 +575,16 @@ let g:neocomplcache_force_overwrite_completefunc = 1
 " 一旦無効
 " let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
 
+" 関数補完の際の区切り文字パターン
+if !exists('g:neocomplcache_delimiter_patterns')
+    let g:neocomplcache_delimiter_patterns = {}
+endif
+let g:neocomplcache_delimiter_patterns['php'] = ['->', '::', '\']
+
 " Define dictionary.
 let g:neocomplcache_dictionary_filetype_lists = {
      \ 'default' : '',
+     \ 'php' : $HOME.'/.vim/dict/php.dict',
      \ 'vimshell' : $HOME.'/.vimshell_hist',
      \ 'scheme' : $HOME.'/.gosh_completions'
      \ }
@@ -596,7 +604,6 @@ if !exists('g:neocomplcache_omni_patterns')
   let g:neocomplcache_omni_patterns = {}
 endif
 let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.php = '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.mail = '^\s*\w\+'
 
 if !exists('g:neocomplcache_same_filetype_lists')
