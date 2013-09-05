@@ -666,7 +666,6 @@ let g:snips_author = 'Masahiko OKADA'
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
-xmap <C-l>     <Plug>(neosnippet_start_unite_snippet_target)
 " }}}"
 
 " neocomplcache.vim"{{{
