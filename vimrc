@@ -422,6 +422,10 @@ let g:ref_source_webdict_sites = {
 \       'cache': 1,
 \   }
 \}
+" phpドキュメントのパス
+" ファイルは事前にダウンロードしておく
+" http://www.php.net/download-docs.php
+let g:ref_phpmanual_path = $HOME . '/.phpdoc/php-chunked-xhtml'
 " }}}
 
 " gundo.vim "{{{
@@ -533,6 +537,8 @@ let g:neosnippet#snippets_directory = $HOME . '/.vim/snippets'
 \   . ',' . $HOME .  '/.vim/bundle/vim-snippets/snippets'
 " snipMate互換にする
 let g:neosnippet#enable_snipmate_compatibility = 1
+" snippets変数
+let g:snips_author = 'Masahiko OKADA'
 " keymapping
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
@@ -556,7 +562,7 @@ let g:neocomplcache_min_syntax_length = 3
 " Set auto completion length.
 let g:neocomplcache_auto_completion_start_length = 2
 " Set manual completion length.
-let g:neocomplcache_manual_completion_start_length = 0
+let g:neocomplcache_manual_completion_start_length = 4
 " Set minimum keyword length.
 let g:neocomplcache_min_keyword_length = 3
 " wildcardを許可しない
