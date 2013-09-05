@@ -43,6 +43,7 @@ NeoBundle 'mattn/excitetranslate-vim'
 NeoBundle 'surround.vim'
 NeoBundle 'visSum.vim'
 NeoBundle 'yuratomo/w3m.vim'
+NeoBundle 'honza/vim-snippets'
 " for git
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'mattn/gist-vim'
@@ -529,6 +530,9 @@ nnoremap <silent> <Leader>e :<C-u>VimFilerBufferDir<CR>
 
 " neosnippet "{{{
 let g:neosnippet#snippets_directory = $HOME . '/.vim/snippets'
+\   . ',' . $HOME .  '/.vim/bundle/vim-snippets/snippets'
+" snipMate互換にする
+let g:neosnippet#enable_snipmate_compatibility = 1
 " keymapping
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
