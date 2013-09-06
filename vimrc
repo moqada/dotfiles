@@ -274,14 +274,6 @@ cnoremap <C-N> <DOWN>
 autocmd QuickFixCmdPost CoffeeLint if len(getqflist()) != 0 | copen | endif
 "}}}
 
-" 短縮入力"{{{
-" for EC-CUBE
-iab scq new SC_Query();
-iab md new SC_DB_MasterData_Ex();
-iab plog GC_Utils_Ex::gfPrintLog();
-iab dlog GC_Utils_Ex::gfDebugLog();
-"}}}
-
 " FileType Settings "{{{
 " ----------
 " for CoffeeScript
