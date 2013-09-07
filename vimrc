@@ -44,6 +44,7 @@ NeoBundle 'surround.vim'
 NeoBundle 'visSum.vim'
 NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'honza/vim-snippets'
+NeoBundle 'osyo-manga/vim-anzu'
 " for git
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'mattn/gist-vim'
@@ -298,6 +299,13 @@ augroup END
 "---------------------------
 " plugin
 "--------------------------
+" vim-anzu "{{{
+" 通常のn/Nと置き換えてコマンドラインに結果を表示する
+nmap n <Plug>(anzu-n-with-echo)
+nmap N <Plug>(anzu-N-with-echo)
+nmap * <Plug>(anzu-star-with-echo)
+nmap # <Plug>(anzu-sharp-with-echo)
+" }}}
 " lightline.vim "{{{
 let g:lightline = {
       \ 'colorscheme': 'solarized',
