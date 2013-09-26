@@ -59,8 +59,8 @@ NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'django.vim'
 NeoBundle 'VST'
 NeoBundle 'indentpython.vim--nianyang'
-NeoBundle 'klen/python-mode'
 NeoBundle 'davidhalter/jedi-vim'
+NeoBundle 'nvie/vim-flake8'
 " for ReST
 NeoBundle 'rest.vim'
 NeoBundle 'Rykka/riv.vim'
@@ -280,6 +280,8 @@ autocmd QuickFixCmdPost CoffeeLint if len(getqflist()) != 0 | copen | endif
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable shiftwidth=2 filetype=coffee
 " for JavaScript
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+" for vim-flake8 (python)
+au BufRead,BufNewFile,BufWrite *.py call Flake8()
 " for Markdown
 augroup markdown
     au!
@@ -470,24 +472,28 @@ let g:user_zen_settings = {
 
 " python-mode "{{{
 " lint を実行する
-let g:pymode_lint = 1
-let g:pymode_lint_onfly = 1
-let g:pymode_lint_write = 1
-let g:pymode_lint_cwindow = 0
-let g:pymode_lint_message = 1
-let g:pymode_lint_signs = 1
-let g:pymode_lint_select = ''
-let g:pymode_lint_onfly_= 1
-let g:pymode_lint_checker = 'pep8,pyflakes,mccabe'
-" rope を無効にする
-" neocomplcacheのS-Tab補完がRopeCodeAssistと被るため
-let g:pymode_rope = 0
-" python-mode のインデント設定
-let g:pymode_indent = 1
-" python-mode の設定を利用しない
-let g:pymode_options = 0
-" python-mode の折りたたみを利用する
-let g:pymode_folding = 1
+"let g:pymode_lint = 1
+"let g:pymode_lint_onfly = 1
+"let g:pymode_lint_write = 1
+"let g:pymode_lint_cwindow = 0
+"let g:pymode_lint_message = 1
+"let g:pymode_lint_signs = 1
+"let g:pymode_lint_select = ''
+"let g:pymode_lint_onfly_= 1
+"let g:pymode_lint_checker = 'pep8,pyflakes,mccabe'
+"" rope を無効にする
+"" neocomplcacheのS-Tab補完がRopeCodeAssistと被るため
+"let g:pymode_rope = 0
+"" python-mode のインデント設定
+"let g:pymode_indent = 1
+"" python-mode の設定を利用しない
+"let g:pymode_options = 0
+"" python-mode の折りたたみを利用する
+"let g:pymode_folding = 1
+" }}}
+
+" jedi-vim "{{{
+let g:jedi#popup_on_dot = 0
 " }}}
 
 " indent_guides "{{{
