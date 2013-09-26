@@ -30,7 +30,7 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'thinca/vim-ref'
-NeoBundle 'mattn/zencoding-vim'
+NeoBundle 'mattn/emmet-vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'taglist.vim'
 NeoBundle 'sudo.vim'
@@ -459,9 +459,9 @@ map ,tl :TlistToggle<CR>
 let g:tlist_php_settings = 'php;c:class;d:constant;f:function;v:variable'
 " }}}
 
-" zen-coding.vim "{{{
+" emmet-vim "{{{
 " ファイルタイプ毎の設定.
-let g:user_zen_settings = {
+let g:user_emmet_settings = {
 \    'indentation': '   ',
 \    'html': {
 \        'indentation': '  ',
