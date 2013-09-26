@@ -130,6 +130,8 @@ set backspace=indent,eol,start
 set showmatch
 "" 対応する括弧の強調表示時間を設定する
 set matchtime=2
+" paste/nopasteをtoggleするキーマップ
+set pastetoggle=;p
 "}}}
 
 " 画面表示の設定"{{{
@@ -348,7 +350,7 @@ function! MyFilename()
         \ (&ft == 'vimfiler' ? vimfiler#get_status_string() :
         \  &ft == 'unite' ? unite#get_status_string() :
         \  &ft == 'vimshell' ? substitute(b:vimshell.current_dir,expand('~'),'~','') :
-        \ '' != expand('%:t') ? expand('%:t') : '[No Name]') .
+        \ '' != expand('%:t') ? expand('%:.') : '[No Name]') .
         \ ('' != MyModified() ? ' ' . MyModified() : '')
 endfunction
 
@@ -376,7 +378,8 @@ function! MyFileencoding()
 endfunction
 
 function! MyMode()
-  return winwidth('.') > 60 ? lightline#mode() : ''
+  return &ft == 'unite' ? 'Unite':
+        \ winwidth('.') > 60 ? lightline#mode() : ''
 endfunction
 
 function! MyGitGutter()
@@ -608,6 +611,8 @@ endfunction"}}}
 let g:unite_source_file_mru_limit = 200
 let g:unite_cursor_line_highlight = 'TabLineSel'
 let g:unite_abbr_highlight = 'TabLine'
+" unite側でstatuslineを上書きしないようにする
+let g:unite_force_overwrite_statusline = 0
 
 " For optimize.
 let g:unite_source_file_mru_filename_format = ''
