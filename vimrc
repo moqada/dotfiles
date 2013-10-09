@@ -165,9 +165,9 @@ hi ColorColumn guibg=#666666
 
 " バックアップ・スワップに関する設定"{{{
 " スワップファイルの保存先
-set directory=~/.tmp,~/tmp,/tmp,/var/tmp
+set directory=~/.tmp,~/tmp,/var/tmp,/tmp
 " バックアップファイルの保存先
-set backupdir=~/.vim/backup,~/.tmp,~/tmp,/tmp
+set backupdir=~/.vim/backup,~/.tmp,~/tmp,/var/tmp,/tmp
 " バックアップファイルを作成するか否か
 set backup
 " 一時的なバックアップファイルを作成するか否か
