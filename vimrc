@@ -77,7 +77,6 @@ NeoBundle 'groenewege/vim-less'
 " for css
 NeoBundle 'hail2u/vim-css3-syntax'
 " for php
-NeoBundle 'phpfolding.vim'
 NeoBundle 'shawncplus/php.vim'
 " for tweetvim
 NeoBundle 'basyura/TweetVim'
@@ -523,8 +522,11 @@ let g:jscomplete_use = ['dom', 'moz', 'es6th']
 
 " syntastic "{{{
 let g:syntastic_mode_map = { 'mode': 'active',
-            \ 'active_filetypes': ['javascript', 'php'],
-            \ 'passive_filetypes': ['python'] }
+            \ 'active_filetypes': ['javascript', 'php']
+            \ }
+let g:syntastic_check_on_open=1
+let g:syntastic_python_checkers=['flake8']
+let g:syntastic_python_flake8_args = '--max-line-length=120'
 " }}}"
 
 " tweetvim "{{{
