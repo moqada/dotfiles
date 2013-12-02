@@ -32,7 +32,7 @@ NeoBundle 'Shougo/vimproc'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'mattn/emmet-vim'
 NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'taglist.vim'
+NeoBundle 'majutsushi/tagbar'
 NeoBundle 'sudo.vim'
 NeoBundle 'sjl/gundo.vim'
 NeoBundle 'tyru/skk.vim'
@@ -451,15 +451,8 @@ let g:gist_detect_filetype = 1
 let g:github_user = 'moqada'
 " }}}
 
-" taglist.vim "{{{
-set tags=tags
-let Tlist_Use_Right_Window=1  " 右側に表示
-let Tlist_Auto_Highlight_Tag=1  " なんかわからん
-let Tlist_Exit_OnlyWindow=1  " taglist以外のウィンドウがなくなったら自動的にウィンドウを閉じる
-let Tlist_Show_One_File = 1 " 現在編集中のソースのタグのみ表示
-map ,tl :TlistToggle<CR> 
-" for php
-let g:tlist_php_settings = 'php;c:class;d:constant;f:function;v:variable'
+" tagbar.vim "{{{
+map ,tl :TagbarToggle<CR> 
 " }}}
 
 " emmet-vim "{{{
