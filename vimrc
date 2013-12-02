@@ -94,10 +94,17 @@ NeoBundle 'moqada/autoit.vim--Breland'
 NeoBundle 'moqada/neco-autoit'
 " for yii
 NeoBundle 'mikehaertl/yii-api-vim'
+" for DB
+NeoBundle 'dbext.vim'
 " }}}
 
 filetype plugin indent on
 filetype on
+
+" 環境に依存した非公開設定を読み込む
+if filereadable(expand('~/.vimrc.local'))
+  source ~/.vimrc.local
+endif
 
 " 検索に関する設定"{{{
 " 検索時に大文字小文字を無視するか否か
