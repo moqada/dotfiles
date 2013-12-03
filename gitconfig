@@ -38,3 +38,7 @@
     s = status --short --branch
     st = status
     su = submodule update
+[include]
+    # ghi を利用するための設定はこのファイルに書く
+    # [github], [ghi]
+    path = ~/.gitconfig.local

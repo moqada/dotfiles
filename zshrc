@@ -125,3 +125,9 @@ eval "$(rbenv init -)"
 # for phpenv
 export PATH=$HOME/.phpenv/bin:$PATH
 eval "$(phpenv init -)"
+
+# include private settings
+ZSHRCLOCAL_PATH=$HOME/.zshrc.local
+if [ -f $ZSHRCLOCAL_PATH ]; then
+    source $ZSHRCLOCAL_PATH
+fi
