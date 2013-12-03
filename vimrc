@@ -96,6 +96,8 @@ NeoBundle 'moqada/neco-autoit'
 NeoBundle 'mikehaertl/yii-api-vim'
 " for DB
 NeoBundle 'dbext.vim'
+" for SICP
+NeoBundle 'aharisu/vim_goshrepl'
 " }}}
 
 filetype plugin indent on
