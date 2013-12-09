@@ -664,8 +664,8 @@ nnoremap <silent> <Leader>e :<C-u>VimFilerBufferDir<CR>
 " }}}
 
 " neosnippet "{{{
-let g:neosnippet#snippets_directory = $HOME . '/.vim/snippets'
-\   . ',' . $HOME .  '/.vim/bundle/vim-snippets/snippets'
+let g:neosnippet#snippets_directory = $HOME . '/.vim/bundle/vim-snippets/snippets'
+\   . ',' . $HOME .  '/.vim/snippets'
 " snipMate互換にする
 let g:neosnippet#enable_snipmate_compatibility = 1
 " snippets変数
