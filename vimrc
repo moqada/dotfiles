@@ -62,6 +62,7 @@ NeoBundle 'VST'
 NeoBundle 'indentpython.vim--nianyang'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'nvie/vim-flake8'
+NeoBundle 'hynek/vim-python-pep8-indent'
 " for ReST
 NeoBundle 'rest.vim'
 NeoBundle 'Rykka/riv.vim'
