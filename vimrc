@@ -475,28 +475,6 @@ let g:user_emmet_settings = {
 \}
 " }}}
 
-" python-mode "{{{
-" lint を実行する
-"let g:pymode_lint = 1
-"let g:pymode_lint_onfly = 1
-"let g:pymode_lint_write = 1
-"let g:pymode_lint_cwindow = 0
-"let g:pymode_lint_message = 1
-"let g:pymode_lint_signs = 1
-"let g:pymode_lint_select = ''
-"let g:pymode_lint_onfly_= 1
-"let g:pymode_lint_checker = 'pep8,pyflakes,mccabe'
-"" rope を無効にする
-"" neocomplcacheのS-Tab補完がRopeCodeAssistと被るため
-"let g:pymode_rope = 0
-"" python-mode のインデント設定
-"let g:pymode_indent = 1
-"" python-mode の設定を利用しない
-"let g:pymode_options = 0
-"" python-mode の折りたたみを利用する
-"let g:pymode_folding = 1
-" }}}
-
 " jedi-vim "{{{
 let g:jedi#popup_on_dot = 0
 " }}}
@@ -516,11 +494,6 @@ hi IndentGuidesEven ctermbg=237
 au FileType coffee,ruby,javascript,python IndentGuidesEnable
 nmap <silent><Leader>ig <Plug>IndentGuidesToggle
 " }}}
-
-" jscomplete-vim "{{{
-" DOM / Mozilla関連 / ES6 のメソッドを補完
-let g:jscomplete_use = ['dom', 'moz', 'es6th']
-" }}}"
 
 " syntastic "{{{
 let g:syntastic_mode_map = { 'mode': 'active',
