@@ -23,11 +23,13 @@ call neobundle#rc(expand('~/.vim/bundle'))
 "}}}
 
 " neobundle.vim"{{{
+NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'thinca/vim-ref'
 NeoBundle 'mattn/emmet-vim'
@@ -52,7 +54,6 @@ NeoBundle 'mattn/gist-vim'
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
 NeoBundle 'nono/jquery.vim'
-NeoBundle 'teramako/jscomplete-vim'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'digitaltoad/vim-jade'
 " for python
@@ -68,7 +69,7 @@ NeoBundle 'Rykka/riv.vim'
 NeoBundle 'tpope/vim-markdown'
 NeoBundle 'jtratner/vim-flavored-markdown'
 " for color
-NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'nanotech/jellybeans.vim'
 " for coffeescript
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'nathanaelkane/vim-indent-guides'
@@ -146,7 +147,7 @@ set pastetoggle=;p
 " 256色対応
 set t_Co=256
 " colorscheme
-colorscheme solarized
+colorscheme jellybeans
 " 行番号
 set number
 " ルーラー
@@ -505,7 +506,7 @@ let g:jedi#popup_on_dot = 0
 " @see: http://qiita.com/items/fb442cfa78f91634cfaa
 " インデントの深さに色を付ける
 let g:indent_guides_start_level=2
-let g:indent_guides_auto_colors=0
+let g:indent_guides_auto_colors=1
 let g:indent_guides_enable_on_vim_startup=0
 let g:indent_guides_color_change_percent=20
 let g:indent_guides_guide_size=1
