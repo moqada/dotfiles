@@ -95,6 +95,9 @@ bindkey "^R" history-incremental-search-backward
 # 同一ホスト内での履歴の共有
 setopt share_history
 
+# hook
+autoload -Uz add-zsh-hook
+
 # for mercurial
 function mq() {
   hg qpop -af
@@ -126,8 +129,15 @@ eval "$(rbenv init -)"
 export PATH=$HOME/.phpenv/bin:$PATH
 eval "$(phpenv init -)"
 
+# for homebrew-cask
+export HOMEBREW_CASK_OPTS="--appdir=/Applications"
+
 # include private settings
 ZSHRCLOCAL_PATH=$HOME/.zshrc.local
 if [ -f $ZSHRCLOCAL_PATH ]; then
     source $ZSHRCLOCAL_PATH
 fi
+
+# for terminal-notifier
+source ~/.zsh.d/zsh-notify/notify.plugin.zsh
+export GROWL_NOTIFIER=`which growlnotify`
