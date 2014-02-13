@@ -5,7 +5,7 @@ set guioptions=get
 set cmdheight=1
 " 全角スペースの表示
 hi ZenkakuSpace gui=bold guibg=darkcyan
-colorscheme solarized
+colorscheme jellybeans
 set background=dark
 " }}}
 
@@ -24,8 +24,9 @@ if has('gui_macvim')
     set antialias
     set transparency=10
     set showtabline=1
-    set guifont=Ricty\ Discord\ for\ Powerline:h14
-    set guifontwide=Ricty\ Discord\ for\ Powerline:h14
+    set guifont=Sauce\ Code\ Powerline\ Light:h12
+    "set guifont=Ricty\ Discord\ Regular\ for\ Powerline:h11
+    set guifontwide=Ricty\ Discord\ Regular\ for\ Powerline:h13
 endif
 " for kaoriya
 if has('kaoriya')
