@@ -26,4 +26,4 @@ $ brew bundle
 
 Install applications from App Store and original packages
 
-[MacApplicatoins.md](MacApplicatoins.md)
+[MacApplications.md](MacApplications.md)
