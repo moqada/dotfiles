@@ -5,8 +5,10 @@ upgrade
 
 
 ## Packages
+install boot2docker
 install colordiff
 install ctags
+install docker
 install git
 install go
 install jq
