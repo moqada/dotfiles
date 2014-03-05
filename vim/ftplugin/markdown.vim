@@ -22,3 +22,6 @@ function! ToggleCheckbox()
         call setline('.', l:result)
     end
 endfunction
+
+setlocal shiftwidth=2
+setlocal softtabstop=2
