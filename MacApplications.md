@@ -2,6 +2,7 @@
 
 ## App Store
 
+- 3Hub
 - Airmail
 - Dash
 - Growl
