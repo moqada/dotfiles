@@ -462,6 +462,9 @@ let g:github_user = 'moqada'
 " }}}
 
 " tagbar.vim "{{{
+" window 幅設定
+let g:tagbar_width = 30
+" shortcut key 設定
 map ,tl :TagbarToggle<CR> 
 " }}}
 
