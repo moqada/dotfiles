@@ -56,7 +56,7 @@ cask install growlnotify
 cask install google-chrome
 cask install google-chrome-canary
 cask install hipchat
-cask install iterm2
+cask install iterm2-beta
 cask install ivolume
 cask install keyremap4macbook
 cask install lastfm
