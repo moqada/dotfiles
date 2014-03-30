@@ -1,28 +1,16 @@
-" vim:fdm=marker
-" 未分類の設定"{{{
-syntax on
-" 編集中でのバッファ切り替えを可能にする、タブモードの為に必要っぽい
-set hidden
-" コマンドモードの補完をするときに強化されたものを使うか否か(使わない)
-set nowildmenu
-" Vimがテキストを整形する方法を決定するオプションのリスト
-" @see http://vimwiki.net/?'formatoptions'
-set formatoptions=qltcmM
-" 補完モードの指定
-set wildmode=list:longest
-"}}}
+" このファイルではマーカー文字列でソースコードを折り畳み表示
+" vim: foldmethod=marker
 
-" initialize "{{{
+" neobundle.vim "{{{
+" 初期化
 set nocompatible
 filetype off     " required!
-filetype plugin indent off
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
+  call neobundle#rc(expand('~/.vim/bundle'))
 endif
-call neobundle#rc(expand('~/.vim/bundle'))
-"}}}
 
-" neobundle.vim"{{{
+" Plug in
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/unite.vim'
@@ -99,17 +87,16 @@ NeoBundle 'moqada/neco-autoit'
 NeoBundle 'dbext.vim'
 " for SICP
 NeoBundle 'aharisu/vim_goshrepl'
+
+" 後始末
+filetype plugin indent on
 " }}}
 
-filetype plugin indent on
-filetype on
+"---------------------------
+" 基本設定
+"--------------------------
 
-" 環境に依存した非公開設定を読み込む
-if filereadable(expand('~/.vimrc.local'))
-  source ~/.vimrc.local
-endif
-
-" 検索に関する設定"{{{
+" 検索に関する設定 "{{{
 " 検索時に大文字小文字を無視するか否か
 set ignorecase
 " 特殊な検索ロジックの設定
@@ -119,15 +106,16 @@ set smartcase
 set wrapscan
 " 検索文字列をハイライトするか否か(omited:"hls")
 set hlsearch
-" grepに外部コマンドを利用する
-set grepprg=grep\ -nH
 "}}}
 
 " 編集に関する設定"{{{
 " タブの画面上での幅
 set tabstop=4
-set softtabstop=4
+" cindentやautoindent時に挿入されるタブの幅
 set shiftwidth=4
+" Tabキー使用時にTabでは無くホワイトスペースを入れたい時に使用する
+" この値が0以外の時はtabstopの設定が無効になる
+set softtabstop=0
 " タブをスペースに展開するか否か
 set expandtab
 " 自動的にインデントするか否か
@@ -135,27 +123,24 @@ set autoindent
 " バックスペースでインデントや改行を削除できるようにする
 " @see http://vimwiki.net/?'backspace'
 set backspace=indent,eol,start
-"" 対応する括弧を強調表示する
-set showmatch
-"" 対応する括弧の強調表示時間を設定する
-set matchtime=2
 " paste/nopasteをtoggleするキーマップ
 set pastetoggle=;p
 "}}}
 
 " 画面表示の設定"{{{
+" シンタックスハイライトを有効にする
+syntax on
 " 256色対応
 set t_Co=256
 " colorscheme
 colorscheme jellybeans
-" 行番号
+" 行番号を表示
 set number
-" ルーラー
+" ルーラーを表示
 set ruler
-" タブや改行を表示するか否か
+" タブや改行を表示する
 set list
 " どの文字でタブや改行を表示するかを設定
-"set listchars=tab:>-,extends:<,trail:-,eol:<
 set listchars=tab:>-
 " 長い行を折り返して表示するか否か
 set wrap
@@ -165,47 +150,32 @@ set laststatus=2
 set cmdheight=1
 " コマンドをステータス行に表示するか否か
 set showcmd
-" タイトルバーに情報を表示するか否か
-set notitle
+" タイトルバーに情報を表示する
+set title
 " 縦にラインを引く
 set colorcolumn=80
 hi ColorColumn guibg=#666666
+"" 対応する括弧を強調表示する
+set showmatch
+"" 対応する括弧の強調表示時間を設定する
+set matchtime=2
 "}}}
 
-" バックアップ・スワップに関する設定"{{{
-" スワップファイルの保存先
-set directory=~/.tmp,~/tmp,/var/tmp,/tmp
+" バックアップ・スワップ・履歴に関する設定"{{{
+" バックアップファイルを作成する
+set backup
 " バックアップファイルの保存先
 set backupdir=~/.vim/backup,~/.tmp,~/tmp,/var/tmp,/tmp
-" バックアップファイルを作成するか否か
-set backup
-" 一時的なバックアップファイルを作成するか否か
+" スワップファイルを作成する
+set swapfile
+" スワップファイルの保存先
+set directory=~/.tmp,~/tmp,/var/tmp,/tmp
+" 一時的なバックアップファイルを作成する
+" ファイルの上書きの前にバックアップを作成
 set writebackup
-" - 検索履歴の行数
-set viminfo+=/50
-" - マークの行数
-set viminfo+='50
 " コマンド履歴の保存数
-" - viminfoとの兼ね合いは良くわからない
 set history=500
 "}}}
-
-" マウス操作に関する設定 "{{{
-" マウスの移動でフォーカスを自動的に切替えるか否か
-set nomousefocus
-" 入力時にマウスポインタを隠すか否か
-set mousehide
-" ビジュアル選択を自動的にシステムのクリップボードに入れる
-"set guioptions+=a
-" }}}
-
-" 色に関する設定 "{{{
-" 被検索対象文字列
-"highlight Search ctermbg=Yellow ctermfg=Black
-" タブと行末半角スペースと半角スペース
-"highlight TabSpace ctermbg=DarkBlue
-"match TabSpace /\t\|\s\+$/
-" }}}
 
 " 文字コード/改行コード "{{{
 " vim-refのwindowsでの文字化け対策
@@ -217,73 +187,7 @@ endif
 set encoding=utf-8
 set fileencodings=ucs_bom,utf-8,ucs-2le,ucs-2,cp932
 set fileformats=unix,dos,mac
-" 文字コードの自動認識
-" @see http://www.kawaz.jp/pukiwiki/?vim#content_1_7
-if &encoding !=# 'utf-8'
-  set encoding=japan
-  set fileencoding=japan
-endif
-if has('iconv')
-  let s:enc_euc = 'euc-jp'
-  let s:enc_jis = 'iso-2022-jp'
-  " iconvがeucJP-msに対応しているかをチェック
-  if iconv("\x87\x64\x87\x6a", 'cp932', 'eucjp-ms') ==# "\xad\xc5\xad\xcb"
-    let s:enc_euc = 'eucjp-ms'
-    let s:enc_jis = 'iso-2022-jp-3'
-  " iconvがJISX0213に対応しているかをチェック
-  elseif iconv("\x87\x64\x87\x6a", 'cp932', 'euc-jisx0213') ==# "\xad\xc5\xad\xcb"
-    let s:enc_euc = 'euc-jisx0213'
-    let s:enc_jis = 'iso-2022-jp-3'
-  endif
-  " fileencodingsを構築
-  if &encoding ==# 'utf-8'
-    let s:fileencodings_default = &fileencodings
-    let &fileencodings = s:enc_jis .','. s:enc_euc .',cp932'
-    let &fileencodings = s:fileencodings_default .','. &fileencodings
-    unlet s:fileencodings_default
-  else
-    let &fileencodings = &fileencodings .','. s:enc_jis
-    set fileencodings+=utf-8,ucs-2le,ucs-2
-    if &encoding =~# '^\(euc-jp\|euc-jisx0213\|eucjp-ms\)$'
-      set fileencodings+=cp932
-      set fileencodings-=euc-jp
-      set fileencodings-=euc-jisx0213
-      set fileencodings-=eucjp-ms
-      let &encoding = s:enc_euc
-      let &fileencoding = s:enc_euc
-    else
-      let &fileencodings = &fileencodings .','. s:enc_euc
-    endif
-  endif
-  " 定数を処分
-  unlet s:enc_euc
-  unlet s:enc_jis
-endif
 " }}}
-
-" key mappnig {{{
-" --------------------------
-" バッファ切り替え
-nnoremap <C-N> :bn!<CR>
-nnoremap <C-P> :bp!<CR>
-" 5回移動する
-"nnoremap <C-J> 5j
-"nnoremap <C-K> 5k
-"nnoremap <C-H> 5h
-"nnoremap <C-L> 5l
-" カーソル上下の前方一致補完にする
-cnoremap <C-P> <UP>
-cnoremap <C-N> <DOWN>
-" ウィンドウサイズ変更
-"nnoremap ,w1 :set columns=80<CR>
-"nnoremap ,w2 :set columns=115<CR>
-"nnoremap ,w3 :set columns=150<CR>
-" ヴィジュアルモードで選択した範囲を検索する
-" @see: http://vim-users.jp/2009/11/hack104/
-"vnoremap <silent> * "vy/\V<C-r>=substitute(escape(@v,'\/'),"\n",'\\n','g')<CR><CR>
-" 指定コマンド後にquickfixを表示させる
-autocmd QuickFixCmdPost CoffeeLint if len(getqflist()) != 0 | copen | endif
-"}}}
 
 " FileType Settings "{{{
 " ----------
@@ -291,8 +195,6 @@ autocmd QuickFixCmdPost CoffeeLint if len(getqflist()) != 0 | copen | endif
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable shiftwidth=2 filetype=coffee
 " for JavaScript
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-" for vim-flake8 (python)
-au BufRead,BufNewFile,BufWrite *.py call Flake8()
 " for Markdown
 augroup markdown
     au!
@@ -302,8 +204,9 @@ augroup END
 "}}}
 
 "---------------------------
-" plugin
+" プラグイン設定
 "--------------------------
+
 " vim-anzu "{{{
 " 通常のn/Nと置き換えてコマンドラインに結果を表示する
 nmap n <Plug>(anzu-n-with-echo)
@@ -745,6 +648,7 @@ if !exists('g:neocomplcache_plugin_completion_length')
       \ 'look' : 4,
       \ }
 endif
+"}}}
 
 " Plugin key-mappings."{{{
 inoremap <expr><C-g>     neocomplcache#undo_completion()
@@ -766,3 +670,13 @@ inoremap <expr><C-e>  neocomplcache#cancel_popup()
 " <C-n>でマニュアル補完を開始する
 inoremap <expr><C-n>  neocomplcache#start_manual_complete()
 "}}}
+
+"---------------------------
+" ローカル設定
+"--------------------------
+
+" 環境に依存した非公開設定を読み込む "{{{
+if filereadable(expand('~/.vimrc.local'))
+  source ~/.vimrc.local
+endif
+" }}}
