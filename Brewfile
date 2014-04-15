@@ -5,12 +5,15 @@ upgrade
 
 
 ## Packages
+install android-sdk
+install ant
 install boot2docker
 install colordiff
 install ctags
 install docker
 install git
 install go
+install ios-sim
 install jq
 install lame
 install lua
