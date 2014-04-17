@@ -125,6 +125,8 @@ set autoindent
 set backspace=indent,eol,start
 " paste/nopasteをtoggleするキーマップ
 set pastetoggle=;p
+" 補完候補表示、候補1つでも表示、候補文字列の最長の共通部分だけを挿入
+set completeopt=menu,menuone
 "}}}
 
 " 画面表示の設定"{{{
@@ -383,7 +385,13 @@ let g:user_emmet_settings = {
 " }}}
 
 " jedi-vim "{{{
+" period の入力時自動的に補完を開始しない
 let g:jedi#popup_on_dot = 0
+" 補完表示を jedi-vim のデフォルト設定にしない
+" デフォルト設定は menuone,longest,preview で preview が表示されてつらい
+let g:jedi#auto_vim_configuration = 0
+" 補完時に最初の項目を選択させない
+let g:jedi#popup_select_first = 0
 " }}}
 
 " indent_guides "{{{
