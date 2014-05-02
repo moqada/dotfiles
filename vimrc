@@ -56,8 +56,7 @@ NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'rest.vim'
 NeoBundle 'Rykka/riv.vim'
 " for markdown
-NeoBundle 'tpope/vim-markdown'
-NeoBundle 'jtratner/vim-flavored-markdown'
+NeoBundle 'rcmdnk/vim-markdown'
 " for color
 NeoBundle 'nanotech/jellybeans.vim'
 " for coffeescript
@@ -197,11 +196,6 @@ set fileformats=unix,dos,mac
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable shiftwidth=2 filetype=coffee
 " for JavaScript
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-" for Markdown
-augroup markdown
-    au!
-    au BufNewFile,BufRead *.md,*.markdown setlocal filetype=ghmarkdown
-augroup END
 " ----------
 "}}}
 
