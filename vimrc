@@ -66,6 +66,8 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'groenewege/vim-less'
 " for css
 NeoBundle 'hail2u/vim-css3-syntax'
+" for sass
+NeoBundle 'cakebaker/scss-syntax.vim'
 " for php
 NeoBundle 'shawncplus/php.vim'
 " for tweetvim
