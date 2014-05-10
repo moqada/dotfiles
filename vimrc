@@ -464,76 +464,95 @@ let g:skk_marker_black = '>>'
 
 " unite.vim "{{{
 "------------------------------
-" 入力モードで開始
-let g:unite_enable_start_insert=1
-
 " The prefix key.
 nnoremap    [unite]   <Nop>
 xnoremap    [unite]   <Nop>
 nmap     ;u [unite]
 xmap     ;u  [unite]
 
-nnoremap <silent> [unite]u  :<C-u>Unite -buffer-name=files buffer file_mru bookmark file file/new<CR>
-nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir -buffer-name=files buffer file_mru bookmark file file/new<CR>
-nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir -buffer-name=files -prompt=%\  buffer file_mru bookmark file file/new<CR>
+nnoremap <silent> [unite]u
+      \ :<C-u>Unite
+      \ -buffer-name=files buffer file_mru bookmark file file/new<CR>
+nnoremap <silent> [unite]c
+      \ :<C-u>UniteWithCurrentDir
+      \ -buffer-name=files buffer file_mru bookmark file file/new<CR>
+nnoremap <silent> [unite]b
+      \ :<C-u>UniteWithBufferDir
+      \ -buffer-name=files -prompt=%\  buffer file_mru bookmark file file/new<CR>
 nnoremap <silent> [unite]r  :<C-u>Unite -buffer-name=register register<CR>
 nnoremap <silent> [unite]o  :<C-u>Unite outline<CR>
+nnoremap <silent> [unite]f
+      \ :<C-u>Unite -buffer-name=resume resume<CR>
+nnoremap <silent> [unite]ma
+      \ :<C-u>Unite mapping<CR>
 nnoremap  [unite]f  :<C-u>Unite source<CR>
+nnoremap <silent> [unite]s
+      \ :<C-u>Unite -buffer-name=files -no-split
+      \ jump_point file_point buffer_tab
+      \ file_rec:! file file/new<CR>
+
+" 入力モードで開始
+let g:unite_enable_start_insert = 1
+" ソース名を短縮表示する
+let g:unite_enable_short_source_names = 1
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()"{{{
-    " Overwrite settings.
+  " Overwrite settings.
 
-    nmap <buffer> <ESC>      <Plug>(unite_exit)
-    imap <buffer> jj      <Plug>(unite_insert_leave)
-    "imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+  imap <buffer> jj      <Plug>(unite_insert_leave)
+  "imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
 
-    " <C-l>: manual neocomplcache completion.
-    inoremap <buffer> <C-l>  <C-x><C-u><C-p><Down>
+  imap <buffer><expr> j unite#smart_map('j', '')
+  imap <buffer> <TAB>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+  imap <buffer> '     <Plug>(unite_quick_match_default_action)
+  nmap <buffer> '     <Plug>(unite_quick_match_default_action)
+  imap <buffer><expr> x
+          \ unite#smart_map('x', "\<Plug>(unite_quick_match_choose_action)")
+  nmap <buffer> x     <Plug>(unite_quick_match_choose_action)
+  nmap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
+  imap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
+  imap <buffer> <C-y>     <Plug>(unite_narrowing_path)
+  nmap <buffer> <C-y>     <Plug>(unite_narrowing_path)
+  nmap <buffer> <C-j>     <Plug>(unite_toggle_auto_preview)
+  nmap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
+  imap <buffer> <C-r>     <Plug>(unite_narrowing_input_history)
+  nnoremap <silent><buffer><expr> l
+          \ unite#smart_map('l', unite#do_action('default'))
 
-    " Start insert.
-    "let g:unite_enable_start_insert = 1
+  let unite = unite#get_current_unite()
+  if unite.profile_name ==# 'search'
+    nnoremap <silent><buffer><expr> r     unite#do_action('replace')
+  else
+    nnoremap <silent><buffer><expr> r     unite#do_action('rename')
+  endif
+
+  nnoremap <silent><buffer><expr> cd     unite#do_action('lcd')
+  nnoremap <buffer><expr> S      unite#mappings#set_current_filters(
+          \ empty(unite#mappings#get_current_filters()) ?
+          \ ['sorter_reverse'] : [])
+
+  " Runs "split" action by <C-s>.
+  imap <silent><buffer><expr> <C-s>     unite#do_action('split')
 endfunction"}}}
 
-let g:unite_source_file_mru_limit = 200
 let g:unite_cursor_line_highlight = 'TabLineSel'
 let g:unite_abbr_highlight = 'TabLine'
-" unite側でstatuslineを上書きしないようにする
-let g:unite_force_overwrite_statusline = 0
 
-" For optimize.
-let g:unite_source_file_mru_filename_format = ''
+if executable('jvgrep')
+  " For jvgrep.
+  let g:unite_source_grep_command = 'jvgrep'
+  let g:unite_source_grep_default_opts = '--exclude ''\.(git|svn|hg|bzr)'''
+  let g:unite_source_grep_recursive_opt = '-R'
+endif
 
-" For unite-session.
-" Save session automatically.
-"let g:unite_source_session_enable_auto_save = 1
-" Load session automatically.
-"autocmd VimEnter * UniteSessionLoad
-" }}}
-
-" unite de diff "{{{
-" @see http://daisuzu.hatenablog.com/entry/2012/08/22/231557
-let diff_action = {
-    \   'description': 'diff',
-    \   'is_selectable': 1,
-    \ }
-
-function! diff_action.func(candidates)
-    if len(a:candidates) == 1
-        " カレントバッファとdiffをとる
-        execute 'vert diffsplit ' . a:candidates[0].action__path
-    elseif len(a:candidates) == 2
-        " 選択されたファイルとdiffをとる
-        execute 'tabnew ' . a:candidates[0].action__path
-        execute 'vert diffsplit ' . a:candidates[1].action__path
-    else
-        " 3-way以上は非対応
-        echo 'too many candidates!'
-    endif
-endfunction
-
-call unite#custom_action('file', 'diff', diff_action)
-unlet diff_action
+" For ack.
+if executable('ack-grep')
+  " let g:unite_source_grep_command = 'ack-grep'
+  " let g:unite_source_grep_default_opts = '--no-heading --no-color -k -H'
+  " let g:unite_source_grep_recursive_opt = ''
+endif
 " }}}
 
 " vimfiler {{{
