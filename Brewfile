@@ -40,6 +40,10 @@ install --powerline --vim-powerline ricty
 tap josegonzalez/php
 install phpenv
 
+### for Packer
+tap homebrew/binary
+install packer
+
 ### for cask
 tap phinze/cask
 install brew-cask
