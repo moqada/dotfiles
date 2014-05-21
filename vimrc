@@ -198,6 +198,9 @@ set fileformats=unix,dos,mac
 au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable shiftwidth=2 filetype=coffee
 " for JavaScript
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
+" for Markdown
+" そのままだと *.md なファイルは modula2 と判断されてしまう
+au BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} setl ft=markdown
 " ----------
 "}}}
 
@@ -502,12 +505,13 @@ autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()"{{{
   " Overwrite settings.
 
+  nmap <buffer> <ESC>      <Plug>(unite_exit)
   imap <buffer> jj      <Plug>(unite_insert_leave)
   "imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
 
   imap <buffer><expr> j unite#smart_map('j', '')
-  imap <buffer> <TAB>   <Plug>(unite_select_next_line)
-  imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+  "imap <buffer> <TAB>   <Plug>(unite_select_next_line)
+  "imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
   imap <buffer> '     <Plug>(unite_quick_match_default_action)
   nmap <buffer> '     <Plug>(unite_quick_match_default_action)
   imap <buffer><expr> x
