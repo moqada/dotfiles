@@ -198,7 +198,7 @@ set fileformats=unix,dos,mac
 " FileType Settings "{{{
 " ----------
 " for CoffeeScript
-au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable shiftwidth=2 filetype=coffee
+au BufNewFile,BufReadPost *.coffee setl foldmethod=indent nofoldenable shiftwidth=2 softtabstop=2 tabstop=2 filetype=coffee
 " for JavaScript
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 " for Markdown
