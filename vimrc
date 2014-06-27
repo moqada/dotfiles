@@ -82,6 +82,8 @@ NeoBundle 'yomi322/neco-tweetvim'
 " for vimscript
 NeoBundle 'mattn/learn-vimscript'
 NeoBundle 'vim-jp/vimdoc-ja'
+" for Serverspec
+NeoBundle 'glidenote/serverspec-snippets'
 " for autoit
 NeoBundle 'moqada/autoit.vim--Breland'
 NeoBundle 'moqada/neco-autoit'
@@ -575,6 +577,7 @@ nnoremap <silent> <Leader>e :<C-u>VimFilerBufferDir<CR>
 
 " neosnippet "{{{
 let g:neosnippet#snippets_directory = $HOME . '/.vim/bundle/vim-snippets/snippets'
+\   . ',' . $HOME .  '/.vim/bundle/serverspec-snippets'
 \   . ',' . $HOME .  '/.vim/snippets'
 " snipMate互換にする
 let g:neosnippet#enable_snipmate_compatibility = 1
