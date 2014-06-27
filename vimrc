@@ -39,6 +39,7 @@ NeoBundle 'osyo-manga/vim-anzu'
 " for git
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'mattn/gist-vim'
+NeoBundle 'kana/vim-fakeclip'
 " for javascript
 NeoBundle 'jelera/vim-javascript-syntax'
 NeoBundle 'jiangmiao/simple-javascript-indenter'
@@ -128,6 +129,8 @@ set backspace=indent,eol,start
 set pastetoggle=;p
 " 補完候補表示、候補1つでも表示、候補文字列の最長の共通部分だけを挿入
 set completeopt=menu,menuone
+" クリップボードを使う
+set clipboard=unnamed
 "}}}
 
 " 画面表示の設定"{{{
