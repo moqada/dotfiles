@@ -13,6 +13,7 @@ install ctags
 install docker
 install git
 install go
+install heroku-toolbelt
 install ios-sim
 install jq
 install lame
