@@ -36,6 +36,7 @@ NeoBundle 'visSum.vim'
 NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'osyo-manga/vim-anzu'
+NeoBundle 'h1mesuke/vim-alignta'
 " for git
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'mattn/gist-vim'
