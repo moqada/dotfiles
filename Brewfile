@@ -66,7 +66,7 @@ cask install google-chrome-canary
 cask install hipchat
 cask install iterm2
 cask install ivolume
-cask install keyremap4macbook
+cask install karabiner
 cask install lastfm
 cask install magican
 cask install mou
