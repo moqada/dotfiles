@@ -69,6 +69,7 @@ cask install ivolume
 cask install keyremap4macbook
 cask install lastfm
 cask install magican
+cask install mou
 cask install omnifocus
 cask install onepassword
 cask install onyx
