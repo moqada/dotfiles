@@ -173,9 +173,7 @@ set matchtime=2
 
 " バックアップ・スワップ・履歴に関する設定"{{{
 " バックアップファイルを作成する
-set backup
-" バックアップファイルの保存先
-set backupdir=~/.vim/backup,~/.tmp,~/tmp,/var/tmp,/tmp
+set nobackup
 " スワップファイルを作成する
 set swapfile
 " スワップファイルの保存先
