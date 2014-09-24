@@ -22,7 +22,7 @@ endif
 " macvim設定
 if has('gui_macvim')
     set antialias
-    set transparency=10
+    set transparency=25
     set showtabline=1
     set guifont=Sauce\ Code\ Powerline\ Light:h12
     "set guifont=Ricty\ Discord\ Regular\ for\ Powerline:h11
