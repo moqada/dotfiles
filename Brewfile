@@ -27,6 +27,7 @@ install rbenv
 install ruby-build
 install tig
 install tmux
+install transmission
 install tree
 install --with-lua --with-python3 vim
 install w3m
