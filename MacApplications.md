@@ -3,7 +3,7 @@
 ## App Store
 
 - 3Hub
-- Airmail
+- Airmail 2
 - Dash
 - Growl
 - Keynote
@@ -11,6 +11,7 @@
 - Microsoft Remote Desktop
 - MindNode Pro
 - Pocket
+- Sunrise
 - Xcode
 - iPhoto
 - iMovie
