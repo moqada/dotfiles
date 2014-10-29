@@ -141,3 +141,6 @@ fi
 # for terminal-notifier
 source ~/.zsh.d/zsh-notify/notify.plugin.zsh
 export GROWL_NOTIFIER=`which growlnotify`
+
+# for travis gem
+[ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
