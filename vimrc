@@ -7,7 +7,7 @@ set nocompatible
 filetype off     " required!
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#rc(expand('~/.vim/bundle'))
+  call neobundle#begin(expand('~/.vim/bundle'))
 endif
 
 " Plug in
@@ -58,6 +58,7 @@ NeoBundle 'alfredodeza/pytest.vim'
 " for ReST
 NeoBundle 'rest.vim'
 NeoBundle 'Rykka/riv.vim'
+NeoBundle 'Rykka/clickable.vim'
 " for markdown
 NeoBundle 'rcmdnk/vim-markdown'
 " for color
@@ -93,6 +94,8 @@ NeoBundle 'moqada/neco-autoit'
 NeoBundle 'dbext.vim'
 " for SICP
 NeoBundle 'aharisu/vim_goshrepl'
+
+call neobundle#end()
 
 " 後始末
 filetype plugin indent on
