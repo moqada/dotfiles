@@ -63,8 +63,6 @@ NeoBundle 'nanotech/jellybeans.vim'
 " for coffeescript
 NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'nathanaelkane/vim-indent-guides'
-" for less
-NeoBundle 'groenewege/vim-less'
 " for css
 NeoBundle 'hail2u/vim-css3-syntax'
 " for sass
