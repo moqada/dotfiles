@@ -442,11 +442,9 @@ nmap <silent><Leader>ig <Plug>IndentGuidesToggle
 " }}}
 
 " syntastic "{{{
-let g:syntastic_mode_map = { 'mode': 'active',
-            \ 'active_filetypes': ['javascript', 'php']
-            \ }
-let g:syntastic_check_on_open=1
-let g:syntastic_python_checkers=['flake8']
+" ファイルオープン時に syntax check を実行しない
+let g:syntastic_check_on_open = 0
+let g:syntastic_python_checkers = ['flake8']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
 " }}}"
 
