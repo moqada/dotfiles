@@ -137,14 +137,14 @@ filetype plugin indent on
 "--------------------------
 
 " 検索に関する設定 "{{{
-" 検索時に大文字小文字を無視するか否か
+" 検索時に大文字小文字を無視する
 set ignorecase
 " 特殊な検索ロジックの設定
 " @see http://vimwiki.net/?'smartcase'
 set smartcase
-" 検索時にファイルの最後まで行ったら最初に戻るか否か
+" 検索時にファイルの最後まで行ったら最初に戻って再び検索する
 set wrapscan
-" 検索文字列をハイライトするか否か(omited:"hls")
+" 検索文字列をハイライトする(omited:"hls")
 set hlsearch
 "}}}
 
@@ -156,9 +156,9 @@ set shiftwidth=4
 " Tabキー使用時にTabでは無くホワイトスペースを入れたい時に使用する
 " この値が0以外の時はtabstopの設定が無効になる
 set softtabstop=0
-" タブをスペースに展開するか否か
+" タブをスペースに展開する
 set expandtab
-" 自動的にインデントするか否か
+" 自動的にインデントする
 set autoindent
 " バックスペースでインデントや改行を削除できるようにする
 " @see http://vimwiki.net/?'backspace'
@@ -186,13 +186,13 @@ set ruler
 set list
 " どの文字でタブや改行を表示するかを設定
 set listchars=tab:>-
-" 長い行を折り返して表示するか否か
+" 長い行を折り返して表示する
 set wrap
 " 常にステータスラインを表示
 set laststatus=2
 " コマンドモード入力部分の縦幅
 set cmdheight=1
-" コマンドをステータス行に表示するか否か
+" コマンドをステータス行に表示する
 set showcmd
 " タイトルバーに情報を表示する
 set title
@@ -206,7 +206,7 @@ set matchtime=2
 "}}}
 
 " バックアップ・スワップ・履歴に関する設定"{{{
-" バックアップファイルを作成する
+" バックアップファイルを作成しない
 set nobackup
 " スワップファイルを作成する
 set swapfile
