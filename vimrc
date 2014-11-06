@@ -74,8 +74,6 @@ NeoBundle 'mattn/learn-vimscript'
 NeoBundle 'vim-jp/vimdoc-ja'
 " for Serverspec
 NeoBundle 'glidenote/serverspec-snippets'
-" for SICP
-NeoBundle 'aharisu/vim_goshrepl'
 
 call neobundle#end()
 
