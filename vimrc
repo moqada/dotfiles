@@ -46,7 +46,6 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'digitaltoad/vim-jade'
 " for python
 NeoBundle 'django.vim'
-NeoBundle 'VST'
 NeoBundle 'indentpython.vim--nianyang'
 NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'nvie/vim-flake8'
