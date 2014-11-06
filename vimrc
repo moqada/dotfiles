@@ -74,9 +74,6 @@ NeoBundle 'mattn/learn-vimscript'
 NeoBundle 'vim-jp/vimdoc-ja'
 " for Serverspec
 NeoBundle 'glidenote/serverspec-snippets'
-" for autoit
-NeoBundle 'moqada/autoit.vim--Breland'
-NeoBundle 'moqada/neco-autoit'
 " for DB
 NeoBundle 'dbext.vim'
 " for SICP
