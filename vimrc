@@ -69,8 +69,6 @@ NeoBundle 'groenewege/vim-less'
 NeoBundle 'hail2u/vim-css3-syntax'
 " for sass
 NeoBundle 'cakebaker/scss-syntax.vim'
-" for php
-NeoBundle 'shawncplus/php.vim'
 " for tweetvim
 NeoBundle 'basyura/TweetVim'
 NeoBundle 'tyru/open-browser.vim'
