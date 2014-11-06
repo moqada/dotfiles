@@ -51,7 +51,6 @@ NeoBundle 'davidhalter/jedi-vim'
 NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'alfredodeza/pytest.vim'
 " for ReST
-NeoBundle 'rest.vim'
 NeoBundle 'Rykka/riv.vim'
 NeoBundle 'Rykka/clickable.vim'
 " for markdown
