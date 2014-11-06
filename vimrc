@@ -25,7 +25,6 @@ NeoBundle 'mattn/emmet-vim'
 NeoBundle 'itchyny/lightline.vim'
 NeoBundle 'majutsushi/tagbar'
 NeoBundle 'sudo.vim'
-NeoBundle 'sjl/gundo.vim'
 NeoBundle 'tyru/skk.vim'
 NeoBundle 'mojako/ref-sources.vim'
 NeoBundle 'kana/vim-smartinput'
@@ -260,11 +259,11 @@ let g:lightline = {
       \ }
 
 function! MyModified()
-  return &ft =~ 'help\|vimfiler\|gundo' ? '' : &modified ? '+' : &modifiable ? '' : '-'
+  return &ft =~ 'help\|vimfiler\' ? '' : &modified ? '+' : &modifiable ? '' : '-'
 endfunction
 
 function! MyReadonly()
-  return &ft !~? 'help\|vimfiler\|gundo' && &ro ? '⭤' : ''
+  return &ft !~? 'help\|vimfiler\' && &ro ? '⭤' : ''
 endfunction
 
 function! MyFilename()
@@ -278,7 +277,7 @@ endfunction
 
 function! MyFugitive()
   try
-    if &ft !~? 'vimfiler\|gundo' && exists('*fugitive#head')
+    if &ft !~? 'vimfiler\' && exists('*fugitive#head')
       let _ = fugitive#head()
       return strlen(_) ? '⭠ '._ : ''
     endif
@@ -450,10 +449,6 @@ let g:ref_source_webdict_sites = {
 " ファイルは事前にダウンロードしておく
 " http://www.php.net/download-docs.php
 let g:ref_phpmanual_path = $HOME . '/.phpdoc/php-chunked-xhtml'
-" }}}
-
-" gundo.vim "{{{
-nnoremap U :GundoToggle<CR>
 " }}}
 
 " skk.vim "{{{
