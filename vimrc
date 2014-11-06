@@ -69,14 +69,6 @@ NeoBundle 'groenewege/vim-less'
 NeoBundle 'hail2u/vim-css3-syntax'
 " for sass
 NeoBundle 'cakebaker/scss-syntax.vim'
-" for tweetvim
-NeoBundle 'basyura/TweetVim'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'basyura/twibill.vim'
-NeoBundle 'mattn/webapi-vim'
-NeoBundle 'h1mesuke/unite-outline'
-NeoBundle 'basyura/bitly.vim'
-NeoBundle 'yomi322/neco-tweetvim'
 " for vimscript
 NeoBundle 'mattn/learn-vimscript'
 NeoBundle 'vim-jp/vimdoc-ja'
@@ -420,17 +412,6 @@ let g:syntastic_check_on_open=1
 let g:syntastic_python_checkers=['flake8']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
 " }}}"
-
-" tweetvim "{{{
-" @see http://d.hatena.ne.jp/basyura/20111230/p1
-" 発言用バッファを表示する
-nnoremap <silent> s :TweetVimSay<CR>
-" @see http://qiita.com/items/a28eb714151886358b1a
-" 1ページあたりのツイート数
-let g:tweetvim_tweet_per_page = 60
-" アイコンを表示する
-let g:tweetvim_display_icon = 1
-" }}}
 
 " ref.vim"{{{
 let g:ref_use_vimproc = 1
