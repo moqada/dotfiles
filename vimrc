@@ -48,7 +48,6 @@ NeoBundle 'digitaltoad/vim-jade'
 NeoBundle 'django.vim'
 NeoBundle 'indentpython.vim--nianyang'
 NeoBundle 'davidhalter/jedi-vim'
-NeoBundle 'nvie/vim-flake8'
 NeoBundle 'hynek/vim-python-pep8-indent'
 NeoBundle 'alfredodeza/pytest.vim'
 " for ReST
