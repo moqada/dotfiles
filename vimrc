@@ -4,7 +4,6 @@
 " neobundle.vim "{{{
 " 初期化
 set nocompatible
-filetype off     " required!
 if has('vim_starting')
   set runtimepath+=~/.vim/bundle/neobundle.vim
   call neobundle#begin(expand('~/.vim/bundle'))
@@ -13,18 +12,30 @@ endif
 " Plug in
 NeoBundleFetch 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/unite.vim'
+NeoBundle 'Shougo/vimproc', {
+     \ 'build': {
+     \     'windows': 'mingw32-make -f make_mingw32.mak',
+     \     'cygwin': 'make -f make_cygwin.mak',
+     \     'mac': 'make -f make_mac.mak',
+     \     'unix': 'make -f make_unix.mak',
+     \    },
+     \ }
+NeoBundleLazy 'Shougo/unite.vim', {
+     \ 'autoload': {'commands': ['Unite', 'UniteWithBufferDir', 'UniteWithCurrentDir']}
+     \ }
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'Shougo/vimproc'
 NeoBundle 'thinca/vim-ref'
-NeoBundle 'mattn/emmet-vim'
 NeoBundle 'itchyny/lightline.vim'
-NeoBundle 'majutsushi/tagbar'
-NeoBundle 'sudo.vim'
+NeoBundleLazy 'majutsushi/tagbar', {
+     \ 'autoload': {'commands': ['TagbarToggle']}
+     \ }
+NeoBundleLazy 'sudo.vim', {
+     \ 'autoload': {'commands': ['SudoRead', 'SudoWrite']}
+     \ }
 NeoBundle 'tyru/skk.vim'
 NeoBundle 'mojako/ref-sources.vim'
 NeoBundle 'kana/vim-smartinput'
@@ -34,45 +45,90 @@ NeoBundle 'yuratomo/w3m.vim'
 NeoBundle 'honza/vim-snippets'
 NeoBundle 'osyo-manga/vim-anzu'
 NeoBundle 'h1mesuke/vim-alignta'
-" for git
-NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'mattn/gist-vim'
-NeoBundle 'kana/vim-fakeclip'
-" for javascript
-NeoBundle 'jelera/vim-javascript-syntax'
-NeoBundle 'jiangmiao/simple-javascript-indenter'
-NeoBundle 'nono/jquery.vim'
 NeoBundle 'scrooloose/syntastic'
-NeoBundle 'digitaltoad/vim-jade'
-" for python
-NeoBundle 'django.vim'
-NeoBundle 'indentpython.vim--nianyang'
-NeoBundle 'davidhalter/jedi-vim'
-NeoBundle 'hynek/vim-python-pep8-indent'
-NeoBundle 'alfredodeza/pytest.vim'
-" for ReST
-NeoBundle 'Rykka/riv.vim'
-NeoBundle 'Rykka/clickable.vim'
-" for markdown
-NeoBundle 'rcmdnk/vim-markdown'
-" for color
-NeoBundle 'nanotech/jellybeans.vim'
-" for coffeescript
-NeoBundle 'kchmck/vim-coffee-script'
 NeoBundle 'nathanaelkane/vim-indent-guides'
-" for css
-NeoBundle 'hail2u/vim-css3-syntax'
-" for sass
-NeoBundle 'cakebaker/scss-syntax.vim'
-" for vimscript
-NeoBundle 'mattn/learn-vimscript'
-NeoBundle 'vim-jp/vimdoc-ja'
-" for Serverspec
-NeoBundle 'glidenote/serverspec-snippets'
+NeoBundle 'kana/vim-fakeclip'
+NeoBundle 'nanotech/jellybeans.vim'
 
-call neobundle#end()
+" for CoffeeScript
+NeoBundleLazy 'kchmck/vim-coffee-script', {
+     \ 'autoload': {'filetypes': ['coffee']}
+     \ }
+
+" for Git
+NeoBundle 'tpope/vim-fugitive'
+
+" for GitHub
+NeoBundleLazy 'mattn/gist-vim', {
+     \ 'autoload': {'commands': ['Gist']}
+     \ }
+
+" for HTML / CSS
+NeoBundleLazy 'mattn/emmet-vim', {
+     \ 'autoload': {'filetypes': ['css', 'html', 'sass', 'scss']}
+     \ }
+NeoBundleLazy 'hail2u/vim-css3-syntax', {
+     \ 'autoload': {'filetypes': ['css']}
+     \ }
+NeoBundleLazy 'cakebaker/scss-syntax.vim', {
+     \ 'autoload': {'filetypes': ['scss']}
+     \ }
+
+" for JavaScript
+NeoBundleLazy 'jelera/vim-javascript-syntax', {
+     \ 'autoload': {'filetypes': ['javascript']}
+     \ }
+NeoBundleLazy 'jiangmiao/simple-javascript-indenter', {
+     \ 'autoload': {'filetypes': ['javascript']}
+     \ }
+NeoBundle 'nono/jquery.vim'
+NeoBundleLazy 'digitaltoad/vim-jade', {
+     \ 'autoload': {'filetypes': ['jade']}
+     \ }
+
+" for Markdown
+NeoBundleLazy 'rcmdnk/vim-markdown', {
+     \ 'autoload': {'filetypes': ['markdown']}
+     \ }
+
+" for Python
+NeoBundle 'django.vim'
+NeoBundleLazy 'indentpython.vim--nianyang', {
+     \ 'autoload': {'filetypes': ['python']}
+     \ }
+NeoBundleLazy 'davidhalter/jedi-vim', {
+     \ 'autoload': {'filetypes': ['python']}
+     \ }
+NeoBundleLazy 'hynek/vim-python-pep8-indent', {
+     \ 'autoload': {'filetypes': ['python']}
+     \ }
+NeoBundleLazy 'alfredodeza/pytest.vim', {
+     \ 'autoload': {'filetypes': ['python']}
+     \ }
+
+" for ReST
+NeoBundleLazy 'Rykka/riv.vim', {
+     \ 'autoload': {'filetypes': ['rest']}
+     \ }
+NeoBundleLazy 'Rykka/clickable.vim', {
+     \ 'autoload': {'filetypes': ['rest']}
+     \ }
+
+" for Serverspec
+NeoBundleLazy 'glidenote/serverspec-snippets', {
+     \ 'autoload': {'filetypes': ['ruby']}
+     \ }
+
+" for Vim Script
+NeoBundleLazy 'mattn/learn-vimscript', {
+     \ 'autoload': {'filetypes': ['vim']}
+     \ }
+NeoBundleLazy 'vim-jp/vimdoc-ja', {
+     \ 'autoload': {'filetypes': ['vim']}
+     \ }
 
 " 後始末
+call neobundle#end()
 filetype plugin indent on
 " }}}
 
