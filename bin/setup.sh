@@ -9,6 +9,9 @@ ln -si $BASE_DIR/gitignore $HOME/.gitignore
 # Mercurial
 ln -si $BASE_DIR/hgrc $HOME/.hgrc
 
+# Tig
+ln -si $BASE_DIR/tigrc $HOME/.tigrc
+
 # TMUX
 ln -si $BASE_DIR/tmux.conf $HOME/.tmux.conf
 
