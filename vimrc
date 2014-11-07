@@ -416,13 +416,12 @@ let g:user_emmet_settings = {
 " }}}
 
 " jedi-vim "{{{
-" period の入力時自動的に補完を開始しない
-let g:jedi#popup_on_dot = 0
+" Omni 補完に jedi を使用する (neocomplete で利用する)
+au FileType python setlocal omnifunc=jedi#completions
+" jedi の補完を無効にする
+let g:jedi#completions_enabled = 0
 " 補完表示を jedi-vim のデフォルト設定にしない
-" デフォルト設定は menuone,longest,preview で preview が表示されてつらい
 let g:jedi#auto_vim_configuration = 0
-" 補完時に最初の項目を選択させない
-let g:jedi#popup_select_first = 0
 " }}}
 
 " indent_guides "{{{
@@ -616,6 +615,14 @@ if !exists('g:neocomplete#keyword_patterns')
     let g:neocomplete#keyword_patterns = {}
 endif
 let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+" Omni 補完
+if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+endif
+" for jedi-vim
+let g:neocomplete#force_omni_input_patterns.python =
+\ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 
 " My key-mappings "{{{
 " <C-n>でマニュアル補完を開始する
