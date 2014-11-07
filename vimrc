@@ -25,7 +25,7 @@ NeoBundleLazy 'Shougo/unite.vim', {
      \ }
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimfiler'
-NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neocomplete'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'thinca/vim-ref'
@@ -599,120 +599,53 @@ smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 " }}}"
 
-" neocomplcache.vim"{{{
-" Disable AutoComplPop.
+" neocomplete.vim "{{{
+" AutoComplPop を無効にする
 let g:acp_enableAtStartup = 0
-" Use neocomplcache.
-let g:neocomplcache_enable_at_startup = 1
-" Use smartcase.
-let g:neocomplcache_enable_smart_case = 0
-" Use camel case completion.
-let g:neocomplcache_enable_camel_case_completion = 0
-" Use underbar completion.
-let g:neocomplcache_enable_underbar_completion = 0
-" Set minimum syntax keyword length. (デフォルト値は4)
-let g:neocomplcache_min_syntax_length = 3
-" Set auto completion length.
-let g:neocomplcache_auto_completion_start_length = 2
-" Set manual completion length.
-let g:neocomplcache_manual_completion_start_length = 4
-" Set minimum keyword length.
-let g:neocomplcache_min_keyword_length = 3
-" wildcardを許可しない
-let g:neocomplcache_enable_wildcard = 0
-" cursor hold?
-let g:neocomplcache_enable_cursor_hold_i = 0
-let g:neocomplcache_cursor_hold_i_time = 300
+" 起動時に neocomplete を有効にする
+let g:neocomplete#enable_at_startup = 1
+" smartcase を有効にする
+let g:neocomplete#enable_smart_case = 1
+" 大文字小文字を考慮しない
+let g:neocomplete#enable_ignore_case = 0
 
-" For auto select.
-let g:neocomplcache_enable_auto_select = 0
-" 自動補完しない
-let g:neocomplcache_disable_auto_complete = 0
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
-
-let g:neocomplcache_enable_auto_delimiter = 1
-let g:neocomplcache_disable_auto_select_buffer_name_pattern = '\[Command Line\]'
-let g:neocomplcache_max_list = 10
-let g:neocomplcache_force_overwrite_completefunc = 1
-
-" 一旦無効
-" let g:neocomplcache_lock_buffer_name_pattern = '\*ku\*'
-
-" 関数補完の際の区切り文字パターン
-if !exists('g:neocomplcache_delimiter_patterns')
-    let g:neocomplcache_delimiter_patterns = {}
+" Define keyword
+if !exists('g:neocomplete#keyword_patterns')
+    let g:neocomplete#keyword_patterns = {}
 endif
-let g:neocomplcache_delimiter_patterns['php'] = ['->', '::', '\']
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
 
-" Define dictionary.
-let g:neocomplcache_dictionary_filetype_lists = {
-     \ 'default' : '',
-     \ 'php' : $HOME.'/.vim/dict/php.dict',
-     \ 'vimshell' : $HOME.'/.vimshell_hist',
-     \ 'scheme' : $HOME.'/.gosh_completions'
-     \ }
+" My key-mappings "{{{
+" <C-n>でマニュアル補完を開始する
+inoremap <expr><C-n>  neocomplete#start_manual_complete()
+" }}}"
 
-let g:neocomplcache_omni_functions = {
-     \ 'python' : 'pythoncomplete#Complete',
-     \ 'ruby' : 'rubycomplete#Complete',
-     \ }
+" key-mappings "{{{
+inoremap <expr><C-g>     neocomplete#undo_completion()
+inoremap <expr><C-l>     neocomplete#complete_common_string()
+" }}}"
 
-" Define keyword pattern
-if !exists('g:neocomplcache_keyword_patterns')
-  let g:neocomplcache_keyword_patterns = {}
-endif
-let g:neocomplcache_keyword_patterns['default'] = '\h\w*'
-
-if !exists('g:neocomplcache_omni_patterns')
-  let g:neocomplcache_omni_patterns = {}
-endif
-let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
-let g:neocomplcache_omni_patterns.mail = '^\s*\w\+'
-
-if !exists('g:neocomplcache_same_filetype_lists')
-  let g:neocomplcache_same_filetype_lists = {}
-endif
-"let g:neocomplcache_same_filetype_lists.perl = 'ref'
-
-" let g:neocomplcache_source_look_dictionary_path = $HOME . '/words'
-let g:neocomplcache_source_look_dictionary_path = ''
-
-let g:neocomplcache_vim_completefuncs = {
-      \ 'Ref' : 'ref#complete',
-      \ 'Unite' : 'unite#complete_source',
-      \ 'VimShellExecute' : 'vimshell#complete#vimshell_execute_complete#completefunc',
-      \ 'VimShellInteractive' : 'vimshell#complete#vimshell_execute_complete#completefunc',
-      \ 'VimShellTerminal' : 'vimshell#complete#vimshell_execute_complete#completefunc',
-      \ 'VimShell' : 'vimshell#complete',
-      \ 'VimFiler' : 'vimfiler#complete',
-      \}
-if !exists('g:neocomplcache_plugin_completion_length')
-  let g:neocomplcache_plugin_completion_length = {
-      \ 'look' : 4,
-      \ }
-endif
-"}}}
-
-" Plugin key-mappings."{{{
-inoremap <expr><C-g>     neocomplcache#undo_completion()
-inoremap <expr><C-l>     neocomplcache#complete_common_string()
-"}}}
-
-" Recommended key-mappings."{{{
+" Recommended key-mappings "{{{
 " <CR>: close popup and save indent.
-inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return neocomplete#close_popup() . "\<CR>"
+  " For no inserting <CR> key.
+  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+endfunction
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
 " <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
 " vim-smartinputの<BS>と競合するため一旦無効化
-" inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
-" <C-n>でマニュアル補完を開始する
-inoremap <expr><C-n>  neocomplcache#start_manual_complete()
-"}}}
+" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><C-y>  neocomplete#close_popup()
+inoremap <expr><C-e>  neocomplete#cancel_popup()
+" }}}"
+" }}}"
 
 "---------------------------
 " ローカル設定
