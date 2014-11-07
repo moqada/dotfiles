@@ -20,14 +20,14 @@ alias tmux='TERM=xterm-256color tmux'
 
 # for git
 alias g='git'
-alias gst='git status -s -b'
 alias gch='git cherry -v'
-alias glgg='git logg'
-alias glg='git logg | head'
-alias ggl='git gl'
-alias gga='git ga'
 alias gd='git diff'
 alias gdc='git diff --cached'
+alias gga='git ga'
+alias ggl='git gl'
+alias glg='git logg | head'
+alias glgg='git logg'
+alias gst='git status -s -b'
 
 # for tig
 alias t='tig'
