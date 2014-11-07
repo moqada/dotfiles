@@ -29,6 +29,10 @@ alias gga='git ga'
 alias gd='git diff'
 alias gdc='git diff --cached'
 
+# for tig
+alias t='tig'
+alias ta='tig --all'
+
 # とりあえず文字コード設定
 export LANG=ja_JP.UTF-8
 
