@@ -21,6 +21,8 @@ alias tmux='TERM=xterm-256color tmux'
 # for git
 alias g='git'
 alias gch='git cherry -v'
+alias gcm='git commit -m'
+alias gcv='git commit -v'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gga='git ga'
