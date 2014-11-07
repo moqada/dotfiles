@@ -446,8 +446,9 @@ nmap <silent><Leader>ig <Plug>IndentGuidesToggle
 " syntastic "{{{
 " ファイルオープン時に syntax check を実行しない
 let g:syntastic_check_on_open = 0
-let g:syntastic_python_checkers = ['flake8']
+let g:syntastic_python_checkers = ['flake8', 'pep257']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
+let g:syntastic_python_pep257_args = '--ignore=D100,D302,D400'
 " }}}"
 
 " ref.vim"{{{
