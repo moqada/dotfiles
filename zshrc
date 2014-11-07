@@ -19,7 +19,7 @@ alias hh='history 0 | grep -nr '
 alias tmux='TERM=xterm-256color tmux'
 
 # for git
-alias gi='git'
+alias g='git'
 alias gst='git status -s -b'
 alias gch='git cherry -v'
 alias glgg='git logg'
