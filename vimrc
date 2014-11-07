@@ -36,7 +36,7 @@ NeoBundleLazy 'majutsushi/tagbar', {
 NeoBundleLazy 'sudo.vim', {
      \ 'autoload': {'commands': ['SudoRead', 'SudoWrite']}
      \ }
-NeoBundle 'tyru/skk.vim'
+NeoBundle 'tyru/eskk.vim'
 NeoBundle 'mojako/ref-sources.vim'
 NeoBundle 'kana/vim-smartinput'
 NeoBundle 'mattn/excitetranslate-vim'
@@ -203,6 +203,8 @@ hi ColorColumn guibg=#666666
 set showmatch
 "" 対応する括弧の強調表示時間を設定する
 set matchtime=2
+" 記号を ASCII 文字の2倍の幅にする
+set ambiwidth=double
 "}}}
 
 " バックアップ・スワップ・履歴に関する設定"{{{
@@ -462,23 +464,24 @@ let g:ref_source_webdict_sites = {
 let g:ref_phpmanual_path = $HOME . '/.phpdoc/php-chunked-xhtml'
 " }}}
 
-" skk.vim "{{{
+" eskk.vim "{{{
 " 有効/無効切り替え
-map! <C-j><C-e> <Plug>(skk-enable-im)
-map! <C-j><C-d> <Plug>(skk-disable-im)
-let g:skk_jisyo = expand('~/.skk-jisyo')
-let g:skk_large_jisyo = expand('~/SKK-JISYO.L')
-let g:skk_auto_save_jisyo = 1
-let g:skk_sticky_key = ";"
+map! <C-j><C-e> <Plug>(eskk:enable)
+map! <C-j><C-d> <Plug>(eskk:disable)
+" 辞書ファイルの指定
+let g:eskk#dictionary = expand('~/.skk-jisyo')
+let g:eskk#large_dictionary = expand('~/SKK-JISYO.L')
 " 変換確定時のenterで改行しない
-let g:skk_egg_like_newline = 1
+let g:eskk#egg_like_newline = 1
+" 変換候補確定のenterで改行しない
+let g:eskk#egg_like_newline_completion = 1
 " insertモードを抜けて、再度insertモードに入ったときに前の状態を維持する
-let g:skk_keep_state = 1
-" 変換時の三角を綺麗に表示
-set ambiwidth=double
+let g:eskk#keep_state = 1
+" 変換候補にアノテーションを表示する
+let g:eskk#show_annotation = 1
 " モードマークを指定
-let g:skk_marker_white = '<>'
-let g:skk_marker_black = '>>'
+let g:eskk#marker_henkan = '<>'
+let g:eskk#marker_henkan_select = '>>'
 " }}}
 
 " unite.vim "{{{
