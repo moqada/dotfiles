@@ -60,7 +60,8 @@ NeoBundle 'tpope/vim-fugitive'
 
 " for GitHub
 NeoBundleLazy 'mattn/gist-vim', {
-     \ 'autoload': {'commands': ['Gist']}
+     \ 'autoload': {'commands': ['Gist']},
+     \ 'depends': 'mattn/webapi-vim'
      \ }
 
 " for HTML / CSS
