@@ -1,3 +1,4 @@
+scriptencoding utf8
 " このファイルではマーカー文字列でソースコードを折り畳み表示
 " vim: foldmethod=marker
 
@@ -126,6 +127,10 @@ NeoBundleLazy 'mattn/learn-vimscript', {
      \ }
 NeoBundleLazy 'vim-jp/vimdoc-ja', {
      \ 'autoload': {'filetypes': ['vim']}
+     \ }
+NeoBundleLazy 'syngan/vim-vimlint', {
+     \ 'autoload': {'filetypes': ['vim']},
+     \ 'depends' : 'ynkdir/vim-vimlparser'
      \ }
 
 " 後始末
@@ -449,6 +454,11 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_python_checkers = ['flake8', 'pep257']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
 let g:syntastic_python_pep257_args = '--ignore=D100,D302,D400'
+" 自動実行設定
+" vimlint は遅いので自動実行しない
+let g:syntastic_mode_map = { "mode": "active",
+      \ "active_filetypes": [],
+      \ "passive_filetypes": ["vim"] }
 " }}}"
 
 " ref.vim"{{{
