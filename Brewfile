@@ -69,11 +69,12 @@ cask install iterm2
 cask install ivolume
 cask install karabiner
 cask install lastfm
+cask install macdown
 cask install magican
-cask install mou
 cask install omnifocus
 cask install onepassword
 cask install onyx
+cask install qlmarkdown
 cask install rescuetime
 cask install sequel-pro
 cask install simple-comic
