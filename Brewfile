@@ -54,6 +54,7 @@ install brew-cask
 cask install alfred
 cask install appcleaner
 cask install aurora
+cask install bartender
 cask install bettertouchtool
 cask install bowtie
 cask install caffeine
