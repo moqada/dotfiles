@@ -65,6 +65,14 @@ NeoBundleLazy 'mattn/gist-vim', {
      \ 'depends': 'mattn/webapi-vim'
      \ }
 
+" for Golang
+NeoBundleLazy 'dgryski/vim-godef', {
+      \ 'autoload': {'filetypes': ['go']}
+      \ }
+NeoBundleLazy 'vim-jp/vim-go-extra', {
+      \ 'autoload': {'filetypes': ['go']}
+      \ }
+
 " for HTML / CSS
 NeoBundleLazy 'mattn/emmet-vim', {
      \ 'autoload': {'filetypes': ['css', 'html', 'sass', 'scss']}
