@@ -62,6 +62,7 @@ cask install ccleaner
 cask install dropbox
 cask install evernote
 cask install firefox
+cask install flux
 cask install growlnotify
 cask install google-chrome
 cask install google-chrome-canary
