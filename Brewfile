@@ -1,112 +1,111 @@
 # Brewfile
 ## Update
-update
-upgrade
+brew update
+brew upgrade
 
 
 ## Packages
-install android-sdk
-install ant
-install boot2docker
-install colordiff
-install ctags
-install docker
-install git
-install go
-install heroku-toolbelt
-install ios-sim
-install jq
-install lame
-install lua
-install mercurial
-install mysql
-install node
-install python
-install python3
-install rbenv
-install ruby-build
-install tig
-install tmux
-install transmission
-install tree
-install --with-lua --with-python3 vim
-install w3m
-install wget
-install zsh
-
-### for Ricty font
-tap sanemat/font
-install --powerline --vim-powerline ricty
+brew install android-sdk
+brew install ant
+brew install boot2docker
+brew install colordiff
+brew install ctags
+brew install docker
+brew install git
+brew install go
+brew install heroku-toolbelt
+brew install ios-sim
+brew install jq
+brew install lame
+brew install lua
+brew install mercurial
+brew install mysql
+brew install node
+brew install python
+brew install python3
+brew install reattach-to-user-namespace
+brew install rbenv
+brew install ruby-build
+brew install tig
+brew install tmux
+brew install transmission
+brew install tree
+brew install --with-lua --with-luajit vim
+brew install w3m
+brew install wget
+brew install zsh
 
 ### for PHP
-tap josegonzalez/php
-install phpenv
+brew tap josegonzalez/php
+brew install phpenv
 
 ### for Packer
-tap homebrew/binary
-install packer
+brew tap homebrew/binary
+brew install packer
 
 ### for cask
-tap phinze/cask
-install brew-cask
+brew tap phinze/cask
+brew install brew-cask
 
 ## .dmg, .pkg
-cask install alfred
-cask install appcleaner
-cask install aurora
-cask install bartender
-cask install bettertouchtool
-cask install bowtie
-cask install caffeine
-cask install ccleaner
-cask install dropbox
-cask install evernote
-cask install firefox
-cask install flux
-cask install growlnotify
-cask install google-chrome
-cask install google-chrome-canary
-cask install hipchat
-cask install iterm2
-cask install ivolume
-cask install karabiner
-cask install lastfm
-cask install macdown
-cask install magican
-cask install omnifocus
-cask install onepassword
-cask install onyx
-cask install qlmarkdown
-cask install rescuetime
-cask install sequel-pro
-cask install simple-comic
-cask install skitch
-cask install skype
-cask install slack
-cask install the-unarchiver
-cask install toggldesktop
-cask install vagrant
-cask install virtualbox
-cask install xtrafinder
-cask install yorufukurou
+brew cask install 1password --force
+brew cask install alfred --force
+brew cask install appcleaner --force
+brew cask install aurora --force
+brew cask install bartender --force
+brew cask install bettertouchtool --force
+brew cask install bowtie --force
+brew cask install caffeine --force
+brew cask install ccleaner --force
+brew cask install dropbox --force
+brew cask install evernote --force
+brew cask install firefox --force
+brew cask install flux --force
+brew cask install growlnotify --force
+brew cask install google-chrome --force
+brew cask install google-chrome-canary --force
+brew cask install gyazo --force
+brew cask install hipchat --force
+brew cask install istat-menus --force
+brew cask install iterm2 --force
+brew cask install ivolume --force
+brew cask install karabiner --force
+brew cask install lastfm --force
+brew cask install macdown --force
+brew cask install magican --force
+brew cask install omnifocus --force
+brew cask install onyx --force
+brew cask install qlmarkdown --force
+brew cask install rescuetime --force
+brew cask install sequel-pro --force
+brew cask install simple-comic --force
+brew cask install skitch --force
+brew cask install skype --force
+brew cask install slack --force
+brew cask install the-unarchiver --force
+brew cask install toggldesktop --force
+brew cask install vagrant --force
+brew cask install virtualbox --force
+brew cask install xtrafinder --force
+brew cask install xquartz --force
+brew cask install yorufukurou --force
 
 ### cask for AquaSKK
-tap aereal/aereal_casks
-cask install aquaskk
+brew tap aereal/aereal_casks
+brew cask install aquaskk --force
 
 ### cask for MacVim Kaoriya
-tap caskroom/versions
-cask install macvim-kaoriya
+brew tap caskroom/versions
+brew cask install macvim-kaoriya --force
 
 ### cask for powerline fonts
-tap caskroom/fonts
-cask install font-sauce-code-powerline-black
-cask install font-sauce-code-powerline-bold
-cask install font-sauce-code-powerline-extralight
-cask install font-sauce-code-powerline-light
-cask install font-sauce-code-powerline-medium
-cask install font-sauce-code-powerline-regular
-cask install font-sauce-code-powerline-semibold
+brew tap caskroom/fonts
+brew cask install font-sauce-code-powerline --force
+
+### for Ricty font
+brew tap sanemat/font
+brew install --powerline --vim-powerline ricty
+cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
 
 ## cleanup
-cleanup
+brew cleanup
