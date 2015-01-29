@@ -100,6 +100,13 @@ NeoBundleLazy 'digitaltoad/vim-jade', {
 NeoBundleLazy 'rcmdnk/vim-markdown', {
      \ 'autoload': {'filetypes': ['markdown']}
      \ }
+NeoBundleLazy 'kannokanno/previm', {
+     \ 'autoload': {'filetypes': ['markdown']},
+     \ 'depends': 'tyru/open-browser.vim'
+     \ }
+NeoBundleLazy "joker1007/vim-markdown-quote-syntax", {
+     \ 'autoload': {'filetypes': ['markdown']}
+     \ }
 
 " for Python
 NeoBundle 'django.vim'
@@ -686,3 +693,5 @@ if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
 endif
 " }}}
+
+let g:previm_open_cmd = 'open -a Firefox'
