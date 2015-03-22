@@ -42,3 +42,6 @@
     # ghi を利用するための設定はこのファイルに書く
     # [github], [ghi]
     path = ~/.gitconfig.local
+[ghq]
+    root = ~/work/src
+    root = ~/work/projects
