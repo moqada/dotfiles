@@ -154,3 +154,6 @@ export GROWL_NOTIFIER=`which growlnotify`
 # for go
 export GOPATH=$HOME/.go
 export PATH=$HOME/.go/bin:$PATH
+
+# for peco
+source ~/.zsh.d/peco.zsh

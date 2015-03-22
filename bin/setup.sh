@@ -23,3 +23,6 @@ ln -si $BASE_DIR/gvimrc $HOME/.gvimrc
 # Zsh
 ln -s $BASE_DIR/zshrc $HOME/.zshrc
 ln -s $BASE_DIR/zsh.d $HOME/.zsh.d
+
+# Peco
+ln -s $BASE_DIR/peco $HOME/.peco
