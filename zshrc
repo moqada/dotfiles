@@ -150,3 +150,7 @@ export GROWL_NOTIFIER=`which growlnotify`
 
 # for travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
+
+# for go
+export GOPATH=$HOME/.go
+export PATH=$HOME/.go/bin:$PATH
