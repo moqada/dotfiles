@@ -21,9 +21,7 @@ NeoBundle 'Shougo/vimproc', {
      \     'unix': 'make -f make_unix.mak',
      \    },
      \ }
-NeoBundleLazy 'Shougo/unite.vim', {
-     \ 'autoload': {'commands': ['Unite', 'UniteWithBufferDir', 'UniteWithCurrentDir']}
-     \ }
+NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimfiler'
 NeoBundle 'Shougo/neocomplete'
@@ -539,7 +537,6 @@ nnoremap <silent> [unite]s
       \ :<C-u>Unite -buffer-name=files -no-split
       \ jump_point file_point buffer_tab
       \ file_rec:! file file/new<CR>
-
 " 入力モードで開始
 let g:unite_enable_start_insert = 1
 " ソース名を短縮表示する
@@ -603,6 +600,21 @@ if executable('ack-grep')
   " let g:unite_source_grep_default_opts = '--no-heading --no-color -k -H'
   " let g:unite_source_grep_recursive_opt = ''
 endif
+
+" ag を利用したファイル選択
+" @see: http://mattn.kaoriya.net/software/vim/20150209151638.htm
+let g:unite_source_history_yank_enable = 1
+try
+  let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
+  call unite#filters#matcher_default#use(['matcher_fuzzy'])
+catch
+endtry
+" search a file in the filetree
+nnoremap <space><space> :split<cr> :<C-u>Unite -start-insert file_rec/async<cr>
+" reset not it is <C-l> normally
+:nnoremap <space>r <Plug>(unite_restart)
+
+
 " }}}
 
 " vimfiler {{{
