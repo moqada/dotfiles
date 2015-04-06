@@ -35,6 +35,7 @@ NeoBundleLazy 'majutsushi/tagbar', {
 NeoBundleLazy 'sudo.vim', {
      \ 'autoload': {'commands': ['SudoRead', 'SudoWrite']}
      \ }
+NeoBundle 'rking/ag.vim'
 NeoBundle 'tyru/eskk.vim'
 NeoBundle 'mojako/ref-sources.vim'
 NeoBundle 'kana/vim-smartinput'
@@ -265,6 +266,13 @@ au BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} setl ft=markdown
 "---------------------------
 " プラグイン設定
 "--------------------------
+
+" ag.vim "{{{
+" カーソル下の文字列を ag を使って検索する
+nmap & :Ag <C-r>=expand("<cword>")<cr><cr>
+" ag を使って指定の文字列で検索する
+nnoremap <space>/ :Ag 
+" }}}
 
 " vim-anzu "{{{
 " 通常のn/Nと置き換えてコマンドラインに結果を表示する
