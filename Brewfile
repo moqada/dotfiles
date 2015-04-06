@@ -5,6 +5,7 @@ brew upgrade
 
 
 ## Packages
+brew install ag
 brew install android-sdk
 brew install ant
 brew install boot2docker
