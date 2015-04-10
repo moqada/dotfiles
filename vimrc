@@ -253,6 +253,11 @@ set fileencodings=ucs_bom,utf-8,ucs-2le,ucs-2,cp932
 set fileformats=unix,dos,mac
 " }}}
 
+" キーマッピング "{{{
+" 一つ前のバッファに戻る
+nnoremap <C-b> :bp<CR>
+" }}}
+
 " FileType Settings "{{{
 " ----------
 " for JavaScript
