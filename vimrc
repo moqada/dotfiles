@@ -109,14 +109,11 @@ NeoBundleLazy "joker1007/vim-markdown-quote-syntax", {
 
 " for Python
 NeoBundle 'django.vim'
-NeoBundleLazy 'indentpython.vim--nianyang', {
-     \ 'autoload': {'filetypes': ['python']}
-     \ }
 NeoBundleLazy 'davidhalter/jedi-vim', {
-     \ 'autoload': {'filetypes': ['python']}
+     \ 'autoload': {'filetypes': ['python', 'python3']}
      \ }
 NeoBundleLazy 'hynek/vim-python-pep8-indent', {
-     \ 'autoload': {'filetypes': ['python']}
+     \ 'autoload': {'insert': 1, 'filetypes': ['python', 'python3']}
      \ }
 NeoBundleLazy 'alfredodeza/pytest.vim', {
      \ 'autoload': {'filetypes': ['python']}
