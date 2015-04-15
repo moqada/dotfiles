@@ -42,19 +42,17 @@ if has('win32')
   set langmenu=ja_jp.utf-8
   set guifont=Ricty\ Discord\ for\ Powerline:h10
   set guifontwide=Ricty\ Discord\ for\ Powerline:h10
-endif
-" }}}
 
-" Windows用の設定 "{{{
-" http://d.hatena.ne.jp/orangehat/20080503
-" 選択部分をクリップボードにコピー
-vmap <C-C> "*y
-" 挿入モード時、クリップボードから貼り付け
-imap <C-V> <ESC>"*pa
-" 選択部分をクリップボードの値に置き換え
-vmap <C-V> d"*P
-" コマンドライン時、クリップボードから貼り付け
-cmap <C-V> <C-R>*
-" 選択部分をクリップボードに切り取り
-vmap <C-X> "*d<ESC>
+  " http://d.hatena.ne.jp/orangehat/20080503
+  " 選択部分をクリップボードにコピー
+  vmap <C-C> "*y
+  " 挿入モード時、クリップボードから貼り付け
+  imap <C-V> <ESC>"*pa
+  " 選択部分をクリップボードの値に置き換え
+  vmap <C-V> d"*P
+  " コマンドライン時、クリップボードから貼り付け
+  cmap <C-V> <C-R>*
+  " 選択部分をクリップボードに切り取り
+  vmap <C-X> "*d<ESC>
+endif
 " }}}
