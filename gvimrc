@@ -9,6 +9,9 @@ colorscheme jellybeans
 set background=dark
 " }}}
 
+" ビジュアルベルの無効化
+set visualbell t_vb=
+
 " Device設定 " {{{
 " macvimのときは無視される
 if has('gui_mac')
