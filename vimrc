@@ -477,6 +477,7 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_python_checkers = ['flake8', 'pep257']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
 let g:syntastic_python_pep257_args = '--ignore=D100,D302,D400'
+let g:syntastic_coffee_coffeelint_args = '--file ' . $HOME . '/.coffeelint.json'
 " 自動実行設定
 " vimlint は遅いので自動実行しない
 let g:syntastic_mode_map = { "mode": "active",

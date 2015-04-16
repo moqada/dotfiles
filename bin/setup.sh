@@ -26,3 +26,6 @@ ln -s $BASE_DIR/zsh.d $HOME/.zsh.d
 
 # Peco
 ln -s $BASE_DIR/peco $HOME/.peco
+
+# CoffeeScript
+ln -s $BASE_DIR/coffeelint.json $HOME/.coffeelint.json
