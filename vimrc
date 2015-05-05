@@ -645,11 +645,20 @@ nnoremap <silent> <Leader>e :<C-u>VimFilerBufferDir<CR>
 " }}}
 
 " neosnippet "{{{
-let g:neosnippet#snippets_directory = $HOME . '/.vim/bundle/vim-snippets/snippets'
-\   . ',' . $HOME .  '/.vim/bundle/serverspec-snippets'
-\   . ',' . $HOME .  '/.vim/snippets'
+" see: http://rcmdnk.github.io/blog/2015/01/12/computer-vim/
+" 一旦 neosnippet-snipetts を無効にする
+let g:neosnippet#disable_runtime_snippets = {
+\   '_' : 1,
+\ }
 " snipMate互換にする
 let g:neosnippet#enable_snipmate_compatibility = 1
+" スニペットの指定
+" 同じ定義があった場合は最初に指定した方が優先されるため独自スニペットの方を先頭にする
+let g:neosnippet#snippets_directory = []
+let g:neosnippet#snippets_directory += ['~/.vim/snippets']
+let g:neosnippet#snippets_directory += ['~/.vim/bundle/serverspec-snippets']
+let g:neosnippet#snippets_directory += ['~/.vim/bundle/neosnippet-snippets/neosnippets']
+let g:neosnippet#snippets_directory += ['~/.vim/bundle/vim-snippets/snippets']
 " snippets変数
 let g:snips_author = 'Masahiko OKADA'
 " keymapping
