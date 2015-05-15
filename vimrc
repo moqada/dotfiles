@@ -12,7 +12,6 @@ endif
 
 " Plug in
 NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc', {
      \ 'build': {
      \     'windows': 'mingw32-make -f make_mingw32.mak',
