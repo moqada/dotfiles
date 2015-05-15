@@ -73,7 +73,7 @@ NeoBundleLazy 'vim-jp/vim-go-extra', {
 
 " for HTML / CSS
 NeoBundleLazy 'mattn/emmet-vim', {
-     \ 'autoload': {'filetypes': ['css', 'html', 'sass', 'scss']}
+     \ 'autoload': {'filetypes': ['css', 'html', 'sass', 'scss', 'jsx']}
      \ }
 NeoBundleLazy 'hail2u/vim-css3-syntax', {
      \ 'autoload': {'filetypes': ['css']}
@@ -83,7 +83,7 @@ NeoBundleLazy 'cakebaker/scss-syntax.vim', {
      \ }
 
 " for JavaScript
-NeoBundleLazy 'jelera/vim-javascript-syntax', {
+NeoBundleLazy 'pangloss/vim-javascript', {
      \ 'autoload': {'filetypes': ['javascript']}
      \ }
 NeoBundleLazy 'jiangmiao/simple-javascript-indenter', {
@@ -92,6 +92,9 @@ NeoBundleLazy 'jiangmiao/simple-javascript-indenter', {
 NeoBundle 'nono/jquery.vim'
 NeoBundleLazy 'digitaltoad/vim-jade', {
      \ 'autoload': {'filetypes': ['jade']}
+     \ }
+NeoBundleLazy 'mxw/vim-jsx', {
+     \ 'autoload': {'filetypes': ['javascript']}
      \ }
 
 " for Markdown
@@ -479,6 +482,7 @@ let g:syntastic_check_on_open = 0
 " check に該当する項目があってもそのまま全ての checker を実行する
 let g:syntastic_aggregate_errors = 1
 " 各言語の checker 設定
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_python_checkers = ['flake8', 'pep257']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
 let g:syntastic_python_pep257_args = '--ignore=D100,D302,D400'
