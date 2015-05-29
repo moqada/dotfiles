@@ -1,2 +1,10 @@
+# グラフ描画種別
+set line-graphics = utf-8
+# 垂直分割時の比率
+set split-view-width = 75%
+# メインビューの表示設定
+# @see: http://jonas.nitro.dk/tig/tigrc.5.html
+set main-view = id:no line-number:display:yes,width:0 date:short author:yes commit-title:graph=v2,refs=yes
+
 bind main R !git rebase -i %(commit)
 bind diff R !git rebase -i %(commit)
