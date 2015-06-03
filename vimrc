@@ -83,9 +83,6 @@ NeoBundleLazy 'cakebaker/scss-syntax.vim', {
      \ }
 
 " for JavaScript
-NeoBundleLazy 'pangloss/vim-javascript', {
-     \ 'autoload': {'filetypes': ['javascript']}
-     \ }
 NeoBundleLazy 'jiangmiao/simple-javascript-indenter', {
      \ 'autoload': {'filetypes': ['javascript']}
      \ }
@@ -93,9 +90,12 @@ NeoBundle 'nono/jquery.vim'
 NeoBundleLazy 'digitaltoad/vim-jade', {
      \ 'autoload': {'filetypes': ['jade']}
      \ }
-NeoBundleLazy 'mxw/vim-jsx', {
-     \ 'autoload': {'filetypes': ['javascript']}
-     \ }
+NeoBundle 'mxw/vim-jsx'
+NeoBundle 'pangloss/vim-javascript'
+"NeoBundleLazy 'mxw/vim-jsx', {
+"     \ 'autoload': {'filetypes': ['javascript']},
+"     \ 'depends': 'pangloss/vim-javascript'
+"     \ }
 
 " for Markdown
 NeoBundleLazy 'rcmdnk/vim-markdown', {
@@ -426,6 +426,11 @@ function! MyCharCode()
   return "'". char ."' ". nr
 endfunction
 " }}}
+
+" vim-jsx "{{{
+" .js 拡張子でも jsx を有効にする
+let g:jsx_ext_required = 0
+" }}}"
 
 " gist-vim "{{{
 let g:gist_clip_command = 'xclip -selection clipboard'
