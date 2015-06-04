@@ -118,7 +118,10 @@ NeoBundleLazy 'hynek/vim-python-pep8-indent', {
      \ 'autoload': {'insert': 1, 'filetypes': ['python', 'python3']}
      \ }
 NeoBundleLazy 'alfredodeza/pytest.vim', {
-     \ 'autoload': {'filetypes': ['python']}
+     \ 'autoload': {'filetypes': ['python', 'python3']}
+     \ }
+NeoBundleLazy 'jmcantrell/vim-virtualenv', {
+     \ 'autoload': {'filetypes': ['python', 'python3']}
      \ }
 
 " for ReST
