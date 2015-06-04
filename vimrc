@@ -461,12 +461,20 @@ let g:user_emmet_settings = {
 
 " jedi-vim "{{{
 " Omni 補完に jedi を使用する (neocomplete で利用する)
-au FileType python setlocal omnifunc=jedi#completions
+au FileType python,python3 setlocal omnifunc=jedi#completions
 " jedi の補完を無効にする
 let g:jedi#completions_enabled = 0
 " 補完表示を jedi-vim のデフォルト設定にしない
 let g:jedi#auto_vim_configuration = 0
 " }}}
+
+" pytest.vim "{{{
+" pytestを実行キーマップ設定
+nmap <silent><leader>F <Esc>:Pytest file<CR>
+nmap <silent><leader>f <Esc>:Pytest function<CR>
+nmap <silent><leader>c <Esc>:Pytest class<CR>
+nmap <silent><leader>m <Esc>:Pytest method<CR>
+" }}}"
 
 " indent_guides "{{{
 " @see: http://qiita.com/items/fb442cfa78f91634cfaa
