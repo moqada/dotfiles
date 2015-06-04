@@ -550,51 +550,48 @@ let g:eskk#marker_henkan_select = '>>'
 "------------------------------
 " The prefix key.
 nnoremap    [unite]   <Nop>
-xnoremap    [unite]   <Nop>
 nmap     ;u [unite]
-xmap     ;u  [unite]
 
-nnoremap <silent> [unite]u
-      \ :<C-u>Unite
-      \ -buffer-name=files buffer file_mru bookmark file file/new<CR>
-nnoremap <silent> [unite]c
-      \ :<C-u>UniteWithCurrentDir
-      \ -buffer-name=files buffer file_mru bookmark file file/new<CR>
-nnoremap <silent> [unite]b
-      \ :<C-u>UniteWithBufferDir
-      \ -buffer-name=files -prompt=%\  buffer file_mru bookmark file file/new<CR>
-nnoremap <silent> [unite]r  :<C-u>Unite -buffer-name=register register<CR>
+nnoremap <silent> [unite]c  :<C-u>UniteWithCurrentDir
+      \ -buffer-name=files buffer bookmark file file/new<CR>
+nnoremap <silent> [unite]b  :<C-u>UniteWithBufferDir
+      \ -buffer-name=files buffer bookmark file file/new<CR>
+nnoremap <silent> [unite]r  :<C-u>Unite
+      \ -buffer-name=register register<CR>
 nnoremap <silent> [unite]o  :<C-u>Unite outline<CR>
 nnoremap <silent> [unite]f
       \ :<C-u>Unite -buffer-name=resume resume<CR>
 nnoremap <silent> [unite]ma
       \ :<C-u>Unite mapping<CR>
+nnoremap <silent> [unite]me
+      \ :<C-u>Unite output:message<CR>
 nnoremap  [unite]f  :<C-u>Unite source<CR>
-nnoremap <silent> [unite]s
-      \ :<C-u>Unite -buffer-name=files -no-split
-      \ jump_point file_point buffer_tab
-      \ file_rec:! file file/new<CR>
+nnoremap <silent> [unite]u
+      \ :<C-u>Unite -buffer-name=files
+      \ jump_point file_point buffer
+      \ file_rec:! file file_mru file/new<CR>
+
 " 入力モードで開始
-let g:unite_enable_start_insert = 1
-" ソース名を短縮表示する
-let g:unite_enable_short_source_names = 1
+call unite#custom#profile('default', 'context', {
+\   'short_source_names': 1,
+\   'start_insert': 1
+\ })
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()"{{{
   " Overwrite settings.
 
-  nmap <buffer> <ESC>      <Plug>(unite_exit)
   imap <buffer> jj      <Plug>(unite_insert_leave)
   "imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
 
   imap <buffer><expr> j unite#smart_map('j', '')
-  "imap <buffer> <TAB>   <Plug>(unite_select_next_line)
-  "imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
+  imap <buffer> <TAB>   <Plug>(unite_select_next_line)
+  imap <buffer> <C-w>     <Plug>(unite_delete_backward_path)
   imap <buffer> '     <Plug>(unite_quick_match_default_action)
   nmap <buffer> '     <Plug>(unite_quick_match_default_action)
   imap <buffer><expr> x
-          \ unite#smart_map('x', "\<Plug>(unite_quick_match_choose_action)")
-  nmap <buffer> x     <Plug>(unite_quick_match_choose_action)
+          \ unite#smart_map('x', "\<Plug>(unite_quick_match_jump)")
+  nmap <buffer> x     <Plug>(unite_quick_match_jump)
   nmap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
   imap <buffer> <C-z>     <Plug>(unite_toggle_transpose_window)
   imap <buffer> <C-y>     <Plug>(unite_narrowing_path)
@@ -621,8 +618,6 @@ function! s:unite_my_settings()"{{{
   imap <silent><buffer><expr> <C-s>     unite#do_action('split')
 endfunction"}}}
 
-let g:unite_cursor_line_highlight = 'TabLineSel'
-let g:unite_abbr_highlight = 'TabLine'
 
 if executable('jvgrep')
   " For jvgrep.
