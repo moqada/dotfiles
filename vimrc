@@ -48,6 +48,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'kana/vim-fakeclip'
 NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'editorconfig/editorconfig-vim'
 
 " for CoffeeScript
 NeoBundleLazy 'kchmck/vim-coffee-script', {
