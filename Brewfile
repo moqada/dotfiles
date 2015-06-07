@@ -75,6 +75,8 @@ brew cask install lastfm --force
 brew cask install macdown --force
 brew cask install magican --force
 brew cask install omnifocus --force
+brew cask install omnioutliner --force
+brew cask install omnipresence --force
 brew cask install onyx --force
 brew cask install qlmarkdown --force
 brew cask install rescuetime --force
