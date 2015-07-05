@@ -76,8 +76,8 @@ setopt share_history        # share command history data
 #RPROMPT="[%~]"
 autoload colors
 colors
-PROMPT="%{${fg[cyan]}%}<%n@%m>%(!.#.$) %{${reset_color}%}"
-RPROMPT="[%~]"
+PROMPT='%{$fg[cyan]%}[%~]%{$reset_color%} %b$(git_super_status) 
+%{$fg[cyan]%}\$%{$reset_color%} '
 
 # Key-Binds
 # -e = Emacs / -v = Vi
@@ -157,3 +157,7 @@ export PATH=$HOME/.go/bin:$PATH
 
 # for peco
 source ~/.zsh.d/peco.zsh
+
+# for zsh-git-prompt
+source ~/.zsh.d/zsh-git-prompt/zshrc.sh
+ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[blue]%}%{✚ %G%}"
