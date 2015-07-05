@@ -1,5 +1,5 @@
 # グラフ描画種別
-set line-graphics = utf-8
+set line-graphics = default
 # 垂直分割時の比率
 set split-view-width = 75%
 # メインビューの表示設定
