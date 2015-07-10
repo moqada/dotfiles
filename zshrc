@@ -58,22 +58,6 @@ setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data
 
 # PROMPT
-# @see http://journal.mycom.co.jp/column/zsh/002/
-# @see http://www.machu.jp/b/zsh.html
-#PROMPT='%(!.#.$)'
-#case "$TERM" in
-#xterm*|kterm*|rxvt*)
-#    # TITLE BAR
-#    # @see t-kawadu's .zshrc
-#    PROMPT=$(print "%{\e]2;%n@%m: %~\7%}$PROMPT")
-#;;
-#screen*)
-#    # TITLE BAR
-#    # @see http://d.hatena.ne.jp/amt/20060530/Screen
-#    printf "\033P\033]0;$USER@$HOSTNAME\007\033\\"
-#;;
-#esac
-#RPROMPT="[%~]"
 autoload colors
 colors
 PROMPT='%{$fg[blue]%}[%~]%{$reset_color%} %b$(git_super_status)
