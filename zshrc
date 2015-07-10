@@ -76,8 +76,8 @@ setopt share_history        # share command history data
 #RPROMPT="[%~]"
 autoload colors
 colors
-PROMPT='%{$fg[cyan]%}[%~]%{$reset_color%} %b$(git_super_status) 
-%{$fg[cyan]%}\$%{$reset_color%} '
+PROMPT='%{$fg[blue]%}[%~]%{$reset_color%} %b$(git_super_status)
+%{$fg[blue]%}\$%{$reset_color%} '
 
 # Key-Binds
 # -e = Emacs / -v = Vi
