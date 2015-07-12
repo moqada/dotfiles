@@ -93,6 +93,9 @@ NeoBundleLazy 'digitaltoad/vim-jade', {
      \ }
 NeoBundle 'mxw/vim-jsx'
 NeoBundle 'pangloss/vim-javascript'
+NeoBundleLazy '1995eaton/vim-better-javascript-completion', {
+     \ 'autoload': {'filetypes': ['javascript']}
+     \ }
 "NeoBundleLazy 'mxw/vim-jsx', {
 "     \ 'autoload': {'filetypes': ['javascript']},
 "     \ 'depends': 'pangloss/vim-javascript'
@@ -434,6 +437,11 @@ endfunction
 " vim-jsx "{{{
 " .js 拡張子でも jsx を有効にする
 let g:jsx_ext_required = 0
+" }}}"
+
+" vim-better-javascript-completion "{{{
+" Chrome API の補完を有効にする
+let g:vimjs#chromeapis = 0
 " }}}"
 
 " gist-vim "{{{
