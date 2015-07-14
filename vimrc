@@ -82,6 +82,7 @@ NeoBundleLazy 'hail2u/vim-css3-syntax', {
 NeoBundleLazy 'cakebaker/scss-syntax.vim', {
      \ 'autoload': {'filetypes': ['scss']}
      \ }
+NeoBundle 'wavded/vim-stylus'
 
 " for JavaScript
 NeoBundleLazy 'jiangmiao/simple-javascript-indenter', {
