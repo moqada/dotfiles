@@ -101,6 +101,9 @@ NeoBundleLazy '1995eaton/vim-better-javascript-completion', {
 "     \ 'autoload': {'filetypes': ['javascript']},
 "     \ 'depends': 'pangloss/vim-javascript'
 "     \ }
+NeoBundleLazy 'heavenshell/vim-jsdoc', {
+      \ 'autoload': {'filetypes': ['javascript']}
+      \ }
 
 " for Markdown
 NeoBundleLazy 'rcmdnk/vim-markdown', {
@@ -477,6 +480,12 @@ let g:jedi#completions_enabled = 0
 " 補完表示を jedi-vim のデフォルト設定にしない
 let g:jedi#auto_vim_configuration = 0
 " }}}
+
+" jsdoc-vim "{{{
+let g:jsdoc_allow_input_prompt = 1
+let g:jsdoc_allow_shorthand = 1
+nmap <silent> <C-l> <Plug>(jsdoc)
+" }}}"
 
 " pytest.vim "{{{
 " pytestを実行キーマップ設定
