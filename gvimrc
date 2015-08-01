@@ -28,7 +28,6 @@ if has('gui_macvim')
     set transparency=25
     set showtabline=1
     set guifont=Sauce\ Code\ Powerline:h12
-    set guifontwide=Source\ Han\ Code\ JP\ Normal:h12
 endif
 " for kaoriya
 if has('kaoriya')
