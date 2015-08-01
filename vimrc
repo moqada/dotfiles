@@ -592,7 +592,7 @@ nnoremap  [unite]f  :<C-u>Unite source<CR>
 nnoremap <silent> [unite]u
       \ :<C-u>Unite -buffer-name=files
       \ jump_point file_point buffer
-      \ file_rec:! file file_mru file/new<CR>
+      \ file_rec/async file file_mru file/new<CR>
 
 " 入力モードで開始
 call unite#custom#profile('default', 'context', {
