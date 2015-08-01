@@ -668,11 +668,6 @@ endtry
 nnoremap <space><space> :split<cr> :<C-u>Unite -start-insert file_rec/async<cr>
 " reset not it is <C-l> normally
 :nnoremap <space>r <Plug>(unite_restart)
-
-" .gitignore の無視ファイル設定を file_rec に適用する
-call unite#custom#source('file_rec', 'ignore_globs',
-  \ split(&wildignore, ','))
-
 " }}}
 
 " vimfiler {{{
