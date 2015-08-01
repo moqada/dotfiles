@@ -658,7 +658,7 @@ elseif executable('jvgrep')
 endif
 " }}}"
 
-" ag を利用したファイル選択
+" ag を利用したファイル選択など "{{{
 " @see: http://mattn.kaoriya.net/software/vim/20150209151638.htm
 let g:unite_source_history_yank_enable = 1
 try
@@ -670,6 +670,8 @@ endtry
 nnoremap <space><space> :split<cr> :<C-u>Unite -start-insert file_rec/async<cr>
 " reset not it is <C-l> normally
 :nnoremap <space>r <Plug>(unite_restart)
+" }}}"
+
 " }}}
 
 " vimfiler {{{
