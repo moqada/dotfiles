@@ -200,6 +200,8 @@ set pastetoggle=;p
 set completeopt=menu,menuone
 " クリップボードを使う
 set clipboard=unnamed
+" スペルチェックで日本語を除外する
+set spelllang=en,cjk
 "}}}
 
 " 画面表示の設定"{{{
