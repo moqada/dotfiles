@@ -269,6 +269,12 @@ set fileformats=unix,dos,mac
 " キーマッピング "{{{
 " 一つ前のバッファに戻る
 nnoremap <C-b> :bp<CR>
+" スペルチェック機能 ON / OFF をトグルする
+nnoremap <silent><Space>s :<C-u>setl spell! spell?<CR>
+" vimrc を再読み込み
+nnoremap <Space>rv :<C-u>source ~/.vimrc<CR>
+" vimrc を編集
+nnoremap <silent><Space>ev :<C-u>edit ~/.vimrc<CR>
 " }}}
 
 " FileType Settings "{{{
