@@ -558,6 +558,12 @@ let g:ref_phpmanual_path = $HOME . '/.phpdoc/php-chunked-xhtml'
 map! <C-j><C-e> <Plug>(eskk:enable)
 map! <C-j><C-d> <Plug>(eskk:disable)
 " 辞書ファイルの指定
+if exists('g:eskk#directory')
+  unlet g:eskk#dictionary
+endif
+if exists('g:eskk#large_dictionary')
+  unlet g:eskk#large_dictionary
+endif
 let g:eskk#dictionary = expand('~/.skk-jisyo')
 let g:eskk#large_dictionary = expand('~/.skk/SKK-JISYO.L')
 " 変換確定時のenterで改行しない
