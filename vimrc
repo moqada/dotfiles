@@ -4,11 +4,13 @@ scriptencoding utf8
 
 " neobundle.vim "{{{
 " 初期化
-set nocompatible
 if has('vim_starting')
+  if &compatible
+    set nocompatible
+  endif
   set runtimepath+=~/.vim/bundle/neobundle.vim
-  call neobundle#begin(expand('~/.vim/bundle'))
 endif
+call neobundle#begin(expand('~/.vim/bundle'))
 
 " Plug in
 NeoBundleFetch 'Shougo/neobundle.vim'
