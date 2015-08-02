@@ -286,6 +286,8 @@ au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 au BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} setl ft=markdown
 " for Golang
 au FileType go au BufWritePre <buffer> Fmt
+" for Git commit message
+au FileType gitcommit setl spell
 
 " ----------
 "}}}
