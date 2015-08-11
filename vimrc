@@ -658,6 +658,8 @@ function! s:unite_my_settings()"{{{
   imap <silent><buffer><expr> <C-s>     unite#do_action('split')
 endfunction"}}}
 
+" fuzzy match を利用する最大文字数
+let g:unite_matcher_fuzzy_max_input_length = 3
 
 " Grep "{{{
 if executable('ag')
@@ -680,7 +682,6 @@ endif
 let g:unite_source_history_yank_enable = 1
 try
   let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
-  call unite#filters#matcher_default#use(['matcher_fuzzy'])
 catch
 endtry
 " search a file in the filetree
