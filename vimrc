@@ -494,6 +494,8 @@ au FileType python,python3 setlocal omnifunc=jedi#completions
 let g:jedi#completions_enabled = 0
 " 補完表示を jedi-vim のデフォルト設定にしない
 let g:jedi#auto_vim_configuration = 0
+" for performace?
+let g:jedi#show_call_signatures = 0
 " }}}
 
 " jsdoc-vim "{{{
