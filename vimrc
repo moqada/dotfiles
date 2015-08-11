@@ -94,10 +94,9 @@ NeoBundle 'nono/jquery.vim'
 NeoBundleLazy 'digitaltoad/vim-jade', {
      \ 'autoload': {'filetypes': ['jade']}
      \ }
-NeoBundle 'mxw/vim-jsx'
 NeoBundleLazy 'pangloss/vim-javascript', {
-     \ 'autoload': {'filetypes': ['javascript', 'jsx']},
-     \ 'depends': 'jelera/vim-javascript-syntax'
+     \ 'autoload': {'filetypes': ['javascript']},
+     \ 'depends': ['mxw/vim-jsx', 'jelera/vim-javascript-syntax']
      \ }
 NeoBundleLazy '1995eaton/vim-better-javascript-completion', {
      \ 'autoload': {'filetypes': ['javascript']}
@@ -485,7 +484,7 @@ let g:user_emmet_settings = {
 
 " vim-javascript-syntax "{{{
 " Folding を有効にする
-au FileType javascript,javascript.jsx call JavaScriptFold()
+au FileType javascript call JavaScriptFold()
 " }}}
 
 " jedi-vim "{{{
