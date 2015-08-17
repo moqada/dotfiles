@@ -49,7 +49,7 @@ NeoBundle 'h1mesuke/vim-alignta'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'kana/vim-fakeclip'
-NeoBundle 'nanotech/jellybeans.vim'
+NeoBundle 'morhetz/gruvbox'
 NeoBundle 'editorconfig/editorconfig-vim'
 
 " for CoffeeScript
@@ -209,7 +209,8 @@ syntax on
 " 256色対応
 set t_Co=256
 " colorscheme
-colorscheme jellybeans
+set background=dark
+colorscheme gruvbox
 " 行番号を表示
 set number
 " ルーラーを表示
