@@ -148,3 +148,7 @@ ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[blue]%}%{✚ %G%}"
 
 # for haskell
 [ -d /opt/ghc/current ] && export PATH=/opt/ghc/current/bin:$PATH
+
+# for enhancd
+# required `ghq get b4b4r07/enhancd`
+[ -d ~/work/src/github.com/b4b4r07/enhancd ] && source ~/work/src/github.com/b4b4r07/enhancd/zsh/enhancd.zsh
