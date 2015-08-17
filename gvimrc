@@ -5,7 +5,7 @@ set guioptions=get
 set cmdheight=1
 " 全角スペースの表示
 hi ZenkakuSpace gui=bold guibg=darkcyan
-colorscheme jellybeans
+colorscheme badwolf
 set background=dark
 " }}}
 
