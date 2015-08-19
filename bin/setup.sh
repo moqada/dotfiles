@@ -31,7 +31,7 @@ ln -s $BASE_DIR/peco $HOME/.peco
 ln -s $BASE_DIR/coffeelint.json $HOME/.coffeelint.json
 
 # ESLint
-ln -s $BASE_DIR/elintrc $HOME/.eslintrc
+ln -s $BASE_DIR/eslintrc $HOME/.eslintrc
 
 # NPM
 ln -s $BASE_DIR/npmrc $HOME/.npmrc
