@@ -32,3 +32,6 @@ ln -s $BASE_DIR/coffeelint.json $HOME/.coffeelint.json
 
 # ESLint
 ln -s $BASE_DIR/elintrc $HOME/.eslintrc
+
+# NPM
+ln -s $BASE_DIR/npmrc $HOME/.npmrc
