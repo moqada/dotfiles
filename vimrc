@@ -51,6 +51,7 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'kana/vim-fakeclip'
 NeoBundle 'morhetz/gruvbox'
 NeoBundle 'editorconfig/editorconfig-vim'
+NeoBundle 'wakatime/vim-wakatime'
 
 " for CoffeeScript
 NeoBundleLazy 'kchmck/vim-coffee-script', {
