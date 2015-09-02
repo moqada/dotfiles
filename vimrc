@@ -66,6 +66,8 @@ NeoBundleLazy 'mattn/gist-vim', {
      \ 'autoload': {'commands': ['Gist']},
      \ 'depends': 'mattn/webapi-vim'
      \ }
+NeoBundle 'rhysd/github-complete.vim'
+NeoBundle 'junegunn/vim-emoji'
 
 " for Golang
 NeoBundleLazy 'dgryski/vim-godef', {
@@ -460,6 +462,13 @@ let g:vimjs#chromeapis = 0
 let g:gist_clip_command = 'xclip -selection clipboard'
 let g:gist_detect_filetype = 1
 let g:github_user = 'moqada'
+" }}}
+
+" github-complete.vim "{{{
+augroup config-github-complete
+    autocmd!
+    autocmd FileType gitcommit setl omnifunc=github_complete#complete
+augroup END
 " }}}
 
 " tagbar.vim "{{{
