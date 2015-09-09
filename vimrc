@@ -552,6 +552,12 @@ let g:syntastic_go_checkers = ["go", "golint"]
 let g:syntastic_mode_map = { "mode": "active",
       \ "active_filetypes": [],
       \ "passive_filetypes": ["vim"] }
+" エラー表示シンポルを変更
+" required: vim-emoji
+silent! if emoji#available()
+    let g:syntastic_error_symbol = emoji#for('boom')
+    let g:syntastic_warning_symbol = emoji#for('zap')
+endif
 " }}}"
 
 " ref.vim"{{{
