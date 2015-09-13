@@ -152,3 +152,6 @@ ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[blue]%}%{✚ %G%}"
 # for enhancd
 # required `ghq get b4b4r07/enhancd`
 [ -d ~/work/src/github.com/b4b4r07/enhancd ] && source ~/work/src/github.com/b4b4r07/enhancd/zsh/enhancd.zsh
+
+# for vim
+[ -d /opt/vim ] && export PATH=/opt/vim/bin:$PATH
