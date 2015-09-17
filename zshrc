@@ -87,13 +87,6 @@ setopt share_history
 # hook
 autoload -Uz add-zsh-hook
 
-# for mercurial
-function mq() {
-  hg qpop -af
-  hg $@
-  hg qpush -af
-}
-
 # lessを常にカラー表示に
 export LESS='-R'
 
