@@ -109,7 +109,7 @@ NeoBundleLazy 'heavenshell/vim-jsdoc', {
       \ }
 
 " for Markdown
-NeoBundleLazy 'rcmdnk/vim-markdown', {
+NeoBundleLazy 'gabrielelana/vim-markdown', {
      \ 'autoload': {'filetypes': ['markdown']}
      \ }
 NeoBundleLazy 'kannokanno/previm', {
@@ -280,9 +280,6 @@ nnoremap <silent><Space>ev :<C-u>edit ~/.vimrc<CR>
 " ----------
 " for JavaScript
 au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-" for Markdown
-" そのままだと *.md なファイルは modula2 と判断されてしまう
-au BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} setl ft=markdown
 " for Golang
 au FileType go au BufWritePre <buffer> Fmt
 " for Git commit message
