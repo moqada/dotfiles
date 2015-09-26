@@ -148,3 +148,9 @@ ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[blue]%}%{✚ %G%}"
 
 # for vim
 [ -d /opt/vim ] && export PATH=/opt/vim/bin:$PATH
+
+# for google-cloud-sdk
+if [ -d /opt/homebrew-cask/Caskroom/google-cloud-sdk/latest ]; then
+    source /opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
+    source /opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
+fi
