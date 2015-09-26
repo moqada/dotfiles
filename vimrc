@@ -508,6 +508,10 @@ let g:jsdoc_allow_shorthand = 1
 nmap <silent> <C-l> <Plug>(jsdoc)
 " }}}"
 
+" previm "{{{
+let g:previm_open_cmd = 'open -a Google\ Chrome'
+" }}}"
+
 " pytest.vim "{{{
 " pytestを実行キーマップ設定
 nmap <silent><leader>F <Esc>:Pytest file<CR>
@@ -800,5 +804,3 @@ if filereadable(expand('~/.vimrc.local'))
   source ~/.vimrc.local
 endif
 " }}}
-
-let g:previm_open_cmd = 'open -a Firefox'
