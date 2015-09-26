@@ -28,7 +28,7 @@ ln -s $BASE_DIR/zsh.d $HOME/.zsh.d
 ln -s $BASE_DIR/peco $HOME/.peco
 
 # CoffeeScript
-ln -s $BASE_DIR/coffeelint.json $HOME/.coffeelint.json
+ln -s $BASE_DIR/coffeelint.json $HOME/coffeelint.json
 
 # ESLint
 ln -s $BASE_DIR/eslintrc $HOME/.eslintrc
