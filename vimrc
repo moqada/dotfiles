@@ -337,9 +337,7 @@ let g:lightline = {
       \   'syntastic': 'SyntasticStatuslineFlag',
       \   'charcode': 'MyCharCode',
       \   'gitgutter': 'MyGitGutter',
-      \ },
-      \ 'separator': {'left': '⮀', 'right': '⮂'},
-      \ 'subseparator': {'left': '⮁', 'right': '⮃'}
+      \ }
       \ }
 
 function! MyModified()
