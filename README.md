@@ -8,6 +8,12 @@ $ cd dotfiles
 $ ./bin/setup.sh
 ```
 
+Put `~/.zshenv`
+
+```
+export NPM_TOKEN=<NPM_TOKEN>
+export CONVENTIONAL_GITHUB_RELEASER_TOKEN=<GITHUB_TOKEN>
+```
 
 ## For Mac
 
