@@ -52,6 +52,8 @@ NeoBundle 'kana/vim-fakeclip'
 NeoBundle 'morhetz/gruvbox'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'wakatime/vim-wakatime'
+NeoBundle 'ujihisa/neco-look'
+NeoBundle 'Shougo/neco-syntax'
 
 " for CoffeeScript
 NeoBundleLazy 'kchmck/vim-coffee-script', {
@@ -714,6 +716,10 @@ let g:vimfiler_safe_mode_by_default = 0
 "<Leader>e で現在開いているバッファのディレクトリを開く
 nnoremap <silent> <Leader>e :<C-u>VimFilerBufferDir<CR>
 " }}}
+
+" neco-look "{{{
+call neocomplete#custom#source('look', 'min_pattern_length', 1)
+" }}}"
 
 " neosnippet "{{{
 " see: http://rcmdnk.github.io/blog/2015/01/12/computer-vim/
