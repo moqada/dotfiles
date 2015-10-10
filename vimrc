@@ -52,8 +52,6 @@ NeoBundle 'kana/vim-fakeclip'
 NeoBundle 'morhetz/gruvbox'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'wakatime/vim-wakatime'
-NeoBundle 'ujihisa/neco-look'
-NeoBundle 'Shougo/neco-syntax'
 
 " for CoffeeScript
 NeoBundleLazy 'kchmck/vim-coffee-script', {
@@ -520,6 +518,13 @@ nmap <silent><leader>c <Esc>:Pytest class<CR>
 nmap <silent><leader>m <Esc>:Pytest method<CR>
 " }}}"
 
+" neco-look "{{{
+if neobundle#tap('neco-look')
+  call neocomplete#custom#source('look', 'min_pattern_length', 1)
+  call neobundle#untap()
+endif
+" }}}"
+
 " indent_guides "{{{
 " @see: http://qiita.com/items/fb442cfa78f91634cfaa
 " インデントの深さに色を付ける
@@ -717,10 +722,6 @@ let g:vimfiler_safe_mode_by_default = 0
 nnoremap <silent> <Leader>e :<C-u>VimFilerBufferDir<CR>
 " }}}
 
-" neco-look "{{{
-call neocomplete#custom#source('look', 'min_pattern_length', 1)
-" }}}"
-
 " neosnippet "{{{
 " see: http://rcmdnk.github.io/blog/2015/01/12/computer-vim/
 " 一旦 neosnippet-snipetts を無効にする
@@ -745,58 +746,65 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 " }}}"
 
 " neocomplete.vim "{{{
-" AutoComplPop を無効にする
-let g:acp_enableAtStartup = 0
-" 起動時に neocomplete を有効にする
-let g:neocomplete#enable_at_startup = 1
-" smartcase を有効にする
-let g:neocomplete#enable_smart_case = 1
-" 大文字小文字を考慮しない
-let g:neocomplete#enable_ignore_case = 0
+if neobundle#tap('neocomplete')
+  call neobundle#config({
+        \ 'depends': ['ujihisa/neco-look', 'Shougo/neco-syntax']
+        \ })
+  " AutoComplPop を無効にする
+  let g:acp_enableAtStartup = 0
+  " 起動時に neocomplete を有効にする
+  let g:neocomplete#enable_at_startup = 1
+  " smartcase を有効にする
+  let g:neocomplete#enable_smart_case = 1
+  " 大文字小文字を考慮しない
+  let g:neocomplete#enable_ignore_case = 0
 
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+  let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 
-" Define keyword
-if !exists('g:neocomplete#keyword_patterns')
-    let g:neocomplete#keyword_patterns = {}
+  " Define keyword
+  if !exists('g:neocomplete#keyword_patterns')
+      let g:neocomplete#keyword_patterns = {}
+  endif
+  let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+
+  " Omni 補完
+  if !exists('g:neocomplete#force_omni_input_patterns')
+      let g:neocomplete#force_omni_input_patterns = {}
+  endif
+  " for jedi-vim
+  let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
+
+  " My key-mappings "{{{
+  " <C-n>でマニュアル補完を開始する
+  inoremap <expr><C-n>  neocomplete#start_manual_complete()
+  " }}}"
+
+  " key-mappings "{{{
+  inoremap <expr><C-g>     neocomplete#undo_completion()
+  inoremap <expr><C-l>     neocomplete#complete_common_string()
+  " }}}"
+
+  " Recommended key-mappings "{{{
+  " <CR>: close popup and save indent.
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  function! s:my_cr_function()
+    return neocomplete#close_popup() . "\<CR>"
+    " For no inserting <CR> key.
+    "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
+  endfunction
+  " <TAB>: completion.
+  inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+  inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
+  " <C-h>, <BS>: close popup and delete backword char.
+  " vim-smartinputの<BS>と競合するため一旦無効化
+  " inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+  " inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+  inoremap <expr><C-y>  neocomplete#close_popup()
+  inoremap <expr><C-e>  neocomplete#cancel_popup()
+  " }}}"
+
+  call neobundle#untap()
 endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-
-" Omni 補完
-if !exists('g:neocomplete#force_omni_input_patterns')
-    let g:neocomplete#force_omni_input_patterns = {}
-endif
-" for jedi-vim
-let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
-
-" My key-mappings "{{{
-" <C-n>でマニュアル補完を開始する
-inoremap <expr><C-n>  neocomplete#start_manual_complete()
-" }}}"
-
-" key-mappings "{{{
-inoremap <expr><C-g>     neocomplete#undo_completion()
-inoremap <expr><C-l>     neocomplete#complete_common_string()
-" }}}"
-
-" Recommended key-mappings "{{{
-" <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return neocomplete#close_popup() . "\<CR>"
-  " For no inserting <CR> key.
-  "return pumvisible() ? neocomplete#close_popup() : "\<CR>"
-endfunction
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><S-TAB>  pumvisible() ? "\<C-p>" : "\<S-TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-" vim-smartinputの<BS>と競合するため一旦無効化
-" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-" inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplete#close_popup()
-inoremap <expr><C-e>  neocomplete#cancel_popup()
-" }}}"
 " }}}"
 
 "---------------------------
