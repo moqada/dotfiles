@@ -12,6 +12,7 @@ brew install boot2docker
 brew install colordiff
 brew install ctags
 brew install docker
+brew install flow
 brew install git
 brew install go
 brew install heroku-toolbelt
