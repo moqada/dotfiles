@@ -108,6 +108,9 @@ NeoBundleLazy 'heavenshell/vim-jsdoc', {
       \ 'autoload': {'filetypes': ['javascript']}
       \ }
 
+" for JSON
+NeoBundle 'Quramy/vison'
+
 " for Markdown
 NeoBundleLazy 'rcmdnk/vim-markdown', {
      \ 'autoload': {'filetypes': ['markdown']}
@@ -723,6 +726,10 @@ let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
 "<Leader>e で現在開いているバッファのディレクトリを開く
 nnoremap <silent> <Leader>e :<C-u>VimFilerBufferDir<CR>
+" }}}
+
+" vison {{{
+autocmd BufRead,BufNewFile package.json Vison
 " }}}
 
 " neosnippet "{{{
