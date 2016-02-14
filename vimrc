@@ -50,6 +50,7 @@ NeoBundle 'scrooloose/syntastic'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'kana/vim-fakeclip'
 NeoBundle 'morhetz/gruvbox'
+NeoBundle 'sjl/badwolf'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'wakatime/vim-wakatime'
 
