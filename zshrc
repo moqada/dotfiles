@@ -157,3 +157,7 @@ fi
 
 # for dokata
 export DOKATA_TEMPLATE_DIR=~/work/projects/moqada
+
+# for gnu-sed on brew
+PATH=/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
+MANPATH=/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH
