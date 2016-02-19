@@ -5,7 +5,7 @@
 ```
 $ git clone https://github.com/moqada/dotfiles.git
 $ cd dotfiles
-$ ./bin/setup.sh
+$ ./scripts/setup.sh
 ```
 
 Put `~/.zshenv`
