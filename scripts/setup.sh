@@ -35,3 +35,6 @@ ln -s $BASE_DIR/eslintrc $HOME/.eslintrc
 
 # NPM
 ln -s $BASE_DIR/npmrc $HOME/.npmrc
+
+# bin
+ln -s $BASE_DIR/bin $HOME/.bin
