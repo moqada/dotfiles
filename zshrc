@@ -34,6 +34,10 @@ alias gst='git status -s -b'
 alias t='tig'
 alias ta='tig --all'
 
+# for go
+# @see: http://akirachiku.com/2016/03/01/go16-development.html
+alias gp='cd $GOPATH_WORK/src/github.com/moqada'
+
 # とりあえず文字コード設定
 export LANG=ja_JP.UTF-8
 
@@ -128,8 +132,13 @@ export GROWL_NOTIFIER=`which growlnotify`
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
 # for go
-export GOPATH=$HOME/.go
-export PATH=$HOME/.go/bin:$PATH
+GOPATH_ROOT=$HOME/.go
+GOPATH_WORK=$HOME/work/projects/go
+export GOPATH=$GOPATH_ROOT:$GOPATH_WORK
+export PATH=$GOPATH_ROOT/bin:$GOPATH_WORK/bin:$PATH
+
+# for gom
+export GO15VENDOREXPERIMENT=1 
 
 # for peco
 source ~/.zsh.d/peco.zsh
