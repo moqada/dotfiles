@@ -53,6 +53,7 @@ NeoBundle 'morhetz/gruvbox'
 NeoBundle 'sjl/badwolf'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'wakatime/vim-wakatime'
+NeoBundle 'janko-m/vim-test'
 
 " for CoffeeScript
 NeoBundleLazy 'kchmck/vim-coffee-script', {
@@ -71,10 +72,7 @@ NeoBundle 'rhysd/github-complete.vim'
 NeoBundle 'junegunn/vim-emoji'
 
 " for Golang
-NeoBundleLazy 'dgryski/vim-godef', {
-      \ 'autoload': {'filetypes': ['go']}
-      \ }
-NeoBundleLazy 'vim-jp/vim-go-extra', {
+NeoBundleLazy 'fatih/vim-go', {
       \ 'autoload': {'filetypes': ['go']}
       \ }
 
@@ -288,7 +286,19 @@ au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
 " そのままだと *.md なファイルは modula2 と判断されてしまう
 au BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} setl ft=markdown
 " for Golang
-au FileType go au BufWritePre <buffer> Fmt
+" @see: http://akirachiku.com/2016/03/01/go16-development.html
+aug GolangSettings
+  au!
+  au FileType go nmap <leader>gb <Plug>(go-build)
+  au FileType go nmap <leader>gt <Plug>(go-test)
+  au FileType go nmap <Leader>ds <Plug>(go-def-split)
+  au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+  au FileType go nmap <Leader>dt <Plug>(go-def-tab)
+  au FileType go nmap <Leader>gd <Plug>(go-doc)
+  au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+  au FileType go :highlight goErr cterm=bold ctermfg=214
+  au FileType go :match goErr /\<err\>/
+aug END
 " for Git commit message
 au FileType gitcommit setl spell
 
@@ -559,7 +569,7 @@ let g:syntastic_coffee_checkers = ['coffeelint']
 let g:syntastic_python_checkers = ['flake8', 'pep257']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
 let g:syntastic_python_pep257_args = '--ignore=D100,D302,D400'
-let g:syntastic_go_checkers = ["go", "golint"]
+let g:syntastic_go_checkers = ["golint", "gotype", "govet", "go"]
 " 自動実行設定
 " vimlint は遅いので自動実行しない
 let g:syntastic_mode_map = { "mode": "active",
@@ -727,6 +737,37 @@ let g:vimfiler_as_default_explorer = 1
 let g:vimfiler_safe_mode_by_default = 0
 "<Leader>e で現在開いているバッファのディレクトリを開く
 nnoremap <silent> <Leader>e :<C-u>VimFilerBufferDir<CR>
+" }}}
+
+" vim-go {{{
+" @see: http://akirachiku.com/2016/03/01/go16-development.html
+let g:go_fmt_command = "goimports"
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_operators = 1
+let g:go_term_enabled = 1
+let g:go_highlight_build_constraints = 1
+" }}}
+
+" vim-test {{{
+" @see: http://akirachiku.com/2016/03/01/go16-development.html
+nmap <silent> <leader>f :TestNearest<CR>
+nmap <silent> <leader>i :TestFile<CR>
+nmap <silent> <leader>a :TestSuite<CR>
+nmap <silent> <leader>l :TestLast<CR>
+nmap <silent> <leader>g :TestVisit<CR>
+
+let test#python#pytest#options = {
+      \ 'nearest': '-v',
+      \ 'file':    '-v',
+      \ 'suite':   '-v',
+      \ }
+let test#go#gotest#options = {
+      \ 'nearest': '-v',
+      \ 'file':    '-v',
+      \ 'suite':   '-v',
+      \ }
 " }}}
 
 " vison {{{
