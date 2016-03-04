@@ -25,7 +25,22 @@ NeoBundle 'Shougo/vimproc', {
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neomru.vim'
 NeoBundle 'Shougo/vimfiler'
-NeoBundle 'Shougo/neocomplete'
+if has('nvim')
+  NeoBundle 'Shougo/deoplete.nvim', {
+        \ 'depends': ['ujihisa/neco-look', 'Shougo/neco-syntax']
+        \ }
+  NeoBundleLazy 'zchee/deoplete-go', {
+        \ 'autoload': {'filetypes': ['go']},
+        \ 'build': {'unix': 'make'}
+        \ }
+  NeoBundleLazy 'zchee/deoplete-jedi', {
+        \ 'autoload': {'filetypes': ['python', 'python3']}
+        \ }
+else
+  NeoBundle 'Shougo/neocomplete', {
+        \ 'depends': ['ujihisa/neco-look', 'Shougo/neco-syntax']
+        \ }
+endif
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/neosnippet-snippets'
 NeoBundle 'thinca/vim-ref'
@@ -54,6 +69,7 @@ NeoBundle 'sjl/badwolf'
 NeoBundle 'editorconfig/editorconfig-vim'
 NeoBundle 'wakatime/vim-wakatime'
 NeoBundle 'janko-m/vim-test'
+NeoBundle 'Konfekt/FastFold'
 
 " for CoffeeScript
 NeoBundleLazy 'kchmck/vim-coffee-script', {
@@ -535,13 +551,6 @@ nmap <silent><leader>c <Esc>:Pytest class<CR>
 nmap <silent><leader>m <Esc>:Pytest method<CR>
 " }}}"
 
-" neco-look "{{{
-if neobundle#tap('neco-look')
-  call neocomplete#custom#source('look', 'min_pattern_length', 1)
-  call neobundle#untap()
-endif
-" }}}"
-
 " indent_guides "{{{
 " @see: http://qiita.com/items/fb442cfa78f91634cfaa
 " インデントの深さに色を付ける
@@ -797,11 +806,40 @@ smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 " }}}"
 
+" deoplete.nvim "{{{
+if neobundle#tap('deoplete.nvim')
+  " 起動時にdeopleteを有効にする
+  let g:deoplete#enable_at_startup = 1
+  " smartcaseを有効にする
+  let g:deoplete#enable_smart_case = 1
+  " 大文字小文字を考慮しない
+  let g:deoplete#enable_ignore_case = 0
+  " <C-h>, <BS>: close popup and delete backword char.
+  inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
+  inoremap <expr><BS>  deoplete#mappings#smart_close_popup()."\<C-h>"
+
+  " <CR>: close popup and save indent.
+  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+  function! s:my_cr_function() abort
+    return deoplete#mappings#close_popup() . "\<CR>"
+  endfunction
+  call neobundle#untap()
+endif
+" }}}"
+
+" deoplete-go "{{{
+if neobundle#tap('deoplete.nvim')
+  " 補完の表示位置を揃える
+  let g:deoplete#sources#go#align_class = 1
+  " 補完の並び順
+  let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+  let g:deoplete#sources#go#package_dot = 1
+  call neobundle#untap()
+endif
+" }}}"
+
 " neocomplete.vim "{{{
 if neobundle#tap('neocomplete')
-  call neobundle#config({
-        \ 'depends': ['ujihisa/neco-look', 'Shougo/neco-syntax']
-        \ })
   " AutoComplPop を無効にする
   let g:acp_enableAtStartup = 0
   " 起動時に neocomplete を有効にする
@@ -855,6 +893,31 @@ if neobundle#tap('neocomplete')
   inoremap <expr><C-e>  neocomplete#cancel_popup()
   " }}}"
 
+  call neobundle#untap()
+endif
+" }}}"
+
+" neco-look "{{{
+if neobundle#tap('neco-look')
+  if neobundle#tap('neocomplete')
+    " vim(neocomplete)の場合はneco-lookが発動するfiletypesを設定する
+    if !exists('g:neocomplete#text_mode_filetypes')
+      let g:neocomplete#text_mode_filetypes = {}
+    endif
+    let g:neocomplete#text_mode_filetypes = {
+          \ 'rst': 1,
+          \ 'markdown': 1,
+          \ 'gitrebase': 1,
+          \ 'gitcommit': 1,
+          \ 'vcs-commit': 1,
+          \ 'hybrid': 1,
+          \ 'text': 1,
+          \ 'help': 1,
+          \ 'tex': 1,
+          \ }
+    call neocomplete#custom#source('look', 'min_pattern_length', 1)
+    call neobundle#untap()
+  endif
   call neobundle#untap()
 endif
 " }}}"
