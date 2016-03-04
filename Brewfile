@@ -47,7 +47,7 @@ brew tap homebrew/binary
 brew install packer
 
 ### for cask
-brew tap phinze/cask
+brew tap caskroom/cask
 brew install brew-cask
 
 ## .dmg, .pkg
