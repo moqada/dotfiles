@@ -2,5 +2,6 @@
 vim/bundle
 vim/backup
 vim/init.vim
+vim/.init.vim*
 vim/spell
 vimperator/info
