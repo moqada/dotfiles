@@ -38,6 +38,9 @@ alias ta='tig --all'
 # @see: http://akirachiku.com/2016/03/01/go16-development.html
 alias gp='cd $GOPATH_WORK/src/github.com/moqada'
 
+# for vim
+alias vim=nvim
+
 # とりあえず文字コード設定
 export LANG=ja_JP.UTF-8
 
