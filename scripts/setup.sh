@@ -19,6 +19,8 @@ ln -si $BASE_DIR/tmux.conf $HOME/.tmux.conf
 ln -si $BASE_DIR/vimrc $HOME/.vimrc
 ln -si $BASE_DIR/vim $HOME/.vim
 ln -si $BASE_DIR/gvimrc $HOME/.gvimrc
+ln -s $HOME/.vim $HOME/.config/nvim
+ln -s $HOME/.vimrc $HOME/.config/nvim/init.vim
 
 # Zsh
 ln -s $BASE_DIR/zshrc $HOME/.zshrc
