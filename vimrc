@@ -2,182 +2,188 @@ scriptencoding utf8
 " このファイルではマーカー文字列でソースコードを折り畳み表示
 " vim: foldmethod=marker
 
-" neobundle.vim "{{{
-" 初期化
-if has('vim_starting')
-  if &compatible
-    set nocompatible
-  endif
-  set runtimepath+=~/.vim/bundle/neobundle.vim
+" dein.vim "{{{
+if &compatible
+  set nocompatible               " Be iMproved
 endif
-call neobundle#begin(expand('~/.vim/bundle'))
 
-" Plug in
-NeoBundleFetch 'Shougo/neobundle.vim'
-NeoBundle 'Shougo/vimproc', {
+" Required:
+set runtimepath^=~/.vim/dein/repos/github.com/Shougo/dein.vim
+
+" Required:
+call dein#begin(expand('~/.config/nvim/dein'))
+
+" Let dein manage dein
+" Required:
+call dein#add('Shougo/dein.vim')
+
+call dein#add('Shougo/vimproc', {
      \ 'build': {
      \     'windows': 'mingw32-make -f make_mingw32.mak',
      \     'cygwin': 'make -f make_cygwin.mak',
      \     'mac': 'make -f make_mac.mak',
      \     'unix': 'make -f make_unix.mak',
      \    },
-     \ }
-NeoBundle 'Shougo/unite.vim'
-NeoBundle 'Shougo/neomru.vim'
-NeoBundle 'Shougo/vimfiler'
+     \ })
+call dein#add('Shougo/unite.vim')
+call dein#add('Shougo/neomru.vim')
+call dein#add('Shougo/vimfiler')
 if has('nvim')
-  NeoBundle 'Shougo/deoplete.nvim', {
-        \ 'depends': ['ujihisa/neco-look', 'Shougo/neco-syntax']
-        \ }
-  NeoBundleLazy 'zchee/deoplete-go', {
+  call dein#add('Shougo/deoplete.nvim')
+  call dein#add('zchee/deoplete-go', {
         \ 'autoload': {'filetypes': ['go']},
         \ 'build': {'unix': 'make'}
-        \ }
-  NeoBundleLazy 'zchee/deoplete-jedi', {
+        \ })
+  call dein#add('zchee/deoplete-jedi', {
         \ 'autoload': {'filetypes': ['python', 'python3']}
-        \ }
+        \ })
 else
-  NeoBundle 'Shougo/neocomplete', {
-        \ 'depends': ['ujihisa/neco-look', 'Shougo/neco-syntax']
-        \ }
+  call dein#add('Shougo/neocomplete')
 endif
-NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/neosnippet-snippets'
-NeoBundle 'thinca/vim-ref'
-NeoBundle 'itchyny/lightline.vim'
-NeoBundleLazy 'majutsushi/tagbar', {
+call dein#add('ujihisa/neco-look')
+call dein#add('Shougo/neco-syntax')
+call dein#add('Shougo/neosnippet')
+call dein#add('Shougo/neosnippet-snippets')
+call dein#add('thinca/vim-ref')
+call dein#add('itchyny/lightline.vim')
+call dein#add('majutsushi/tagbar', {
      \ 'autoload': {'commands': ['TagbarToggle']}
-     \ }
-NeoBundleLazy 'sudo.vim', {
+     \ })
+call dein#add('sudo.vim', {
      \ 'autoload': {'commands': ['SudoRead', 'SudoWrite']}
-     \ }
-NeoBundle 'rking/ag.vim'
-NeoBundle 'tyru/eskk.vim'
-NeoBundle 'mojako/ref-sources.vim'
-NeoBundle 'kana/vim-smartinput'
-NeoBundle 'mattn/excitetranslate-vim'
-NeoBundle 'surround.vim'
-NeoBundle 'yuratomo/w3m.vim'
-NeoBundle 'honza/vim-snippets'
-NeoBundle 'osyo-manga/vim-anzu'
-NeoBundle 'h1mesuke/vim-alignta'
-NeoBundle 'scrooloose/syntastic'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'kana/vim-fakeclip'
-NeoBundle 'morhetz/gruvbox'
-NeoBundle 'sjl/badwolf'
-NeoBundle 'editorconfig/editorconfig-vim'
-NeoBundle 'wakatime/vim-wakatime'
-NeoBundle 'janko-m/vim-test'
-NeoBundle 'Konfekt/FastFold'
+     \ })
+call dein#add('rking/ag.vim')
+call dein#add('tyru/eskk.vim')
+call dein#add('mojako/ref-sources.vim')
+call dein#add('kana/vim-smartinput')
+call dein#add('mattn/excitetranslate-vim')
+call dein#add('surround.vim')
+call dein#add('yuratomo/w3m.vim')
+call dein#add('honza/vim-snippets')
+call dein#add('osyo-manga/vim-anzu')
+call dein#add('h1mesuke/vim-alignta')
+call dein#add('scrooloose/syntastic')
+call dein#add('nathanaelkane/vim-indent-guides')
+call dein#add('kana/vim-fakeclip')
+call dein#add('morhetz/gruvbox')
+call dein#add('sjl/badwolf')
+call dein#add('editorconfig/editorconfig-vim')
+call dein#add('wakatime/vim-wakatime')
+call dein#add('janko-m/vim-test')
+call dein#add('Konfekt/FastFold')
 
 " for CoffeeScript
-NeoBundleLazy 'kchmck/vim-coffee-script', {
+call dein#add('kchmck/vim-coffee-script', {
      \ 'autoload': {'filetypes': ['coffee']}
-     \ }
+     \ })
 
 " for Git
-NeoBundle 'tpope/vim-fugitive'
+call dein#add('tpope/vim-fugitive')
 
 " for GitHub
-NeoBundleLazy 'mattn/gist-vim', {
-     \ 'autoload': {'commands': ['Gist']},
-     \ 'depends': 'mattn/webapi-vim'
-     \ }
-NeoBundle 'rhysd/github-complete.vim'
-NeoBundle 'junegunn/vim-emoji'
+call dein#add('mattn/gist-vim', {
+     \ 'autoload': {'commands': ['Gist']}
+     \ })
+call dein#add('mattn/webapi-vim')
+
+call dein#add('rhysd/github-complete.vim')
+call dein#add('junegunn/vim-emoji')
 
 " for Golang
-NeoBundleLazy 'fatih/vim-go', {
+call dein#add('fatih/vim-go', {
       \ 'autoload': {'filetypes': ['go']}
-      \ }
+      \ })
 
 " for HTML / CSS
-NeoBundleLazy 'mattn/emmet-vim', {
+call dein#add('mattn/emmet-vim', {
      \ 'autoload': {'filetypes': ['css', 'html', 'sass', 'scss', 'jsx']}
-     \ }
-NeoBundleLazy 'hail2u/vim-css3-syntax', {
+     \ })
+call dein#add('hail2u/vim-css3-syntax', {
      \ 'autoload': {'filetypes': ['css']}
-     \ }
-NeoBundleLazy 'cakebaker/scss-syntax.vim', {
+     \ })
+call dein#add('cakebaker/scss-syntax.vim', {
      \ 'autoload': {'filetypes': ['scss']}
-     \ }
-NeoBundle 'wavded/vim-stylus'
+     \ })
+call dein#add('wavded/vim-stylus')
 
 " for JavaScript
-NeoBundleLazy 'jiangmiao/simple-javascript-indenter', {
+call dein#add('jiangmiao/simple-javascript-indenter', {
      \ 'autoload': {'filetypes': ['javascript']}
-     \ }
-NeoBundle 'nono/jquery.vim'
-NeoBundleLazy 'digitaltoad/vim-jade', {
+     \ })
+call dein#add('nono/jquery.vim')
+call dein#add('digitaltoad/vim-jade', {
      \ 'autoload': {'filetypes': ['jade']}
-     \ }
-NeoBundleLazy 'pangloss/vim-javascript', {
-     \ 'autoload': {'filetypes': ['javascript']},
-     \ 'depends': ['mxw/vim-jsx', 'jelera/vim-javascript-syntax']
-     \ }
-NeoBundleLazy '1995eaton/vim-better-javascript-completion', {
+     \ })
+call dein#add('pangloss/vim-javascript', {
      \ 'autoload': {'filetypes': ['javascript']}
-     \ }
-NeoBundleLazy 'heavenshell/vim-jsdoc', {
+     \ })
+call dein#add('mxw/vim-jsx')
+call dein#add('jelera/vim-javascript-syntax')
+call dein#add('1995eaton/vim-better-javascript-completion', {
+     \ 'autoload': {'filetypes': ['javascript']}
+     \ })
+call dein#add('heavenshell/vim-jsdoc', {
       \ 'autoload': {'filetypes': ['javascript']}
-      \ }
+      \ })
 
 " for JSON
-NeoBundle 'Quramy/vison'
+call dein#add('Quramy/vison')
 
 " for Markdown
-NeoBundleLazy 'rcmdnk/vim-markdown', {
+call dein#add('rcmdnk/vim-markdown', {
      \ 'autoload': {'filetypes': ['markdown']}
-     \ }
-NeoBundleLazy 'kannokanno/previm', {
-     \ 'autoload': {'filetypes': ['markdown']},
-     \ 'depends': 'tyru/open-browser.vim'
-     \ }
-NeoBundleLazy "joker1007/vim-markdown-quote-syntax", {
+     \ })
+call dein#add('kannokanno/previm', {
      \ 'autoload': {'filetypes': ['markdown']}
-     \ }
+     \ })
+call dein#add('tyru/open-browser.vim')
+call dein#add("joker1007/vim-markdown-quote-syntax", {
+     \ 'autoload': {'filetypes': ['markdown']}
+     \ })
 
 " for Python
-NeoBundleLazy 'davidhalter/jedi-vim', {
+call dein#add('davidhalter/jedi-vim', {
      \ 'autoload': {'filetypes': ['python', 'python3']}
-     \ }
-NeoBundleLazy 'hynek/vim-python-pep8-indent', {
+     \ })
+call dein#add('hynek/vim-python-pep8-indent', {
      \ 'autoload': {'insert': 1, 'filetypes': ['python', 'python3']}
-     \ }
-NeoBundleLazy 'alfredodeza/pytest.vim', {
+     \ })
+call dein#add('alfredodeza/pytest.vim', {
      \ 'autoload': {'filetypes': ['python', 'python3']}
-     \ }
+     \ })
 
 " for ReST
-NeoBundleLazy 'Rykka/riv.vim', {
+call dein#add('Rykka/riv.vim', {
      \ 'autoload': {'filetypes': ['rest']}
-     \ }
-NeoBundleLazy 'Rykka/clickable.vim', {
+     \ })
+call dein#add('Rykka/clickable.vim', {
      \ 'autoload': {'filetypes': ['rest']}
-     \ }
+     \ })
 
 " for Serverspec
-NeoBundleLazy 'glidenote/serverspec-snippets', {
+call dein#add('glidenote/serverspec-snippets', {
      \ 'autoload': {'filetypes': ['ruby']}
-     \ }
+     \ })
 
 " for Vim Script
-NeoBundleLazy 'mattn/learn-vimscript', {
+call dein#add('mattn/learn-vimscript', {
      \ 'autoload': {'filetypes': ['vim']}
-     \ }
-NeoBundleLazy 'vim-jp/vimdoc-ja', {
+     \ })
+call dein#add('vim-jp/vimdoc-ja', {
      \ 'autoload': {'filetypes': ['vim']}
-     \ }
-NeoBundleLazy 'syngan/vim-vimlint', {
-     \ 'autoload': {'filetypes': ['vim']},
-     \ 'depends' : 'ynkdir/vim-vimlparser'
-     \ }
+     \ })
+call dein#add('syngan/vim-vimlint', {
+     \ 'autoload': {'filetypes': ['vim']}
+     \ })
+call dein#add('ynkdir/vim-vimlparser')
 
-" 後始末
-call neobundle#end()
+" Required:
+call dein#end()
+
+" Required:
 filetype plugin indent on
-" }}}
+" }}}"
+
 
 "---------------------------
 " 基本設定
@@ -807,7 +813,7 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 " }}}"
 
 " deoplete.nvim "{{{
-if neobundle#tap('deoplete.nvim')
+if dein#tap('deoplete.nvim')
   " 起動時にdeopleteを有効にする
   let g:deoplete#enable_at_startup = 1
   " smartcaseを有効にする
@@ -823,23 +829,21 @@ if neobundle#tap('deoplete.nvim')
   function! s:my_cr_function() abort
     return deoplete#mappings#close_popup() . "\<CR>"
   endfunction
-  call neobundle#untap()
 endif
 " }}}"
 
 " deoplete-go "{{{
-if neobundle#tap('deoplete.nvim')
+if dein#tap('deoplete.nvim')
   " 補完の表示位置を揃える
   let g:deoplete#sources#go#align_class = 1
   " 補完の並び順
   let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
   let g:deoplete#sources#go#package_dot = 1
-  call neobundle#untap()
 endif
 " }}}"
 
 " neocomplete.vim "{{{
-if neobundle#tap('neocomplete')
+if dein#tap('neocomplete')
   " AutoComplPop を無効にする
   let g:acp_enableAtStartup = 0
   " 起動時に neocomplete を有効にする
@@ -892,14 +896,12 @@ if neobundle#tap('neocomplete')
   inoremap <expr><C-y>  neocomplete#close_popup()
   inoremap <expr><C-e>  neocomplete#cancel_popup()
   " }}}"
-
-  call neobundle#untap()
 endif
 " }}}"
 
 " neco-look "{{{
-if neobundle#tap('neco-look')
-  if neobundle#tap('neocomplete')
+if dein#tap('neco-look')
+  if dein#tap('neocomplete')
     " vim(neocomplete)の場合はneco-lookが発動するfiletypesを設定する
     if !exists('g:neocomplete#text_mode_filetypes')
       let g:neocomplete#text_mode_filetypes = {}
@@ -916,9 +918,7 @@ if neobundle#tap('neco-look')
           \ 'tex': 1,
           \ }
     call neocomplete#custom#source('look', 'min_pattern_length', 1)
-    call neobundle#untap()
   endif
-  call neobundle#untap()
 endif
 " }}}"
 
