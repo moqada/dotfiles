@@ -4,16 +4,18 @@
 [[plugins]]
 if = '''has('nvim')'''
 repo = 'Shougo/deoplete.nvim'
-depends = ['deoplete-go', 'deoplete-jedi']
+depends = ['context_filetype.vim', 'deoplete-go', 'deoplete-jedi']
 on_i = 1
 
 [[plugins]]
 if = '''has('vim')'''
 repo = 'Shougo/neocomplete'
+depends = ['context_filetype.vim']
 on_i = 1
 
 [[plugins]]
 repo = 'Shougo/neosnippet'
+depends = ['context_filetype.vim', 'neosnippet-snippets']
 on_i = 1
 on_ft = 'snippet'
 
@@ -55,14 +57,6 @@ repo = 'mattn/emmet-vim'
 on_ft = ['css', 'html', 'sass', 'scss', 'jsx']
 
 [[plugins]]
-repo = 'hail2u/vim-css3-syntax'
-on_ft = 'css'
-
-[[plugins]]
-repo = 'cakebaker/scss-syntax.vim'
-on_ft = 'scss'
-
-[[plugins]]
 repo = 'wavded/vim-stylus'
 on_ft = 'stylus'
 # 1}}}
@@ -73,37 +67,7 @@ repo = 'digitaltoad/vim-jade'
 on_ft = 'jade'
 # 1}}}
 
-# JSON {{{1
-[[plugins]]
-repo = 'Quramy/vison'
-on_ft = 'json'
-# 1}}}
-
 # JavaScript {{{1
-[[plugins]]
-repo = 'jiangmiao/simple-javascript-indenter'
-on_ft = 'javascript'
-
-[[plugins]]
-repo = 'nono/jquery.vim'
-on_ft = 'javascript'
-
-[[plugins]]
-repo = 'pangloss/vim-javascript'
-on_ft = 'javascript'
-
-[[plugins]]
-repo = 'mxw/vim-jsx'
-on_ft = 'javascript'
-
-[[plugins]]
-repo = 'jelera/vim-javascript-syntax'
-on_ft = 'javascript'
-
-[[plugins]]
-repo = '1995eaton/vim-better-javascript-completion'
-on_ft = 'javascript'
-
 [[plugins]]
 repo  = 'heavenshell/vim-jsdoc'
 on_ft = 'javascript'
@@ -111,16 +75,8 @@ on_ft = 'javascript'
 
 # Markdown {{{1
 [[plugins]]
-repo = 'rcmdnk/vim-markdown'
-on_ft = 'markdown'
-
-[[plugins]]
 repo = 'kannokanno/previm'
 depends = 'open-browser.vim'
-on_ft = 'markdown'
-
-[[plugins]]
-repo = "joker1007/vim-markdown-quote-syntax"
 on_ft = 'markdown'
 # 1}}}
 
@@ -151,29 +107,9 @@ repo = 'alfredodeza/pytest.vim'
 on_ft = ['python', 'python3']
 # 1}}}
 
-# ReST {{{1
-[[plugins]]
-repo = 'Rykka/riv.vim'
-on_ft = 'rest'
-
-[[plugins]]
-repo = 'Rykka/clickable.vim'
-on_ft = 'rest'
-# 1}}}
-
-# Serverspec {{{1
-[[plugins]]
-repo = 'glidenote/serverspec-snippets'
-on_ft = 'ruby'
-# 1}}}
-
 # Vim Script{{{1
 [[plugins]]
 repo = 'ynkdir/vim-vimlparser'
-on_ft = 'vim'
-
-[[plugins]]
-repo = 'mattn/learn-vimscript'
 on_ft = 'vim'
 
 [[plugins]]

@@ -14,45 +14,30 @@ repo = 'Shougo/vimproc'
     unix = 'make -f make_unix.mak'
 
 [[plugins]]
-repo = 'Shougo/unite.vim'
-
-[[plugins]]
 repo = 'Shougo/neomru.vim'
 
 [[plugins]]
+repo = 'Shougo/unite.vim'
+depends = 'neomru.vim'
+
+[[plugins]]
 repo = 'Shougo/vimfiler'
+depends = 'unite.vim'
 
 [[plugins]]
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
-repo = 'thinca/vim-ref'
+repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-repo = 'majutsushi/tagbar'
-on_cmd = 'TagbarToggle'
-
-[[plugins]]
-repo = 'sudo.vim'
-on_cmd = ['SudoRead', 'SudoWrite']
-
-[[plugins]]
-repo = 'rking/ag.vim'
-
-[[plugins]]
 repo = 'tyru/eskk.vim'
 
 [[plugins]]
-repo = 'mojako/ref-sources.vim'
-
-[[plugins]]
 repo = 'kana/vim-smartinput'
-
-[[plugins]]
-repo = 'mattn/excitetranslate-vim'
 
 [[plugins]]
 repo = 'surround.vim'
@@ -61,12 +46,9 @@ repo = 'surround.vim'
 repo = 'honza/vim-snippets'
 
 [[plugins]]
-repo = 'yuratomo/w3m.vim'
-
-[[plugins]]
 repo = 'scrooloose/syntastic'
 
-# depends: gsit-vim
+# depends: gist-vim
 [[plugins]]
 repo = 'mattn/webapi-vim'
 
@@ -76,9 +58,6 @@ repo = 'tyru/open-browser.vim'
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
-
-[[plugins]]
-repo = 'kana/vim-fakeclip'
 
 [[plugins]]
 repo = 'janko-m/vim-test'
@@ -116,11 +95,6 @@ repo = 'rhysd/github-complete.vim'
 
 [[plugins]]
 repo = 'junegunn/vim-emoji'
-# 1}}}
-
-# Text {{{1
-[[plugins]]
-repo = 'h1mesuke/vim-alignta'
 # 1}}}
 
 # Wakatime {{{1

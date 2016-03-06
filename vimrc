@@ -1,6 +1,11 @@
-scriptencoding utf8
 " このファイルではマーカー文字列でソースコードを折り畳み表示
 " vim: foldmethod=marker
+" vim: foldlevel=0
+if !has('nvim')
+  " neovimはデフォルトでutf-8になる
+  set encoding=utf-8
+endif
+scriptencoding utf8
 
 " dein.vim "{{{
 if &compatible
@@ -45,7 +50,7 @@ if dein#check_install()
   call dein#install()
 endif
 
-" filetype plugin indent on
+filetype plugin indent on
 " }}}"
 
 
@@ -125,6 +130,13 @@ set showmatch
 set matchtime=2
 " 記号を ASCII 文字の2倍の幅にする
 set ambiwidth=double
+" 必ずカーソルの前後に指定の行数表示してくれるようにする
+set scrolloff=5
+" エラービープ音の全停止
+set visualbell t_vb=
+set noerrorbells
+" カーソル行のハイライト
+set cursorline
 "}}}
 
 " バックアップ・スワップ・履歴に関する設定"{{{
@@ -148,7 +160,6 @@ if has("win32")
   " set encoding より上に書くこと
   let &termencoding = &encoding
 endif
-set encoding=utf-8
 set fileencodings=ucs_bom,utf-8,ucs-2le,ucs-2,cp932
 set fileformats=unix,dos,mac
 " }}}
@@ -162,45 +173,43 @@ nnoremap <silent><Space>s :<C-u>setl spell! spell?<CR>
 nnoremap <Space>rv :<C-u>source ~/.vimrc<CR>
 " vimrc を編集
 nnoremap <silent><Space>ev :<C-u>edit ~/.vimrc<CR>
+" jjでesc
+inoremap <silent> jj <ESC>
 " }}}
 
 " FileType Settings "{{{
 " ----------
-" for JavaScript
-au BufRead,BufNewFile jquery.*.js set ft=javascript syntax=jquery
-" for Markdown
-" そのままだと *.md なファイルは modula2 と判断されてしまう
-au BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} setl ft=markdown
-" for Golang
-" @see: http://akirachiku.com/2016/03/01/go16-development.html
-aug GolangSettings
-  au!
-  au FileType go nmap <leader>gb <Plug>(go-build)
-  au FileType go nmap <leader>gt <Plug>(go-test)
-  au FileType go nmap <Leader>ds <Plug>(go-def-split)
-  au FileType go nmap <Leader>dv <Plug>(go-def-vertical)
-  au FileType go nmap <Leader>dt <Plug>(go-def-tab)
-  au FileType go nmap <Leader>gd <Plug>(go-doc)
-  au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-  au FileType go :highlight goErr cterm=bold ctermfg=214
-  au FileType go :match goErr /\<err\>/
-aug END
-" for Git commit message
-au FileType gitcommit setl spell
+augroup Markdown
+  autocmd!
+  " そのままだと *.md なファイルは modula2 と判断されてしまう
+  autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} setl ft=markdown
+augroup END
 
+" @see: http://akirachiku.com/2016/03/01/go16-development.html
+augroup GolangSettings
+  autocmd!
+  autocmd FileType go nmap <leader>gb <Plug>(go-build)
+  autocmd FileType go nmap <leader>gt <Plug>(go-test)
+  autocmd FileType go nmap <Leader>ds <Plug>(go-def-split)
+  autocmd FileType go nmap <Leader>dv <Plug>(go-def-vertical)
+  autocmd FileType go nmap <Leader>dt <Plug>(go-def-tab)
+  autocmd FileType go nmap <Leader>gd <Plug>(go-doc)
+  autocmd FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+  autocmd FileType go :highlight goErr cterm=bold ctermfg=214
+  autocmd FileType go :match goErr /\<err\>/
+augroup END
+
+augroup Git
+  autocmd!
+  " for Git commit message
+  autocmd FileType gitcommit setl spell
+augroup END
 " ----------
 "}}}
 
 "---------------------------
 " プラグイン設定
 "--------------------------
-
-" ag.vim "{{{
-" カーソル下の文字列を ag を使って検索する
-nmap & :Ag <C-r>=expand("<cword>")<cr><cr>
-" ag を使って指定の文字列で検索する
-nnoremap <space>/ :Ag 
-" }}}
 
 " vim-anzu "{{{
 " 通常のn/Nと置き換えてコマンドラインに結果を表示する
@@ -346,16 +355,6 @@ function! MyCharCode()
 endfunction
 " }}}
 
-" vim-jsx "{{{
-" .js 拡張子でも jsx を有効にする
-let g:jsx_ext_required = 0
-" }}}"
-
-" vim-better-javascript-completion "{{{
-" Chrome API の補完を有効にする
-let g:vimjs#chromeapis = 0
-" }}}"
-
 " gist-vim "{{{
 let g:gist_clip_command = 'xclip -selection clipboard'
 let g:gist_detect_filetype = 1
@@ -369,13 +368,6 @@ augroup config-github-complete
 augroup END
 " }}}
 
-" tagbar.vim "{{{
-" window 幅設定
-let g:tagbar_width = 30
-" shortcut key 設定
-map ,tl :TagbarToggle<CR> 
-" }}}
-
 " emmet-vim "{{{
 " ファイルタイプ毎の設定.
 let g:user_emmet_settings = {
@@ -385,11 +377,6 @@ let g:user_emmet_settings = {
 \        'inline_elements': 'a,abbr,acronym,applet,b,basefont,bdo,big,br,button,cite,code,del,dfn,em,font,i,iframe,img,input,ins,kbd,label,map,object,q,s,samp,script,small,span,strike,strong,sub,sup,textarea,tt,u,var,li',
 \    },
 \}
-" }}}
-
-" vim-javascript-syntax "{{{
-" Folding を有効にする
-au FileType javascript call JavaScriptFold()
 " }}}
 
 " jedi-vim "{{{
@@ -461,21 +448,6 @@ silent! if emoji#available()
     let g:syntastic_warning_symbol = emoji#for('zap')
 endif
 " }}}"
-
-" ref.vim"{{{
-let g:ref_use_vimproc = 1
-let g:ref_source_webdict_sites = {
-\   'alc': {
-\       'url': 'http://eow.alc.co.jp/%s/UTF-8/',
-\       'keyword_encoding': 'utf-8',
-\       'cache': 1,
-\   }
-\}
-" phpドキュメントのパス
-" ファイルは事前にダウンロードしておく
-" http://www.php.net/download-docs.php
-let g:ref_phpmanual_path = $HOME . '/.phpdoc/php-chunked-xhtml'
-" }}}
 
 " eskk.vim "{{{
 " 有効/無効切り替え
@@ -598,7 +570,7 @@ endif
 " @see: http://mattn.kaoriya.net/software/vim/20150209151638.htm
 let g:unite_source_history_yank_enable = 1
 try
-  let g:unite_source_rec_async_command='ag --nocolor --nogroup -g ""'
+  let g:unite_source_rec_async_command=['ag', '--nocolor', '--nogroup', '-g', '""']
 catch
 endtry
 " search a file in the filetree
@@ -647,10 +619,6 @@ let test#go#gotest#options = {
       \ 'file':    '-v',
       \ 'suite':   '-v',
       \ }
-" }}}
-
-" vison {{{
-autocmd BufRead,BufNewFile package.json Vison
 " }}}
 
 " neosnippet "{{{
