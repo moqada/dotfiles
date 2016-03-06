@@ -64,6 +64,9 @@ repo = 'janko-m/vim-test'
 
 [[plugins]]
 repo = 'Konfekt/FastFold'
+
+[[plugins]]
+repo = 'thinca/vim-zenspace'
 # 1}}}
 
 # 検索関連 {{{1
