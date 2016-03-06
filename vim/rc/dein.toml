@@ -1,3 +1,6 @@
+# vim: foldmethod=marker
+
+# Basic {{{1
 [[plugins]]
 repo = 'Shougo/dein.vim'
 
@@ -20,44 +23,13 @@ repo = 'Shougo/neomru.vim'
 repo = 'Shougo/vimfiler'
 
 [[plugins]]
-if = '''has('nvim')'''
-repo = 'Shougo/deoplete.nvim'
-
-[[plugins]]
-if = '''has('nvim')'''
-repo = 'zchee/deoplete-go'
-on_ft = 'go'
-
-  [plugins.build]
-  unix = 'make'
-
-[[plugins]]
-if = '''has('nvim')'''
-repo = 'zchee/deoplete-jedi',
-on_ft = ['python', 'python3']
-
-[[plugins]]
-if = '''has('vim')'''
-repo = 'Shougo/neocomplete'
-
-
-[[plugins]]
-repo = 'ujihisa/neco-look'
-
-[[plugins]]
-repo = 'Shougo/neco-syntax'
-
-[[plugins]]
-repo = 'Shougo/neosnippet'
-
-[[plugins]]
-repo = 'Shougo/neosnippet-snippets'
+repo = 'itchyny/lightline.vim'
 
 [[plugins]]
 repo = 'thinca/vim-ref'
 
 [[plugins]]
-repo = 'itchyny/lightline.vim'
+repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
 repo = 'majutsushi/tagbar'
@@ -86,19 +58,21 @@ repo = 'mattn/excitetranslate-vim'
 repo = 'surround.vim'
 
 [[plugins]]
-repo = 'yuratomo/w3m.vim'
-
-[[plugins]]
 repo = 'honza/vim-snippets'
 
 [[plugins]]
-repo = 'osyo-manga/vim-anzu'
-
-[[plugins]]
-repo = 'h1mesuke/vim-alignta'
+repo = 'yuratomo/w3m.vim'
 
 [[plugins]]
 repo = 'scrooloose/syntastic'
+
+# depends: gsit-vim
+[[plugins]]
+repo = 'mattn/webapi-vim'
+
+# depends: previm
+[[plugins]]
+repo = 'tyru/open-browser.vim'
 
 [[plugins]]
 repo = 'nathanaelkane/vim-indent-guides'
@@ -107,157 +81,49 @@ repo = 'nathanaelkane/vim-indent-guides'
 repo = 'kana/vim-fakeclip'
 
 [[plugins]]
-repo = 'morhetz/gruvbox'
-
-[[plugins]]
-repo = 'sjl/badwolf'
-
-[[plugins]]
-repo = 'editorconfig/editorconfig-vim'
-
-[[plugins]]
-repo = 'wakatime/vim-wakatime'
-
-[[plugins]]
 repo = 'janko-m/vim-test'
 
 [[plugins]]
 repo = 'Konfekt/FastFold'
+# 1}}}
 
-# CoffeeScript
+# 検索関連 {{{1
 [[plugins]]
-repo = 'kchmck/vim-coffee-script'
-on_ft = 'coffee'
+repo = 'osyo-manga/vim-anzu'
+# 1}}}
 
-# for Git
+# Color {{{1
+[[plugins]]
+repo = 'morhetz/gruvbox'
+
+[[plugins]]
+repo = 'sjl/badwolf'
+# 1}}}
+
+# EditorConfig {{{1
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+# 1}}}
+
+# Git {{{1
 [[plugins]]
 repo = 'tpope/vim-fugitive'
+# 1}}}
 
-# for GitHub
-[[plugins]]
-repo = 'mattn/gist-vim'
-on_cmd = 'Gist'
-
-[[plugins]]
-repo = 'mattn/webapi-vim'
-
+# GitHub {{{1
 [[plugins]]
 repo = 'rhysd/github-complete.vim'
 
 [[plugins]]
 repo = 'junegunn/vim-emoji'
+# 1}}}
 
-# for Golang
+# Text {{{1
 [[plugins]]
-repo = 'fatih/vim-go'
-on_ft = 'go'
+repo = 'h1mesuke/vim-alignta'
+# 1}}}
 
-# for HTML / CSS
+# Wakatime {{{1
 [[plugins]]
-repo = 'mattn/emmet-vim'
-on_ft = ['css', 'html', 'sass', 'scss', 'jsx']
-
-[[plugins]]
-repo = 'hail2u/vim-css3-syntax'
-on_ft = 'css'
-
-[[plugins]]
-repo = 'cakebaker/scss-syntax.vim'
-on_ft = 'scss'
-
-[[plugins]]
-repo = 'wavded/vim-stylus'
-
-# for JavaScript
-[[plugins]]
-repo = 'jiangmiao/simple-javascript-indenter'
-on_ft = 'javascript'
-
-[[plugins]]
-repo = 'nono/jquery.vim'
-
-[[plugins]]
-repo = 'digitaltoad/vim-jade'
-on_ft = 'jade'
-
-[[plugins]]
-repo = 'pangloss/vim-javascript'
-on_ft = 'javascript'
-
-[[plugins]]
-repo = 'mxw/vim-jsx'
-
-[[plugins]]
-repo = 'jelera/vim-javascript-syntax'
-
-[[plugins]]
-repo = '1995eaton/vim-better-javascript-completion'
-on_ft = 'javascript'
-
-[[plugins]]
-repo  = 'heavenshell/vim-jsdoc'
-on_ft = 'javascript'
-
-# for JSON
-[[plugins]]
-repo = 'Quramy/vison'
-
-# for Markdown
-[[plugins]]
-repo = 'rcmdnk/vim-markdown'
-on_ft = 'markdown'
-
-[[plugins]]
-repo = 'kannokanno/previm'
-on_ft = 'markdown'
-
-[[plugins]]
-repo = 'tyru/open-browser.vim'
-
-[[plugins]]
-repo = "joker1007/vim-markdown-quote-syntax"
-on_ft = 'markdown'
-
-# for Python
-[[plugins]]
-repo = 'davidhalter/jedi-vim'
-on_ft = ['python', 'python3']
-
-[[plugins]]
-repo = 'hynek/vim-python-pep8-indent'
-on_ft = ['python', 'python3']
-on_i = 1
-
-[[plugins]]
-repo = 'alfredodeza/pytest.vim'
-on_ft = ['python', 'python3']
-
-# for ReST
-[[plugins]]
-repo = 'Rykka/riv.vim'
-on_ft = 'rest'
-
-[[plugins]]
-repo = 'Rykka/clickable.vim'
-on_ft = 'rest'
-
-# for Serverspec
-[[plugins]]
-repo = 'glidenote/serverspec-snippets'
-on_ft = 'ruby'
-
-# for Vim Script
-[[plugins]]
-repo = 'mattn/learn-vimscript'
-on_ft = 'vim'
-
-[[plugins]]
-repo = 'vim-jp/vimdoc-ja'
-on_ft = 'vim'
-
-[[plugins]]
-repo = 'syngan/vim-vimlint'
-on_ft = 'vim'
-
-[[plugins]]
-repo = 'ynkdir/vim-vimlparser'
+repo = 'wakatime/vim-wakatime'
+# 1}}}

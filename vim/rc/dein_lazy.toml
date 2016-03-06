@@ -1,0 +1,187 @@
+# vim: foldmethod=marker
+
+# Basic {{{1
+[[plugins]]
+if = '''has('nvim')'''
+repo = 'Shougo/deoplete.nvim'
+depends = ['deoplete-go', 'deoplete-jedi']
+on_i = 1
+
+[[plugins]]
+if = '''has('vim')'''
+repo = 'Shougo/neocomplete'
+on_i = 1
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+on_i = 1
+on_ft = 'snippet'
+
+[[plugins]]
+repo = 'Shougo/neco-syntax'
+on_i = 1
+# 1}}}
+
+# CoffeeScript {{{1
+[[plugins]]
+repo = 'kchmck/vim-coffee-script'
+on_ft = 'coffee'
+# 1}}}
+
+# GitHub {{{1
+[[plugins]]
+repo = 'mattn/gist-vim'
+depends = 'webapi-vim'
+on_cmd = 'Gist'
+# 1}}}
+
+# Golang {{{1
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+
+[[plugins]]
+if = '''has('nvim')'''
+repo = 'zchee/deoplete-go'
+on_ft = 'go'
+
+  [plugins.build]
+  unix = 'make'
+# 1}}}
+
+# HTML / CSS {{{1
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['css', 'html', 'sass', 'scss', 'jsx']
+
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+on_ft = 'css'
+
+[[plugins]]
+repo = 'cakebaker/scss-syntax.vim'
+on_ft = 'scss'
+
+[[plugins]]
+repo = 'wavded/vim-stylus'
+on_ft = 'stylus'
+# 1}}}
+
+# Jade {{{1
+[[plugins]]
+repo = 'digitaltoad/vim-jade'
+on_ft = 'jade'
+# 1}}}
+
+# JSON {{{1
+[[plugins]]
+repo = 'Quramy/vison'
+on_ft = 'json'
+# 1}}}
+
+# JavaScript {{{1
+[[plugins]]
+repo = 'jiangmiao/simple-javascript-indenter'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'nono/jquery.vim'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'mxw/vim-jsx'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'jelera/vim-javascript-syntax'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = '1995eaton/vim-better-javascript-completion'
+on_ft = 'javascript'
+
+[[plugins]]
+repo  = 'heavenshell/vim-jsdoc'
+on_ft = 'javascript'
+# 1}}}
+
+# Markdown {{{1
+[[plugins]]
+repo = 'rcmdnk/vim-markdown'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'kannokanno/previm'
+depends = 'open-browser.vim'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = "joker1007/vim-markdown-quote-syntax"
+on_ft = 'markdown'
+# 1}}}
+
+# Text {{{1
+[[plugins]]
+repo = 'ujihisa/neco-look'
+on_i = 1
+# 1}}}
+
+# Python {{{1
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+on_ft = ['python', 'python3']
+
+[[plugins]]
+if = '''has('nvim')'''
+repo = 'zchee/deoplete-jedi',
+depends = 'jedi-vim'
+on_ft = ['python', 'python3']
+
+[[plugins]]
+repo = 'hynek/vim-python-pep8-indent'
+on_ft = ['python', 'python3']
+on_i = 1
+
+[[plugins]]
+repo = 'alfredodeza/pytest.vim'
+on_ft = ['python', 'python3']
+# 1}}}
+
+# ReST {{{1
+[[plugins]]
+repo = 'Rykka/riv.vim'
+on_ft = 'rest'
+
+[[plugins]]
+repo = 'Rykka/clickable.vim'
+on_ft = 'rest'
+# 1}}}
+
+# Serverspec {{{1
+[[plugins]]
+repo = 'glidenote/serverspec-snippets'
+on_ft = 'ruby'
+# 1}}}
+
+# Vim Script{{{1
+[[plugins]]
+repo = 'ynkdir/vim-vimlparser'
+on_ft = 'vim'
+
+[[plugins]]
+repo = 'mattn/learn-vimscript'
+on_ft = 'vim'
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+on_ft = 'vim'
+
+[[plugins]]
+repo = 'syngan/vim-vimlint'
+depends = 'vim-vimlparser'
+on_ft = 'vim'
+# 1}}}

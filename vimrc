@@ -33,7 +33,7 @@ let s:lazy_toml = '~/.vim/rc/dein_lazy.toml'
 " TOML を読み込み、キャッシュしておく
 if dein#load_cache([expand('<sfile>'), s:toml, s:lazy_toml])
   call dein#load_toml(s:toml, {'lazy': 0})
-  " call dein#load_toml(s:lazy_toml, {'lazy': 1})
+  call dein#load_toml(s:lazy_toml, {'lazy': 1})
   call dein#save_cache()
 endif
 
