@@ -1,0 +1,263 @@
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+[[plugins]]
+repo = 'Shougo/vimproc'
+
+    [plugins.build]
+    windows = 'tools\\update-dll-mingw'
+    cygwin= 'make -f make_cygwin.mak'
+    mac = 'make -f make_mac.mak'
+    unix = 'make -f make_unix.mak'
+
+[[plugins]]
+repo = 'Shougo/unite.vim'
+
+[[plugins]]
+repo = 'Shougo/neomru.vim'
+
+[[plugins]]
+repo = 'Shougo/vimfiler'
+
+[[plugins]]
+if = '''has('nvim')'''
+repo = 'Shougo/deoplete.nvim'
+
+[[plugins]]
+if = '''has('nvim')'''
+repo = 'zchee/deoplete-go'
+on_ft = 'go'
+
+  [plugins.build]
+  unix = 'make'
+
+[[plugins]]
+if = '''has('nvim')'''
+repo = 'zchee/deoplete-jedi',
+on_ft = ['python', 'python3']
+
+[[plugins]]
+if = '''has('vim')'''
+repo = 'Shougo/neocomplete'
+
+
+[[plugins]]
+repo = 'ujihisa/neco-look'
+
+[[plugins]]
+repo = 'Shougo/neco-syntax'
+
+[[plugins]]
+repo = 'Shougo/neosnippet'
+
+[[plugins]]
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]]
+repo = 'thinca/vim-ref'
+
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+[[plugins]]
+repo = 'majutsushi/tagbar'
+on_cmd = 'TagbarToggle'
+
+[[plugins]]
+repo = 'sudo.vim'
+on_cmd = ['SudoRead', 'SudoWrite']
+
+[[plugins]]
+repo = 'rking/ag.vim'
+
+[[plugins]]
+repo = 'tyru/eskk.vim'
+
+[[plugins]]
+repo = 'mojako/ref-sources.vim'
+
+[[plugins]]
+repo = 'kana/vim-smartinput'
+
+[[plugins]]
+repo = 'mattn/excitetranslate-vim'
+
+[[plugins]]
+repo = 'surround.vim'
+
+[[plugins]]
+repo = 'yuratomo/w3m.vim'
+
+[[plugins]]
+repo = 'honza/vim-snippets'
+
+[[plugins]]
+repo = 'osyo-manga/vim-anzu'
+
+[[plugins]]
+repo = 'h1mesuke/vim-alignta'
+
+[[plugins]]
+repo = 'scrooloose/syntastic'
+
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+
+[[plugins]]
+repo = 'kana/vim-fakeclip'
+
+[[plugins]]
+repo = 'morhetz/gruvbox'
+
+[[plugins]]
+repo = 'sjl/badwolf'
+
+[[plugins]]
+repo = 'editorconfig/editorconfig-vim'
+
+[[plugins]]
+repo = 'wakatime/vim-wakatime'
+
+[[plugins]]
+repo = 'janko-m/vim-test'
+
+[[plugins]]
+repo = 'Konfekt/FastFold'
+
+# CoffeeScript
+[[plugins]]
+repo = 'kchmck/vim-coffee-script'
+on_ft = 'coffee'
+
+# for Git
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+# for GitHub
+[[plugins]]
+repo = 'mattn/gist-vim'
+on_cmd = 'Gist'
+
+[[plugins]]
+repo = 'mattn/webapi-vim'
+
+[[plugins]]
+repo = 'rhysd/github-complete.vim'
+
+[[plugins]]
+repo = 'junegunn/vim-emoji'
+
+# for Golang
+[[plugins]]
+repo = 'fatih/vim-go'
+on_ft = 'go'
+
+# for HTML / CSS
+[[plugins]]
+repo = 'mattn/emmet-vim'
+on_ft = ['css', 'html', 'sass', 'scss', 'jsx']
+
+[[plugins]]
+repo = 'hail2u/vim-css3-syntax'
+on_ft = 'css'
+
+[[plugins]]
+repo = 'cakebaker/scss-syntax.vim'
+on_ft = 'scss'
+
+[[plugins]]
+repo = 'wavded/vim-stylus'
+
+# for JavaScript
+[[plugins]]
+repo = 'jiangmiao/simple-javascript-indenter'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'nono/jquery.vim'
+
+[[plugins]]
+repo = 'digitaltoad/vim-jade'
+on_ft = 'jade'
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'mxw/vim-jsx'
+
+[[plugins]]
+repo = 'jelera/vim-javascript-syntax'
+
+[[plugins]]
+repo = '1995eaton/vim-better-javascript-completion'
+on_ft = 'javascript'
+
+[[plugins]]
+repo  = 'heavenshell/vim-jsdoc'
+on_ft = 'javascript'
+
+# for JSON
+[[plugins]]
+repo = 'Quramy/vison'
+
+# for Markdown
+[[plugins]]
+repo = 'rcmdnk/vim-markdown'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'kannokanno/previm'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo = "joker1007/vim-markdown-quote-syntax"
+on_ft = 'markdown'
+
+# for Python
+[[plugins]]
+repo = 'davidhalter/jedi-vim'
+on_ft = ['python', 'python3']
+
+[[plugins]]
+repo = 'hynek/vim-python-pep8-indent'
+on_ft = ['python', 'python3']
+on_i = 1
+
+[[plugins]]
+repo = 'alfredodeza/pytest.vim'
+on_ft = ['python', 'python3']
+
+# for ReST
+[[plugins]]
+repo = 'Rykka/riv.vim'
+on_ft = 'rest'
+
+[[plugins]]
+repo = 'Rykka/clickable.vim'
+on_ft = 'rest'
+
+# for Serverspec
+[[plugins]]
+repo = 'glidenote/serverspec-snippets'
+on_ft = 'ruby'
+
+# for Vim Script
+[[plugins]]
+repo = 'mattn/learn-vimscript'
+on_ft = 'vim'
+
+[[plugins]]
+repo = 'vim-jp/vimdoc-ja'
+on_ft = 'vim'
+
+[[plugins]]
+repo = 'syngan/vim-vimlint'
+on_ft = 'vim'
+
+[[plugins]]
+repo = 'ynkdir/vim-vimlparser'

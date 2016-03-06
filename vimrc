@@ -7,181 +7,45 @@ if &compatible
   set nocompatible               " Be iMproved
 endif
 
-" Required:
-set runtimepath^=~/.vim/dein/repos/github.com/Shougo/dein.vim
+" 以下の設定はコピペ
+" see: http://qiita.com/delphinus35/items/00ff2c0ba972c6e41542
 
-" Required:
-call dein#begin(expand('~/.config/nvim/dein'))
+" プラグインが実際にインストールされるディレクトリ
+let s:dein_dir = expand('~/.vim/dein')
+" dein.vim 本体
+let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 
-" Let dein manage dein
-" Required:
-call dein#add('Shougo/dein.vim')
-
-call dein#add('Shougo/vimproc', {
-     \ 'build': {
-     \     'windows': 'mingw32-make -f make_mingw32.mak',
-     \     'cygwin': 'make -f make_cygwin.mak',
-     \     'mac': 'make -f make_mac.mak',
-     \     'unix': 'make -f make_unix.mak',
-     \    },
-     \ })
-call dein#add('Shougo/unite.vim')
-call dein#add('Shougo/neomru.vim')
-call dein#add('Shougo/vimfiler')
-if has('nvim')
-  call dein#add('Shougo/deoplete.nvim')
-  call dein#add('zchee/deoplete-go', {
-        \ 'autoload': {'filetypes': ['go']},
-        \ 'build': {'unix': 'make'}
-        \ })
-  call dein#add('zchee/deoplete-jedi', {
-        \ 'autoload': {'filetypes': ['python', 'python3']}
-        \ })
-else
-  call dein#add('Shougo/neocomplete')
+" dein.vim がなければ github から落としてくる
+if &runtimepath != '/dein.vim'
+  if !isdirectory(s:dein_repo_dir)
+    execute '!git clone https://github.com/Shougo/dein.vim' s:dein_repo_dir
+  endif
+  execute 'set runtimepath^=' . fnamemodify(s:dein_repo_dir, ':p')
 endif
-call dein#add('ujihisa/neco-look')
-call dein#add('Shougo/neco-syntax')
-call dein#add('Shougo/neosnippet')
-call dein#add('Shougo/neosnippet-snippets')
-call dein#add('thinca/vim-ref')
-call dein#add('itchyny/lightline.vim')
-call dein#add('majutsushi/tagbar', {
-     \ 'autoload': {'commands': ['TagbarToggle']}
-     \ })
-call dein#add('sudo.vim', {
-     \ 'autoload': {'commands': ['SudoRead', 'SudoWrite']}
-     \ })
-call dein#add('rking/ag.vim')
-call dein#add('tyru/eskk.vim')
-call dein#add('mojako/ref-sources.vim')
-call dein#add('kana/vim-smartinput')
-call dein#add('mattn/excitetranslate-vim')
-call dein#add('surround.vim')
-call dein#add('yuratomo/w3m.vim')
-call dein#add('honza/vim-snippets')
-call dein#add('osyo-manga/vim-anzu')
-call dein#add('h1mesuke/vim-alignta')
-call dein#add('scrooloose/syntastic')
-call dein#add('nathanaelkane/vim-indent-guides')
-call dein#add('kana/vim-fakeclip')
-call dein#add('morhetz/gruvbox')
-call dein#add('sjl/badwolf')
-call dein#add('editorconfig/editorconfig-vim')
-call dein#add('wakatime/vim-wakatime')
-call dein#add('janko-m/vim-test')
-call dein#add('Konfekt/FastFold')
 
-" for CoffeeScript
-call dein#add('kchmck/vim-coffee-script', {
-     \ 'autoload': {'filetypes': ['coffee']}
-     \ })
+" 設定開始
+call dein#begin(s:dein_dir)
 
-" for Git
-call dein#add('tpope/vim-fugitive')
+" プラグインリスト
+let s:toml = '~/.vim/rc/dein.toml'
+let s:lazy_toml = '~/.vim/rc/dein_lazy.toml'
 
-" for GitHub
-call dein#add('mattn/gist-vim', {
-     \ 'autoload': {'commands': ['Gist']}
-     \ })
-call dein#add('mattn/webapi-vim')
+" TOML を読み込み、キャッシュしておく
+if dein#load_cache([expand('<sfile>'), s:toml, s:lazy_toml])
+  call dein#load_toml(s:toml, {'lazy': 0})
+  " call dein#load_toml(s:lazy_toml, {'lazy': 1})
+  call dein#save_cache()
+endif
 
-call dein#add('rhysd/github-complete.vim')
-call dein#add('junegunn/vim-emoji')
-
-" for Golang
-call dein#add('fatih/vim-go', {
-      \ 'autoload': {'filetypes': ['go']}
-      \ })
-
-" for HTML / CSS
-call dein#add('mattn/emmet-vim', {
-     \ 'autoload': {'filetypes': ['css', 'html', 'sass', 'scss', 'jsx']}
-     \ })
-call dein#add('hail2u/vim-css3-syntax', {
-     \ 'autoload': {'filetypes': ['css']}
-     \ })
-call dein#add('cakebaker/scss-syntax.vim', {
-     \ 'autoload': {'filetypes': ['scss']}
-     \ })
-call dein#add('wavded/vim-stylus')
-
-" for JavaScript
-call dein#add('jiangmiao/simple-javascript-indenter', {
-     \ 'autoload': {'filetypes': ['javascript']}
-     \ })
-call dein#add('nono/jquery.vim')
-call dein#add('digitaltoad/vim-jade', {
-     \ 'autoload': {'filetypes': ['jade']}
-     \ })
-call dein#add('pangloss/vim-javascript', {
-     \ 'autoload': {'filetypes': ['javascript']}
-     \ })
-call dein#add('mxw/vim-jsx')
-call dein#add('jelera/vim-javascript-syntax')
-call dein#add('1995eaton/vim-better-javascript-completion', {
-     \ 'autoload': {'filetypes': ['javascript']}
-     \ })
-call dein#add('heavenshell/vim-jsdoc', {
-      \ 'autoload': {'filetypes': ['javascript']}
-      \ })
-
-" for JSON
-call dein#add('Quramy/vison')
-
-" for Markdown
-call dein#add('rcmdnk/vim-markdown', {
-     \ 'autoload': {'filetypes': ['markdown']}
-     \ })
-call dein#add('kannokanno/previm', {
-     \ 'autoload': {'filetypes': ['markdown']}
-     \ })
-call dein#add('tyru/open-browser.vim')
-call dein#add("joker1007/vim-markdown-quote-syntax", {
-     \ 'autoload': {'filetypes': ['markdown']}
-     \ })
-
-" for Python
-call dein#add('davidhalter/jedi-vim', {
-     \ 'autoload': {'filetypes': ['python', 'python3']}
-     \ })
-call dein#add('hynek/vim-python-pep8-indent', {
-     \ 'autoload': {'insert': 1, 'filetypes': ['python', 'python3']}
-     \ })
-call dein#add('alfredodeza/pytest.vim', {
-     \ 'autoload': {'filetypes': ['python', 'python3']}
-     \ })
-
-" for ReST
-call dein#add('Rykka/riv.vim', {
-     \ 'autoload': {'filetypes': ['rest']}
-     \ })
-call dein#add('Rykka/clickable.vim', {
-     \ 'autoload': {'filetypes': ['rest']}
-     \ })
-
-" for Serverspec
-call dein#add('glidenote/serverspec-snippets', {
-     \ 'autoload': {'filetypes': ['ruby']}
-     \ })
-
-" for Vim Script
-call dein#add('mattn/learn-vimscript', {
-     \ 'autoload': {'filetypes': ['vim']}
-     \ })
-call dein#add('vim-jp/vimdoc-ja', {
-     \ 'autoload': {'filetypes': ['vim']}
-     \ })
-call dein#add('syngan/vim-vimlint', {
-     \ 'autoload': {'filetypes': ['vim']}
-     \ })
-call dein#add('ynkdir/vim-vimlparser')
-
-" Required:
+" 設定終了
 call dein#end()
 
-" Required:
-filetype plugin indent on
+" 未インストールものものがあったらインストール
+if dein#check_install()
+  call dein#install()
+endif
+
+" filetype plugin indent on
 " }}}"
 
 
