@@ -69,6 +69,14 @@ on_ft = 'jade'
 
 # JavaScript {{{1
 [[plugins]]
+repo = 'jelera/vim-javascript-syntax'
+on_ft = 'javascript'
+
+[[plugins]]
+repo = 'mxw/vim-jsx'
+on_ft = 'javascript'
+
+[[plugins]]
 repo  = 'heavenshell/vim-jsdoc'
 on_ft = 'javascript'
 # 1}}}

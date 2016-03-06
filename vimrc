@@ -53,7 +53,6 @@ endif
 filetype plugin indent on
 " }}}"
 
-
 "---------------------------
 " 基本設定
 "--------------------------
@@ -598,6 +597,11 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_term_enabled = 1
 let g:go_highlight_build_constraints = 1
+" }}}
+
+" vim-jsx {{{
+" .jsx拡張子以外のファイルでも有効にする
+let g:jsx_ext_required = 0
 " }}}
 
 " vim-test {{{
