@@ -73,7 +73,7 @@ repo = 'osyo-manga/vim-anzu'
 
 # Color {{{1
 [[plugins]]
-repo = 'morhetz/gruvbox'
+repo = 'cocopon/iceberg.vim'
 
 [[plugins]]
 repo = 'sjl/badwolf'

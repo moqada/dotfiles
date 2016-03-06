@@ -101,8 +101,7 @@ syntax on
 " 256色対応
 set t_Co=256
 " colorscheme
-set background=dark
-colorscheme gruvbox
+colorscheme iceberg
 " 行番号を表示
 set number
 " ルーラーを表示
