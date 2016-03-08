@@ -390,7 +390,10 @@ let g:jedi#show_call_signatures = 0
 
 " jsdoc-vim "{{{
 let g:jsdoc_allow_input_prompt = 1
-let g:jsdoc_allow_shorthand = 1
+" paramとdescriptionのセパレータ文字列
+let g:jsdoc_param_description_separator = '-'
+" ES6用の省略記法を許可
+let g:jsdoc_enable_es6 = 1
 nmap <silent> <C-l> <Plug>(jsdoc)
 " }}}"
 
