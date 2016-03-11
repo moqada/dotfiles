@@ -50,6 +50,10 @@ brew install packer
 brew tap caskroom/cask
 brew install brew-cask
 
+### for gomi (trash cli)
+brew tap b4b4r07/gomi
+brew install gomi
+
 ## .dmg, .pkg
 brew cask install 1password --force
 brew cask install alfred --force
