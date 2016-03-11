@@ -17,6 +17,9 @@ esac
 alias h='history '
 alias hh='history 0 | grep -nr '
 
+# for gomi
+alias gm='gomi'
+
 # for git
 alias g='git'
 alias gch='git cherry -v'
