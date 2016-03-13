@@ -451,6 +451,9 @@ endif
 " }}}"
 
 " eskk.vim "{{{
+" IMEをオフにする
+" @see: http://d.hatena.ne.jp/alwei/20111029/1319905783
+set imdisable
 " 有効/無効切り替え
 map! <C-j><C-e> <Plug>(eskk:enable)
 map! <C-j><C-d> <Plug>(eskk:disable)
