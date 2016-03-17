@@ -40,3 +40,6 @@ ln -s $BASE_DIR/npmrc $HOME/.npmrc
 
 # bin
 ln -s $BASE_DIR/bin $HOME/.bin
+
+# Karabiner
+$BASE_DIR/scripts/karabiner-import.sh
