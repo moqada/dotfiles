@@ -432,6 +432,7 @@ let g:syntastic_check_on_open = 0
 let g:syntastic_aggregate_errors = 1
 " 各言語の checker 設定
 let g:syntastic_javascript_checkers = ['eslint']
+let g:syntastic_javascript_eslint_exec = 'eslint_d'
 let g:syntastic_coffee_checkers = ['coffeelint']
 let g:syntastic_python_checkers = ['flake8', 'pep257']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
