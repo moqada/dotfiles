@@ -177,15 +177,15 @@ inoremap <silent> jj <ESC>
 
 " FileType Settings "{{{
 " ----------
-augroup Markdown
+augroup MyAutoCmd
+  " Markdown "{{{2
   autocmd!
   " そのままだと *.md なファイルは modula2 と判断されてしまう
   autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} setl ft=markdown
-augroup END
+  " 2}}}"
 
-" @see: http://akirachiku.com/2016/03/01/go16-development.html
-augroup GolangSettings
-  autocmd!
+  " Golang "{{{2
+  " @see: http://akirachiku.com/2016/03/01/go16-development.html
   autocmd FileType go nmap <leader>gb <Plug>(go-build)
   autocmd FileType go nmap <leader>gt <Plug>(go-test)
   autocmd FileType go nmap <Leader>ds <Plug>(go-def-split)
@@ -195,12 +195,12 @@ augroup GolangSettings
   autocmd FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
   autocmd FileType go :highlight goErr cterm=bold ctermfg=214
   autocmd FileType go :match goErr /\<err\>/
-augroup END
+  " 2}}}"
 
-augroup Git
-  autocmd!
+  " Golang "{{{2
   " for Git commit message
   autocmd FileType gitcommit setl spell
+  " 2}}}"
 augroup END
 " ----------
 "}}}
@@ -655,23 +655,12 @@ xmap <C-k>     <Plug>(neosnippet_expand_target)
 " }}}"
 
 " deoplete.nvim "{{{
-if dein#tap('deoplete.nvim')
+if dein#tap('deoplete.nvim') && has('nvim')
   " 起動時にdeopleteを有効にする
   let g:deoplete#enable_at_startup = 1
-  " smartcaseを有効にする
-  let g:deoplete#enable_smart_case = 1
-  " 大文字小文字を考慮しない
-  let g:deoplete#enable_ignore_case = 0
-  " vim-smartinputと競合するため無効化
-  " <C-h>, <BS>: close popup and delete backword char.
-  " inoremap <expr><C-h> deoplete#mappings#smart_close_popup()."\<C-h>"
-  " inoremap <expr><BS>  deoplete#mappings#smart_close_popup()."\<C-h>"
-
-  " <CR>: close popup and save indent.
-  inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-  function! s:my_cr_function() abort
-    return deoplete#mappings#close_popup() . "\<CR>"
-  endfunction
+  " deoplete.nvim用の設定をロード
+  execute 'autocmd MyAutoCmd User' 'dein#source#'.g:dein#name
+        \ 'source ~/.vim/rc/plugins/deoplete.rc.vim'
 endif
 " }}}"
 
@@ -686,7 +675,7 @@ endif
 " }}}"
 
 " neocomplete.vim "{{{
-if dein#tap('neocomplete')
+if dein#tap('neocomplete') && !has('nvim')
   " AutoComplPop を無効にする
   let g:acp_enableAtStartup = 0
   " 起動時に neocomplete を有効にする
