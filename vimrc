@@ -101,6 +101,7 @@ syntax on
 set t_Co=256
 " colorscheme
 colorscheme Tomorrow-Night-Bright
+set background=dark
 " 行番号を表示
 set number
 " ルーラーを表示
