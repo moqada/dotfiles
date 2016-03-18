@@ -80,6 +80,9 @@ repo = 'cocopon/iceberg.vim'
 
 [[plugins]]
 repo = 'sjl/badwolf'
+
+[[plugins]]
+repo = 'chriskempson/vim-tomorrow-theme'
 # 1}}}
 
 # EditorConfig {{{1
