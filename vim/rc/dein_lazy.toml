@@ -146,4 +146,8 @@ on_ft = 'vim'
 repo = 'syngan/vim-vimlint'
 depends = 'vim-vimlparser'
 on_ft = 'vim'
+
+[[plugins]]
+repo = 'rhysd/try-colorscheme.vim'
+on_cmd = 'TryColorscheme'
 # 1}}}
