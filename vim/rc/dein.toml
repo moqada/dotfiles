@@ -25,6 +25,10 @@ repo = 'Shougo/vimfiler'
 depends = 'unite.vim'
 
 [[plugins]]
+repo = 'ujihisa/unite-colorscheme'
+depends = 'unite.vim'
+
+[[plugins]]
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
