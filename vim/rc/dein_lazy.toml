@@ -76,7 +76,13 @@ on_ft = 'javascript'
 
 [[plugins]]
 repo = 'jelera/vim-javascript-syntax'
+depends = 'tern_for_vim'
 on_ft = 'javascript'
+
+[[plugins]]
+repo = 'marijnh/tern_for_vim'
+on_ft = 'javascript'
+build = 'npm install'
 
 [[plugins]]
 repo = 'mxw/vim-jsx'
