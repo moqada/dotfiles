@@ -4,13 +4,13 @@
 [[plugins]]
 if = '''has('nvim')'''
 repo = 'Shougo/deoplete.nvim'
-depends = ['context_filetype.vim', 'deoplete-go', 'deoplete-jedi']
+depends = 'context_filetype.vim'
 on_i = 1
 
 [[plugins]]
 if = '''has('vim')'''
 repo = 'Shougo/neocomplete'
-depends = ['context_filetype.vim']
+depends = 'context_filetype.vim'
 on_i = 1
 
 [[plugins]]
@@ -45,6 +45,7 @@ on_ft = 'go'
 [[plugins]]
 if = '''has('nvim')'''
 repo = 'zchee/deoplete-go'
+depends = 'deoplete.nvim'
 on_ft = 'go'
 
   [plugins.build]
@@ -120,7 +121,7 @@ on_ft = ['python', 'python3']
 [[plugins]]
 if = '''has('nvim')'''
 repo = 'zchee/deoplete-jedi',
-depends = 'jedi-vim'
+depends = ['jedi-vim', 'deoplete.nvim']
 on_ft = ['python', 'python3']
 
 [[plugins]]
