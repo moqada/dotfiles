@@ -71,6 +71,9 @@ repo = 'Konfekt/FastFold'
 
 [[plugins]]
 repo = 'thinca/vim-zenspace'
+
+[[plugins]]
+repo = 'kana/vim-submode'
 # 1}}}
 
 # 検索関連 {{{1

@@ -426,6 +426,21 @@ au FileType coffee,ruby,javascript,python IndentGuidesEnable
 nmap <silent><Leader>ig <Plug>IndentGuidesToggle
 " }}}
 
+" vim-submode "{{{
+if dein#tap('vim-submode')
+  " http://thinca.hatenablog.com/entry/20130131/1359567419
+  " window sizeを連続で変更する
+  call submode#enter_with('winsize', 'n', '', '<C-w>>', '<C-w>>')
+  call submode#enter_with('winsize', 'n', '', '<C-w><', '<C-w><')
+  call submode#enter_with('winsize', 'n', '', '<C-w>+', '<C-w>+')
+  call submode#enter_with('winsize', 'n', '', '<C-w>-', '<C-w>-')
+  call submode#map('winsize', 'n', '', '>', '<C-w>>')
+  call submode#map('winsize', 'n', '', '<', '<C-w><')
+  call submode#map('winsize', 'n', '', '+', '<C-w>+')
+  call submode#map('winsize', 'n', '', '-', '<C-w>-')
+endif
+" }}}"
+
 " syntastic "{{{
 " ファイルオープン時に syntax check を実行しない
 let g:syntastic_check_on_open = 0
