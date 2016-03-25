@@ -2,23 +2,7 @@
 
 ## App Store
 
-- 3Hub
-- Airmail 2
-- Dash
-- Day One
-- Growl
-- Kindle
-- Keynote
-- LINE
-- Microsoft Remote Desktop
-- MindNode Pro
-- Pocket
-- Sunrise
-- Tweetbot
-- Xcode
-- Wthite Noise
-- iPhoto
-- iMovie
+See: [./scripts/mas-install.sh](./scripts/mas-install.sh)
 
 
 ## Packages
