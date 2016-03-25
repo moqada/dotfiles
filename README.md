@@ -1,12 +1,13 @@
 # My dotfiles 
 
-## Setup
+## Installation
 
 ```
 $ git clone https://github.com/moqada/dotfiles.git
 $ cd dotfiles
-$ ./scripts/setup.sh
 ```
+
+## Setup
 
 Put `~/.zshenv`
 
@@ -15,21 +16,29 @@ export NPM_TOKEN=<NPM_TOKEN>
 export CONVENTIONAL_GITHUB_RELEASER_TOKEN=<GITHUB_TOKEN>
 ```
 
-## For Mac
+### For Mac
 
-Install homebrew
-
-```
-$ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-$ xcode-select --install
-```
-
-Install packages and applications from Brewfile
+Put dotfiles, install applications and tools.
 
 ```
-$ brew bundle
+$ ./scripts/setup_mac.sh
 ```
 
-Install applications from App Store and original packages
+Install applications from original packages
 
-[MacApplications.md](MacApplications.md)
+> [MacApplications.md](MacApplications.md)
+
+After sync Dropbox (`./Mackup`), restore settings for some applications.
+
+```
+$ mackup restore
+```
+
+
+### For Others
+
+Put dotfiles only.
+
+```
+$ ./scripts/setup.sh
+```
