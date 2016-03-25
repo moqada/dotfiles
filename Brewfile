@@ -22,6 +22,7 @@ brew install ios-sim
 brew install jq
 brew install lame
 brew install lua
+brew install mackup
 brew install mercurial
 brew install mysql
 brew install node
