@@ -17,29 +17,38 @@ ln -si $BASE_DIR/tmux.conf $HOME/.tmux.conf
 
 # Vim
 ln -si $BASE_DIR/vimrc $HOME/.vimrc
-ln -si $BASE_DIR/vim $HOME/.vim
+[ -d $HOME/.vim ] && echo "exist $HOME/.vim" \
+    || (ln -s $BASE_DIR/vim $HOME/.vim && echo "create $HOME/.vim")
 ln -si $BASE_DIR/gvimrc $HOME/.gvimrc
-ln -s $HOME/.vim $HOME/.config/nvim
-ln -s $HOME/.vimrc $HOME/.config/nvim/init.vim
+[ -d $HOME/.config/nvim ] && echo "exist $HOME/.config/nvim" \
+    || (ln -s $HOME/.vim $HOME/.config/nvim && echo "create $HOME/.config/nvim")
+ln -si $HOME/.vimrc $HOME/.config/nvim/init.vim
 
 # Zsh
-ln -s $BASE_DIR/zshrc $HOME/.zshrc
-ln -s $BASE_DIR/zsh.d $HOME/.zsh.d
+ln -si $BASE_DIR/zshrc $HOME/.zshrc
+[ -d $HOME/.zsh.d ] && echo "exist $HOME/.zsh.d" \
+    || (ln -s $BASE_DIR/zsh.d $HOME/.zsh.d && echo "create $HOME/.zsh.d")
 
 # Peco
-ln -s $BASE_DIR/peco $HOME/.peco
+[ -d $HOME/.peco ] && echo "exist $HOME/.peco" \
+    || (ln -s $BASE_DIR/peco $HOME/.peco && echo "create $HOME/.peco")
+
 
 # CoffeeScript
-ln -s $BASE_DIR/coffeelint.json $HOME/coffeelint.json
+ln -si $BASE_DIR/coffeelint.json $HOME/coffeelint.json
 
 # ESLint
-ln -s $BASE_DIR/eslintrc $HOME/.eslintrc
+ln -si $BASE_DIR/eslintrc $HOME/.eslintrc
+
+# Mackup
+ln -si $BASE_DIR/mackup.cfg $HOME/.mackup.cfg
 
 # NPM
-ln -s $BASE_DIR/npmrc $HOME/.npmrc
+ln -si $BASE_DIR/npmrc $HOME/.npmrc
 
 # bin
-ln -s $BASE_DIR/bin $HOME/.bin
+[ -d $HOME/.bin ] && echo "exist $HOME/.bin" \
+    || (ln -s $BASE_DIR/bin $HOME/.bin && "create $HOME/.bin")
 
 # Karabiner
 $BASE_DIR/scripts/karabiner-import.sh
