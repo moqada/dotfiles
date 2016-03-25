@@ -6,6 +6,7 @@ brew upgrade
 
 ## Packages
 brew install ag
+brew install awscli
 brew install android-sdk
 brew install ant
 brew install boot2docker
@@ -15,6 +16,7 @@ brew install docker
 brew install flow
 brew install git
 brew install go
+brew install graphviz
 brew install heroku-toolbelt
 brew install ios-sim
 brew install jq
@@ -23,11 +25,17 @@ brew install lua
 brew install mercurial
 brew install mysql
 brew install node
+brew install peco
+brew install postgresql
 brew install python
 brew install python3
+brew install redis
 brew install reattach-to-user-namespace
 brew install rbenv
 brew install ruby-build
+brew install siege
+brew install sqlite
+brew install terraform
 brew install tig
 brew install tmux
 brew install transmission
@@ -50,9 +58,21 @@ brew install packer
 brew tap caskroom/cask
 brew install brew-cask
 
+### for Completions
+brew tap homebrew/completions
+brew install tmuxinator-completion
+
+### for ghr
+brew tap tcnksm/ghr
+brew install ghr
+
 ### for gomi (trash cli)
 brew tap b4b4r07/gomi
 brew install gomi
+
+### for neovim
+brew tap neovim/neovim
+brew install neovim
 
 ## .dmg, .pkg
 brew cask install 1password --force
@@ -84,10 +104,12 @@ brew cask install omnifocus --force
 brew cask install omnioutliner --force
 brew cask install omnipresence --force
 brew cask install onyx --force
+brew cask install opera --force
 brew cask install qlmarkdown --force
 brew cask install rescuetime --force
 brew cask install sequel-pro --force
 brew cask install simple-comic --force
+brew cask install sketch --force
 brew cask install skitch --force
 brew cask install skype --force
 brew cask install slack --force
@@ -97,7 +119,6 @@ brew cask install vagrant --force
 brew cask install virtualbox --force
 brew cask install xtrafinder --force
 brew cask install xquartz --force
-brew cask install yorufukurou --force
 
 ### cask for AquaSKK
 brew tap aereal/aereal_casks
