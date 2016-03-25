@@ -5,14 +5,18 @@
 - 3Hub
 - Airmail 2
 - Dash
+- Day One
 - Growl
+- Kindle
 - Keynote
 - LINE
 - Microsoft Remote Desktop
 - MindNode Pro
 - Pocket
 - Sunrise
+- Tweetbot
 - Xcode
+- Wthite Noise
 - iPhoto
 - iMovie
 
@@ -25,3 +29,4 @@
 - Kensington TrackballWorks
 - Microsoft Office 2011
 - Scansnap Manager
+- Sophos Anti-Virus
