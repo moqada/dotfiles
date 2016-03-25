@@ -6,10 +6,10 @@ brew upgrade
 
 ## Packages
 brew install ag
-brew install awscli
 brew install android-sdk
 brew install ant
 brew install argon/mas/mas
+brew install awscli
 brew install boot2docker
 brew install colordiff
 brew install ctags
