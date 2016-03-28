@@ -770,6 +770,17 @@ if dein#tap('neco-look')
 endif
 " }}}"
 
+" tagbar "{{{
+if dein#tap('tagbar')
+  " Tagbarを開いたときに自動でfocusする
+  let g:tagbar_autofocus = 1
+  " tagbarのwindow幅を変更
+  let g:tagbar_width = 30
+  " ,tlでTagbarをtoggleする
+  nnoremap ,tl :TagbarToggle<CR>
+endif
+" }}}"
+
 "---------------------------
 " ローカル設定
 "--------------------------

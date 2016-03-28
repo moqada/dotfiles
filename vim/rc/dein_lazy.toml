@@ -22,6 +22,10 @@ on_ft = 'snippet'
 [[plugins]]
 repo = 'Shougo/neco-syntax'
 on_i = 1
+
+[[plugins]]
+repo = 'majutsushi/tagbar'
+on_cmd = 'TagbarToggle'
 # 1}}}
 
 # CoffeeScript {{{1
