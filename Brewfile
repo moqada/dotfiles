@@ -13,6 +13,7 @@ brew install awscli
 brew install boot2docker
 brew install colordiff
 brew install ctags
+brew install direnv
 brew install docker
 brew install flow
 brew install git
