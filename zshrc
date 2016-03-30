@@ -177,5 +177,8 @@ export DOKATA_TEMPLATE_DIR=~/work/projects/moqada
 PATH=/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
 MANPATH=/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH
 
+# for direnv
+eval "$(direnv hook zsh)"
+
 # for dotfiles/bin
 PATH=$HOME/.bin:$PATH
