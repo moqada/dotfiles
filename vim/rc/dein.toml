@@ -90,6 +90,18 @@ repo = 'sjl/badwolf'
 
 [[plugins]]
 repo = 'chriskempson/vim-tomorrow-theme'
+
+[[plugins]]
+repo = 'nanotech/jellybeans.vim'
+
+[[plugins]]
+repo = '29decibel/codeschool-vim-theme'
+
+[[plugins]]
+repo = 'nyomaszto/crayon'
+
+[[plugins]]
+repo = 'aereal/vim-colors-japanesque'
 # 1}}}
 
 # EditorConfig {{{1
