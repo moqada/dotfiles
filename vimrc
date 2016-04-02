@@ -520,6 +520,7 @@ nnoremap <silent> [unite]u
       \ :<C-u>Unite -buffer-name=files
       \ jump_point file_point buffer
       \ file_rec/async file file_mru file/new<CR>
+nnoremap <silent> ;; :<C-u>Unite line<CR>
 
 " 入力モードで開始
 call unite#custom#profile('default', 'context', {
