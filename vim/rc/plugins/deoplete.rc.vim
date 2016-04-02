@@ -15,3 +15,9 @@ endfunction
 
 " bufferの表示順を一番前に
 call deoplete#custom#set("buffer", "rank", 9999)
+
+" Omni補完自動表示
+let g:deoplete#omni#input_patterns = {}
+" for JavaScirpt
+" see: https://github.com/Shougo/neocomplete.vim/issues/91
+let g:deoplete#omni#input_patterns.javascript = '[^. \t]\.\w*'

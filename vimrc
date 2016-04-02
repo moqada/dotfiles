@@ -716,6 +716,9 @@ if dein#tap('neocomplete') && !has('nvim')
   endif
   " for jedi-vim
   let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
+  " for javascirpt(tern_for_vim)
+  " see: https://github.com/Shougo/neocomplete.vim/issues/91
+  let g:neocomplete#force_omni_input_patterns.javascript = '[^. \t]\.\w*'
 
   " My key-mappings "{{{
   " <C-n>でマニュアル補完を開始する
