@@ -75,13 +75,20 @@ on_ft = 'jade'
 # JavaScript {{{1
 [[plugins]]
 repo = 'pangloss/vim-javascript'
-depends = 'vim-javascript-syntax'
-on_ft = 'javascript'
-
-[[plugins]]
-repo = 'jelera/vim-javascript-syntax'
 depends = 'tern_for_vim'
 on_ft = 'javascript'
+
+# es6のハイライト
+[[plugins]]
+repo = 'othree/yajs.vim'
+on_ft = 'javascript'
+depends = 'vim-javascript'
+
+# stage-0 のsyntax highlight
+[[plugins]]
+repo = 'othree/es.next.syntax.vim'
+on_ft = 'javascript'
+depends = 'yajs.vim'
 
 [[plugins]]
 repo = 'marijnh/tern_for_vim'
