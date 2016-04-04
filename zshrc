@@ -61,8 +61,8 @@ compinit
 # history
 # @see http://journal.mycom.co.jp/column/zsh/003/
 export HISTFILE=$HOME/.zsh_history
-export HISTSIZE=10000
-export SAVEHIST=10000
+export HISTSIZE=100000
+export SAVEHIST=1000000
 setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data
 
