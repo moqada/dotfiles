@@ -66,6 +66,14 @@ export SAVEHIST=1000000
 setopt hist_ignore_dups     # ignore duplication command history list
 setopt share_history        # share command history data
 
+# see: http://qiita.com/yoshikaw/items/c8661ef83d6301ffb53c
+setopt extended_history
+setopt hist_expire_dups_first
+setopt hist_ignore_space
+setopt inc_append_history
+alias history='history -t "%Y-%m-%d %H:%M:%S"'
+function history-all { history 1 }
+
 # PROMPT
 autoload colors
 colors
