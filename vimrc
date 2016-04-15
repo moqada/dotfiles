@@ -483,6 +483,12 @@ if exists('g:eskk#large_dictionary')
 endif
 let g:eskk#dictionary = expand('~/.skk-jisyo')
 let g:eskk#large_dictionary = expand('~/.skk/SKK-JISYO.L')
+" for AquaSKK skkserv
+let g:eskk#server = {
+     \ 'host': 'localhost',
+     \ 'port': 1178,
+     \ 'timeout': 1000,
+     \}
 " 変換確定時のenterで改行しない
 let g:eskk#egg_like_newline = 1
 " 変換候補確定のenterで改行しない
