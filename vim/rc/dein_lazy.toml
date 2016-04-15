@@ -50,10 +50,8 @@ on_ft = 'go'
 if = '''has('nvim')'''
 repo = 'zchee/deoplete-go'
 depends = 'deoplete.nvim'
+build = 'make'
 on_ft = 'go'
-
-  [plugins.build]
-  unix = 'make'
 # 1}}}
 
 # HTML / CSS {{{1
