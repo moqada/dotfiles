@@ -675,16 +675,6 @@ smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
 " }}}"
 
-" deoplete.nvim "{{{
-if dein#tap('deoplete.nvim') && has('nvim')
-  " 起動時にdeopleteを有効にする
-  let g:deoplete#enable_at_startup = 1
-  " deoplete.nvim用の設定をロード
-  execute 'autocmd MyAutoCmd User' 'dein#source#'.g:dein#name
-        \ 'source ~/.vim/rc/plugins/deoplete.rc.vim'
-endif
-" }}}"
-
 " deoplete-go "{{{
 if dein#tap('deoplete.nvim')
   " 補完の表示位置を揃える

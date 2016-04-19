@@ -6,6 +6,10 @@ if = '''has('nvim')'''
 repo = 'Shougo/deoplete.nvim'
 depends = 'context_filetype.vim'
 on_i = 1
+# 起動時にdeopleteを有効にする
+hook_source = 'let g:deoplete#enable_at_startup = 1'
+# deoplete.nvim用の設定をロード
+hook_post_source = 'source ~/.vim/rc/plugins/deoplete.rc.vim'
 
 [[plugins]]
 if = '''has('vim')'''
