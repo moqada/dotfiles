@@ -146,6 +146,8 @@ set directory=~/.tmp,~/tmp,/var/tmp,/tmp
 " 一時的なバックアップファイルを作成する
 " ファイルの上書きの前にバックアップを作成
 set writebackup
+" backup時にコピーしてから元に戻す
+set backupcopy=yes
 " コマンド履歴の保存数
 set history=500
 "}}}
