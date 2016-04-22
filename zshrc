@@ -187,6 +187,14 @@ MANPATH=/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH
 
 # for direnv
 eval "$(direnv hook zsh)"
+# for direnv (virtualenv)
+# https://github.com/direnv/direnv/wiki/Python
+show_virtual_env() {
+  if [ -n "$VIRTUAL_ENV" ]; then
+    echo "(venv)"
+  fi
+}
+PS1='$(show_virtual_env)'$PS1
 
 # for dotfiles/bin
 PATH=$HOME/.bin:$PATH
