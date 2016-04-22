@@ -174,6 +174,8 @@ nnoremap <Space>rv :<C-u>source ~/.vimrc<CR>
 nnoremap <silent><Space>ev :<C-u>edit ~/.vimrc<CR>
 " jjでesc
 inoremap <silent> jj <ESC>
+" mmでカレントディレクトリ移動
+nnoremap <silent> mm :lcd %:h<CR>
 " }}}
 
 " FileType Settings "{{{
