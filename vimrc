@@ -638,22 +638,30 @@ let g:jsx_ext_required = 0
 
 " vim-test {{{
 " @see: http://akirachiku.com/2016/03/01/go16-development.html
-nmap <silent> <leader>f :TestNearest<CR>
-nmap <silent> <leader>i :TestFile<CR>
-nmap <silent> <leader>a :TestSuite<CR>
-nmap <silent> <leader>l :TestLast<CR>
-nmap <silent> <leader>g :TestVisit<CR>
+if dein#tap('vim-test')
+  if has('nvim')
+    " neotermを使用する
+    let g:test#strategy = 'neoterm'
+    " vim-test用に開くbufferのサイズを調整
+    let g:neoterm_size = 15
+  endif
+  nmap <silent> <leader>f :TestNearest<CR>
+  nmap <silent> <leader>i :TestFile<CR>
+  nmap <silent> <leader>a :TestSuite<CR>
+  nmap <silent> <leader>l :TestLast<CR>
+  nmap <silent> <leader>g :TestVisit<CR>
 
-let test#python#pytest#options = {
-      \ 'nearest': '-v',
-      \ 'file':    '-v',
-      \ 'suite':   '-v',
-      \ }
-let test#go#gotest#options = {
-      \ 'nearest': '-v',
-      \ 'file':    '-v',
-      \ 'suite':   '-v',
-      \ }
+  let test#python#pytest#options = {
+        \ 'nearest': '-v',
+        \ 'file':    '-v',
+        \ 'suite':   '-v',
+        \ }
+  let test#go#gotest#options = {
+        \ 'nearest': '-v',
+        \ 'file':    '-v',
+        \ 'suite':   '-v',
+        \ }
+endif
 " }}}
 
 " neosnippet "{{{

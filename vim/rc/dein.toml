@@ -59,9 +59,6 @@ repo = 'tyru/open-browser.vim'
 repo = 'nathanaelkane/vim-indent-guides'
 
 [[plugins]]
-repo = 'janko-m/vim-test'
-
-[[plugins]]
 repo = 'Konfekt/FastFold'
 
 [[plugins]]
@@ -69,6 +66,11 @@ repo = 'thinca/vim-zenspace'
 
 [[plugins]]
 repo = 'kana/vim-submode'
+
+# depends vim-go
+[[plugins]]
+if = '''has('nvim')'''
+repo = 'kassio/neoterm'
 # 1}}}
 
 # 検索関連 {{{1

@@ -30,6 +30,12 @@ on_i = 1
 [[plugins]]
 repo = 'majutsushi/tagbar'
 on_cmd = 'TagbarToggle'
+
+[[plugins]]
+repo = 'janko-m/vim-test'
+on_cmd = [':TestNearest', ':TestFile', ':TestSuite', ':TestLast', ':TestVisit']
+depends = 'neoterm'
+
 # 1}}}
 
 # CoffeeScript {{{1
