@@ -71,7 +71,7 @@ setopt extended_history
 setopt hist_expire_dups_first
 setopt hist_ignore_space
 setopt inc_append_history
-alias history='history -t "%Y-%m-%d %H:%M:%S"'
+alias ht='history -t "%Y-%m-%d %H:%M:%S"'
 function history-all { history 1 }
 
 # PROMPT
