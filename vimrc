@@ -780,6 +780,19 @@ if dein#tap('neco-look')
 endif
 " }}}"
 
+" neoterm "{{{
+" start neoterm
+nnoremap <silent> tt :T<Space>
+" send `cd $(directory of current buffer)` to terminal
+nnoremap <silent> tb :T<Space>cd %:p:h<CR>
+" hide/close terminal
+nnoremap <silent> th :call neoterm#close()<CR>
+" clear terminal
+nnoremap <silent> tl :call neoterm#clear()<CR>
+" kills the current job (send a <c-c>)
+vnoremap <silent> tk :call neoterm#kill()<CR>
+" }}}"
+
 " tagbar "{{{
 if dein#tap('tagbar')
   " Tagbarを開いたときに自動でfocusする
