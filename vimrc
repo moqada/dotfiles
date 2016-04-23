@@ -176,11 +176,6 @@ nnoremap <silent><Space>ev :<C-u>edit ~/.vimrc<CR>
 inoremap <silent> jj <ESC>
 " mmでカレントディレクトリ移動
 nnoremap <silent> mm :lcd %:h<CR>
-" 高速buffer移動
-" see: http://ivxi.hatenablog.com/entry/2013/05/23/163825
-nnoremap <silent>bp :bprevious<CR>
-nnoremap <silent>bn :bnext<CR>
-nnoremap <silent>bb :b#<CR>
 " }}}
 
 " FileType Settings "{{{
