@@ -190,5 +190,8 @@ show_virtual_env() {
 }
 PS1='$(show_virtual_env)'$PS1
 
+# for docker-machine
+eval $(docker-machine env default)
+
 # for dotfiles/bin
 PATH=$HOME/.bin:$PATH
