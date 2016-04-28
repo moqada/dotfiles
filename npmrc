@@ -5,3 +5,4 @@ init-license=MIT
 init-version=0.0.0
 git-tag-version=false
 progress=false
+access=public
