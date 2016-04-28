@@ -15,6 +15,7 @@ brew install colordiff
 brew install ctags
 brew install direnv
 brew install docker
+brew install docker-compose
 brew install flow
 brew install git
 brew install go
