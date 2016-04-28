@@ -44,6 +44,10 @@ alias gp='cd $GOPATH_WORK/src/github.com/moqada'
 # for vim
 alias vim=nvim
 
+# for gh-open
+# Open current repository
+alias gho='gh-open .'
+
 # とりあえず文字コード設定
 export LANG=ja_JP.UTF-8
 
