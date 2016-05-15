@@ -40,3 +40,15 @@ bindkey '^s' peco-src
 
 # gh-open
 alias gh='gh-open $(ghq list -p | peco)'
+
+# search shell history
+# see: http://qiita.com/catfist/items/82ed3df7a0b524aeab69
+function peco-history () {
+  if grep -q '^[0-9]\+$' <<< "$1";then
+    history $(($1 + 1))
+  else
+    history 1
+  fi | sort -r | peco --prompt "Select history to copy:" | cut -d ' ' -f 3- | pbcopy
+  pbpaste
+}
+alias his='peco-history'
