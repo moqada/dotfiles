@@ -47,6 +47,13 @@ repo = 'honza/vim-snippets'
 [[plugins]]
 repo = 'scrooloose/syntastic'
 
+[[plugins]]
+repo = 'rhysd/clever-f.vim'
+
+[[plugins]]
+if = '''! has('kaoriya')'''
+repo = 'deton/jasentence.vim'
+
 # depends: gist-vim
 [[plugins]]
 repo = 'mattn/webapi-vim'
