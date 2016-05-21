@@ -110,10 +110,6 @@ on_ft = 'javascript'
 [[plugins]]
 repo  = 'heavenshell/vim-jsdoc'
 on_ft = 'javascript'
-
-[[plugins]]
-repo = 'mtscout6/syntastic-local-eslint.vim'
-on_ft = 'javascript'
 # 1}}}
 
 # Markdown {{{1
