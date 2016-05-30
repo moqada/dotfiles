@@ -455,7 +455,6 @@ let g:syntastic_coffee_checkers = ['coffeelint']
 let g:syntastic_python_checkers = ['flake8', 'pep257']
 let g:syntastic_python_flake8_args = '--max-line-length=120'
 let g:syntastic_python_pep257_args = '--ignore=D100,D302,D400'
-let g:syntastic_go_checkers = ["golint", "gotype", "govet", "go"]
 " 自動実行設定
 " vimlint は遅いので自動実行しない
 let g:syntastic_mode_map = { "mode": "active",
@@ -629,6 +628,8 @@ let g:go_highlight_structs = 1
 let g:go_highlight_operators = 1
 let g:go_term_enabled = 1
 let g:go_highlight_build_constraints = 1
+let g:go_metalinter_autosave = 1
+let g:go_metalinter_autosave_enabled = ['golint', 'gotype', 'govet', 'go']
 " }}}
 
 " vim-jsx {{{
