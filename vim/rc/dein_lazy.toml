@@ -130,6 +130,10 @@ on_ft = 'markdown'
 repo = 'kannokanno/previm'
 depends = 'open-browser.vim'
 on_ft = 'markdown'
+
+[[plugins]]
+repo = 'h1mesuke/vim-alignta'
+on_ft = 'markdown'
 # 1}}}
 
 # Text {{{1
