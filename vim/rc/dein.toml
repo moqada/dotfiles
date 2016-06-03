@@ -78,6 +78,9 @@ repo = 'kana/vim-submode'
 [[plugins]]
 if = '''has('nvim')'''
 repo = 'kassio/neoterm'
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
 # 1}}}
 
 # 検索関連 {{{1
