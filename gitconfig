@@ -46,5 +46,5 @@
     root = ~/work/src
     root = ~/work/projects
 [pager]
-    diff = diff-so-fancy | less --tabs=1,5
-    show = diff-so-fancy | less --tabs=1,5
+    diff = diff-highlight | less --tabs=1,5
+    show = diff-highlight | less --tabs=1,5
