@@ -48,6 +48,10 @@ alias vim=nvim
 # Open current repository
 alias gho='gh-open .'
 
+# for grep
+alias -g gr='grep --color -n '
+alias -g xg='|xargs grep --color -n '
+
 # とりあえず文字コード設定
 export LANG=ja_JP.UTF-8
 
