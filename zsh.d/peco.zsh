@@ -52,3 +52,6 @@ function peco-history () {
   pbpaste
 }
 alias his='peco-history'
+
+# see: http://qiita.com/kamomeZ/items/6aac2530baf42b93e336
+alias look='less $(find . -type f -follow -maxdepth 1 | peco)'
