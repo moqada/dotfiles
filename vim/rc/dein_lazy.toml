@@ -118,10 +118,6 @@ repo = 'joker1007/vim-markdown-quote-syntax'
 on_ft = 'markdown'
 
 [[plugins]]
-repo = 'godlygeek/tabular'
-on_ft = 'markdown'
-
-[[plugins]]
 repo = 'rcmdnk/vim-markdown'
 depends = ['tabular', 'vim-markdown-quote-syntax']
 on_ft = 'markdown'
