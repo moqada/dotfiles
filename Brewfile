@@ -22,6 +22,7 @@ brew install go
 brew install graphviz
 brew install heroku-toolbelt
 brew install ios-sim
+brew install jo
 brew install jq
 brew install lame
 brew install lua
