@@ -6,7 +6,7 @@
     tool = vimdiff
     # always fast-foward
     ff = false
-[comit]
+[commit]
     gpgsign = true
 [core]
     editor = vim
