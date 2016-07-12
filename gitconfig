@@ -1,6 +1,7 @@
 [user]
     name = moqada
     email = moqada@gmail.com
+    signingkey = F2F5DB73257F98AF
 [merge]
     tool = vimdiff
     # always fast-foward
