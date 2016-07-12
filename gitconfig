@@ -6,6 +6,8 @@
     tool = vimdiff
     # always fast-foward
     ff = false
+[comit]
+    gpgsign = true
 [core]
     editor = vim
     excludesfile=~/.gitignore
