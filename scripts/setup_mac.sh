@@ -17,3 +17,8 @@ $BASE_DIR/scripts/mas-install.sh
 
 # Karabiner
 $BASE_DIR/scripts/karabiner-import.sh
+
+# Git (for Homebrew)
+CONTRIB_PATH=/usr/local/share/git-core/contrib
+chmod +x $CONTRIB_PATH/diff-highlight/diff-highlight
+ln -s $CONTRIB_PATH/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
