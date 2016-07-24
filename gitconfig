@@ -7,7 +7,7 @@
     # always fast-foward
     ff = false
 [commit]
-    gpgsign = true
+    gpgsign = false
 [core]
     editor = vim
     excludesfile=~/.gitignore
