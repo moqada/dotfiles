@@ -6,5 +6,5 @@ set split-view-width = 75%
 # @see: http://jonas.nitro.dk/tig/tigrc.5.html
 set main-view = id:no line-number:display:yes,width:0 date:short author:yes commit-title:graph=v2,refs=yes
 
-bind main R !git rebase -i -p %(commit)
-bind diff R !git rebase -i -p %(commit)
+bind main R !git rebase -i %(commit)
+bind diff R !git rebase -i %(commit)
