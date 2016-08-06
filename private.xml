@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<root>
+    <list>
+        <item>
+            <name>AquaSKK</name>
+            <appdef>
+                <appname>Terminal</appname>
+                <equal>com.googlecode.iterm2</equal>
+                <equal>com.apple.Terminal</equal>
+            </appdef>
+            <list>
+                <item>
+                    <name>Ctrl-J to Kana on Apple Terminal/iTerm2</name>
+                    <only>Terminal</only>
+                    <identifier>private.iterm2.ctrl_j_to_kana</identifier>
+                    <autogen>
+                        __KeyToKey__
+                        KeyCode::J, ModifierFlag::CONTROL_L,
+                        KeyCode::JIS_KANA
+                    </autogen>
+                </item>
+                <item>
+                    <name>Ctrl-J to Kana on Apple Terminal/iTerm2 for Dvorak user</name>
+                    <only>Terminal</only>
+                    <identifier>private.iterm2.ctrl_j_to_kana.dvorak</identifier>
+                    <autogen>
+                        __KeyToKey__
+                        KeyCode::C, ModifierFlag::CONTROL_L,
+                        KeyCode::JIS_KANA
+                    </autogen>
+                </item>
+            </list>
+        </item>
+    </list>
+</root>
