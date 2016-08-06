@@ -29,6 +29,23 @@
                         KeyCode::JIS_KANA
                     </autogen>
                 </item>
+                <item>
+                    <name>Leave Insert Mode with EISUU (vim keybind apps)</name>
+                    <identifier>private.vim_keybind_apps_esc_with_eisuu</identifier>
+                    <only>Terminal</only>
+                    <autogen>
+                        __KeyToKey__
+                        KeyCode::ESCAPE,
+                        KeyCode::ESCAPE,
+                        KeyCode::JIS_EISUU
+                    </autogen>
+                    <autogen>
+                        __KeyToKey__
+                        KeyCode::BRACKET_LEFT, VK_CONTROL,
+                        KeyCode::BRACKET_LEFT, VK_CONTROL,
+                        KeyCode::JIS_EISUU
+                    </autogen>
+                </item>
             </list>
         </item>
     </list>
