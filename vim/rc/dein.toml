@@ -33,9 +33,6 @@ repo = 'Shougo/context_filetype.vim'
 repo = 'Shougo/neosnippet-snippets'
 
 [[plugins]]
-repo = 'tyru/eskk.vim'
-
-[[plugins]]
 repo = 'kana/vim-smartinput'
 
 [[plugins]]

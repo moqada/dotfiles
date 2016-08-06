@@ -468,41 +468,6 @@ silent! if emoji#available()
 endif
 " }}}"
 
-" eskk.vim "{{{
-" IMEをオフにする
-" @see: http://d.hatena.ne.jp/alwei/20111029/1319905783
-set imdisable
-" 有効/無効切り替え
-map! <C-j><C-e> <Plug>(eskk:enable)
-map! <C-j><C-d> <Plug>(eskk:disable)
-" 辞書ファイルの指定
-if exists('g:eskk#directory')
-  unlet g:eskk#dictionary
-endif
-if exists('g:eskk#large_dictionary')
-  unlet g:eskk#large_dictionary
-endif
-let g:eskk#dictionary = expand('~/.skk-jisyo')
-let g:eskk#large_dictionary = expand('~/.skk/SKK-JISYO.L')
-" for AquaSKK skkserv
-let g:eskk#server = {
-     \ 'host': 'localhost',
-     \ 'port': 1178,
-     \ 'timeout': 1000,
-     \}
-" 変換確定時のenterで改行しない
-let g:eskk#egg_like_newline = 1
-" 変換候補確定のenterで改行しない
-let g:eskk#egg_like_newline_completion = 1
-" insertモードを抜けて、再度insertモードに入ったときに前の状態を維持する
-let g:eskk#keep_state = 1
-" 変換候補にアノテーションを表示する
-let g:eskk#show_annotation = 1
-" モードマークを指定
-let g:eskk#marker_henkan = '<>'
-let g:eskk#marker_henkan_select = '>>'
-" }}}
-
 " unite.vim "{{{
 "------------------------------
 " The prefix key.
