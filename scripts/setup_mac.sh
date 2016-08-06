@@ -17,6 +17,7 @@ $BASE_DIR/scripts/mas-install.sh
 
 # Karabiner
 $BASE_DIR/scripts/karabiner-import.sh
+ln -s $BASE_DIR/private.xml $HOME/Library/Application\ Support/Karabiner/private.xml
 
 # Git (for Homebrew)
 CONTRIB_PATH=/usr/local/share/git-core/contrib
