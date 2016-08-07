@@ -33,7 +33,7 @@ endif
 if has('kaoriya')
     " IMEONの時のカーソル色変更
     hi CursorIM  guifg=black  guibg=red  gui=NONE  ctermfg=black  ctermbg=white  cterm=reverse
-    set iminsert=2 imsearch=2
+    set imdisable
 endif
 " for Windows
 if has('win32')
