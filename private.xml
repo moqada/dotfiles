@@ -8,6 +8,10 @@
                 <equal>com.googlecode.iterm2</equal>
                 <equal>com.apple.Terminal</equal>
             </appdef>
+            <appdef>
+                <appname>MacVim</appname>
+                <equal>org.vim.MacVim</equal>
+            </appdef>
             <list>
                 <item>
                     <name>Ctrl-J to Kana on Apple Terminal/iTerm2</name>
@@ -32,7 +36,7 @@
                 <item>
                     <name>Leave Insert Mode with EISUU (vim keybind apps)</name>
                     <identifier>private.vim_keybind_apps_esc_with_eisuu</identifier>
-                    <only>Terminal</only>
+                    <only>Terminal,MacVim</only>
                     <autogen>
                         __KeyToKey__
                         KeyCode::ESCAPE,
