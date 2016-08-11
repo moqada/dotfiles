@@ -49,6 +49,7 @@ brew install --with-lua --with-luajit vim
 brew install watchman
 brew install w3m
 brew install wget
+brew install xctool
 brew install zsh
 
 ### for PHP
