@@ -462,10 +462,10 @@ let g:syntastic_mode_map = { "mode": "active",
       \ "passive_filetypes": ["vim"] }
 " エラー表示シンポルを変更
 " required: vim-emoji
-silent! if emoji#available()
-    let g:syntastic_error_symbol = emoji#for('boom')
-    let g:syntastic_warning_symbol = emoji#for('zap')
-endif
+" silent! if emoji#available()
+"    let g:syntastic_error_symbol = emoji#for('boom')
+"     let g:syntastic_warning_symbol = emoji#for('zap')
+" endif
 " }}}"
 
 " unite.vim "{{{
