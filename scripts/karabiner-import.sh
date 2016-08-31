@@ -2,14 +2,18 @@
 
 cli=/Applications/Karabiner.app/Contents/Library/bin/karabiner
 
-$cli set remap.space2shiftL_space_fnspace 1
-/bin/echo -n .
-$cli set repeat.wait 30
-/bin/echo -n .
-$cli set repeat.initial_wait 150
-/bin/echo -n .
 $cli set option.emacsmode_controlLeftbracket 1
 /bin/echo -n .
 $cli set option.vimode_hjkl 1
+/bin/echo -n .
+$cli set private.iterm2.ctrl_j_to_kana 1
+/bin/echo -n .
+$cli set private.vim_keybind_apps_esc_with_eisuu 1
+/bin/echo -n .
+$cli set remap.space2shiftL_space_fnspace 1
+/bin/echo -n .
+$cli set repeat.initial_wait 250
+/bin/echo -n .
+$cli set repeat.wait 33
 /bin/echo -n .
 /bin/echo
