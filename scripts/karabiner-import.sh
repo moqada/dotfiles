@@ -12,8 +12,8 @@ $cli set private.vim_keybind_apps_esc_with_eisuu 1
 /bin/echo -n .
 $cli set remap.space2shiftL_space_fnspace 1
 /bin/echo -n .
-$cli set repeat.initial_wait 250
+$cli set repeat.initial_wait 200
 /bin/echo -n .
-$cli set repeat.wait 33
+$cli set repeat.wait 20
 /bin/echo -n .
 /bin/echo
