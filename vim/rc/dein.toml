@@ -42,7 +42,9 @@ repo = 'surround.vim'
 repo = 'honza/vim-snippets'
 
 [[plugins]]
-repo = 'scrooloose/syntastic'
+repo = 'neomake/neomake'
+on_path = '.*'
+hook_add = 'source ~/.vim/rc/plugins/neomake.rc.vim'
 
 [[plugins]]
 repo = 'rhysd/clever-f.vim'
