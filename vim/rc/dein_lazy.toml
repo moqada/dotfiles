@@ -110,6 +110,10 @@ on_ft = 'javascript'
 [[plugins]]
 repo  = 'heavenshell/vim-jsdoc'
 on_ft = 'javascript'
+
+[[plugins]]
+repo = 'flowtype/vim-flow'
+on_ft = 'javascript'
 # 1}}}
 
 # Markdown {{{1
