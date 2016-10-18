@@ -108,6 +108,21 @@ repo = 'nyomaszto/crayon'
 
 [[plugins]]
 repo = 'aereal/vim-colors-japanesque'
+
+[[plugins]]
+repo = 'tomasr/molokai'
+
+[[plugins]]
+repo = 'joshdick/onedark.vim'
+
+[[plugins]]
+repo = 'whatyouhide/vim-gotham'
+
+[[plugins]]
+repo = 'mhartington/oceanic-next'
+
+[[plugins]]
+repo = 'jacoborus/tender'
 # 1}}}
 
 # EditorConfig {{{1
