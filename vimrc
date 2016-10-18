@@ -97,6 +97,13 @@ set spelllang=en,cjk
 syntax on
 " 256色対応
 set t_Co=256
+" True color対応
+if has('patch-7.4.1778')
+  set guicolors
+endif
+if has('nvim')
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
 " colorscheme
 colorscheme Tomorrow-Night-Bright
 set background=dark
