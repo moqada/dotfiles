@@ -96,17 +96,24 @@ set spelllang=en,cjk
 " シンタックスハイライトを有効にする
 syntax on
 " 256色対応
-set t_Co=256
+if !has('nvim')
+  set t_Co=256
+endif
 " True color対応
 if has('patch-7.4.1778')
   set guicolors
 endif
+" nvim >= 0.1.5
+if has('termguicolors')
+  set termguicolors
+endif
+" nvim < 0.1.5
 if has('nvim')
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 endif
-" colorscheme
-colorscheme Tomorrow-Night-Bright
 set background=dark
+" colorscheme
+colorscheme tender
 " 行番号を表示
 set number
 " ルーラーを表示
@@ -229,7 +236,7 @@ nmap # <Plug>(anzu-sharp-with-echo)
 
 " lightline.vim "{{{
 let g:lightline = {
-      \ 'colorscheme': 'solarized',
+      \ 'colorscheme': 'tenderplus',
       \ 'mode_map': {'c': 'NORMAL'},
       \ 'active': {
       \   'left': [
