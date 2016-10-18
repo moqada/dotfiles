@@ -5,7 +5,7 @@
         "C-c": "peco.Cancel"
     },
     "Style": {
-        "Selected": ["on_bold", "on_white", "cyan"],
+        "Selected": ["on_bold", "on_white", "black"],
         "Matched": ["red", "bold"]
     }
 }
