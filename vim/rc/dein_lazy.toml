@@ -118,12 +118,16 @@ on_ft = 'javascript'
 
 # Markdown {{{1
 [[plugins]]
-repo = 'joker1007/vim-markdown-quote-syntax'
+repo = 'rhysd/vim-gfm-syntax'
+on_ft = 'markdown'
+
+[[plugins]]
+repo = 'tyru/markdown-codehl-onthefly.vim'
 on_ft = 'markdown'
 
 [[plugins]]
 repo = 'rcmdnk/vim-markdown'
-depends = ['vim-markdown-quote-syntax']
+depends = ['vim-gfm-syntax', 'markdown-codehl-onthefly.vim']
 on_ft = 'markdown'
 
 [[plugins]]
