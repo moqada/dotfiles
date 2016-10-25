@@ -122,12 +122,13 @@ repo = 'rhysd/vim-gfm-syntax'
 on_ft = 'markdown'
 
 [[plugins]]
-repo = 'tyru/markdown-codehl-onthefly.vim'
+repo = 'joker1007/vim-markdown-quote-syntax'
 on_ft = 'markdown'
+
 
 [[plugins]]
 repo = 'rcmdnk/vim-markdown'
-depends = ['vim-gfm-syntax', 'markdown-codehl-onthefly.vim']
+depends = ['vim-gfm-syntax', 'vim-markdown-quote-syntax']
 on_ft = 'markdown'
 
 [[plugins]]
