@@ -631,9 +631,8 @@ let g:neosnippet#enable_snipmate_compatibility = 1
 " 同じ定義があった場合は最初に指定した方が優先されるため独自スニペットの方を先頭にする
 let g:neosnippet#snippets_directory = []
 let g:neosnippet#snippets_directory += ['~/.vim/snippets']
-let g:neosnippet#snippets_directory += ['~/.vim/bundle/serverspec-snippets']
-let g:neosnippet#snippets_directory += ['~/.vim/bundle/neosnippet-snippets/neosnippets']
-let g:neosnippet#snippets_directory += ['~/.vim/bundle/vim-snippets/snippets']
+let g:neosnippet#snippets_directory += ['~/.vim/dein/repos/github.com/Shougo/neosnippet-snippets/neosnippets']
+let g:neosnippet#snippets_directory += ['~/.vim/dein/repos/github.com/honza/vim-snippets/snippets']
 " snippets変数
 let g:snips_author = 'Masahiko OKADA'
 " keymapping
