@@ -80,6 +80,9 @@ repo = 'kassio/neoterm'
 
 [[plugins]]
 repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'majutsushi/tagbar'
 # 1}}}
 
 # 検索関連 {{{1
