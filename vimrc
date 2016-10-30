@@ -480,7 +480,7 @@ nnoremap  [unite]f  :<C-u>Unite source<CR>
 nnoremap <silent> [unite]u
       \ :<C-u>Unite -buffer-name=files
       \ jump_point file_point buffer
-      \ file_rec/async file file_mru file/new<CR>
+      \ file_rec/neovim file file_mru file/new<CR>
 nnoremap <silent> ;; :<C-u>Unite line<CR>
 
 " 入力モードで開始
@@ -546,16 +546,14 @@ elseif executable('jvgrep')
   let g:unite_source_grep_command = 'jvgrep'
   let g:unite_source_grep_default_opts = '-i --exclude ''\.(git|svn|hg|bzr)'''
   let g:unite_source_grep_recursive_opt = '-R'
+" @see: http://mattn.kaoriya.net/software/vim/20150209151638.htm
+  let g:unite_source_rec_async_command=['ag', '--nocolor', '--nogroup', '-g', '""']
 endif
 " }}}"
 
 " ag を利用したファイル選択など "{{{
 " @see: http://mattn.kaoriya.net/software/vim/20150209151638.htm
 let g:unite_source_history_yank_enable = 1
-try
-  let g:unite_source_rec_async_command=['ag', '--nocolor', '--nogroup', '-g', '""']
-catch
-endtry
 " search a file in the filetree
 nnoremap <space><space> :split<cr> :<C-u>Unite -start-insert file_rec/async<cr>
 " reset not it is <C-l> normally
