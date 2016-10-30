@@ -113,7 +113,7 @@ if has('nvim')
 endif
 set background=dark
 " colorscheme
-colorscheme codeschool
+colorscheme seoul256
 " 行番号を表示
 set number
 " ルーラーを表示
