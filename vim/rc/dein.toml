@@ -126,6 +126,39 @@ repo = 'mhartington/oceanic-next'
 
 [[plugins]]
 repo = 'jacoborus/tender'
+
+[[plugins]]
+repo = 'junegunn/seoul256.vim'
+
+[[plugins]]
+repo = 'w0ng/vim-hybrid'
+
+[[plugins]]
+repo = 'rakr/vim-one'
+
+[[plugins]]
+repo = 'freeo/vim-kalisi'
+
+[[plugins]]
+repo = 'itchyny/landscape.vim'
+
+[[plugins]]
+repo = 'KabbAmine/yowish.vim'
+
+[[plugins]]
+repo = 'ciaranm/inkpot'
+
+[[plugins]]
+repo = 'tyrannicaltoucan/vim-quantum'
+
+[[plugins]]
+repo = 'bcicen/vim-vice'
+
+[[plugins]]
+repo = 'vim-scripts/oceandeep'
+
+[[plugins]]
+repo = 'lifepillar/vim-solarized8'
 # 1}}}
 
 # EditorConfig {{{1
