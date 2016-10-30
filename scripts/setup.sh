@@ -46,6 +46,9 @@ ln -si $BASE_DIR/mackup.cfg $HOME/.mackup.cfg
 # NPM
 ln -si $BASE_DIR/npmrc $HOME/.npmrc
 
+# cVim
+ln -si $BASE_DIR/cvimrc $HOME/.cvimrc
+
 # bin
 [ -d $HOME/.bin ] && echo "exist $HOME/.bin" \
     || (ln -s $BASE_DIR/bin $HOME/.bin && "create $HOME/.bin")
