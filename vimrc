@@ -480,7 +480,7 @@ nnoremap  [unite]f  :<C-u>Unite source<CR>
 nnoremap <silent> [unite]u
       \ :<C-u>Unite -buffer-name=files
       \ jump_point file_point buffer
-      \ file_rec/neovim file file_mru file/new<CR>
+      \ file_rec/async file file_mru file/new<CR>
 nnoremap <silent> ;; :<C-u>Unite line<CR>
 
 " 入力モードで開始
@@ -488,6 +488,19 @@ call unite#custom#profile('default', 'context', {
 \   'short_source_names': 1,
 \   'start_insert': 1
 \ })
+
+let g:unite_source_rec_max_cache_files = 10000
+let s:unite_ignore_file_rec_patterns=
+      \ ''
+      \ .'.android/\|.atom/\|.cabal/\|.cache/\|.cocoapods/\|.eskk/\|.gem/\|.go/\|.gradle/\|'
+      \ .'vendor/bundle\|.bundle/\|\.sass-cache/\|'
+      \ .'node_modules/\|bower_components/\|'
+      \ .'\.\(bmp\|gif\|jpe\?g\|png\|webp\|ai\|psd\)"\?$'
+
+call unite#custom#source(
+      \ 'file_rec/async,file_rec/git',
+      \ 'ignore_pattern',
+      \ s:unite_ignore_file_rec_patterns)
 
 autocmd FileType unite call s:unite_my_settings()
 function! s:unite_my_settings()"{{{
