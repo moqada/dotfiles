@@ -183,6 +183,10 @@ export DOKATA_TEMPLATE_DIR=~/work/projects/moqada
 PATH=/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
 MANPATH=/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH
 
+# for React Native (Android Studio on Mac)
+ANDROID_HOME=~/Library/Android/sdk
+PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
+
 # for direnv
 eval "$(direnv hook zsh)"
 # for direnv (virtualenv)
