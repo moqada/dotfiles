@@ -127,6 +127,8 @@ eval "$(rbenv init -)"
 export PATH=$HOME/.phpenv/bin:$PATH
 eval "$(phpenv init -)"
 
+# for homebrew
+export PATH=/usr/local/sbin:$PATH
 # for homebrew-cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
@@ -184,7 +186,7 @@ PATH=/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
 MANPATH=/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH
 
 # for React Native (Android Studio on Mac)
-ANDROID_HOME=~/Library/Android/sdk
+export ANDROID_HOME=~/Library/Android/sdk
 PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
 
 # for direnv
