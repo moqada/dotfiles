@@ -9,7 +9,7 @@
 [commit]
     gpgsign = false
 [core]
-    editor = vim
+    editor = nvim
     excludesfile=~/.gitignore
     #autocrlf = input
 [color]
