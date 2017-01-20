@@ -4,6 +4,10 @@
         <item>
             <name>AquaSKK</name>
             <appdef>
+                <appname>Atom</appname>
+                <equal>com.github.atom</equal>
+            </appdef>
+            <appdef>
                 <appname>Terminal</appname>
                 <equal>com.googlecode.iterm2</equal>
                 <equal>com.apple.Terminal</equal>
@@ -40,7 +44,7 @@
                 <item>
                     <name>Leave Insert Mode with EISUU (vim keybind apps)</name>
                     <identifier>private.vim_keybind_apps_esc_with_eisuu</identifier>
-                    <only>Terminal,MacVim,VimR</only>
+                    <only>Atom,Terminal,MacVim,VimR</only>
                     <autogen>
                         __KeyToKey__
                         KeyCode::ESCAPE,
