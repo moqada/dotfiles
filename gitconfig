@@ -51,3 +51,5 @@
 [pager]
     diff = diff-highlight | less --tabs=1,5
     show = diff-highlight | less --tabs=1,5
+[http "https://gopkg.in"]
+	followRedirects = true
