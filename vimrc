@@ -248,7 +248,7 @@ let g:lightline = {
       \     ['fugitive', 'gitgutter', 'filename'],
       \   ],
       \   'right': [
-      \     ['lineinfo', 'syntastic'],
+      \     ['lineinfo', 'ale'],
       \     ['percent'],
       \     ['charcode', 'fileformat', 'fileencoding', 'filetype'],
       \   ]
@@ -257,6 +257,7 @@ let g:lightline = {
       \   'lineinfo': '⭡ %3l:%-2v',
       \ },
       \ 'component_function': {
+      \   'ale': 'ALEStatus',
       \   'modified': 'MyModified',
       \   'readonly': 'MyReadonly',
       \   'fugitive': 'MyFugitive',

@@ -42,9 +42,8 @@ repo = 'surround.vim'
 repo = 'honza/vim-snippets'
 
 [[plugins]]
-repo = 'neomake/neomake'
-on_path = '.*'
-hook_add = 'source ~/.vim/rc/plugins/neomake.rc.vim'
+repo = 'w0rp/ale'
+hook_add = 'source ~/.vim/rc/plugins/ale.rc.vim'
 
 [[plugins]]
 repo = 'rhysd/clever-f.vim'
