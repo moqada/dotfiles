@@ -20,6 +20,10 @@
                 <appname>VimR</appname>
                 <equal>com.qvacua.VimR</equal>
             </appdef>
+            <appdef>
+                <appname>VSCode</appname>
+                <equal>com.microsoft.VSCode</equal>
+            </appdef>
             <list>
                 <item>
                     <name>Ctrl-J to Kana on Apple Terminal/iTerm2</name>
@@ -55,6 +59,17 @@
                         __KeyToKey__
                         KeyCode::BRACKET_LEFT, VK_CONTROL,
                         KeyCode::BRACKET_LEFT, VK_CONTROL,
+                        KeyCode::JIS_EISUU
+                    </autogen>
+                </item>
+                <item>
+                    <name>Leave Insert Mode with EISUU (VSCode)</name>
+                    <identifier>private.vscode_esc_with_eisuu</identifier>
+                    <only>VSCode</only>
+                    <autogen>
+                        __KeyToKey__
+                        KeyCode::BRACKET_LEFT, VK_CONTROL,
+                        KeyCode::ESCAPE,
                         KeyCode::JIS_EISUU
                     </autogen>
                 </item>
