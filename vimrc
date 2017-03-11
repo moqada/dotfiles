@@ -201,6 +201,10 @@ augroup MyAutoCmd
   autocmd BufNewFile,BufRead *.{md,mdwn,mkd,mkdn,mark*} setl ft=markdown
   " 2}}}"
 
+  " Flow "{{{2
+  autocmd BufNewFile,BufRead *.{js,js.flow} setl ft=javascript
+  " 2}}}"
+
   " Golang "{{{2
   " @see: http://akirachiku.com/2016/03/01/go16-development.html
   autocmd FileType go nmap <leader>gb <Plug>(go-build)
