@@ -182,3 +182,9 @@ repo = 'junegunn/vim-emoji'
 [[plugins]]
 repo = 'wakatime/vim-wakatime'
 # 1}}}
+
+# JavaScript {{{
+# lazyでon_ft='javascript'で動かなかったため回避
+[[plugins]]
+repo = 'moll/vim-node'
+# }}}
