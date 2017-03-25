@@ -95,8 +95,12 @@ on_ft = 'javascript'
 depends = 'yajs.vim'
 
 [[plugins]]
-repo = 'mxw/vim-jsx'
+repo = 'MaxMEllon/vim-jsx-pretty'
 on_ft = 'javascript'
+hook_source='''
+" よりカラフルなハイライト
+let g:vim_jsx_pretty_colorful_config = 1
+'''
 
 [[plugins]]
 repo  = 'heavenshell/vim-jsdoc'
