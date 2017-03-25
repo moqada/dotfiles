@@ -79,7 +79,6 @@ on_ft = 'jade'
 # JavaScript {{{1
 [[plugins]]
 repo = 'pangloss/vim-javascript'
-depends = 'tern_for_vim'
 on_ft = 'javascript'
 
 # es6のハイライト
@@ -93,11 +92,6 @@ depends = 'vim-javascript'
 repo = 'othree/es.next.syntax.vim'
 on_ft = 'javascript'
 depends = 'yajs.vim'
-
-[[plugins]]
-repo = 'marijnh/tern_for_vim'
-on_ft = 'javascript'
-build = 'npm install'
 
 [[plugins]]
 repo = 'mxw/vim-jsx'
