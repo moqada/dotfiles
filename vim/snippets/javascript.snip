@@ -1,0 +1,83 @@
+snippet ava
+abbr import test from 'ava'; test...
+    import test from 'ava';
+     
+    test('${1:name}', t => {
+      ${0}
+    });
+
+snippet bf
+abbr test.before(t => {...});
+    test.before(t => {
+      ${0}
+    });
+
+snippet importall
+abbr import * as <name> from '...';
+alias ima
+    import * as ${1:#:name} from '${2:#:file}';
+
+snippet import
+abbr import <name> from '...';
+alias im
+    import ${1:#:name} from '${2:#:file}';
+
+
+snippet fl
+abbr /* @flow */
+    /* @flow */
+    ${0}
+
+snippet cl
+abbr class Foo {}
+    class ${1:Class} {
+      ${0}
+    }
+
+snippet export-default
+abbr export default 
+alias exd
+    export default${0}
+
+snippet constructor
+abbr constructor(props: Props) {...}
+alias cst
+    constructor(${1:props}: ${2:Props}) {
+      ${0}
+    }
+
+snippet super
+abbr super(...);
+alias sp
+    super(${1});
+    ${0}
+
+snippet react-component
+alias comp
+abbr class <NewComponent> extends Component {...}
+    /**
+     * $1
+     */
+    class ${1:View} extends Component {
+     
+      props: Props;
+       
+      /**
+       * render
+       */
+      render() {
+      ${0}
+      }
+    }
+
+snippet react-stateless-component
+alias comps
+abbr function <NewComponent>(props: Props) {...}
+    /**
+     * ${1:View}
+     *
+     * @param props - Props
+     */
+    function $1(props: Props) {
+    ${0}
+    }
