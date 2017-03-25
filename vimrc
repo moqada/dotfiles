@@ -181,7 +181,9 @@ set fileformats=unix,dos,mac
 
 " キーマッピング "{{{
 " 一つ前のバッファに戻る
-nnoremap <C-b> :bp<CR>
+nnoremap <C-b><C-p> :bprevious<CR>
+nnoremap <C-b><C-n> :bnext<CR>
+nnoremap <C-b><C-b> :b#<CR>
 " スペルチェック機能 ON / OFF をトグルする
 nnoremap <silent><Space>s :<C-u>setl spell! spell?<CR>
 " vimrc を再読み込み
