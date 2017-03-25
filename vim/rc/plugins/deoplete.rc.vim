@@ -16,6 +16,8 @@ let g:deoplete#omni#input_patterns = {}
 " see: https://github.com/Shougo/neocomplete.vim/issues/91
 let g:deoplete#omni#input_patterns.javascript = '[^. \t]\.\w*'
 
+let g:deoplete#file#enable_buffer_path = 1
+
 inoremap <expr><tab> pumvisible() ? "\<C-n>" :
       \ neosnippet#expandable_or_jumpable() ?
       \    "\<Plug>(neosnippet_expand_or_jump)" : "\<tab>"
