@@ -164,6 +164,8 @@ set writebackup
 set backupcopy=yes
 " コマンド履歴の保存数
 set history=500
+" buffer切り替え時にhidden状態にする(変更未保存でもbuffer切り替え/undo履歴の保持が可能)
+set hidden
 "}}}
 
 " 文字コード/改行コード "{{{
