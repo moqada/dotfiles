@@ -36,7 +36,7 @@ repo = 'Shougo/neosnippet-snippets'
 repo = 'kana/vim-smartinput'
 
 [[plugins]]
-repo = 'surround.vim'
+repo = 'vim-scripts/surround.vim'
 
 [[plugins]]
 repo = 'honza/vim-snippets'
