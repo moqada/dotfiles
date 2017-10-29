@@ -94,7 +94,6 @@ brew cask install dropbox --force
 brew cask install evernote --force
 brew cask install firefox --force
 brew cask install flux --force
-brew cask install growlnotify --force
 brew cask install google-chrome --force
 brew cask install google-chrome-canary --force
 brew cask install gyazo --force
@@ -102,10 +101,9 @@ brew cask install hipchat --force
 brew cask install istat-menus --force
 brew cask install iterm2 --force
 brew cask install ivolume --force
-brew cask install karabiner --force
+brew cask install karabiner-elements --force
 brew cask install lastfm --force
 brew cask install macdown --force
-brew cask install magican --force
 brew cask install omnifocus --force
 brew cask install omnioutliner --force
 brew cask install omnipresence --force

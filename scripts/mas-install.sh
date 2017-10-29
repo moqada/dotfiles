@@ -6,16 +6,13 @@ mas install 409183694  # Keynote
 mas install 427515976  # 3Hub
 mas install 408981381  # iPhoto
 mas install 682658836  # GarageBand
-mas install 467939042  # Growl
 mas install 557168941  # Tweetbot
 mas install 992076693  # MindNode
 mas install 497799835  # Xcode
 mas install 409203825  # Numbers
 mas install 409201541  # Pages
 mas install 408981434  # iMovie
-mas install 918858936  # Airmail 2
 mas install 415139197  # WhiteNoise
-mas install 886106985  # Sunrise Calendar
 mas install 715768417  # MicrosoftRemoteDesktop
 mas install 1055511498 # Day One
 mas install 449589707  # Dash
