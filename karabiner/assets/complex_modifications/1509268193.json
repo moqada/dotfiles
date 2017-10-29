@@ -44,6 +44,7 @@
                 "^com\\.vmware\\.horizon$",
                 "^com\\.2X\\.Client\\.Mac$",
                 "^com\\.apple\\.Terminal$",
+                "^com\\.google\\.Chrome$",
                 "^com\\.googlecode\\.iterm2$",
                 "^co\\.zeit\\.hyperterm$",
                 "^co\\.zeit\\.hyper$",
