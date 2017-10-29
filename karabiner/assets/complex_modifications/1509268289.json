@@ -82,10 +82,7 @@
           },
           "to": [
             {
-              "key_code": "open_bracket",
-              "modifiers": [
-                "control"
-              ]
+              "key_code": "escape"
             },
             {
               "key_code": "japanese_eisuu"
