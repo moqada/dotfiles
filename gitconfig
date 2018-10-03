@@ -54,3 +54,5 @@
     show = diff-highlight | less --tabs=1,5
 [http "https://gopkg.in"]
 	followRedirects = true
+[am]
+	threeWay = true
