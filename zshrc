@@ -203,3 +203,7 @@ PS1='$(show_virtual_env)'$PS1
 
 # for dotfiles/bin
 PATH=$HOME/.bin:$PATH
+
+
+# for Android emulator
+function emulatorw { cd "$(dirname $(which emulator))" && ./emulator "$@"; }
