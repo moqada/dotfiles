@@ -11,6 +11,7 @@
 [core]
     editor = nvim
     excludesfile=~/.gitignore
+    ignorecase = false
     #autocrlf = input
 [color]
     ui = true
