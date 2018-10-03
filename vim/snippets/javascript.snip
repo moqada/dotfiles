@@ -3,13 +3,19 @@ abbr import test from 'ava'; test...
     import test from 'ava';
      
     test('${1:name}', t => {
-      ${0}
+    ${0}
     });
 
 snippet bf
 abbr test.before(t => {...});
     test.before(t => {
       ${0}
+    });
+
+snippet test
+abbr test('...', t => {...});
+    test('${1:name}', t => {
+    ${0}
     });
 
 snippet importall
@@ -72,12 +78,57 @@ abbr class <NewComponent> extends Component {...}
 
 snippet react-stateless-component
 alias comps
-abbr function <NewComponent>(props: Props) {...}
+abbr const <NewComponent> = ({}: Props) {...}
     /**
      * ${1:View}
      *
      * @param props - Props
      */
-    function $1(props: Props) {
+    const $1 = ({${2:#:props}}: Props) => {
     ${0}
-    }
+    };
+
+snippet react-native-stateless-component-module
+alias rnmcomps
+abbr const <NewComponent> = (props: Props) {...}
+    /* @flow */
+    import React from 'react';
+    import {StyleSheet, View} from 'react-native';
+    
+    const styles = StyleSheet.create({
+    });
+
+    type Props = {
+    };
+
+    /**
+     * ${1:View}
+     *
+     * @param props - Props
+     */
+    const $1 = ({${2:#:props}}: Props) => {
+      return (
+        <View>
+          ${0}
+        </View>
+      );
+    };
+    export default $1;
+
+snippet react-native-storybook-module
+alias rnstorym
+abbr const <NewComponent> = (props: Props) {...}
+    /* @flow */
+    /* eslint-disable no-magic-numbers */
+    import React from 'react';
+    import {action, storiesOf} from '@storybook/react-native';
+    import View from '../';
+    
+    const onPress = action('press-');
+
+    storiesOf('${1:View}', module)
+      .add('${2:default}', () => (
+        <View
+          ${0}
+        />
+      ));

@@ -1,6 +1,9 @@
 " 型チェック
 let g:flow#enable = 0
 
+" quickfixで開く
+let g:flow#autoclose = 1
+
 " 補完
 let g:flow#omnifunc = 1
 

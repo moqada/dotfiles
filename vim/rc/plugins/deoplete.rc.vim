@@ -1,3 +1,5 @@
+" 起動時にdeopleteを有効にする
+let g:deoplete#enable_at_startup = 1
 " smartcaseを有効にする
 let g:deoplete#enable_smart_case = 1
 " 大文字小文字を考慮しない

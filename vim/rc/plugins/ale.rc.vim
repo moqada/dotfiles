@@ -18,7 +18,7 @@ let g:ale_lint_on_enter = 0
 let g:ale_lint_on_text_changed = 0
 
 " エラー表示フォーマット
-let g:ale_echo_msg_format = '[%linter%] %s'
+let g:ale_echo_msg_format = '[%linter%/%code%] %s [%severity%]'
 
 " エラー箇所への移動キーマップ
 nmap <silent> <F8> <Plug>(ale_next_wrap)

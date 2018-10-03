@@ -82,6 +82,10 @@ repo = 'ryanoasis/vim-devicons'
 
 [[plugins]]
 repo = 'majutsushi/tagbar'
+
+[[plugins]]
+if = '''has('nvim')'''
+repo = 'sbdchd/neoformat'
 # 1}}}
 
 # 検索関連 {{{1
@@ -158,6 +162,18 @@ repo = 'vim-scripts/oceandeep'
 
 [[plugins]]
 repo = 'lifepillar/vim-solarized8'
+
+[[plugins]]
+repo = 'rakr/vim-colors-rakr'
+
+[[plugins]]
+repo = 'jdsimcoe/abstract.vim'
+
+[[plugins]]
+repo = 'fmoralesc/molokayo'
+
+[[plugins]]
+repo = 'crusoexia/vim-monokai'
 # 1}}}
 
 # EditorConfig {{{1

@@ -6,10 +6,9 @@ if = '''has('nvim')'''
 repo = 'Shougo/deoplete.nvim'
 depends = 'context_filetype.vim'
 on_i = 1
-# 起動時にdeopleteを有効にする
-hook_source = 'let g:deoplete#enable_at_startup = 1'
+# hook_source = 'let g:deoplete#enable_at_startup = 1'
 # deoplete.nvim用の設定をロード
-hook_post_source = 'source ~/.vim/rc/plugins/deoplete.rc.vim'
+hook_source = 'source ~/.vim/rc/plugins/deoplete.rc.vim'
 
 [[plugins]]
 if = '''has('vim')'''
@@ -77,6 +76,7 @@ on_ft = 'jade'
 # 1}}}
 
 # JavaScript {{{1
+
 [[plugins]]
 repo = 'pangloss/vim-javascript'
 on_ft = 'javascript'
@@ -88,19 +88,35 @@ repo = 'othree/yajs.vim'
 on_ft = 'javascript'
 depends = 'vim-javascript'
 
+[[plugins]]
+repo = 'othree/javascript-libraries-syntax.vim'
+on_ft = 'javascript'
+depends = 'yajs.vim'
+#depends = 'vim-jsx-pretty'
+
 # stage-0 のsyntax highlight
 [[plugins]]
 repo = 'othree/es.next.syntax.vim'
 on_ft = 'javascript'
+depends = 'javascript-libraries-syntax.vim'
+##depends = 'vim-javascript'
+#depends = 'yajs.vim'
+#depends = 'vim-jsx-pretty'
+
+[[plugins]]
+repo = 'mxw/vim-jsx'
+on_ft = 'javascript'
+#hook_source='''
+#" よりカラフルなハイライト
+#"let g:vim_jsx_pretty_colorful_config = 1
+#'''
 depends = 'yajs.vim'
 
 [[plugins]]
-repo = 'MaxMEllon/vim-jsx-pretty'
+repo = 'rschmukler/pangloss-vim-indent'
 on_ft = 'javascript'
-hook_source='''
-" よりカラフルなハイライト
-let g:vim_jsx_pretty_colorful_config = 1
-'''
+#depends = 'vim-jsx-pretty'
+depends = 'vim-javascript'
 
 [[plugins]]
 repo  = 'heavenshell/vim-jsdoc'
@@ -110,6 +126,10 @@ on_ft = 'javascript'
 repo = 'flowtype/vim-flow'
 on_ft = 'javascript'
 hook_source = 'source ~/.vim/rc/plugins/vim-flow.rc.vim'
+
+[[plugins]]
+repo = 'Galooshi/vim-import-js'
+on_ft = 'javascript'
 # 1}}}
 
 # Markdown {{{1
@@ -188,3 +208,9 @@ on_ft = 'vim'
 repo = 'rhysd/try-colorscheme.vim'
 on_cmd = 'TryColorscheme'
 # 1}}}
+
+# TypeScript {{{1
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = 'typescript'
+# }}}

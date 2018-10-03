@@ -5,6 +5,10 @@ if !has('nvim')
   " neovimはデフォルトでutf-8になる
   set encoding=utf-8
 endif
+" 日本語文字化けの対処
+" https://hori-ryota.com/blog/neovim-fix-input-broken-ttimeout/
+set ttimeout
+set ttimeoutlen=50
 scriptencoding utf8
 
 " dein.vim "{{{
@@ -100,7 +104,7 @@ if !has('nvim')
   set t_Co=256
 endif
 " True color対応
-if has('patch-7.4.1778')
+if has('guicolors')
   set guicolors
 endif
 " nvim >= 0.1.5
@@ -113,7 +117,8 @@ if has('nvim')
 endif
 set background=dark
 " colorscheme
-colorscheme iceberg
+" colorscheme iceberg
+colorscheme monokai
 " 行番号を表示
 set number
 " ルーラーを表示
@@ -206,7 +211,7 @@ augroup MyAutoCmd
   " 2}}}"
 
   " Flow "{{{2
-  autocmd BufNewFile,BufRead *.{js,js.flow} setl ft=javascript
+  autocmd BufNewFile,BufRead *.{js,js.flow} setl ft=javascript.jsx
   " 2}}}"
 
   " Golang "{{{2
@@ -225,6 +230,10 @@ augroup MyAutoCmd
   " Golang "{{{2
   " for Git commit message
   autocmd FileType gitcommit setl spell
+  " 2}}}"
+
+  " TypeScript "{{{2
+  autocmd BufRead,BufNewFile *.ts set filetype=typescript
   " 2}}}"
 augroup END
 " ----------
@@ -491,6 +500,7 @@ nnoremap <silent> [unite]u
       \ jump_point file_point buffer
       \ file_rec/async file file_mru file/new<CR>
 nnoremap <silent> ;; :<C-u>Unite line<CR>
+nnoremap <silent> ,g  :<C-u>Unite grep:. -buffer-name=search-buffer<CR>
 
 " 入力モードで開始
 call unite#custom#profile('default', 'context', {
@@ -781,6 +791,7 @@ endif
 "---------------------------
 " ローカル設定
 "--------------------------
+
 
 " 環境に依存した非公開設定を読み込む "{{{
 if filereadable(expand('~/.vimrc.local'))
