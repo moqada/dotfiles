@@ -118,6 +118,7 @@ export LESS='-R'
 
 # for nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
+export PATH=$HOME/.config/yarn/global/node_modules/.bin:$PATH
 
 # for rbenv
 export PATH=$HOME/.rbenv/bin:$PATH
