@@ -30,6 +30,7 @@ brew install mackup
 brew install mercurial
 brew install mysql
 brew install node
+brew install plantuml
 brew install peco
 brew install postgresql
 brew install python
