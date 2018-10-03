@@ -207,3 +207,8 @@ PATH=$HOME/.bin:$PATH
 
 # for Android emulator
 function emulatorw { cd "$(dirname $(which emulator))" && ./emulator "$@"; }
+
+# for pyenv
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
