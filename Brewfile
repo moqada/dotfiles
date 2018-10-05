@@ -1,146 +1,102 @@
-# Brewfile
-## Update
-brew update
-brew upgrade
-
+cask_args appdir: '/Applications'
 
 ## Packages
-brew install ag
-brew install android-sdk
-brew install ant
-brew install argon/mas/mas
-brew install awscli
-brew install boot2docker
-brew install colordiff
-brew install ctags
-brew install direnv
-brew install docker
-brew install docker-compose
-brew install flow
-brew install git
-brew install go
-brew install graphviz
-brew install heroku-toolbelt
-brew install ios-sim
-brew install jo
-brew install jq
-brew install lame
-brew install lua
-brew install mackup
-brew install mercurial
-brew install mysql
-brew install node
-brew install plantuml
-brew install peco
-brew install postgresql
-brew install python
-brew install python3
-brew install redis
-brew install reattach-to-user-namespace
-brew install rbenv
-brew install ruby-build
-brew install siege
-brew install sqlite
-brew install terraform
-brew install tig
-brew install tmux
-brew install transmission
-brew install tree
-brew install --with-lua --with-luajit vim
-brew install watchman
-brew install w3m
-brew install wget
-brew install xctool
-brew install zsh
-
-### for PHP
-brew tap josegonzalez/php
-brew install phpenv
-
-### for Packer
-brew tap homebrew/binary
-brew install packer
-
-### for cask
-brew tap caskroom/cask
-brew install brew-cask
-
-### for Completions
-brew tap homebrew/completions
-brew install tmuxinator-completion
-
-### for ghr
-brew tap tcnksm/ghr
-brew install ghr
-
-### for gomi (trash cli)
-brew tap b4b4r07/gomi
-brew install gomi
-
-### for neovim
-brew tap neovim/neovim
-brew install neovim
+brew 'awscli'
+brew 'bitrise'
+brew 'colordiff'
+brew 'direnv'
+brew 'git'
+brew 'heroku/brew/heroku'
+brew 'ios-sim'
+brew 'jq'
+brew 'mackup'
+brew 'mas'
+brew 'neovim'
+brew 'peco'
+brew 'plantuml'
+brew 'reattach-to-user-namespace'
+brew 'rbenv'
+brew 'ruby'
+brew 'ruby-build'
+brew 'terraform'
+brew 'the_silver_searcher'
+brew 'tig'
+brew 'tmux'
+brew 'tree'
+brew 'watchman'
+brew 'wget'
+brew 'zsh'
 
 ## .dmg, .pkg
-brew cask install 1password --force
-brew cask install alfred --force
-brew cask install appcleaner --force
-brew cask install aurora --force
-brew cask install bartender --force
-brew cask install bettertouchtool --force
-brew cask install bowtie --force
-brew cask install caffeine --force
-brew cask install ccleaner --force
-brew cask install dropbox --force
-brew cask install evernote --force
-brew cask install firefox --force
-brew cask install flux --force
-brew cask install google-chrome --force
-brew cask install google-chrome-canary --force
-brew cask install gyazo --force
-brew cask install hipchat --force
-brew cask install istat-menus --force
-brew cask install iterm2 --force
-brew cask install ivolume --force
-brew cask install karabiner-elements --force
-brew cask install lastfm --force
-brew cask install macdown --force
-brew cask install omnifocus --force
-brew cask install omnioutliner --force
-brew cask install omnipresence --force
-brew cask install onyx --force
-brew cask install opera --force
-brew cask install qlmarkdown --force
-brew cask install rescuetime --force
-brew cask install sequel-pro --force
-brew cask install simple-comic --force
-brew cask install sketch --force
-brew cask install skitch --force
-brew cask install skype --force
-brew cask install slack --force
-brew cask install the-unarchiver --force
-brew cask install toggldesktop --force
-brew cask install vagrant --force
-brew cask install virtualbox --force
-brew cask install xtrafinder --force
-brew cask install xquartz --force
+cask '1password'
+cask 'alfred'
+cask 'appcleaner'
+cask 'android-file-transfer'
+cask 'android-studio'
+cask 'aquaskk'
+cask 'bartender'
+cask 'bettertouchtool'
+cask 'bowtie'
+cask 'caffeine'
+cask 'ccleaner'
+cask 'clipy'
+cask 'docker'
+cask 'dropbox'
+cask 'duet'
+cask 'evernote'
+cask 'firefox'
+cask 'flux'
+cask 'google-chrome'
+cask 'google-chrome-canary'
+cask 'gyazo'
+cask 'istat-menus'
+cask 'iterm2'
+cask 'ivolume'
+cask 'karabiner-elements'
+cask 'kindle'
+cask 'lastfm'
+cask 'omnifocus'
+cask 'omnioutliner'
+cask 'omnipresence'
+cask 'opera'
+cask 'react-native-debugger'
+cask 'rescuetime'
+cask 'sequel-pro'
+cask 'sketch'
+cask 'skitch'
+cask 'slack'
+cask 'the-unarchiver'
+cask 'vimr'
+cask 'zeplin'
 
-### cask for AquaSKK
-brew tap aereal/aereal_casks
-brew cask install aquaskk --force
+### cask for Kensington TrackballWorks
+tap 'homebrew/cask-drivers'
+cask 'kensington-trackball-works'
 
 ### cask for MacVim Kaoriya
-brew tap caskroom/versions
-brew cask install macvim-kaoriya --force
+tap 'delphinus/macvim-kaoriya'
+cask 'macvim-kaoriya'
 
 ### cask for powerline fonts
-brew tap caskroom/fonts
-brew cask install font-sauce-code-powerline --force
+tap 'homebrew/cask-fonts'
+cask 'font-sauce-code-powerline'
 
-### for Ricty font
-brew tap sanemat/font
-brew install --powerline --vim-powerline ricty
-cp -f /usr/local/opt/ricty/share/fonts/Ricty*.ttf ~/Library/Fonts/
-
-## cleanup
-brew cleanup
+## App Store
+mas 'Day One', id: 1055511498
+mas 'Divvy', id: 413857545
+mas 'GIPHY CAPTURE', id: 668208984
+mas 'Growl', id: 467939042
+mas 'iMovie', id: 408981434
+mas 'Keynote', id: 409183694
+mas 'LINE', id: 539883307
+mas 'Microsoft Remote Desktop', id: 715768417
+mas 'MindNode', id: 992076693
+mas 'Numbers', id: 409203825
+mas 'Pages', id: 409201541
+mas 'Pocket', id: 568494494
+mas 'Speed-Up', id: 412356892
+mas 'TogglDesktop', id: 957734279
+mas 'Tweetbot', id: 1384080005
+mas 'WhiteNoise', id: 415139197
+mas 'WinArchiver Lite', id: 414855915
+mas 'Xcode', id: 497799835

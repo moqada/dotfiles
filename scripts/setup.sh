@@ -52,6 +52,3 @@ ln -si $BASE_DIR/cvimrc $HOME/.cvimrc
 # bin
 [ -d $HOME/.bin ] && echo "exist $HOME/.bin" \
     || (ln -s $BASE_DIR/bin $HOME/.bin && "create $HOME/.bin")
-
-# Karabiner
-$BASE_DIR/scripts/karabiner-import.sh

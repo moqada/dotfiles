@@ -5,19 +5,16 @@ BASE_DIR=$(cd $(dirname $(dirname $0)); pwd)
 # dotfiles
 $BASE_DIR/scripts/setup.sh
 
+# Karabiner Elements
+mkdir -p $HOME/.config
+ln -s $BASE_DIR/karabiner $HOME/.config/karabiner
+
 # Xcode
 xcode-select --install
 
 # Homebrew
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-sh $BASE_DIR/Brewfile
-
-# AppStore
-$BASE_DIR/scripts/mas-install.sh
-
-# Karabiner
-$BASE_DIR/scripts/karabiner-import.sh
-ln -s $BASE_DIR/private.xml $HOME/Library/Application\ Support/Karabiner/private.xml
+brew bundle --file=$BASE_DIR/Brewfile
 
 # Git (for Homebrew)
 CONTRIB_PATH=/usr/local/share/git-core/contrib
