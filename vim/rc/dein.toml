@@ -27,6 +27,10 @@ depends = 'unite.vim'
 repo = 'itchyny/lightline.vim'
 
 [[plugins]]
+repo = 'maximbaz/lightline-ale'
+depends = ['lightline.vim', 'ale']
+
+[[plugins]]
 repo = 'Shougo/context_filetype.vim'
 
 [[plugins]]

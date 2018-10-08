@@ -261,7 +261,7 @@ let g:lightline = {
       \     ['fugitive', 'gitgutter', 'filename'],
       \   ],
       \   'right': [
-      \     ['lineinfo', 'ale'],
+      \     ['lineinfo', 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_ok'],
       \     ['percent'],
       \     ['charcode', 'fileformat', 'fileencoding', 'filetype'],
       \   ]
@@ -269,8 +269,13 @@ let g:lightline = {
       \ 'component': {
       \   'lineinfo': '⭡ %3l:%-2v',
       \ },
+      \ 'component_expand': {
+      \   'linter_checking': 'lightline#ale#checking',
+      \   'linter_warnings': 'lightline#ale#warnings',
+      \   'linter_errors': 'lightline#ale#errors',
+      \   'linter_ok': 'lightline#ale#ok',
+      \ },
       \ 'component_function': {
-      \   'ale': 'ALEStatus',
       \   'modified': 'MyModified',
       \   'readonly': 'MyReadonly',
       \   'fugitive': 'MyFugitive',
@@ -282,6 +287,12 @@ let g:lightline = {
       \   'syntastic': 'SyntasticStatuslineFlag',
       \   'charcode': 'MyCharCode',
       \   'gitgutter': 'MyGitGutter',
+      \ },
+      \ 'component_type': {
+      \   'linter_checking': 'left',
+      \   'linter_warnings': 'warning',
+      \   'linter_errors': 'error',
+      \   'linter_ok': 'left',
       \ }
       \ }
 
