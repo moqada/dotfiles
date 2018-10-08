@@ -16,6 +16,9 @@ xcode-select --install
 ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 brew bundle --file=$BASE_DIR/Brewfile
 
+# install Ricty font
+$BASE_DIR/scripts/install-ricty.sh
+
 # Git (for Homebrew)
 CONTRIB_PATH=/usr/local/share/git-core/contrib
 chmod +x $CONTRIB_PATH/diff-highlight/diff-highlight
