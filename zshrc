@@ -159,7 +159,6 @@ source ~/.zsh.d/peco.zsh
 
 # for zsh-git-prompt
 source ~/.zsh.d/zsh-git-prompt/zshrc.sh
-GIT_PROMPT_EXECUTABLE="haskell"
 ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[blue]%}%{✚ %G%}"
 
 # for haskell
