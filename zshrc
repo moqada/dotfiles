@@ -182,7 +182,10 @@ MANPATH=/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH
 
 # for React Native (Android Studio on Mac)
 export ANDROID_HOME=~/Library/Android/sdk
-PATH=$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH
+PATH=$PATH:$ANDROID_HOME/tools
+PATH=$PATH:$ANDROID_HOME/tools/bin
+PATH=$PATH:$ANDROID_HOME/platform-tools
+PATH=$PATH:$ANDROID_HOME/emulator
 
 # for direnv
 eval "$(direnv hook zsh)"
