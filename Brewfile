@@ -5,19 +5,23 @@ brew 'awscli'
 brew 'bitrise'
 brew 'colordiff'
 brew 'direnv'
+brew 'ghq'
 brew 'git'
-brew 'heroku/brew/heroku'
+# for zsh-git-prompt
+brew 'haskell-stack'
 brew 'ios-sim'
 brew 'jq'
 brew 'mackup'
 brew 'mas'
 brew 'neovim'
+brew 'nodebrew'
 brew 'peco'
-brew 'plantuml'
 brew 'reattach-to-user-namespace'
 brew 'rbenv'
+brew 'rbenv-communal-gems'
 brew 'ruby'
 brew 'ruby-build'
+brew 'terminal-notifier'
 brew 'terraform'
 brew 'the_silver_searcher'
 brew 'tig'
@@ -27,12 +31,21 @@ brew 'watchman'
 brew 'wget'
 brew 'zsh'
 
+### Heroku
+tap 'heroku/brew'
+brew 'heroku/brew/heroku'
+
+### plantuml
+cask 'java'
+brew 'plantuml'
+
 ## .dmg, .pkg
 cask '1password'
 cask 'alfred'
 cask 'appcleaner'
 cask 'android-file-transfer'
 cask 'android-studio'
+cask 'atom'
 cask 'aquaskk'
 cask 'bartender'
 cask 'bettertouchtool'
@@ -40,6 +53,7 @@ cask 'bowtie'
 cask 'caffeine'
 cask 'ccleaner'
 cask 'clipy'
+cask 'dash'
 cask 'docker'
 cask 'dropbox'
 cask 'duet'
@@ -47,7 +61,7 @@ cask 'evernote'
 cask 'firefox'
 cask 'flux'
 cask 'google-chrome'
-cask 'google-chrome-canary'
+cask 'growlnotify'
 cask 'gyazo'
 cask 'istat-menus'
 cask 'iterm2'
@@ -66,8 +80,15 @@ cask 'sketch'
 cask 'skitch'
 cask 'slack'
 cask 'the-unarchiver'
+cask 'typora'
 cask 'vimr'
+cask 'virtualbox'
+cask 'visual-studio-code'
 cask 'zeplin'
+
+### cask for Google Chrome Canary
+tap 'homebrew/cask-versions'
+cask 'google-chrome-canary'
 
 ### cask for Kensington TrackballWorks
 tap 'homebrew/cask-drivers'
@@ -79,7 +100,11 @@ cask 'macvim-kaoriya'
 
 ### cask for powerline fonts
 tap 'homebrew/cask-fonts'
-cask 'font-sauce-code-powerline'
+cask 'font-source-code-pro-for-powerline'
+
+### cask for React Native
+cask 'java10'
+cask 'java8'
 
 ## App Store
 mas 'Day One', id: 1055511498
