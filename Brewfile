@@ -115,7 +115,7 @@ mas 'iMovie', id: 408981434
 mas 'Keynote', id: 409183694
 mas 'LINE', id: 539883307
 mas 'Microsoft Remote Desktop', id: 715768417
-mas 'MindNode', id: 992076693
+mas 'MindNode', id: 1289197285
 mas 'Numbers', id: 409203825
 mas 'Pages', id: 409201541
 mas 'Pocket', id: 568494494
