@@ -90,8 +90,9 @@ cask 'zeplin'
 tap 'homebrew/cask-versions'
 cask 'google-chrome-canary'
 
-### cask for Kensington TrackballWorks
+### cask for Kensington TrackballWorks, ScanSnap Manager
 tap 'homebrew/cask-drivers'
+cask 'fujitsu-scansnap-manager-s1100'
 cask 'kensington-trackball-works'
 
 ### cask for MacVim Kaoriya
