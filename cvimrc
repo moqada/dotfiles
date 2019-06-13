@@ -1,7 +1,7 @@
 " Settings "{{{
 " scroll中にマウスカーソルを表示する
 set noautohidecursor
-let blacklists = ["https://mail.google.com/*","https://docs.google.com/*","https://www.google.com/calendar/*","https://trello.com/*","https://script.google.com/*","https://go-tour-jp.appspot.com/*","https://play.golang.org/*","https://toggl.com/*"]
+let blacklists = ["https://mail.google.com/*","https://docs.google.com/*","https://www.google.com/calendar/*","https://trello.com/*","https://script.google.com/*","https://go-tour-jp.appspot.com/*","https://play.golang.org/*","https://toggl.com/*","https://feedly.com/*"]
 let mapleader = ","
 let locale = "jp"
 let hintcharacters = "hjklasdfgyuiopqwertnmzxcvb"
