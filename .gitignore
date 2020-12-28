@@ -1,4 +1,5 @@
 .DS_Store
+karabiner/automatic_backups/
 vim/bundle
 vim/backup
 vim/dein
