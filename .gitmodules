@@ -1,6 +1,3 @@
-[submodule "vimperator/vimperator-plugins"]
-	path = vimperator/vimperator-plugins
-	url = git://github.com/vimpr/vimperator-plugins.git
 [submodule "zsh.d/zsh-notify"]
 	path = zsh.d/zsh-notify
 	url = https://github.com/marzocchi/zsh-notify.git
