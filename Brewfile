@@ -45,6 +45,7 @@ brew 'plantuml'
 
 ## .dmg, .pkg
 cask '1password'
+cask 'adobe-creative-cloud'
 cask 'alfred'
 cask 'appcleaner'
 cask 'android-file-transfer'
@@ -115,6 +116,7 @@ mas 'MindNode', id: 1289197285
 mas 'Numbers', id: 409203825
 mas 'Pages', id: 409201541
 mas 'Pocket', id: 568494494
+mas 'Speedtest', id: 1153157709
 mas 'Speed-Up', id: 412356892
 mas 'TogglDesktop', id: 957734279
 mas 'Tweetbot', id: 1384080005
