@@ -1,6 +1,0 @@
-[submodule "zsh.d/zsh-notify"]
-	path = zsh.d/zsh-notify
-	url = https://github.com/marzocchi/zsh-notify.git
-[submodule "zsh.d/zsh-git-prompt"]
-	path = zsh.d/zsh-git-prompt
-	url = https://github.com/starcraftman/zsh-git-prompt

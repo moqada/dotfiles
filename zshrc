@@ -17,9 +17,6 @@ esac
 alias h='history '
 alias hh='history 0 | grep -nr '
 
-# for gomi
-alias gm='gomi'
-
 # for git
 alias g='git'
 alias gch='git cherry -v'
@@ -82,12 +79,6 @@ setopt inc_append_history
 alias ht='history -t "%Y-%m-%d %H:%M:%S"'
 function history-all { history 1 }
 
-# PROMPT
-autoload colors
-colors
-PROMPT='%{$fg[blue]%}[%~]%{$reset_color%} %b$(git_super_status)
-%{$fg[blue]%}\$%{$reset_color%} '
-
 # Key-Binds
 # -e = Emacs / -v = Vi
 # @see http://journal.mycom.co.jp/cgi-bin/print?id=41896
@@ -119,6 +110,16 @@ export LESS='-R'
 # for homebrew on M1 Mac
 [ -d /opt/homebrew ] && export PATH=/opt/homebrew/bin:$PATH
 
+# for zshinit
+source /opt/homebrew/opt/zinit/zinit.zsh
+
+# for git-prompt
+zinit ice atload'!_zsh_git_prompt_precmd_hook' lucid
+zinit load woefe/git-prompt.zsh
+source ~/.zsh.d/git-prompt.zsh
+
+# for zsh-notify
+zinit load marzocchi/zsh-notify
 
 # for nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
@@ -133,14 +134,14 @@ export PATH=/usr/local/sbin:$PATH
 # for homebrew-cask
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
+# for jdk from homebrew
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
 # include private settings
 ZSHRCLOCAL_PATH=$HOME/.zshrc.local
 if [ -f $ZSHRCLOCAL_PATH ]; then
     source $ZSHRCLOCAL_PATH
 fi
-
-# for terminal-notifier
-source ~/.zsh.d/zsh-notify/notify.plugin.zsh
 
 # for travis gem
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
@@ -157,11 +158,6 @@ export GO15VENDOREXPERIMENT=1
 # for peco
 source ~/.zsh.d/peco.zsh
 
-# for zsh-git-prompt
-source ~/.zsh.d/zsh-git-prompt/zshrc.sh
-ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[blue]%}%{✚ %G%}"
-# GIT_PROMPT_EXECUTABLE="haskell"
-
 # for haskell
 [ -d /opt/ghc/current ] && export PATH=/opt/ghc/current/bin:$PATH
 
@@ -172,18 +168,6 @@ ZSH_THEME_GIT_PROMPT_CHANGED="%{$fg[blue]%}%{✚ %G%}"
 # for vim
 [ -d /opt/vim ] && export PATH=/opt/vim/bin:$PATH
 
-# for google-cloud-sdk
-if [ -d /opt/homebrew-cask/Caskroom/google-cloud-sdk/latest ]; then
-    source /opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.zsh.inc
-    source /opt/homebrew-cask/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc
-fi
-
-# for dokata
-export DOKATA_TEMPLATE_DIR=~/work/projects/moqada
-
-# for gnu-sed on brew
-## PATH=/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
-## MANPATH=/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH
 
 # for React Native (Android Studio on Mac)
 export ANDROID_HOME=~/Library/Android/sdk
@@ -214,3 +198,4 @@ function emulatorw { cd "$(dirname $(which emulator))" && ./emulator "$@"; }
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
