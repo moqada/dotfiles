@@ -116,6 +116,10 @@ autoload -Uz add-zsh-hook
 # lessを常にカラー表示に
 export LESS='-R'
 
+# for homebrew on M1 Mac
+[ -d /opt/homebrew ] && export PATH=/opt/homebrew/bin:$PATH
+
+
 # for nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH
 export PATH=$HOME/.config/yarn/global/node_modules/.bin:$PATH
@@ -142,10 +146,10 @@ source ~/.zsh.d/zsh-notify/notify.plugin.zsh
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
 # for go
-GOPATH_ROOT=$HOME/.go
-GOPATH_WORK=$HOME/work/projects/go
-export GOPATH=$GOPATH_ROOT:$GOPATH_WORK
-export PATH=$GOPATH_ROOT/bin:$GOPATH_WORK/bin:$PATH
+## GOPATH_ROOT=$HOME/.go
+## GOPATH_WORK=$HOME/work/projects/go
+## export GOPATH=$GOPATH_ROOT:$GOPATH_WORK
+## export PATH=$GOPATH_ROOT/bin:$GOPATH_WORK/bin:$PATH
 
 # for gom
 export GO15VENDOREXPERIMENT=1 
@@ -178,8 +182,8 @@ fi
 export DOKATA_TEMPLATE_DIR=~/work/projects/moqada
 
 # for gnu-sed on brew
-PATH=/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
-MANPATH=/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH
+## PATH=/usr/local/opt/gnu-sed/libexec/gnubin:$PATH
+## MANPATH=/usr/local/opt/gnu-sed/libexec/gnuman:$MANPATH
 
 # for React Native (Android Studio on Mac)
 export ANDROID_HOME=~/Library/Android/sdk
