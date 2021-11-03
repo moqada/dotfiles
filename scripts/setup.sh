@@ -6,9 +6,6 @@ BASE_DIR=$(cd $(dirname $(dirname $0)); pwd)
 ln -si $BASE_DIR/gitconfig $HOME/.gitconfig
 ln -si $BASE_DIR/gitignore $HOME/.gitignore
 
-# Mercurial
-ln -si $BASE_DIR/hgrc $HOME/.hgrc
-
 # Tig
 ln -si $BASE_DIR/tigrc $HOME/.tigrc
 
@@ -37,17 +34,11 @@ ln -si $BASE_DIR/zshrc $HOME/.zshrc
 # CoffeeScript
 ln -si $BASE_DIR/coffeelint.json $HOME/coffeelint.json
 
-# ESLint
-ln -si $BASE_DIR/eslintrc $HOME/.eslintrc
-
 # Mackup
 ln -si $BASE_DIR/mackup.cfg $HOME/.mackup.cfg
 
 # NPM
 ln -si $BASE_DIR/npmrc $HOME/.npmrc
-
-# cVim
-ln -si $BASE_DIR/cvimrc $HOME/.cvimrc
 
 # bin
 [ -d $HOME/.bin ] && echo "exist $HOME/.bin" \
