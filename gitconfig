@@ -47,7 +47,7 @@
     # [github], [ghi]
     path = ~/.gitconfig.local
 [ghq]
-    root = ~/work/projects
+    root = ~/src
 [pager]
     diff = diff-highlight | less --tabs=1,5
     show = diff-highlight | less --tabs=1,5
