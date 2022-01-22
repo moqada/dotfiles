@@ -121,9 +121,9 @@ source ~/.zsh.d/git-prompt.zsh
 # for zsh-notify
 zinit load marzocchi/zsh-notify
 
-# for nodebrew
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-export PATH=$HOME/.config/yarn/global/node_modules/.bin:$PATH
+# for nvm
+export NVM_COMPLETION=true
+zinit load lukechilds/zsh-nvm
 
 # for rbenv
 export PATH=$HOME/.rbenv/bin:$PATH
