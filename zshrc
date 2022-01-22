@@ -158,10 +158,6 @@ export GO15VENDOREXPERIMENT=1
 # for peco
 source ~/.zsh.d/peco.zsh
 
-# for enhancd
-# required `ghq get b4b4r07/enhancd`
-[ -d ~/work/src/github.com/b4b4r07/enhancd ] && source ~/work/src/github.com/b4b4r07/enhancd/zsh/enhancd.zsh
-
 # for vim
 [ -d /opt/vim ] && export PATH=/opt/vim/bin:$PATH
 
