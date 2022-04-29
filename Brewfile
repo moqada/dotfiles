@@ -32,6 +32,7 @@ brew 'tmux'
 brew 'tree'
 brew 'watchman'
 brew 'wget'
+brew 'zinit'
 brew 'zsh'
 
 ### Heroku
@@ -55,6 +56,7 @@ cask 'bartender'
 cask 'bettertouchtool'
 cask 'clipy'
 cask 'dash'
+cask 'displaylink'
 cask 'docker'
 cask 'dropbox'
 cask 'evernote'
@@ -70,12 +72,19 @@ cask 'ivolume'
 cask 'karabiner-elements'
 cask 'kindle'
 cask 'lastfm'
+cask 'maccy'
+cask 'moom'
+cask 'react-native-debugger'
+cask 'ngrok'
+cask 'notion'
 cask 'omnifocus'
 cask 'omnioutliner'
 cask 'omnipresence'
+cask 'raindropio'
 cask 'rescuetime'
 cask 'sketch'
 cask 'slack'
+cask 'stay'
 cask 'the-unarchiver'
 cask 'typora'
 cask 'vimr'
@@ -104,21 +113,24 @@ cask 'java10'
 cask 'java8'
 
 ## App Store
+mas 'Amphetamine', id: 937984704
 mas 'Day One', id: 1055511498
-mas 'Divvy', id: 413857545
 mas 'EasyRes', id: 688211836
 mas 'GIPHY CAPTURE', id: 668208984
 mas 'iMovie', id: 408981434
 mas 'Habitify', id: 1111447047
+mas 'Just Focus', id: 1142151959
 mas 'Keynote', id: 409183694
 mas 'LINE', id: 539883307
 mas 'MindNode', id: 1289197285
 mas 'Numbers', id: 409203825
 mas 'Pages', id: 409201541
 mas 'Pocket', id: 568494494
+mas 'Scrobbles for Last.fm', id: 1344679160
 mas 'Speedtest', id: 1153157709
 mas 'Speed-Up', id: 412356892
-mas 'TogglDesktop', id: 957734279
+mas 'TestFlight', id: 899247664
+mas 'Toggl Track', id: 957734279
 mas 'Tweetbot', id: 1384080005
 mas 'WhiteNoise', id: 415139197
 mas 'WinArchiver Lite', id: 414855915
