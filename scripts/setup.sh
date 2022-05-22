@@ -31,9 +31,6 @@ ln -si $BASE_DIR/zshrc $HOME/.zshrc
     || (ln -s $BASE_DIR/peco $HOME/.peco && echo "create $HOME/.peco")
 
 
-# CoffeeScript
-ln -si $BASE_DIR/coffeelint.json $HOME/coffeelint.json
-
 # Mackup
 ln -si $BASE_DIR/mackup.cfg $HOME/.mackup.cfg
 

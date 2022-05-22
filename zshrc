@@ -135,7 +135,7 @@ export PATH=/usr/local/sbin:$PATH
 export HOMEBREW_CASK_OPTS="--appdir=/Applications"
 
 # for jdk from homebrew
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+# export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
 # include private settings
 ZSHRCLOCAL_PATH=$HOME/.zshrc.local
@@ -147,10 +147,7 @@ fi
 [ -f ~/.travis/travis.sh ] && source ~/.travis/travis.sh
 
 # for go
-## GOPATH_ROOT=$HOME/.go
-## GOPATH_WORK=$HOME/work/projects/go
-## export GOPATH=$GOPATH_ROOT:$GOPATH_WORK
-## export PATH=$GOPATH_ROOT/bin:$GOPATH_WORK/bin:$PATH
+export PATH=$(go env GOPATH)/bin:$PATH
 
 # for gom
 export GO15VENDOREXPERIMENT=1 
@@ -163,11 +160,9 @@ source ~/.zsh.d/peco.zsh
 
 
 # for React Native (Android Studio on Mac)
-export ANDROID_HOME=~/Library/Android/sdk
-PATH=$PATH:$ANDROID_HOME/tools
-PATH=$PATH:$ANDROID_HOME/tools/bin
-PATH=$PATH:$ANDROID_HOME/platform-tools
-PATH=$PATH:$ANDROID_HOME/emulator
+export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
+PATH=$PATH:$ANDROID_SDK_ROOT/emulator
+PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
 
 # for direnv
 eval "$(direnv hook zsh)"
@@ -192,3 +187,5 @@ if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
 
+# for go-swagger
+alias swagger='docker run --rm -it  --user $(id -u):$(id -g) -e GOPATH=$(go env GOPATH):/go -v $HOME:$HOME -w $(pwd) quay.io/goswagger/swagger'

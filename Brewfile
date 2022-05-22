@@ -8,6 +8,7 @@ brew 'deno'
 brew 'direnv'
 brew 'ghq'
 brew 'git'
+brew 'go'
 brew 'ios-sim'
 brew 'jq'
 brew 'mackup'
@@ -40,8 +41,11 @@ tap 'heroku/brew'
 brew 'heroku/brew/heroku'
 
 ### plantuml
-cask 'java'
 brew 'plantuml'
+
+### React Native
+tap 'facebook/fb'
+brew 'idb-companion'
 
 ## .dmg, .pkg
 cask '1password'
@@ -54,8 +58,10 @@ cask 'atom'
 cask 'aquaskk'
 cask 'bartender'
 cask 'bettertouchtool'
+cask 'choosy'
 cask 'clipy'
 cask 'dash'
+cask 'discord'
 cask 'displaylink'
 cask 'docker'
 cask 'dropbox'
@@ -80,6 +86,7 @@ cask 'notion'
 cask 'omnifocus'
 cask 'omnioutliner'
 cask 'omnipresence'
+cask 'postman'
 cask 'raindropio'
 cask 'rescuetime'
 cask 'sketch'
@@ -97,11 +104,12 @@ cask 'zoom'
 tap 'homebrew/cask-versions'
 cask 'google-chrome-canary'
 
-### cask for Kensington TrackballWorks, ScanSnap Home, Caldigit
+### cask for KensingtonWorks, ScanSnap Home, Caldigit, Logicool
 tap 'homebrew/cask-drivers'
 cask 'fujitsu-scansnap-home'
-cask 'kensington-trackball-works'
+cask 'kensingtonworks'
 cask 'caldigit-docking-utility'
+cask 'logitech-g-hub'
 
 ### cask for powerline fonts
 tap 'homebrew/cask-fonts'
@@ -109,8 +117,9 @@ cask 'font-source-code-pro-for-powerline'
 cask 'font-fira-code'
 
 ### cask for React Native
-cask 'java10'
-cask 'java8'
+cask 'zulu11'
+tap 'acebook/fb'
+brew 'idb-companion'
 
 ## App Store
 mas 'Amphetamine', id: 937984704

@@ -13,13 +13,13 @@ ln -s $BASE_DIR/karabiner $HOME/.config/karabiner
 xcode-select --install
 
 # Homebrew
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 brew bundle --file=$BASE_DIR/Brewfile
 
 # install Ricty font
 $BASE_DIR/scripts/install-ricty.sh
 
 # Git (for Homebrew)
-CONTRIB_PATH=/usr/local/share/git-core/contrib
+CONTRIB_PATH=/opt/homebrew/share/git-core/contrib
 chmod +x $CONTRIB_PATH/diff-highlight/diff-highlight
-ln -s $CONTRIB_PATH/diff-highlight/diff-highlight /usr/local/bin/diff-highlight
+ln -s $CONTRIB_PATH/diff-highlight/diff-highlight /opt/homebrew/bin/diff-highlight
