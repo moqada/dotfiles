@@ -179,6 +179,10 @@ PS1='$(show_virtual_env)'$PS1
 PATH=$HOME/.bin:$PATH
 
 
+# for deno
+PATH=$HOME/.deno/bin:$PATH
+
+
 # for Android emulator
 function emulatorw { cd "$(dirname $(which emulator))" && ./emulator "$@"; }
 
