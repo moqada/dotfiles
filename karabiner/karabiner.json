@@ -1113,6 +1113,18 @@
                         "description": "Change Space to Left_Command",
                         "manipulators": [
                             {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "description": "Akko ACR PRO Alice Plus",
+                                                "product_id": 16387,
+                                                "vendor_id": 12625
+                                            }
+                                        ],
+                                        "type": "device_unless"
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "spacebar",
                                     "modifiers": {
@@ -1144,6 +1156,18 @@
                         "description": "Change Left_Command to Left_Option",
                         "manipulators": [
                             {
+                                "conditions": [
+                                    {
+                                        "identifiers": [
+                                            {
+                                                "description": "Akko ACR PRO Alice Plus",
+                                                "product_id": 16387,
+                                                "vendor_id": 12625
+                                            }
+                                        ],
+                                        "type": "device_unless"
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "left_command",
                                     "modifiers": {
