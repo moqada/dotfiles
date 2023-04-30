@@ -114,6 +114,7 @@ cask 'logitech-g-hub'
 tap 'homebrew/cask-fonts'
 cask 'font-source-code-pro-for-powerline'
 cask 'font-fira-code'
+cask 'font-cica'
 
 ### cask for React Native
 cask 'zulu11'
