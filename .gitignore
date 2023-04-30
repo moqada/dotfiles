@@ -1,6 +1,7 @@
 .DS_Store
 Brewfile.lock.json
 karabiner/automatic_backups/
+tmux/plugins/tmux-powerline/
 vim/bundle
 vim/backup
 vim/dein
