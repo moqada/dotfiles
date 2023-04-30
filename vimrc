@@ -253,7 +253,7 @@ nmap # <Plug>(anzu-sharp-with-echo)
 
 " lightline.vim "{{{
 let g:lightline = {
-      \ 'colorscheme': 'tenderplus',
+      \ 'colorscheme': 'material',
       \ 'mode_map': {'c': 'NORMAL'},
       \ 'active': {
       \   'left': [
