@@ -34,6 +34,9 @@ alias gst='git status -s -b'
 alias t='tig'
 alias ta='tig --all'
 
+# for XDG
+export XDG_CONFIG_HOME=$HOME/.config
+
 # for go
 # @see: http://akirachiku.com/2016/03/01/go16-development.html
 alias gp='cd $GOPATH_WORK/src/github.com/moqada'
