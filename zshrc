@@ -185,6 +185,9 @@ PATH=$HOME/.bin:$PATH
 # for deno
 PATH=$HOME/.deno/bin:$PATH
 
+# for docker
+PATH=$HOME/.docker/bin:$PATH
+
 
 # for Android emulator
 function emulatorw { cd "$(dirname $(which emulator))" && ./emulator "$@"; }
