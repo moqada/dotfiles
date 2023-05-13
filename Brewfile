@@ -76,7 +76,6 @@ cask 'iterm2'
 cask 'ivolume'
 cask 'karabiner-elements'
 cask 'kindle'
-cask 'lastfm'
 cask 'maccy'
 cask 'moom'
 cask 'react-native-debugger'
@@ -140,7 +139,6 @@ mas 'Speedtest', id: 1153157709
 mas 'Speed-Up', id: 412356892
 mas 'TestFlight', id: 899247664
 mas 'Toggl Track', id: 957734279
-mas 'Tweetbot', id: 1384080005
 mas 'WhiteNoise', id: 415139197
 mas 'WinArchiver Lite', id: 414855915
 mas 'Xcode', id: 497799835
