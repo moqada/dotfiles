@@ -22,7 +22,7 @@ Hints.characters = 'yuiophjklnm';
 
 settings.smoothScroll = false;
 settings.blocklistPattern =
-  /(mail|docs).google.com|www.google.com\/calendar|trello.com|toggl.com|feedly.com|snack.expo.dev|github.dev|gather.town/;
+  /(mail|docs).google.com|www.google.com\/calendar|trello.com|toggl.com|feedly.com|snack.expo.dev|github.dev|gather.town|getpocket.com/;
 
 // disable emoji suggestions at some domains.
 iunmap(':', /github\.com/i);
