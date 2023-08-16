@@ -40,6 +40,59 @@ iunmap('<Ctrl-e>');
 // an example to remove mapkey `Ctrl-i`
 // unmap('<Ctrl-i>');
 
+// "q": lookup a word with google translate
+// https://github.com/brookhong/Surfingkeys/issues/909
+api.Front.registerInlineQuery({
+  url: `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=ja&dt=t&dt=bd&q=`,
+  parseResult: (res) => {
+    return [
+      JSON.parse(res.text)[0]
+        .map((r) => r[0])
+        .join(''),
+    ];
+  },
+});
+
+// override default function
+// https://github.com/brookhong/Surfingkeys/blob/08369cdfa082cd3a07553049d96d0bad621563b6/src/content_scripts/common/api.js#L660-L668
+function openGoogleTranslate() {
+  if (window.getSelection().toString()) {
+    api.searchSelectedWith(
+      'https://translate.google.com/?hl=ja#auto/ja/',
+      false,
+      false,
+      ''
+    );
+  } else {
+    api.tabOpenLink(
+      'https://translate.google.com/translate?js=n&sl=auto&tl=ja&u=' +
+        window.location.href
+    );
+  }
+}
+api.mapkey(';t', 'Translate selected text with google', openGoogleTranslate);
+// remap from default "t"
+api.vmapkey('T', '#9Translate selected text with google', openGoogleTranslate);
+
+api.vmapkey('t', 'Translate selected text with google (inline)', async () => {
+  const q = window.getSelection().toString();
+  if (!q) {
+    api.Front.showPopup('⚠️ テキストを選択してください');
+    return;
+  }
+  const res = await fetch(
+    `https://translate.googleapis.com/translate_a/single?client=gtx&sl=auto&tl=ja&dt=t&dt=bd&q=${encodeURI(
+      q
+    )}`
+  );
+  if (!res.ok) {
+    api.Front.showPopup('⚠️翻訳結果の取得に失敗しました');
+    return;
+  }
+  const body = await res.json();
+  api.Front.showPopup(body[0].map((r) => r[0]).join(''));
+});
+
 // set theme
 settings.theme = `
 .sk_theme {
