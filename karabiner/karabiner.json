@@ -620,7 +620,7 @@
                         ]
                     },
                     {
-                        "description": "Change right_comand to vk1 and alone to tab",
+                        "description": "Change right_comand to vk1",
                         "manipulators": [
                             {
                                 "from": {
@@ -630,9 +630,6 @@
                                             "any"
                                         ]
                                     }
-                                },
-                                "parameters": {
-                                    "basic.to_if_alone_timeout_milliseconds": 500
                                 },
                                 "to": [
                                     {
@@ -648,11 +645,6 @@
                                             "name": "vk1",
                                             "value": 0
                                         }
-                                    }
-                                ],
-                                "to_if_alone": [
-                                    {
-                                        "key_code": "tab"
                                     }
                                 ],
                                 "type": "basic"
