@@ -1283,6 +1283,11 @@
                                                 "description": "Zoom65 v2",
                                                 "product_id": 52411,
                                                 "vendor_id": 7847
+                                            },
+                                            {
+                                                "description": "Keychron Q4",
+                                                "product_id": 320,
+                                                "vendor_id": 13364
                                             }
                                         ],
                                         "type": "device_unless"
@@ -1341,6 +1346,11 @@
                                                 "description": "Zoom65 v2",
                                                 "product_id": 52411,
                                                 "vendor_id": 7847
+                                            },
+                                            {
+                                                "description": "Keychron Q4",
+                                                "product_id": 320,
+                                                "vendor_id": 13364
                                             }
                                         ],
                                         "type": "device_unless"
