@@ -1265,11 +1265,6 @@
                                     {
                                         "identifiers": [
                                             {
-                                                "description": "Akko ACR PRO Alice Plus",
-                                                "product_id": 16387,
-                                                "vendor_id": 12625
-                                            },
-                                            {
                                                 "description": "Akko ACR TOP 40",
                                                 "product_id": 14,
                                                 "vendor_id": 65534
@@ -1327,11 +1322,6 @@
                                 "conditions": [
                                     {
                                         "identifiers": [
-                                            {
-                                                "description": "Akko ACR PRO Alice Plus",
-                                                "product_id": 16387,
-                                                "vendor_id": 12625
-                                            },
                                             {
                                                 "description": "Akko ACR TOP 40",
                                                 "product_id": 14,
