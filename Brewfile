@@ -35,10 +35,6 @@ brew 'wget'
 brew 'zinit'
 brew 'zsh'
 
-### Heroku
-tap 'heroku/brew'
-brew 'heroku/brew/heroku'
-
 ### plantuml
 brew 'plantuml'
 
