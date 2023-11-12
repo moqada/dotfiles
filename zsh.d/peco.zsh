@@ -38,9 +38,6 @@ zle -N peco-src
 stty -ixon
 bindkey '^s' peco-src
 
-# gh-open
-alias gh='gh-open $(ghq list -p | peco)'
-
 # search shell history
 # see: http://qiita.com/catfist/items/82ed3df7a0b524aeab69
 function peco-history () {
