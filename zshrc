@@ -188,6 +188,9 @@ PATH=$HOME/.deno/bin:$PATH
 # for docker
 PATH=$HOME/.docker/bin:$PATH
 
+# for postgresql
+[ -d /opt/homebrew/opt/libpq ] && PATH=/opt/homebrew/opt/libpq/bin:$PATH
+
 
 # for Android emulator
 function emulatorw { cd "$(dirname $(which emulator))" && ./emulator "$@"; }
