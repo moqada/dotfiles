@@ -1288,6 +1288,11 @@
                                                 "description": "Neo65",
                                                 "product_id": 21,
                                                 "vendor_id": 65534
+                                            },
+                                            {
+                                                "description": "Nuphy Air60 v2",
+                                                "product_id": 12885,
+                                                "vendor_id": 6645
                                             }
                                         ],
                                         "type": "device_unless"
@@ -1351,6 +1356,11 @@
                                                 "description": "Neo65",
                                                 "product_id": 21,
                                                 "vendor_id": 65534
+                                            },
+                                            {
+                                                "description": "Nuphy Air60 v2",
+                                                "product_id": 12885,
+                                                "vendor_id": 6645
                                             }
                                         ],
                                         "type": "device_unless"
@@ -2267,6 +2277,48 @@
                         "is_pointing_device": true,
                         "product_id": 21,
                         "vendor_id": 65534
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "simple_modifications": [],
+                    "treat_as_built_in_keyboard": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 0,
+                        "vendor_id": 0
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "simple_modifications": [],
+                    "treat_as_built_in_keyboard": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": true,
+                        "product_id": 12885,
+                        "vendor_id": 6645
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "simple_modifications": [],
+                    "treat_as_built_in_keyboard": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 12885,
+                        "vendor_id": 6645
                     },
                     "ignore": false,
                     "manipulate_caps_lock_led": true,
