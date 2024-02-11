@@ -1288,15 +1288,6 @@
                                                 "description": "Neo65",
                                                 "product_id": 21,
                                                 "vendor_id": 65534
-                                            },
-                                            {
-                                                "description": "Nuphy Air60 v2",
-                                                "product_id": 12885,
-                                                "vendor_id": 6645
-                                            },
-                                            {
-                                                "description": "Nuphy Air60 v2",
-                                                "device_address": "f9-ea-30-ba-1e-db"
                                             }
                                         ],
                                         "type": "device_unless"
