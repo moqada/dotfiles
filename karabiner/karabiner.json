@@ -1133,7 +1133,12 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "semicolon"
+                                    "key_code": "semicolon",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
                                 "to": [
                                     {
@@ -1151,7 +1156,12 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "quote"
+                                    "key_code": "quote",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
                                 "to": [
                                     {
@@ -1174,7 +1184,12 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "n"
+                                    "key_code": "n",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
                                 "to": [
                                     {
@@ -1192,7 +1207,12 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "m"
+                                    "key_code": "m",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
                                 "to": [
                                     {
@@ -1210,7 +1230,12 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "period"
+                                    "key_code": "period",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
                                 "to": [
                                     {
@@ -1228,7 +1253,12 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "slash"
+                                    "key_code": "slash",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
                                 "to": [
                                     {
@@ -1246,7 +1276,12 @@
                                     }
                                 ],
                                 "from": {
-                                    "key_code": "right_shift"
+                                    "key_code": "right_shift",
+                                    "modifiers": {
+                                        "optional": [
+                                            "any"
+                                        ]
+                                    }
                                 },
                                 "to": [
                                     {
