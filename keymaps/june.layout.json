@@ -66,11 +66,11 @@
       "KC_NO",
       "KC_NO",
       "KC_NO",
-      "MT(MOD_LGUI,KC_SPC)",
+      "KC_SPC",
       "KC_NO",
       "KC_NO",
       "KC_NO",
-      "MO(2)",
+      "KC_RGUI",
       "KC_RALT",
       "KC_RGUI",
       "KC_RCTL"

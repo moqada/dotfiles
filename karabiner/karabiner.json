@@ -1318,11 +1318,6 @@
                                                 "description": "Neo65",
                                                 "product_id": 21,
                                                 "vendor_id": 65534
-                                            },
-                                            {
-                                                "description": "HIBI JUNE",
-                                                "product_id": 36,
-                                                "vendor_id": 25986
                                             }
                                         ],
                                         "type": "device_unless"
@@ -1381,11 +1376,6 @@
                                                 "description": "Neo65",
                                                 "product_id": 21,
                                                 "vendor_id": 65534
-                                            },
-                                            {
-                                                "description": "HIBI JUNE",
-                                                "product_id": 36,
-                                                "vendor_id": 25986
                                             }
                                         ],
                                         "type": "device_unless"
