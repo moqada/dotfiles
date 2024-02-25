@@ -1318,6 +1318,11 @@
                                                 "description": "Neo65",
                                                 "product_id": 21,
                                                 "vendor_id": 65534
+                                            },
+                                            {
+                                                "description": "HIBI JUNE",
+                                                "product_id": 36,
+                                                "vendor_id": 25986
                                             }
                                         ],
                                         "type": "device_unless"
@@ -1368,11 +1373,6 @@
                                                 "vendor_id": 19266
                                             },
                                             {
-                                                "description": "Zoom65 v2",
-                                                "product_id": 52411,
-                                                "vendor_id": 7847
-                                            },
-                                            {
                                                 "description": "Keychron Q4",
                                                 "product_id": 320,
                                                 "vendor_id": 13364
@@ -1383,13 +1383,9 @@
                                                 "vendor_id": 65534
                                             },
                                             {
-                                                "description": "Nuphy Air60 v2",
-                                                "product_id": 12885,
-                                                "vendor_id": 6645
-                                            },
-                                            {
-                                                "description": "Nuphy Air60 v2",
-                                                "device_address": "f9-ea-30-ba-1e-db"
+                                                "description": "HIBI JUNE",
+                                                "product_id": 36,
+                                                "vendor_id": 25986
                                             }
                                         ],
                                         "type": "device_unless"
@@ -2671,6 +2667,49 @@
                     "mouse_swap_wheels": false,
                     "mouse_swap_xy": false,
                     "simple_modifications": [],
+                    "treat_as_built_in_keyboard": false
+                },
+                {
+                    "disable_built_in_keyboard_if_exists": false,
+                    "fn_function_keys": [],
+                    "game_pad_swap_sticks": false,
+                    "identifiers": {
+                        "is_game_pad": false,
+                        "is_keyboard": true,
+                        "is_pointing_device": false,
+                        "product_id": 36,
+                        "vendor_id": 25986
+                    },
+                    "ignore": false,
+                    "manipulate_caps_lock_led": true,
+                    "mouse_flip_horizontal_wheel": false,
+                    "mouse_flip_vertical_wheel": false,
+                    "mouse_flip_x": false,
+                    "mouse_flip_y": false,
+                    "mouse_swap_wheels": false,
+                    "mouse_swap_xy": false,
+                    "simple_modifications": [
+                        {
+                            "from": {
+                                "key_code": "caps_lock"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "caps_lock"
+                                }
+                            ]
+                        },
+                        {
+                            "from": {
+                                "key_code": "left_control"
+                            },
+                            "to": [
+                                {
+                                    "key_code": "left_control"
+                                }
+                            ]
+                        }
+                    ],
                     "treat_as_built_in_keyboard": false
                 }
             ],
