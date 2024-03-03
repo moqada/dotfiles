@@ -1,5 +1,5 @@
 {
-  "name": "Akko Keyboard",
+  "name": "Akko Top40",
   "vendorProductId": 4294836238,
   "macros": ["", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""],
   "layers": [
@@ -46,7 +46,7 @@
       "KC_NO",
       "MT(MOD_LGUI,KC_SPC)",
       "KC_NO",
-      "KC_SPC",
+      "MT(MOD_LGUI,KC_SPC)",
       "KC_NO",
       "MO(1)",
       "MO(1)",
@@ -83,7 +83,7 @@
       "KC_TRNS",
       "KC_CALC",
       "KC_TRNS",
-      "0x7016",
+      "KC_NO",
       "KC_GRV",
       "KC_QUOT",
       "KC_TRNS",
@@ -91,7 +91,7 @@
       "KC_EQL",
       "KC_BSLS",
       "KC_TRNS",
-      "0x700b",
+      "KC_NO",
       "KC_TRNS",
       "KC_NO",
       "KC_TRNS",
