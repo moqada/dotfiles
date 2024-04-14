@@ -1,6 +1,7 @@
 const {Hints, map, iunmap} = api;
 // scroll page down
 map('<Ctrl-d>', 'd');
+map('<Delete>', 'd');
 // scroll page up
 map('<Ctrl-u>', 'u');
 
