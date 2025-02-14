@@ -9,7 +9,11 @@ ln -si $BASE_DIR/gitignore $HOME/.gitignore
 # Tig
 ln -si $BASE_DIR/tigrc $HOME/.tigrc
 
+# XDG Config
+mkdir -p $HOME/.config
+
 # TMUX
+mkdir -p $HOME/.config/tmux-powerline
 ln -si $BASE_DIR/tmux-powerline/config.sh $HOME/.config/tmux-powerline/config.sh
 [ -d $HOME/.config/tmux ] && echo "exist $HOME/.config/tmux" \
     || (ln -s $BASE_DIR/tmux $HOME/.config/tmux && echo "create $HOME/.config/tmux")

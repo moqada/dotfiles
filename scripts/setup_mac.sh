@@ -6,14 +6,15 @@ BASE_DIR=$(cd $(dirname $(dirname $0)); pwd)
 $BASE_DIR/scripts/setup.sh
 
 # Karabiner Elements
-mkdir -p $HOME/.config
-ln -s $BASE_DIR/karabiner $HOME/.config/karabiner
+[ -d $HOME/.config/karabiner ] && echo "exist $HOME/.config/karabiner" \
+    || ln -s $BASE_DIR/karabiner $HOME/.config/karabiner
 
 # Xcode
 xcode-select --install
 
 # Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 brew bundle --file=$BASE_DIR/Brewfile
 
 # Git (for Homebrew)
