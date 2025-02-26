@@ -2,5 +2,4 @@
 
 ## Packages
 
-- QuickRes
 - KensingtonWorks
