@@ -7,6 +7,7 @@ brew 'bitrise'
 brew 'colordiff'
 brew 'deno'
 brew 'direnv'
+brew 'gh'
 brew 'ghq'
 brew 'git'
 brew 'go'
@@ -63,13 +64,16 @@ cask 'evernote'
 cask 'fantastical'
 cask 'figma'
 cask 'firefox'
+cask 'font-cica'
+cask 'font-fira-code'
+cask 'font-source-code-pro-for-powerline'
 cask 'fujitsu-scansnap-home'
 cask 'google-chrome'
+cask 'google-chrome@canary'
 cask 'gyazo'
 cask 'istat-menus'
 cask 'iterm2'
 cask 'karabiner-elements'
-cask 'kindle'
 cask 'logitech-g-hub'
 cask 'maccy'
 cask 'moom'
@@ -92,22 +96,8 @@ cask 'visual-studio-code'
 cask 'witch'
 cask 'xcodes'
 cask 'zoom'
-
-### cask for Google Chrome Canary
-tap 'homebrew/cask-versions'
-cask 'google-chrome-canary'
-
-
-### cask for powerline fonts
-tap 'homebrew/cask-fonts'
-cask 'font-source-code-pro-for-powerline'
-cask 'font-fira-code'
-cask 'font-cica'
-
-### cask for React Native
-cask 'zulu11'
-tap 'acebook/fb'
-brew 'idb-companion'
+### for React Native
+cask 'zulu@17'
 
 ## App Store
 mas 'Amphetamine', id: 937984704
@@ -118,6 +108,7 @@ mas 'iMovie', id: 408981434
 mas 'Habitify', id: 1111447047
 mas 'Just Focus', id: 1142151959
 mas 'Keynote', id: 409183694
+mas 'Kindle', id: 302584613
 mas 'LINE', id: 539883307
 mas 'MindNode', id: 1289197285
 mas 'Numbers', id: 409203825
