@@ -13,10 +13,10 @@ ln -si $BASE_DIR/tigrc $HOME/.tigrc
 mkdir -p $HOME/.config
 
 # TMUX
-mkdir -p $HOME/.config/tmux-powerline
-ln -si $BASE_DIR/tmux-powerline/config.sh $HOME/.config/tmux-powerline/config.sh
 [ -d $HOME/.config/tmux ] && echo "exist $HOME/.config/tmux" \
     || (ln -s $BASE_DIR/tmux $HOME/.config/tmux && echo "create $HOME/.config/tmux")
+[ -d $HOME/.config/tmux-powerline ] && echo "exist $HOME/.config/tmux-powerline" \
+    || (ln -s $BASE_DIR/tmux-powerline $HOME/.config/tmux-powerline && echo "create $HOME/.config/tmux-powerline")
 
 # Vim
 ln -si $BASE_DIR/vimrc $HOME/.vimrc
