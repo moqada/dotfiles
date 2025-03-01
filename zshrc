@@ -163,9 +163,9 @@ source ~/.zsh.d/peco.zsh
 
 
 # for React Native (Android Studio on Mac)
-export ANDROID_SDK_ROOT=$HOME/Library/Android/sdk
-PATH=$PATH:$ANDROID_SDK_ROOT/emulator
-PATH=$PATH:$ANDROID_SDK_ROOT/platform-tools
+export ANDROID_HOME=$HOME/Library/Android/sdk
+PATH=$PATH:$ANDROID_HOME/emulator
+PATH=$PATH:$ANDROID_HOME/platform-tools
 
 # for direnv
 eval "$(direnv hook zsh)"
