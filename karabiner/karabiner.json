@@ -1557,6 +1557,14 @@
                             "to": [{ "key_code": "left_control" }]
                         }
                     ]
+                },
+                {
+                    "identifiers": {
+                        "device_address": "f9-ea-30-ba-ff-cc",
+                        "is_keyboard": true,
+                        "is_pointing_device": true
+                    },
+                    "ignore": false
                 }
             ],
             "fn_function_keys": [
