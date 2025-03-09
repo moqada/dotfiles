@@ -1009,6 +1009,11 @@
                                                 "description": "Krush65",
                                                 "product_id": 65046,
                                                 "vendor_id": 52488
+                                            },
+                                            {
+                                                "description": "Command 65",
+                                                "product_id": 17253,
+                                                "vendor_id": 45313
                                             }
                                         ],
                                         "type": "device_unless"
@@ -1074,6 +1079,11 @@
                                                 "description": "Krush65",
                                                 "product_id": 65046,
                                                 "vendor_id": 52488
+                                            },
+                                            {
+                                                "description": "Command 65",
+                                                "product_id": 17253,
+                                                "vendor_id": 45313
                                             }
                                         ],
                                         "type": "device_unless"
@@ -1519,6 +1529,23 @@
                         "is_keyboard": true,
                         "product_id": 65046,
                         "vendor_id": 52488
+                    },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "caps_lock" },
+                            "to": [{ "key_code": "caps_lock" }]
+                        },
+                        {
+                            "from": { "key_code": "left_control" },
+                            "to": [{ "key_code": "left_control" }]
+                        }
+                    ]
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 17253,
+                        "vendor_id": 45313
                     },
                     "simple_modifications": [
                         {
