@@ -86,8 +86,6 @@ set autoindent
 " バックスペースでインデントや改行を削除できるようにする
 " @see http://vimwiki.net/?'backspace'
 set backspace=indent,eol,start
-" paste/nopasteをtoggleするキーマップ
-set pastetoggle=;p
 " 補完候補表示、候補1つでも表示、候補文字列の最長の共通部分だけを挿入
 set completeopt=menu,menuone
 " クリップボードを使う
