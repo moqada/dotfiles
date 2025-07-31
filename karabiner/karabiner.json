@@ -77,7 +77,8 @@
                                             "^org\\.macports\\.X11$",
                                             "^com\\.microsoft\\.VSCode$",
                                             "^com\\.microsoft\\.VSCodeInsiders",
-                                            "^com\\.qvacua\\.VimR$"
+                                            "^com\\.qvacua\\.VimR$",
+                                            "^md\\.obsidian$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -131,7 +132,9 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
                                             "^com\\.microsoft\\.VSCode$",
-                                            "^com\\.microsoft\\.VSCodeInsiders"
+                                            "^com\\.microsoft\\.VSCodeInsiders",
+                                            "^com\\.qvacua\\.VimR$",
+                                            "^md\\.obsidian$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -185,7 +188,9 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
                                             "^com\\.microsoft\\.VSCode$",
-                                            "^com\\.microsoft\\.VSCodeInsiders"
+                                            "^com\\.microsoft\\.VSCodeInsiders",
+                                            "^com\\.qvacua\\.VimR$",
+                                            "^md\\.obsidian$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -262,7 +267,8 @@
                                             "^org\\.macports\\.X11$",
                                             "^com\\.microsoft\\.VSCode$",
                                             "^com\\.microsoft\\.VSCodeInsiders",
-                                            "^com\\.qvacua\\.VimR$"
+                                            "^com\\.qvacua\\.VimR$",
+                                            "^md\\.obsidian$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -316,7 +322,9 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
                                             "^com\\.microsoft\\.VSCode$",
-                                            "^com\\.microsoft\\.VSCodeInsiders"
+                                            "^com\\.microsoft\\.VSCodeInsiders",
+                                            "^com\\.qvacua\\.VimR$",
+                                            "^md\\.obsidian$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -370,7 +378,9 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
                                             "^com\\.microsoft\\.VSCode$",
-                                            "^com\\.microsoft\\.VSCodeInsiders"
+                                            "^com\\.microsoft\\.VSCodeInsiders",
+                                            "^com\\.qvacua\\.VimR$",
+                                            "^md\\.obsidian$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
@@ -424,7 +434,9 @@
                                             "^org\\.macosforge\\.xquartz\\.X11$",
                                             "^org\\.macports\\.X11$",
                                             "^com\\.microsoft\\.VSCode$",
-                                            "^com\\.microsoft\\.VSCodeInsiders"
+                                            "^com\\.microsoft\\.VSCodeInsiders",
+                                            "^com\\.qvacua\\.VimR$",
+                                            "^md\\.obsidian$"
                                         ],
                                         "type": "frontmost_application_unless"
                                     }
