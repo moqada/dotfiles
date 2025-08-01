@@ -49,6 +49,10 @@ brew 'plantuml'
 tap 'facebook/fb'
 brew 'idb-companion'
 
+### Configure Night Shift on Raycast
+tap 'smudge/smudge'
+brew 'nightlight'
+
 ## .dmg, .pkg
 cask '1password'
 cask 'adobe-creative-cloud'
