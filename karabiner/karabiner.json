@@ -1027,6 +1027,11 @@
                                                 "description": "Command 65",
                                                 "product_id": 17253,
                                                 "vendor_id": 45313
+                                            },
+                                            {
+                                                "description": "Photon",
+                                                "product_id": 24926,
+                                                "vendor_id": 7504
                                             }
                                         ],
                                         "type": "device_unless"
@@ -1097,6 +1102,11 @@
                                                 "description": "Command 65",
                                                 "product_id": 17253,
                                                 "vendor_id": 45313
+                                            },
+                                            {
+                                                "description": "Photon",
+                                                "product_id": 24926,
+                                                "vendor_id": 7504
                                             }
                                         ],
                                         "type": "device_unless"
@@ -1584,6 +1594,23 @@
                         "is_keyboard": true,
                         "product_id": 34,
                         "vendor_id": 41219
+                    },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "caps_lock" },
+                            "to": [{ "key_code": "caps_lock" }]
+                        },
+                        {
+                            "from": { "key_code": "left_control" },
+                            "to": [{ "key_code": "left_control" }]
+                        }
+                    ]
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 24926,
+                        "vendor_id": 7504
                     },
                     "simple_modifications": [
                         {
