@@ -52,3 +52,13 @@ alias his='peco-history'
 
 # see: http://qiita.com/kamomeZ/items/6aac2530baf42b93e336
 alias look='less $(find . -type f -follow -maxdepth 1 | peco)'
+
+# git worktree selection
+function peco-worktree() {
+    local selected_line=$(git worktree list | peco)
+    if [ -n "$selected_line" ]; then
+        local worktree_path=$(echo "$selected_line" | awk '{print $1}')
+        cd "${worktree_path}"
+    fi
+}
+alias gwl='peco-worktree'
