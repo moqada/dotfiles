@@ -191,6 +191,8 @@ PATH=$HOME/.docker/bin:$PATH
 # for cargo
 PATH=$HOME/.cargo/bin:$PATH
 
+PATH=$HOME/.local/bin:$PATH
+
 # for postgresql
 [ -d /opt/homebrew/opt/libpq ] && PATH=/opt/homebrew/opt/libpq/bin:$PATH
 
