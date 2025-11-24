@@ -1646,9 +1646,11 @@
                 {
                     "identifiers": {
                         "is_keyboard": true,
+                        "is_pointing_device": true,
                         "product_id": 1801,
                         "vendor_id": 8228
                     },
+                    "ignore": false,
                     "simple_modifications": [
                         {
                             "from": { "key_code": "caps_lock" },
@@ -1659,6 +1661,14 @@
                             "to": [{ "key_code": "left_control" }]
                         }
                     ]
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 1801,
+                        "vendor_id": 8228
+                    },
+                    "ignore": true
                 }
             ],
             "fn_function_keys": [
