@@ -1037,6 +1037,11 @@
                                                 "description": "Altair",
                                                 "product_id": 34,
                                                 "vendor_id": 41219
+                                            },
+                                            {
+                                                "description": "Class65 V3",
+                                                "product_id": 1801,
+                                                "vendor_id": 8228
                                             }
                                         ],
                                         "type": "device_unless"
@@ -1117,6 +1122,11 @@
                                                 "description": "Altair",
                                                 "product_id": 34,
                                                 "vendor_id": 41219
+                                            },
+                                            {
+                                                "description": "Class65 V3",
+                                                "product_id": 1801,
+                                                "vendor_id": 8228
                                             }
                                         ],
                                         "type": "device_unless"
@@ -1621,6 +1631,23 @@
                         "is_keyboard": true,
                         "product_id": 24926,
                         "vendor_id": 7504
+                    },
+                    "simple_modifications": [
+                        {
+                            "from": { "key_code": "caps_lock" },
+                            "to": [{ "key_code": "caps_lock" }]
+                        },
+                        {
+                            "from": { "key_code": "left_control" },
+                            "to": [{ "key_code": "left_control" }]
+                        }
+                    ]
+                },
+                {
+                    "identifiers": {
+                        "is_keyboard": true,
+                        "product_id": 1801,
+                        "vendor_id": 8228
                     },
                     "simple_modifications": [
                         {
