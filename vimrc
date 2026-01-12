@@ -117,6 +117,9 @@ set background=dark
 " colorscheme
 " colorscheme iceberg
 colorscheme monokai
+" 背景を透過させる
+highlight Normal ctermbg=NONE guibg=NONE
+highlight EndOfBuffer ctermbg=NONE guibg=NONE
 " 行番号を表示
 set number
 " ルーラーを表示
