@@ -1,0 +1,6 @@
+background-opacity = 0.9
+font-family = Moralerspace Argon HWNF
+font-thicken = true
+# tmux on Ghostty だと Shift + enter で改行が効かない
+keybind = shift+enter=text:\n
+theme = Night Owl
