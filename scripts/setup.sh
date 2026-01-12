@@ -18,6 +18,10 @@ mkdir -p $HOME/.config
 [ -d $HOME/.config/tmux-powerline ] && echo "exist $HOME/.config/tmux-powerline" \
     || (ln -s $BASE_DIR/tmux-powerline $HOME/.config/tmux-powerline && echo "create $HOME/.config/tmux-powerline")
 
+# Ghostty
+[ -d $HOME/.config/ghostty ] && echo "exist $HOME/.config/ghostty" \
+    || (ln -s $BASE_DIR/ghostty $HOME/.config/ghostty && echo "create $HOME/.config/ghostty")
+
 # Vim
 ln -si $BASE_DIR/vimrc $HOME/.vimrc
 [ -d $HOME/.vim ] && echo "exist $HOME/.vim" \
