@@ -6,4 +6,5 @@
 .direnv/
 .envrc
 .ropeproject
+.tmux-window-name
 .vscode

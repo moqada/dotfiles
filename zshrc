@@ -158,6 +158,9 @@ export GO15VENDOREXPERIMENT=1
 # for peco
 source ~/.zsh.d/peco.zsh
 
+# for tmux window name
+source ~/.zsh.d/tmux-window-name.zsh
+
 # for vim
 [ -d /opt/vim ] && export PATH=/opt/vim/bin:$PATH
 
