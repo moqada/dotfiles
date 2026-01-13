@@ -82,6 +82,9 @@ setopt inc_append_history
 alias ht='history -t "%Y-%m-%d %H:%M:%S"'
 function history-all { history 1 }
 
+# history backup
+source ~/.zsh.d/history-backup.zsh
+
 # Key-Binds
 # -e = Emacs / -v = Vi
 # @see http://journal.mycom.co.jp/cgi-bin/print?id=41896
