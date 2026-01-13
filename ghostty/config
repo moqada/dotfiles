@@ -3,4 +3,6 @@ font-family = Moralerspace Argon HWNF
 font-thicken = true
 # tmux on Ghostty だと Shift + enter で改行が効かない
 keybind = shift+enter=text:\n
+# tmux on Ghostty だとマウスホイールのスクロール量がかなり大きくなるので小さめに設定する
+mouse-scroll-multiplier = 1
 theme = Night Owl
