@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "Notification": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.bin/claude-notify.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "language": "Japanese"
+}
