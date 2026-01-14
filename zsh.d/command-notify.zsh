@@ -4,6 +4,7 @@
 # 機能:
 # - OSC 777 で macOS 通知を送信（Ghostty が自動でフォーカス判定）
 # - tmux ステータスバー用のフラグファイルを作成
+# - tmux では allow-passthrough all が必要
 
 # 設定
 NOTIFY_IGNORE_COMMANDS=(vim nvim less man ssh tmux)
@@ -33,6 +34,9 @@ _notify_preexec() {
 _notify_precmd() {
   local exit_status=$?
   local elapsed=$(( EPOCHSECONDS - ${_NOTIFY_CMD_START:-$EPOCHSECONDS} ))
+
+  # 開始時刻がなければスキップ（初回起動時など）
+  [[ -z "$_NOTIFY_CMD_START" ]] && return
 
   # 開始時刻をリセット
   unset _NOTIFY_CMD_START
