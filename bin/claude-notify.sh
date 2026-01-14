@@ -58,6 +58,9 @@ main() {
 
   # Claude Code の hook でも通知を届けるために tty に送る
   printf '%b' "$osc" > /dev/tty 2>/dev/null || printf '%b' "$osc"
+  if [[ -n "$TMUX" ]]; then
+    printf '\a' > /dev/tty 2>/dev/null || printf '\a'
+  fi
 }
 
 main "$@"

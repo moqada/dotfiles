@@ -24,6 +24,12 @@ _notify_send() {
   fi
 }
 
+# tmux の window 通知用ベル
+_notify_bell() {
+  [[ -z "$TMUX" ]] && return
+  printf '\a' > /dev/tty 2>/dev/null || printf '\a'
+}
+
 # preexec: コマンド開始時刻を記録
 _notify_preexec() {
   _NOTIFY_CMD_START=$EPOCHSECONDS
@@ -52,6 +58,7 @@ _notify_precmd() {
   else
     status_msg="✗"
   fi
+  _notify_bell
   _notify_send "コマンド完了" "${status_msg} ${_NOTIFY_CMD} (${elapsed}s)"
 }
 
