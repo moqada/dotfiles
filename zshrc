@@ -124,9 +124,6 @@ zinit ice atload'!_zsh_git_prompt_precmd_hook' lucid
 zinit load woefe/git-prompt.zsh
 source ~/.zsh.d/git-prompt.zsh
 
-# for zsh-notify
-zinit load marzocchi/zsh-notify
-
 # for nvm
 export NVM_COMPLETION=true
 zinit load lukechilds/zsh-nvm
@@ -163,6 +160,9 @@ source ~/.zsh.d/peco.zsh
 
 # for tmux window name
 source ~/.zsh.d/tmux-window-name.zsh
+
+# for command notify (zsh-notify alternative for Ghostty)
+source ~/.zsh.d/command-notify.zsh
 
 # for vim
 [ -d /opt/vim ] && export PATH=/opt/vim/bin:$PATH
