@@ -58,7 +58,17 @@ _notify_precmd() {
   else
     status_msg="✗"
   fi
-  _notify_bell
+
+  # ベル判定: アクティブウィンドウなら閾値あり、非アクティブなら即時
+  local window_active=$(tmux display-message -t "$TMUX_PANE" -p '#{window_active}' 2>/dev/null)
+  if [[ "$window_active" == "1" ]]; then
+    # アクティブ: 5秒以上のコマンドのみベル
+    (( elapsed >= 5 )) && _notify_bell
+  else
+    # 非アクティブ: 常にベル
+    _notify_bell
+  fi
+
   _notify_send "コマンド完了" "${status_msg} ${_NOTIFY_CMD} (${elapsed}s)"
 }
 
