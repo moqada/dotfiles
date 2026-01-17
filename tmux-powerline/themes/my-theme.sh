@@ -21,15 +21,27 @@ TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SEPARATOR=${TMUX_POWERLINE_DEFAULT_RIGHTSIDE_SE
 # See man tmux.conf for additional formatting options for the status line.
 # The `format regular` and `format inverse` functions are provided as conveinences
 
+# アクティブウィンドウ: 通常時は白背景、モード時はマゼンタ背景（弓矢の羽根形状）
 if [ -z $TMUX_POWERLINE_WINDOW_STATUS_CURRENT ]; then
 	TMUX_POWERLINE_WINDOW_STATUS_CURRENT=(
-		"#[$(format inverse)]" \
-		"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR" \
-		" #I#F " \
-		"$TMUX_POWERLINE_SEPARATOR_RIGHT_THIN" \
-		" #W " \
-		"#[$(format regular)]" \
-		"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR"
+		"#{?pane_in_mode," \
+			"#[fg=colour$TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR#,bg=colour165]" \
+			"$TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD" \
+			"#[fg=colour16#,bold]" \
+			" #I#F " \
+			"$TMUX_POWERLINE_SEPARATOR_RIGHT_THIN" \
+			" #W " \
+			"#[fg=colour165#,bg=colour$TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR#,nobold]" \
+			"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR" \
+		"," \
+			"#[$(format inverse)]" \
+			"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR" \
+			" #I#F " \
+			"$TMUX_POWERLINE_SEPARATOR_RIGHT_THIN" \
+			" #W " \
+			"#[$(format regular)]" \
+			"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR" \
+		"}"
 	)
 fi
 
@@ -39,12 +51,35 @@ if [ -z $TMUX_POWERLINE_WINDOW_STATUS_STYLE ]; then
 	)
 fi
 
+# 非アクティブウィンドウ: 通常時は灰色、モード時はマゼンタ、ベル時はオレンジ背景（弓矢の羽根形状）
 if [ -z $TMUX_POWERLINE_WINDOW_STATUS_FORMAT ]; then
 	TMUX_POWERLINE_WINDOW_STATUS_FORMAT=(
-		"#{?window_bell_flag,#[fg=colour208],#[$(format regular)]}" \
-		"  #I#{?window_flags,#F, } " \
-		"$TMUX_POWERLINE_SEPARATOR_RIGHT_THIN" \
-		" #{?window_bell_flag,⚡,}#W"
+		"#{?pane_in_mode," \
+			"#[fg=colour$TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR#,bg=colour165]" \
+			"$TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD" \
+			"#[fg=colour16#,bold]" \
+			" #I#{?window_flags,#F, } " \
+			"$TMUX_POWERLINE_SEPARATOR_RIGHT_THIN" \
+			" #W " \
+			"#[fg=colour165#,bg=colour$TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR#,nobold]" \
+			"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR" \
+		"," \
+			"#{?window_bell_flag," \
+				"#[none#,fg=colour$TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR#,bg=colour208]" \
+				"$TMUX_POWERLINE_SEPARATOR_RIGHT_BOLD" \
+				"#[none#,fg=colour16#,bg=colour208#,bold]" \
+				" #I#{?window_flags,#F, } " \
+				"$TMUX_POWERLINE_SEPARATOR_RIGHT_THIN" \
+				" ⚡#W " \
+				"#[none#,fg=colour208#,bg=colour$TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR#,nobold]" \
+				"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR" \
+			"," \
+				"#[$(format regular)]" \
+				"  #I#{?window_flags,#F, } " \
+				"$TMUX_POWERLINE_SEPARATOR_RIGHT_THIN" \
+				" #W " \
+			"}" \
+		"}"
 	)
 fi
 
