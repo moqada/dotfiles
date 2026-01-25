@@ -12,5 +12,25 @@
       }
     ]
   },
-  "language": "Japanese"
+  "language": "Japanese",
+  "permissions": {
+    "allow": [
+      "Bash(cargo check:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh pr status:*)",
+      "Bash(gh pr view:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run view:*)",
+      "Bash(git :*)",
+      "Bash(ls:*)",
+      "WebSearch",
+      "WebFetch(domain:renovatebot.com)",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:qiita.com)",
+      "WebFetch(domain:zenn.com)"
+    ],
+    "ask": [
+      "Bash(git push:*)"
+    ]
+  }
 }
