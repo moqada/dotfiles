@@ -1,8 +1,8 @@
 {
+  "alwaysThinkingEnabled": true,
   "hooks": {
     "Notification": [
       {
-        "matcher": "",
         "hooks": [
           {
             "type": "command",
@@ -16,6 +16,7 @@
   "permissions": {
     "allow": [
       "Bash(cargo check:*)",
+      "Bash(gh pr diff:*)",
       "Bash(gh pr list:*)",
       "Bash(gh pr status:*)",
       "Bash(gh pr view:*)",
@@ -23,14 +24,45 @@
       "Bash(gh run view:*)",
       "Bash(git :*)",
       "Bash(ls:*)",
-      "WebSearch",
+      "Bash(npm run :*)",
+      "Bash(npx eslint:*)",
+      "Bash(npx prettier:*)",
+      "Bash(npx tsc:*)",
+      "Bash(yarn :*)",
+      "WebFetch(domain:docs.anthropic.com)",
       "WebFetch(domain:renovatebot.com)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:qiita.com)",
-      "WebFetch(domain:zenn.com)"
+      "WebFetch(domain:zenn.com)",
+      "WebSearch"
+    ],
+    "deny": [
+      "Bash(rm -rf /)",
+      "Read(~/.ssh/**)",
+      "Read(~/.zshenv)",
+      "Read(**/.env)",
+      "Read(**/.env.*)",
+      "Read(**/.envrc)",
+      "Read(**/secrets/**)",
+      "Read(**/android/app/*.keystore)",
+      "Read(**/ios/**/Certificates/**)"
     ],
     "ask": [
       "Bash(git push:*)"
+    ]
+  },
+  "sandbox": {
+    "enabled": true,
+    "autoAllowBashIfSandboxed": true,
+    "network": {
+      "allowLocalBinding": true
+    },
+    "excludedCommands": [
+      "codex:*",
+      "docker",
+      "gh:*",
+      "npx jest:*",
+      "yarn jest:*"
     ]
   }
 }
