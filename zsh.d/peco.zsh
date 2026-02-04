@@ -58,7 +58,10 @@ function peco-worktree() {
     local selected_line=$(git worktree list | peco)
     if [ -n "$selected_line" ]; then
         local worktree_path=$(echo "$selected_line" | awk '{print $1}')
-        cd "${worktree_path}"
+        BUFFER="cd ${worktree_path}"
+        zle accept-line
     fi
+    zle redisplay
 }
-alias gwl='peco-worktree'
+zle -N peco-worktree
+bindkey '^g' peco-worktree
