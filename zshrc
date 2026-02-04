@@ -91,7 +91,7 @@ source ~/.zsh.d/history-backup.zsh
 bindkey -v
 setopt autocd
 
-export EDITOR=vim
+export EDITOR=nvim
 
 # historical backward/forward search with linehead string binded to ^P/^N
 # 履歴検索。「vi」と打った状態でCtrl+P/Nでviから始まるコマンド履歴を検索
