@@ -42,7 +42,7 @@ function _set_tmux_window_name() {
     fi
     local pane_index=$(tmux display-message -p '#{pane_index}')
     if [[ "$pane_index" == "1" ]]; then
-      tmux rename-window "$name"
+      tmux rename-window -t "$(tmux display-message -p '#{window_id}')" "$name"
     else
       tmux select-pane -T "$name"
     fi
