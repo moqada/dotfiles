@@ -51,5 +51,19 @@ function _set_tmux_window_name() {
 
 add-zsh-hook chpwd _set_tmux_window_name
 
+# Detect branch changes (e.g. git checkout) without directory change
+_tmux_last_branch=""
+function _check_tmux_branch_change() {
+  if [[ -n "$TMUX" ]]; then
+    local branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+    if [[ "$branch" != "$_tmux_last_branch" ]]; then
+      _tmux_last_branch=$branch
+      _set_tmux_window_name
+    fi
+  fi
+}
+add-zsh-hook precmd _check_tmux_branch_change
+
 # Run on shell startup for the initial directory
 _set_tmux_window_name
+_tmux_last_branch=$(git symbolic-ref --short HEAD 2>/dev/null)
