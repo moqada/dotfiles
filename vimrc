@@ -96,6 +96,8 @@ set completeopt=menu,menuone
 set clipboard=unnamed
 " スペルチェックで日本語を除外する
 set spelllang=en,cjk
+" 自動末尾改行コード追加を無効化
+set nofixeol
 "}}}
 
 " 画面表示の設定"{{{
