@@ -11,6 +11,10 @@ set ttimeout
 set ttimeoutlen=50
 scriptencoding utf8
 
+if exists('g:vscode')
+  " VSCode Neovim: ほとんどの設定を無効化
+  finish
+endif
 " dein.vim "{{{
 if &compatible
   set nocompatible               " Be iMproved
