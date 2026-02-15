@@ -13,6 +13,13 @@ scriptencoding utf8
 
 if exists('g:vscode')
   " VSCode Neovim: ほとんどの設定を無効化
+  " 検索時に大文字小文字を無視する
+  set ignorecase
+  " 特殊な検索ロジックの設定
+  " @see http://vimwiki.net/?'smartcase'
+  set smartcase
+  " クリップボードを使う
+  set clipboard=unnamed
   finish
 endif
 " dein.vim "{{{
