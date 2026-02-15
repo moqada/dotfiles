@@ -27,7 +27,11 @@ alias pk="peco-pkill"
 
 # ghq cd
 function peco-src() {
-    local selected_dir=$(ghq list | peco --query "$LBUFFER")
+    local selected_dir=$(ghq list | awk -F'/' '
+        /\/(archived|deprecated)-/ { low[NR]=$0; next }
+        { print }
+        END { for (i in low) print low[i] }
+    ' | peco --query "$LBUFFER")
     if [ -n "$selected_dir" ]; then
         BUFFER="cd $(ghq root)/${selected_dir}"
         zle accept-line
