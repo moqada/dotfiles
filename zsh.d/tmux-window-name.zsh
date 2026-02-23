@@ -40,11 +40,11 @@ function _set_tmux_window_name() {
         name="$name:$branch"
       fi
     fi
-    local pane_index=$(tmux display-message -p '#{pane_index}')
+    local pane_index=$(tmux display-message -p -t "$TMUX_PANE" '#{pane_index}')
     if [[ "$pane_index" == "1" ]]; then
-      tmux rename-window -t "$(tmux display-message -p '#{window_id}')" "$name"
+      tmux rename-window -t "$(tmux display-message -p -t "$TMUX_PANE" '#{window_id}')" "$name"
     else
-      tmux select-pane -T "$name"
+      tmux select-pane -t "$TMUX_PANE" -T "$name"
     fi
   fi
 }
