@@ -160,6 +160,7 @@ source ~/.zsh.d/peco.zsh
 
 # for tmux window name
 source ~/.zsh.d/tmux-window-name.zsh
+source ~/.zsh.d/tmux-metro-detect.zsh
 
 # for command notify (zsh-notify alternative for Ghostty)
 source ~/.zsh.d/command-notify.zsh
