@@ -1,0 +1,10 @@
+inherits = "night_owl"
+
+"ui.background" = { fg = "foreground" }
+"ui.gutter" = {}
+"ui.linenr" = { fg = "grey4" }
+"ui.linenr.selected" = { fg = "greyE" }
+"ui.cursorline.primary" = { bg = "cursorline" }
+
+[palette]
+cursorline = "#0a1a24"

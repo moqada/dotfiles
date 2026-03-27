@@ -1,0 +1,4 @@
+theme = "night_owl_transparent"
+
+[editor]
+cursorline = true

@@ -22,6 +22,10 @@ mkdir -p $HOME/.config
 [ -d $HOME/.config/ghostty ] && echo "exist $HOME/.config/ghostty" \
     || (ln -s $BASE_DIR/ghostty $HOME/.config/ghostty && echo "create $HOME/.config/ghostty")
 
+# Helix
+[ -d $HOME/.config/helix ] && echo "exist $HOME/.config/helix" \
+    || (ln -s $BASE_DIR/helix $HOME/.config/helix && echo "create $HOME/.config/helix")
+
 # Vim
 ln -si $BASE_DIR/vimrc $HOME/.vimrc
 [ -d $HOME/.vim ] && echo "exist $HOME/.vim" \
