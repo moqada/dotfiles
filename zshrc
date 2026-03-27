@@ -158,6 +158,9 @@ export GO15VENDOREXPERIMENT=1
 # for peco
 source ~/.zsh.d/peco.zsh
 
+# for git worktree
+source ~/.zsh.d/worktree.zsh
+
 # for tmux window name
 source ~/.zsh.d/tmux-window-name.zsh
 source ~/.zsh.d/tmux-metro-detect.zsh
