@@ -1,0 +1,5 @@
+inherits = "catppuccin_mocha"
+
+"ui.background" = { fg = "text" }
+"ui.linenr" = { fg = "surface1" }
+"ui.linenr.selected" = { fg = "lavender" }

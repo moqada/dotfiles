@@ -1,4 +1,4 @@
-theme = "night_owl_transparent"
+theme = "catppuccin_mocha_transparent"
 
 [editor]
 cursorline = true
