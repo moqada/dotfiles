@@ -2,3 +2,6 @@ theme = "catppuccin_mocha_transparent"
 
 [editor]
 cursorline = true
+
+[editor.file-picker]
+hidden = false
