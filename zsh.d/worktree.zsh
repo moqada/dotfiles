@@ -17,6 +17,7 @@ function gwta() {
     local base_branch=""
     local skip_setup=false
     local auto_confirm=false
+    local checkout_mode=false
 
     while [[ $# -gt 0 ]]; do
         case "$1" in
@@ -32,6 +33,7 @@ function gwta() {
                     return 1
                 fi
                 base_branch="$2"; shift 2 ;;
+            -c|--checkout) checkout_mode=true; shift ;;
             -y|--yes) auto_confirm=true; shift ;;
             --no-setup) skip_setup=true; shift ;;
             -h|--help) _gwta_usage; return 0 ;;
@@ -39,6 +41,11 @@ function gwta() {
             *) worktree_name="$1"; shift ;;
         esac
     done
+
+    if [[ "$checkout_mode" == true && -n "$branch_name" ]]; then
+        echo "Error: --checkout and --branch cannot be used together"
+        return 1
+    fi
 
     # Resolve main repo (works from main repo or any worktree)
     local git_common_dir
@@ -61,28 +68,7 @@ function gwta() {
 
     local rel_path="${main_repo#$ghq_root/}"
 
-    if [[ -z "$worktree_name" ]]; then
-        if [[ "$auto_confirm" == true ]]; then
-            echo "Error: Worktree name is required"
-            return 1
-        fi
-        local date_prefix
-        date_prefix=$(date +%Y%m%d)
-        echo -n "Worktree name (auto-prefix: ${date_prefix}-): "
-        read -r worktree_name
-        if [[ -z "$worktree_name" ]]; then
-            echo "Error: Worktree name is required"
-            return 1
-        fi
-    fi
-
-    local branch_base="$worktree_name"
-    if [[ "$worktree_name" =~ ^[0-9]{8}- ]]; then
-        branch_base="${worktree_name#[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]-}"
-    else
-        worktree_name="$(date +%Y%m%d)-${worktree_name}"
-    fi
-
+    # --- Branch selection ---
     if [[ -z "$base_branch" ]]; then
         git fetch --prune origin 2>/dev/null
 
@@ -98,6 +84,13 @@ function gwta() {
             done
         fi
 
+        local peco_prompt
+        if [[ "$checkout_mode" == true ]]; then
+            peco_prompt="Checkout branch>"
+        else
+            peco_prompt="Base branch>"
+        fi
+
         base_branch=$( \
             { \
               [[ -n "$default_branch" ]] && echo "origin/$default_branch"; \
@@ -109,16 +102,46 @@ function gwta() {
                 | sed 's/^ *//' \
                 | sed 's/^\* //'; \
             } | awk '!seen[$0]++' \
-              | peco --prompt "Base branch>" \
+              | peco --prompt "$peco_prompt" \
         )
 
         if [[ -z "$base_branch" ]]; then
-            echo "Error: Base branch selection cancelled"
+            echo "Error: Branch selection cancelled"
             return 1
         fi
     fi
 
-    if [[ -z "$branch_name" ]]; then
+    # --- Worktree name ---
+    if [[ -z "$worktree_name" ]]; then
+        if [[ "$checkout_mode" == true ]]; then
+            # Derive worktree name from branch: origin/feature/foo → feature-foo
+            local derived_name="$base_branch"
+            derived_name="${derived_name#origin/}"
+            derived_name="${derived_name//\//-}"
+            worktree_name="$derived_name"
+        elif [[ "$auto_confirm" == true ]]; then
+            echo "Error: Worktree name is required"
+            return 1
+        else
+            local date_prefix
+            date_prefix=$(date +%Y%m%d)
+            echo -n "Worktree name (auto-prefix: ${date_prefix}-): "
+            read -r worktree_name
+            if [[ -z "$worktree_name" ]]; then
+                echo "Error: Worktree name is required"
+                return 1
+            fi
+        fi
+    fi
+
+    local branch_base="$worktree_name"
+    if [[ "$worktree_name" =~ ^[0-9]{8}- ]]; then
+        branch_base="${worktree_name#[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]-}"
+    else
+        worktree_name="$(date +%Y%m%d)-${worktree_name}"
+    fi
+
+    if [[ "$checkout_mode" != true && -z "$branch_name" ]]; then
         branch_name="feature/${branch_base}"
     fi
 
@@ -126,8 +149,12 @@ function gwta() {
 
     echo ""
     echo "  Worktree: $worktree_path"
-    echo "  Branch:   $branch_name"
-    echo "  Base:     $base_branch"
+    if [[ "$checkout_mode" == true ]]; then
+        echo "  Branch:   $base_branch (checkout)"
+    else
+        echo "  Branch:   $branch_name"
+        echo "  Base:     $base_branch"
+    fi
     echo ""
     if [[ "$auto_confirm" != true ]]; then
         echo -n "Proceed? [Y/n] "
@@ -138,12 +165,18 @@ function gwta() {
         fi
     fi
 
-    local -a worktree_args=(-b "$branch_name")
-    # Prevent auto-tracking remote branch to avoid accidental push to e.g. master
-    if [[ "$base_branch" == origin/* ]]; then
-        worktree_args+=(--no-track)
+    local -a worktree_args=()
+    if [[ "$checkout_mode" == true ]]; then
+        worktree_args+=("$worktree_path" "$base_branch")
+    else
+        worktree_args+=(-b "$branch_name")
+        # Prevent auto-tracking remote branch to avoid accidental push to e.g. master
+        if [[ "$base_branch" == origin/* ]]; then
+            worktree_args+=(--no-track)
+        fi
+        worktree_args+=("$worktree_path" "$base_branch")
     fi
-    if ! git worktree add "${worktree_args[@]}" "$worktree_path" "$base_branch"; then
+    if ! git worktree add "${worktree_args[@]}"; then
         echo "Error: Failed to create worktree"
         return 1
     fi
@@ -162,7 +195,7 @@ function gwta() {
 
 function _gwta_usage() {
     cat <<'USAGE'
-Usage: gwta [options] <worktree-name>
+Usage: gwta [options] [worktree-name]
 
 Create a git worktree under ~/worktrees/<repo>/<date>-<name>.
 After creation, cd into the new worktree.
@@ -170,6 +203,7 @@ After creation, cd into the new worktree.
 Options:
   -b, --branch NAME    Branch name (default: feature/<worktree-name>)
   --base BRANCH        Base branch (default: interactive selection via peco)
+  -c, --checkout       Checkout existing branch (no new branch created)
   -y, --yes            Skip confirmation prompt
   --no-setup           Skip post-creation setup
   -h, --help           Show this help message
@@ -181,6 +215,11 @@ Examples:
   gwta --base origin/develop new-feature     # remote base
   gwta --base feature/wip new-feature        # local base
   gwta -y --base origin/main my-task         # non-interactive
+
+  # PR review (checkout existing branch):
+  gwta -c                                    # interactive branch selection
+  gwta -c --base origin/feature/foo          # specify branch directly
+  gwta -c --base origin/feature/foo my-name  # custom worktree name
 USAGE
 }
 
