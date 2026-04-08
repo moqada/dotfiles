@@ -4,20 +4,6 @@
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
     "ENABLE_TOOL_SEARCH": "true"
   },
-  "alwaysThinkingEnabled": true,
-  "hooks": {
-    "Notification": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.bin/claude-notify.sh"
-          }
-        ]
-      }
-    ]
-  },
-  "language": "Japanese",
   "permissions": {
     "allow": [
       "Bash(cargo check:*)",
@@ -191,6 +177,7 @@
       }
     }
   },
+  "language": "Japanese",
   "sandbox": {
     "enabled": true,
     "autoAllowBashIfSandboxed": true,
@@ -206,5 +193,6 @@
       "yarn jest:*"
     ]
   },
-  "voiceEnabled": true
+  "voiceEnabled": true,
+  "alwaysThinkingEnabled": true
 }
