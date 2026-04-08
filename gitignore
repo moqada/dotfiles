@@ -4,6 +4,7 @@
 *\.code-workspace
 .claude/settings.local.json
 .direnv/
+.env
 .envrc
 .ropeproject
 .tmux-window-name
