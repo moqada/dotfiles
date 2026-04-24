@@ -18,6 +18,7 @@ function gwta() {
     local skip_setup=false
     local auto_confirm=false
     local checkout_mode=false
+    local -a post_command=()
 
     while [[ $# -gt 0 ]]; do
         case "$1" in
@@ -37,6 +38,7 @@ function gwta() {
             -y|--yes) auto_confirm=true; shift ;;
             --no-setup) skip_setup=true; shift ;;
             -h|--help) _gwta_usage; return 0 ;;
+            --) shift; post_command=("$@"); break ;;
             -*) echo "Unknown option: $1"; _gwta_usage; return 1 ;;
             *) worktree_name="$1"; shift ;;
         esac
@@ -147,6 +149,24 @@ function gwta() {
 
     local worktree_path="$HOME/worktrees/${rel_path}/${worktree_name}"
 
+    # --- Post-setup command (prompt interactively unless given via `--` or -y) ---
+    if [[ "$auto_confirm" != true && ${#post_command[@]} -eq 0 ]]; then
+        echo -n "Run after setup (blank=skip, ':e'=edit in \$EDITOR): "
+        local post_command_input
+        read -r post_command_input
+        if [[ "$post_command_input" == ":e" ]]; then
+            local tmpfile
+            tmpfile=$(mktemp "${TMPDIR:-/tmp}/gwta-cmd.XXXXXX") || return 1
+            "${EDITOR:-vi}" "$tmpfile"
+            post_command_input=$(<"$tmpfile")
+            rm -f "$tmpfile"
+        fi
+        if [[ -n "$post_command_input" ]]; then
+            # (z) = shell-style word split, (Q) = strip one level of quoting
+            post_command=( ${(Q)${(z)post_command_input}} )
+        fi
+    fi
+
     echo ""
     echo "  Worktree: $worktree_path"
     if [[ "$checkout_mode" == true ]]; then
@@ -154,6 +174,9 @@ function gwta() {
     else
         echo "  Branch:   $branch_name"
         echo "  Base:     $base_branch"
+    fi
+    if (( ${#post_command[@]} > 0 )); then
+        echo "  Command:  ${post_command[*]}"
     fi
     echo ""
     if [[ "$auto_confirm" != true ]]; then
@@ -191,14 +214,23 @@ function gwta() {
     cd "$worktree_path" || return 1
     echo ""
     echo "Ready: $worktree_path"
+
+    if (( ${#post_command[@]} > 0 )); then
+        echo ""
+        echo "Running: ${post_command[*]}"
+        "${post_command[@]}"
+    fi
 }
 
 function _gwta_usage() {
     cat <<'USAGE'
-Usage: gwta [options] [worktree-name]
+Usage: gwta [options] [worktree-name] [-- command [args...]]
 
 Create a git worktree under ~/worktrees/<repo>/<date>-<name>.
-After creation, cd into the new worktree.
+After creation, cd into the new worktree. A post-setup command can be given
+after `--`, or entered at the interactive prompt (type `:e` at the prompt
+to open $EDITOR for multi-line input); it runs from inside the worktree
+once setup has completed.
 
 Options:
   -b, --branch NAME    Branch name (default: feature/<worktree-name>)
@@ -220,6 +252,10 @@ Examples:
   gwta -c                                    # interactive branch selection
   gwta -c --base origin/feature/foo          # specify branch directly
   gwta -c --base origin/feature/foo my-name  # custom worktree name
+
+  # Run a command after setup (everything after `--` is the command):
+  gwta my-task -- claude "foo bar prompt"    # start a Claude Code session
+  gwta -c -- claude                          # checkout + launch claude
 USAGE
 }
 
