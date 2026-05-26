@@ -9,3 +9,5 @@
 .ropeproject
 .tmux-window-name
 .vscode
+.worktree-setup
+.worktreeinclude
