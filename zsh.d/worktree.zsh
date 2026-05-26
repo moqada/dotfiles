@@ -102,7 +102,7 @@ function gwta() {
                 | grep -v "^origin/${default_branch}$"; \
               git branch --sort=-committerdate \
                 | sed 's/^ *//' \
-                | sed 's/^\* //'; \
+                | sed -E 's/^[*+] //'; \
             } | awk '!seen[$0]++' \
               | peco --prompt "$peco_prompt" \
         )
