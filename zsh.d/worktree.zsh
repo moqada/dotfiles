@@ -18,6 +18,8 @@ function gwta() {
     local skip_setup=false
     local auto_confirm=false
     local checkout_mode=false
+    local pr_number=""
+    local pr_interactive=false
     local -a post_command=()
 
     while [[ $# -gt 0 ]]; do
@@ -35,6 +37,13 @@ function gwta() {
                 fi
                 base_branch="$2"; shift 2 ;;
             -c|--checkout) checkout_mode=true; shift ;;
+            --pr)
+                # Accept optional PR number or URL; otherwise enter interactive mode
+                if [[ $# -ge 2 && "$2" =~ ^([0-9]+|https?://) ]]; then
+                    pr_number="$2"; shift 2
+                else
+                    pr_interactive=true; shift
+                fi ;;
             -y|--yes) auto_confirm=true; shift ;;
             --no-setup) skip_setup=true; shift ;;
             -h|--help) _gwta_usage; return 0 ;;
@@ -47,6 +56,17 @@ function gwta() {
     if [[ "$checkout_mode" == true && -n "$branch_name" ]]; then
         echo "Error: --checkout and --branch cannot be used together"
         return 1
+    fi
+
+    if [[ -n "$pr_number" || "$pr_interactive" == true ]]; then
+        if [[ -n "$branch_name" ]]; then
+            echo "Error: --pr cannot be used with --branch"
+            return 1
+        fi
+        if [[ -n "$base_branch" ]]; then
+            echo "Error: --pr cannot be used with --base"
+            return 1
+        fi
     fi
 
     # Resolve main repo (works from main repo or any worktree)
@@ -69,6 +89,58 @@ function gwta() {
     fi
 
     local rel_path="${main_repo#$ghq_root/}"
+
+    # --- PR resolution (sets base_branch + enables checkout mode) ---
+    local pr_auto_name=""
+    if [[ -n "$pr_number" || "$pr_interactive" == true ]]; then
+        if ! command -v gh >/dev/null 2>&1; then
+            echo "Error: gh command not found"
+            return 1
+        fi
+
+        if [[ "$pr_interactive" == true ]]; then
+            local selected
+            selected=$( \
+                gh pr list --limit 50 --json number,headRefName,title,author \
+                    --jq '.[] | "#\(.number)\t[\(.headRefName)]\t@\(.author.login)\t\(.title)"' \
+                | peco --prompt "Pull Request>" \
+            )
+            if [[ -z "$selected" ]]; then
+                echo "Error: PR selection cancelled"
+                return 1
+            fi
+            pr_number="${selected%%$'\t'*}"
+            pr_number="${pr_number#\#}"
+        fi
+
+        local pr_info pr_actual_number pr_branch is_cross_repo
+        if ! pr_info=$(gh pr view "$pr_number" \
+            --json number,headRefName,isCrossRepository \
+            --jq '"\(.number)\t\(.headRefName)\t\(.isCrossRepository)"' 2>&1); then
+            echo "Error: Failed to fetch PR information"
+            echo "$pr_info"
+            return 1
+        fi
+        IFS=$'\t' read -r pr_actual_number pr_branch is_cross_repo <<< "$pr_info"
+        pr_number="$pr_actual_number"
+
+        if [[ "$is_cross_repo" == "true" ]]; then
+            echo "Error: PR #$pr_number is from a fork. Cross-repository PRs are not supported."
+            return 1
+        fi
+
+        # Fetch the PR head so origin/<branch> is available locally
+        git fetch origin "$pr_branch" 2>/dev/null
+
+        checkout_mode=true
+        base_branch="origin/$pr_branch"
+
+        if [[ -z "$worktree_name" ]]; then
+            local sanitized="${pr_branch//\//-}"
+            pr_auto_name="pr-${pr_number}-${sanitized}"
+            worktree_name="$pr_auto_name"
+        fi
+    fi
 
     # --- Branch selection ---
     if [[ -z "$base_branch" ]]; then
@@ -137,7 +209,9 @@ function gwta() {
     fi
 
     local branch_base="$worktree_name"
-    if [[ "$worktree_name" =~ ^[0-9]{8}- ]]; then
+    if [[ -n "$pr_auto_name" ]]; then
+        : # PR-derived names keep the pr-<num>-<branch> form without a date prefix
+    elif [[ "$worktree_name" =~ ^[0-9]{8}- ]]; then
         branch_base="${worktree_name#[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]-}"
     else
         worktree_name="$(date +%Y%m%d)-${worktree_name}"
@@ -168,6 +242,9 @@ function gwta() {
     fi
 
     echo ""
+    if [[ -n "$pr_number" ]]; then
+        echo "  PR:       #$pr_number"
+    fi
     echo "  Worktree: $worktree_path"
     if [[ "$checkout_mode" == true ]]; then
         echo "  Branch:   $base_branch (checkout)"
@@ -248,6 +325,8 @@ Options:
   -b, --branch NAME    Branch name (default: feature/<worktree-name>)
   --base BRANCH        Base branch (default: interactive selection via peco)
   -c, --checkout       Checkout existing branch (no new branch created)
+  --pr [NUMBER|URL]    Checkout a Pull Request's head branch into a worktree
+                       (omit to pick interactively via `gh pr list`)
   -y, --yes            Skip confirmation prompt
   --no-setup           Skip post-creation setup
   -h, --help           Show this help message
@@ -264,6 +343,12 @@ Examples:
   gwta -c                                    # interactive branch selection
   gwta -c --base origin/feature/foo          # specify branch directly
   gwta -c --base origin/feature/foo my-name  # custom worktree name
+
+  # PR review by PR number (uses gh; same-repo PRs only):
+  gwta --pr 123                              # worktree name: pr-123-<branch>
+  gwta --pr                                  # interactive PR selection
+  gwta --pr 123 my-name                      # custom worktree name
+  gwta --pr 123 -- claude                    # checkout PR + launch claude
 
   # Run a command after setup (everything after `--` is the command):
   gwta my-task -- claude "foo bar prompt"    # start a Claude Code session
