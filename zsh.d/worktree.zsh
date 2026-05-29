@@ -190,7 +190,19 @@ function gwta() {
 
     local -a worktree_args=()
     if [[ "$checkout_mode" == true ]]; then
-        worktree_args+=("$worktree_path" "$base_branch")
+        if [[ "$base_branch" == origin/* ]]; then
+            # `git worktree add <path> origin/<branch>` checks out a detached HEAD.
+            # Create (or reuse) a local branch so the worktree is on a real branch
+            # tracking the remote — required for `gh pr` and pushing to work.
+            local local_branch="${base_branch#origin/}"
+            if git show-ref --verify --quiet "refs/heads/$local_branch"; then
+                worktree_args+=("$worktree_path" "$local_branch")
+            else
+                worktree_args+=(--track -b "$local_branch" "$worktree_path" "$base_branch")
+            fi
+        else
+            worktree_args+=("$worktree_path" "$base_branch")
+        fi
     else
         worktree_args+=(-b "$branch_name")
         # Prevent auto-tracking remote branch to avoid accidental push to e.g. master
