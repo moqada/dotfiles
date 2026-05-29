@@ -2,10 +2,4 @@
 Brewfile.lock.json
 karabiner/automatic_backups/
 tmux/plugins/tmux-powerline/
-
-# Neovim 移行後、旧 vim/ ディレクトリはリポジトリから外している。
-# ローカル ~/.vim が dotfiles/vim へのリンクで残っている間は実体ファイルが必要なため、
-# git は無視するがファイルシステム上は残す。Neovim 設定の動作確認後に手動で
-# `rm -rf ~/.vim dotfiles/vim` してよい。
-/vim/
 .nvimlog
