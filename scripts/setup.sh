@@ -26,14 +26,13 @@ mkdir -p $HOME/.config
 [ -d $HOME/.config/helix ] && echo "exist $HOME/.config/helix" \
     || (ln -s $BASE_DIR/helix $HOME/.config/helix && echo "create $HOME/.config/helix")
 
-# Vim
+# Vim (素 vim 用の最小設定。リモート / sudo vim / Neovim 未導入環境の保険)
 ln -si $BASE_DIR/vimrc $HOME/.vimrc
-[ -d $HOME/.vim ] && echo "exist $HOME/.vim" \
-    || (ln -s $BASE_DIR/vim $HOME/.vim && echo "create $HOME/.vim")
 ln -si $BASE_DIR/gvimrc $HOME/.gvimrc
+
+# Neovim (メインエディタ。VimR も中身は Neovim なのでこの設定が適用される)
 [ -d $HOME/.config/nvim ] && echo "exist $HOME/.config/nvim" \
-    || (ln -s $HOME/.vim $HOME/.config/nvim && echo "create $HOME/.config/nvim")
-ln -si $HOME/.vimrc $HOME/.config/nvim/init.vim
+    || (ln -s $BASE_DIR/nvim $HOME/.config/nvim && echo "create $HOME/.config/nvim")
 
 # Zsh
 ln -si $BASE_DIR/zshrc $HOME/.zshrc
