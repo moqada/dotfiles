@@ -356,6 +356,154 @@ Examples:
 USAGE
 }
 
+function gwtr() {
+    local auto_confirm=false
+    local force=false
+    local delete_branch=false
+
+    while [[ $# -gt 0 ]]; do
+        case "$1" in
+            -y|--yes) auto_confirm=true; shift ;;
+            -f|--force) force=true; shift ;;
+            -b|--delete-branch) delete_branch=true; shift ;;
+            -h|--help) _gwtr_usage; return 0 ;;
+            -*) echo "Unknown option: $1"; _gwtr_usage; return 1 ;;
+            *) echo "Unexpected argument: $1"; _gwtr_usage; return 1 ;;
+        esac
+    done
+
+    # :A resolves symlinks like realpath(3)
+    local git_common_dir
+    if ! git_common_dir=$(git rev-parse --git-common-dir 2>/dev/null); then
+        echo "Error: Not in a git repository"
+        return 1
+    fi
+    # :A resolves symlinks, :h strips the trailing /.git → main repo path
+    local main_repo="${git_common_dir:A:h}"
+    local current_wt="${$(git rev-parse --show-toplevel 2>/dev/null):A}"
+
+    # Build candidates from `git worktree list --porcelain`, one "<path>\t[<branch>]"
+    # per worktree, excluding the main worktree and the one we're currently inside
+    # (git refuses to remove either). Each porcelain record ends with a blank line;
+    # process substitution (`< <(...)`) is used over `$(...)` so the final record's
+    # terminating blank line survives and flushes the last worktree.
+    local -a candidates=()
+    local wt_path="" wt_branch="" line
+    while IFS= read -r line; do
+        case "$line" in
+            "worktree "*) wt_path="${line#worktree }"; wt_branch="" ;;
+            "branch "*)   wt_branch="${line#branch refs/heads/}" ;;
+            detached)     wt_branch="(detached)" ;;
+            "")
+                local resolved="${wt_path:A}"
+                if [[ -n "$wt_path" && "$resolved" != "$main_repo" && "$resolved" != "$current_wt" ]]; then
+                    candidates+=("$wt_path"$'\t'"[${wt_branch:-?}]")
+                fi
+                wt_path="" wt_branch="" ;;
+        esac
+    done < <(git worktree list --porcelain)
+
+    if (( ${#candidates[@]} == 0 )); then
+        echo "No removable worktrees found."
+        return 0
+    fi
+
+    # peco multi-select (Ctrl+Space) returns one path per line
+    local selected
+    selected=$(printf '%s\n' "${candidates[@]}" | peco --prompt "Remove worktree>")
+    if [[ -z "$selected" ]]; then
+        echo "Error: Worktree selection cancelled"
+        return 1
+    fi
+
+    local -a to_remove=("${(@f)selected}")
+
+    echo ""
+    echo "Worktrees to remove:"
+    local entry
+    for entry in "${to_remove[@]}"; do
+        echo "  ${entry//$'\t'/  }"
+    done
+    echo ""
+    if [[ "$auto_confirm" != true ]]; then
+        echo -n "Proceed? [y/N] "
+        local confirm
+        read -r confirm
+        if [[ ! "$confirm" =~ ^[Yy] ]]; then
+            echo "Cancelled"
+            return 0
+        fi
+    fi
+
+    local -a remove_args=()
+    [[ "$force" == true ]] && remove_args+=(--force)
+
+    # NOTE: do not name a local `path` here — in zsh it's tied to $PATH, so
+    # assigning it would wipe the command search path and break `git`.
+    for entry in "${to_remove[@]}"; do
+        local target="${entry%%$'\t'*}"
+        local branch="${entry#*$'\t'}"
+        branch="${branch#\[}"
+        branch="${branch%\]}"
+
+        local removed=false
+        if git worktree remove "${remove_args[@]}" "$target" 2>/dev/null; then
+            removed=true
+            echo "Removed: $target"
+        else
+            # `git worktree remove` refuses outright on worktrees containing
+            # submodules (even with --force), and on dirty/untracked trees
+            # without --force. Fall back to a manual `rm -rf` + `git worktree
+            # prune`, but never silently discard uncommitted work.
+            local dirty
+            dirty=$(git -C "$target" status --porcelain 2>/dev/null)
+            if [[ -n "$dirty" && "$force" != true ]]; then
+                echo "Error: failed to remove: $target"
+                echo "  (uncommitted changes present — re-run with -f/--force to discard)"
+            elif rm -rf "$target" && git worktree prune; then
+                removed=true
+                echo "Removed (rm -rf + prune): $target"
+            else
+                echo "Error: failed to remove: $target"
+            fi
+        fi
+
+        if [[ "$removed" == true && "$delete_branch" == true \
+              && "$branch" != "(detached)" && "$branch" != "?" ]]; then
+            if git branch -D "$branch" 2>/dev/null; then
+                echo "Deleted branch: $branch"
+            else
+                echo "Warning: failed to delete branch: $branch"
+            fi
+        fi
+    done
+}
+
+function _gwtr_usage() {
+    cat <<'USAGE'
+Usage: gwtr [options]
+
+Remove git worktree(s) selected interactively via peco. The main worktree and
+the worktree you're currently inside are excluded from the candidates (git
+refuses to remove either). Use Ctrl+Space in peco to select multiple.
+
+If `git worktree remove` fails (e.g. the worktree contains submodules, which
+git refuses to remove), it falls back to `rm -rf` + `git worktree prune`.
+Uncommitted changes are preserved unless -f/--force is given.
+
+Options:
+  -f, --force          Remove even with uncommitted changes (git worktree remove --force)
+  -b, --delete-branch  Also delete the local branch backing each worktree
+  -y, --yes            Skip confirmation prompt
+  -h, --help           Show this help message
+
+Examples:
+  gwtr                 # pick a worktree to remove
+  gwtr -b              # remove worktree(s) and their local branches
+  gwtr -f -y           # force-remove without confirmation
+USAGE
+}
+
 function _gwta_setup() {
     local main_repo="$1"
     local wt_path="$2"
