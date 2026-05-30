@@ -10,10 +10,11 @@ $BASE_DIR/scripts/setup.sh
     || ln -s $BASE_DIR/karabiner $HOME/.config/karabiner
 
 # Xcode
-xcode-select --install
+xcode-select -p &>/dev/null || xcode-select --install
 
 # Homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+command -v brew &>/dev/null \
+    || /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 eval "$(/opt/homebrew/bin/brew shellenv)"
 brew bundle --file=$BASE_DIR/Brewfile
 
