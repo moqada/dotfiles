@@ -34,12 +34,12 @@ if [ -z $TMUX_POWERLINE_WINDOW_STATUS_CURRENT ]; then
 			"#[fg=colour165#,bg=colour$TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR#,nobold]" \
 			"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR" \
 		"," \
-			"#[$(format inverse)]" \
+			"#[fg=colour$TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR#,bg=colour$TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR#,nobold#,noitalics#,nounderscore]" \
 			"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR" \
 			" #I#F " \
 			"$TMUX_POWERLINE_SEPARATOR_RIGHT_THIN" \
 			" #W " \
-			"#[$(format regular)]" \
+			"#[fg=colour$TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR#,bg=colour$TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR#,nobold#,noitalics#,nounderscore]" \
 			"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR" \
 		"}"
 	)
@@ -74,7 +74,7 @@ if [ -z $TMUX_POWERLINE_WINDOW_STATUS_FORMAT ]; then
 				"#[none#,fg=colour208#,bg=colour$TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR#,nobold]" \
 				"$TMUX_POWERLINE_DEFAULT_LEFTSIDE_SEPARATOR" \
 			"," \
-				"#[$(format regular)]" \
+				"#[fg=colour$TMUX_POWERLINE_DEFAULT_FOREGROUND_COLOR#,bg=colour$TMUX_POWERLINE_DEFAULT_BACKGROUND_COLOR#,nobold#,noitalics#,nounderscore]" \
 				"  #I#{?window_flags,#F, } " \
 				"$TMUX_POWERLINE_SEPARATOR_RIGHT_THIN" \
 				" #W " \
