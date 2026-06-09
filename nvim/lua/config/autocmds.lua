@@ -18,6 +18,32 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
+-- 多くの言語で標準的な 2 スペースインデントをまとめて設定。
+-- (Go = タブ / YAML = 2sp などは ftplugin/ で個別上書き)
+vim.api.nvim_create_autocmd("FileType", {
+  group = augroup,
+  pattern = {
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact",
+    "json",
+    "jsonc",
+    "lua",
+    "css",
+    "scss",
+    "html",
+    "vue",
+    "svelte",
+  },
+  callback = function()
+    vim.bo.expandtab = true
+    vim.bo.tabstop = 2
+    vim.bo.shiftwidth = 2
+    vim.bo.softtabstop = 2
+  end,
+})
+
 -- ファイルを開いた際に前回のカーソル位置を復元
 vim.api.nvim_create_autocmd("BufReadPost", {
   group = augroup,
