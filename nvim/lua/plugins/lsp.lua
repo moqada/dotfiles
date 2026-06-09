@@ -158,11 +158,30 @@ return {
         end,
       })
 
-      -- 診断表示の見た目
+      -- 診断表示の見た目。
+      -- 通常時は virtual_text も virtual_lines も出さず、カーソル停止 (CursorHold)
+      -- してから virtual_lines でカーソル行のみ複数行展開する。
+      -- 移動中の表示揺れを抑え、長文エラーも全文読めるようにするバランス取り。
+      -- (CursorHold 発火タイミングは options.lua の updatetime に依存)
       vim.diagnostic.config({
-        virtual_text = { prefix = "●" },
+        virtual_text = false,
+        virtual_lines = false,
         severity_sort = true,
         float = { border = "rounded", source = true },
+      })
+
+      local diag_group = vim.api.nvim_create_augroup("UserDiagnosticDelay", { clear = true })
+      vim.api.nvim_create_autocmd("CursorHold", {
+        group = diag_group,
+        callback = function()
+          vim.diagnostic.config({ virtual_lines = { current_line = true } })
+        end,
+      })
+      vim.api.nvim_create_autocmd({ "CursorMoved", "CursorMovedI", "InsertEnter" }, {
+        group = diag_group,
+        callback = function()
+          vim.diagnostic.config({ virtual_lines = false })
+        end,
       })
     end,
   },
