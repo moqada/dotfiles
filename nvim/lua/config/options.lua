@@ -13,7 +13,9 @@ opt.tabstop = 4
 opt.shiftwidth = 4
 opt.softtabstop = 0
 opt.autoindent = true
-opt.smartindent = true
+-- smartindent は C 系前提のヒューリスティクスで、TS/JS/Lua/YAML 等では
+-- treesitter indent と競合して誤った改行インデントを生む。Neovim 0.11 +
+-- nvim-treesitter (indent.enable) があれば不要。
 
 -- 編集
 opt.clipboard = "unnamedplus" -- システムクリップボードと連携
@@ -35,6 +37,20 @@ opt.matchtime = 2
 opt.colorcolumn = "80" -- 80 桁にガイド
 opt.scrolloff = 5 -- カーソル前後に最低 5 行表示
 opt.signcolumn = "yes" -- 診断・Git サインで横幅がブレないよう常時表示
+
+-- ウィンドウ分割の境界線文字。デフォルトの "|" より太い U+2502 を使う。
+-- 色は colorscheme 側 (tokyonight.on_highlights の WinSeparator) で強調する。
+-- eob = " " で空行末尾の "~" を消して見た目をすっきりさせる。
+opt.fillchars = {
+  vert = "│",
+  horiz = "─",
+  horizup = "┴",
+  horizdown = "┬",
+  vertleft = "┤",
+  vertright = "├",
+  verthoriz = "┼",
+  eob = " ",
+}
 opt.title = true
 opt.showcmd = true
 opt.laststatus = 3 -- グローバルステータスライン (lualine と相性が良い)
@@ -45,6 +61,10 @@ opt.laststatus = 3 -- グローバルステータスライン (lualine と相性
 -- ベル
 opt.visualbell = false
 opt.errorbells = false
+
+-- CursorHold 発火までの待ち時間 (ms)。デフォルト 4000 は長すぎるので短縮。
+-- 診断 (virtual_lines) の遅延表示・swap file 書き出し等の判定に使われる。
+opt.updatetime = 500
 
 -- バックアップ・スワップ
 opt.backup = false
