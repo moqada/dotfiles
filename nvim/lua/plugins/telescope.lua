@@ -15,6 +15,27 @@ return {
       { "<leader>fh", "<cmd>Telescope help_tags<CR>", desc = "Help tags" },
       { "<leader>fr", "<cmd>Telescope oldfiles<CR>", desc = "Recent files" },
       { "<leader>fd", "<cmd>Telescope diagnostics<CR>", desc = "Diagnostics" },
+      -- カレントファイルのディレクトリを起点に検索 (大文字版)
+      {
+        "<leader>fF",
+        function()
+          require("telescope.builtin").find_files({
+            cwd = vim.fn.expand("%:p:h"),
+            prompt_title = "Find Files (current dir)",
+          })
+        end,
+        desc = "Find files (current file's dir)",
+      },
+      {
+        "<leader>fG",
+        function()
+          require("telescope.builtin").live_grep({
+            cwd = vim.fn.expand("%:p:h"),
+            prompt_title = "Live Grep (current dir)",
+          })
+        end,
+        desc = "Live grep (current file's dir)",
+      },
       -- 旧 unite の <Space><Space> 相当 (ファイル検索)
       { "<leader><leader>", "<cmd>Telescope find_files<CR>", desc = "Find files" },
     },
