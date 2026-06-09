@@ -5,7 +5,10 @@
 # Claude Code の hooks 設定で Notification フックに登録
 #
 # 機能:
-# - OSC 777 で macOS 通知を送信（Ghostty が自動でフォーカス判定）
+# - tmux 内かつ terminal-notifier が使える場合:
+#   - クリックで発火元 pane へ移動できる通知を送信 (claude-focus-pane.sh を実行)
+#   - 発火元 pane を今まさに見ているときは通知を抑制 (Ghostty の自動判定の代替)
+# - それ以外: OSC 777 で macOS 通知を送信（Ghostty が自動でフォーカス判定）
 # - stdin から JSON を受け取り、notification_type に応じてタイトルを変更
 
 # notification_type からタイトルを決定
@@ -18,6 +21,28 @@ get_title() {
     elicitation_dialog) echo "📝 入力が必要" ;;
     *)                  echo "Claude Code" ;;
   esac
+}
+
+# 発火元 pane を今まさに見ているか判定（Ghostty の自動抑制の代替）
+# - その pane が active かつ active window かつ session が attach 済み
+# - かつ Ghostty が最前面
+pane_in_foreground() {
+  local pane="$1"
+  [[ -z "$pane" ]] && return 1
+  command -v tmux &>/dev/null || return 1
+
+  local pane_active window_active attached
+  read -r pane_active window_active attached < <(
+    tmux display-message -p -t "$pane" \
+      '#{pane_active} #{window_active} #{session_attached}' 2>/dev/null
+  )
+  [[ "$pane_active" == "1" && "$window_active" == "1" && "${attached:-0}" -ge 1 ]] || return 1
+
+  local front
+  front=$(osascript -e \
+    'tell application "System Events" to get bundle identifier of first process whose frontmost is true' \
+    2>/dev/null)
+  [[ "$front" == "com.mitchellh.ghostty" ]]
 }
 
 # メイン処理
@@ -46,6 +71,19 @@ main() {
 
   # 特殊文字をエスケープ（; などが OSC シーケンスを壊す可能性）
   message="${message//;/,}"
+
+  # tmux 内かつ terminal-notifier が使える場合は、クリックで pane へ移動できる通知を出す
+  if [[ -n "$TMUX" && -n "$TMUX_PANE" ]] && command -v terminal-notifier &>/dev/null; then
+    # 発火元 pane を今まさに見ているなら抑制
+    pane_in_foreground "$TMUX_PANE" && return 0
+
+    terminal-notifier \
+      -title "$title" \
+      -message "$message" \
+      -execute "$HOME/.bin/claude-focus-pane.sh $TMUX_PANE" \
+      >/dev/null 2>&1
+    return 0
+  fi
 
   # OS 通知（OSC 777 を使用）
   if [[ -n "$TMUX" ]]; then
