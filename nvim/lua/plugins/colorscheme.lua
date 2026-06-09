@@ -12,6 +12,10 @@ return {
         sidebars = "transparent",
         floats = "transparent",
       },
+      -- ウィンドウ境界線が薄くて見えにくいので青系で強調する
+      on_highlights = function(hl, c)
+        hl.WinSeparator = { fg = c.blue, bg = "NONE", bold = true }
+      end,
     },
     config = function(_, opts)
       require("tokyonight").setup(opts)
