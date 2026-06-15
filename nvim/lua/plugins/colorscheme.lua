@@ -12,9 +12,12 @@ return {
         sidebars = "transparent",
         floats = "transparent",
       },
-      -- ウィンドウ境界線が薄くて見えにくいので青系で強調する
       on_highlights = function(hl, c)
+        -- ウィンドウ境界線が薄くて見えにくいので青系で強調する
         hl.WinSeparator = { fg = c.blue, bg = "NONE", bold = true }
+        -- Copilot の ghost text の明度調整。
+        -- comment (薄すぎ) と fg_dark (通常テキストに近く濃すぎ) の中間。
+        hl.CopilotSuggestion = { fg = c.dark5, italic = true }
       end,
     },
     config = function(_, opts)
