@@ -44,9 +44,22 @@ return {
       { "<leader>gB", "<cmd>GitLink!<cr>", mode = { "n", "v" }, desc = "Open git permalink in browser" },
     },
     opts = {
-      -- default_branch router を追加。`:GitLink default_branch` または <leader>gY で
-      -- main/master 等のデフォルトブランチを使った URL を生成する。
       router = {
+        -- 通常の permalink (現在の HEAD 固定)。
+        -- gitlinker.nvim 標準だと lk.repo に ".git" が残るリポジトリで 404 になる
+        -- ケースがあるため、明示的にサフィックスを落とす。
+        browse = {
+          ["^github%.com"] = function(lk)
+            local repo = lk.repo:gsub("%.git$", "")
+            local url = ("https://github.com/%s/%s/blob/%s/%s"):format(lk.org, repo, lk.rev, lk.file)
+            if lk.lstart and lk.lend and lk.lend ~= lk.lstart then
+              return url .. "#L" .. lk.lstart .. "-L" .. lk.lend
+            elseif lk.lstart then
+              return url .. "#L" .. lk.lstart
+            end
+            return url
+          end,
+        },
         -- default branch の **最新 commit hash** で固定する permalink。
         -- ブランチ名のままだと内容が変動して permalink にならないため、
         -- origin/<default_branch> の HEAD hash を解決して埋め込む。
@@ -58,7 +71,8 @@ return {
             if branch == "" then branch = "main" end
             local hash = vim.fn.systemlist({ "git", "-C", cwd, "rev-parse", "origin/" .. branch })[1]
             local rev = (hash and hash ~= "") and hash or branch
-            local url = ("https://github.com/%s/%s/blob/%s/%s"):format(lk.org, lk.repo, rev, lk.file)
+            local repo = lk.repo:gsub("%.git$", "")
+            local url = ("https://github.com/%s/%s/blob/%s/%s"):format(lk.org, repo, rev, lk.file)
             if lk.lstart and lk.lend and lk.lend ~= lk.lstart then
               return url .. "#L" .. lk.lstart .. "-L" .. lk.lend
             elseif lk.lstart then
