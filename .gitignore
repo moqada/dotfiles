@@ -2,4 +2,6 @@
 Brewfile.lock.json
 karabiner/automatic_backups/
 tmux/plugins/tmux-powerline/
+tmux/plugins/tmux-resurrect/
+tmux/plugins/tmux-continuum/
 .nvimlog
