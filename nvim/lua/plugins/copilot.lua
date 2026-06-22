@@ -14,7 +14,9 @@ return {
         auto_trigger = true, -- 入力中に自動で suggestion を出す
         debounce = 75,
         keymap = {
-          accept = "<C-l>", -- suggestion 全体を受け入れ (Tab は blink.cmp と衝突するため避ける)
+          -- accept は blink.cmp の <Tab> マッピング側で分岐させる (VSCode 風: 補完メニュー > Copilot > 通常 Tab)
+          -- <C-l> は明示的に Copilot だけ受け入れたい時のフォールバック
+          accept = "<C-l>",
           accept_word = "<C-Right>", -- 単語単位で受け入れ
           accept_line = false,
           next = "<M-]>", -- Option + ]
