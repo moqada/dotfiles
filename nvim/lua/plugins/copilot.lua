@@ -19,7 +19,7 @@ return {
           accept_line = false,
           next = "<M-]>", -- Option + ]
           prev = "<M-[>",
-          dismiss = "<C-h>",
+          dismiss = false, -- <C-h> は backspace として使うため無効化 (Esc でモードを抜ければ自然に消える)
         },
       },
       filetypes = {
