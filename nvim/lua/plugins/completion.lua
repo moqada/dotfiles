@@ -18,9 +18,11 @@ return {
     },
     opts = {
       -- <C-y> 確定 / <C-n><C-p> 候補移動 / <C-e> キャンセル
+      -- <M-i> (Option+i) で明示呼び出し (VSCode の Ctrl+i 相当; <C-i> は <Tab> と区別不能なため避ける)
       -- <Tab> は VSCode 風: blink.cmp メニュー可視時は確定、次に Copilot ghost text を受け入れ、それ以外は通常の Tab
       keymap = {
         preset = "default",
+        ["<M-i>"] = { "show", "show_documentation", "hide_documentation" },
         ["<Tab>"] = {
           function(cmp)
             if cmp.is_visible() then

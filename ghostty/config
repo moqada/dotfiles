@@ -1,6 +1,9 @@
 background-opacity = 0.9
 font-family = Moralerspace Argon HWNF
 font-thicken = true
+# 左 Option を Alt 修飾子として送出 (Neovim で <M-i> 等を扱うため)
+# 右 Option は別用途で使うため変更しない
+macos-option-as-alt = left
 # tmux on Ghostty だと Shift + enter で改行が効かない
 keybind = shift+enter=text:\n
 # tmux on Ghostty だとマウスホイールのスクロール量がかなり大きくなるので小さめに設定する
