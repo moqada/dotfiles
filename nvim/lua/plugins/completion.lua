@@ -28,6 +28,13 @@ return {
             if cmp.is_visible() then
               return cmp.select_and_accept()
             end
+            -- カーソル直前が空白だけ (= インデント入力中) なら Copilot suggestion を
+            -- 受理せず通常の <Tab> にフォールバックする。VSCode Copilot と同じ挙動。
+            local col = vim.fn.col(".") - 1
+            local before = vim.fn.getline("."):sub(1, col)
+            if before:match("^%s*$") then
+              return
+            end
             if require("copilot.suggestion").is_visible() then
               require("copilot.suggestion").accept()
               return true

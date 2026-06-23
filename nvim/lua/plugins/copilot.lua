@@ -21,7 +21,10 @@ return {
           accept_line = false,
           next = "<M-]>", -- Option + ]
           prev = "<M-[>",
-          dismiss = false, -- <C-h> は backspace として使うため無効化 (Esc でモードを抜ければ自然に消える)
+          -- <C-h> は backspace として使うので避ける。物理的には Ctrl+/ で
+          -- 押しているが、ghostty / 多くの terminal は <C-/> を 0x1F (= <C-_>) として
+          -- 送るため、表記はそれに合わせる。
+          dismiss = "<C-_>",
         },
       },
       filetypes = {
