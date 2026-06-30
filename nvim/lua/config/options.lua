@@ -16,6 +16,13 @@ opt.autoindent = true
 -- smartindent は C 系前提のヒューリスティクスで、TS/JS/Lua/YAML 等では
 -- treesitter indent と競合して誤った改行インデントを生む。Neovim 0.11 +
 -- nvim-treesitter (indent.enable) があれば不要。
+--
+-- Neovim 標準の runtime/ftplugin/markdown.vim が "recommended style" として
+-- 強制的に setlocal tabstop=4 を当ててくる (line 26-28)。これが
+-- ユーザー側 ftplugin/markdown.lua の 2 spaces 設定や、Octo (内部で
+-- markdown 経由で filetype を構築する) の入力 buffer を 4 に上書きして
+-- しまうため、recommended_style は無効化する。
+vim.g.markdown_recommended_style = 0
 
 -- 編集
 opt.clipboard = "unnamedplus" -- システムクリップボードと連携
@@ -54,6 +61,7 @@ opt.fillchars = {
 opt.title = true
 opt.showcmd = true
 opt.laststatus = 3 -- グローバルステータスライン (lualine と相性が良い)
+opt.showtabline = 1 -- タブが 2 つ以上のときだけタブラインを表示 (Neovim デフォルト)
 -- ambiwidth は Neovim デフォルト (single) のまま。
 -- 旧 vimrc は "double" を指定していたが、ghostty 等の現代端末は ambiguous=single 想定で
 -- 表示するため、Neovim 側で double にすると listchars との衝突 (E834) や幅のズレが発生する。

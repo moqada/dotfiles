@@ -20,6 +20,12 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- 多くの言語で標準的な 2 スペースインデントをまとめて設定。
 -- (Go = タブ / YAML = 2sp などは ftplugin/ で個別上書き)
+--
+-- octo は ftplugin/octo.lua にも同じ設定があるが、octo.nvim が buffer を
+-- 一度 filetype = "markdown" にしてから "octo" に切り替える経路を持ち、
+-- その途中で b:did_ftplugin が立って ftplugin/octo.lua が読まれない
+-- ケースがある。FileType autocmd は filetype 変更ごとに発火するので、
+-- ここに octo を含めて確実に 2 spaces を最後に set する。
 vim.api.nvim_create_autocmd("FileType", {
   group = augroup,
   pattern = {
@@ -35,6 +41,7 @@ vim.api.nvim_create_autocmd("FileType", {
     "html",
     "vue",
     "svelte",
+    "octo",
   },
   callback = function()
     vim.bo.expandtab = true
