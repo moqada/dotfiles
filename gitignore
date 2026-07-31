@@ -11,3 +11,5 @@
 .vscode
 .worktree-setup
 .worktreeinclude
+
+**/.claude/.cc-writes/
