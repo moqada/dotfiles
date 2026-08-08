@@ -206,6 +206,9 @@
       "yarn jest:*"
     ]
   },
+  "attribution": {
+    "sessionUrl": false
+  },
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
   "editorMode": "vim",
