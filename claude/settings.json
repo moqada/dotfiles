@@ -5,6 +5,9 @@
     "CLAUDE_CODE_NO_FLICKER": "1",
     "ENABLE_TOOL_SEARCH": "true"
   },
+  "attribution": {
+    "sessionUrl": false
+  },
   "permissions": {
     "allow": [
       "Bash(cargo check:*)",
@@ -206,14 +209,13 @@
       "yarn jest:*"
     ]
   },
-  "attribution": {
-    "sessionUrl": false
-  },
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
   "editorMode": "vim",
   "preferredNotifChannel": "ghostty",
+  "autoCompactEnabled": false,
   "remoteControlAtStartup": true,
+  "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
   "voiceEnabled": true
 }
