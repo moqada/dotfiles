@@ -994,12 +994,17 @@
                         "description": "Cmd+K to Alt+K in Ghostty (Claude Code voice mode)",
                         "manipulators": [
                             {
-                                "type": "basic",
+                                "conditions": [
+                                    {
+                                        "bundle_identifiers": [
+                                            "^com\\.mitchellh\\.ghostty$"
+                                        ],
+                                        "type": "frontmost_application_if"
+                                    }
+                                ],
                                 "from": {
                                     "key_code": "k",
-                                    "modifiers": {
-                                        "mandatory": ["command"]
-                                    }
+                                    "modifiers": { "mandatory": ["command"] }
                                 },
                                 "to": [
                                     {
@@ -1007,14 +1012,7 @@
                                         "modifiers": ["option"]
                                     }
                                 ],
-                                "conditions": [
-                                    {
-                                        "type": "frontmost_application_if",
-                                        "bundle_identifiers": [
-                                            "^com\\.mitchellh\\.ghostty$"
-                                        ]
-                                    }
-                                ]
+                                "type": "basic"
                             }
                         ]
                     },
