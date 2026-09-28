@@ -1707,6 +1707,14 @@
                         "vendor_id": 8228
                     },
                     "ignore": true
+                },
+                {
+                    "identifiers": {
+                        "device_address": "f9-ea-30-ba-ff-cd",
+                        "is_keyboard": true,
+                        "is_pointing_device": true
+                    },
+                    "ignore": false
                 }
             ],
             "fn_function_keys": [
