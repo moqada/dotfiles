@@ -212,7 +212,7 @@
   "effortLevel": "xhigh",
   "editorMode": "vim",
   "preferredNotifChannel": "ghostty",
-  "autoCompactEnabled": false,
+  "autoCompactEnabled": true,
   "remoteControlAtStartup": true,
   "inputNeededNotifEnabled": true,
   "agentPushNotifEnabled": true,
