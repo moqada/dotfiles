@@ -47,3 +47,7 @@ ln -si $BASE_DIR/direnvrc $HOME/.direnvrc
 
 # bin
 ln -sfn $BASE_DIR/bin $HOME/.bin
+
+# Codex: share Claude skills
+mkdir -p "$HOME/.agents"
+ln -sfn "$HOME/.claude/skills" "$HOME/.agents/skills"
