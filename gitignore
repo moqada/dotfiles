@@ -2,6 +2,7 @@
 *\.swo
 *\.un~
 *\.code-workspace
+.DS_Store
 .claude/settings.local.json
 .direnv/
 .env
