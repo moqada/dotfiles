@@ -159,7 +159,6 @@
     "command": "~/.claude/statusline-command.sh"
   },
   "enabledPlugins": {
-    "dig@kuu-marketplace": true,
     "code-review@claude-plugins-official": true,
     "security-guidance@claude-plugins-official": true,
     "pr-review-toolkit@claude-plugins-official": true,
