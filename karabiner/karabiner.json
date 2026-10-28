@@ -1177,7 +1177,7 @@
                         ]
                     },
                     {
-                        "description": "Ctrl-j to Kana for Terminal/Vim/VSCode/Slack",
+                        "description": "Ctrl-j to Kana for Terminal/Vim/VSCode/Orca/Slack",
                         "manipulators": [
                             {
                                 "conditions": [
@@ -1190,6 +1190,7 @@
                                             "^com\\.microsoft\\.VSCode$",
                                             "^com\\.microsoft\\.VSCodeInsiders",
                                             "^com\\.mitchellh\\.ghostty",
+                                            "^com\\.stablyai\\.orca$",
                                             "^com\\.tinyspeck\\.slackmacgap$"
                                         ],
                                         "type": "frontmost_application_if"
